@@ -233,8 +233,8 @@ LDAPIManagerParamSourceDelegate>
     if (_btnRegister == nil) {
         _btnRegister = [UIButton buttonWithType:UIButtonTypeCustom];
         [_btnRegister setTitle:@"帐号注册" forState:UIControlStateNormal];
-//        [_btnRegister setTitleColor:COLOR_GRAY_DEFAULT_30
-//                           forState:UIControlStateNormal];
+        [_btnRegister setTitleColor:COLOR_GRAY_DEFAULT_30
+                           forState:UIControlStateNormal];
         _btnRegister.titleLabel.font = [UIFont systemFontOfSize:13];
         [_btnRegister addTarget:self
                          action:@selector(registerBtnAction:)
@@ -248,8 +248,8 @@ LDAPIManagerParamSourceDelegate>
         [_btnForgetPwd setTitle:@"忘记密码?" forState:UIControlStateNormal];
         _btnForgetPwd.titleLabel.font = [UIFont systemFontOfSize:13];
         _btnForgetPwd.titleLabel.textAlignment = NSTextAlignmentRight;
-//        [_btnForgetPwd setTitleColor:COLOR_GRAY_DEFAULT_185
-//                            forState:UIControlStateNormal];
+        [_btnForgetPwd setTitleColor:COLOR_GRAY_DEFAULT_185
+                            forState:UIControlStateNormal];
         [_btnForgetPwd addTarget:self
                           action:@selector(forgetBtnAction:)
                 forControlEvents:UIControlEventTouchUpInside];

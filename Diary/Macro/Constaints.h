@@ -23,4 +23,12 @@ alpha:(a)]
 
 #define NavBarBgColor RGBCOLOR(220, 40, 42)
 #define TabBarColor RGBCOLOR(239, 239, 239)
+
+
+//背景
+#define BGViewColor RGBCOLOR(255, 255, 255)
+#define BGViewGray RGBCOLOR(242, 242, 242)
+#define COLOR_GRAY_DEFAULT_185 RGBACOLOR(185, 185, 185, 1)
+#define COLOR_GRAY_DEFAULT_30 RGBACOLOR(30, 30, 30, 1)
+
 #endif /* Constaints_h */
