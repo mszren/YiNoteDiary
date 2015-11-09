@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "LoginController.h"
 #import "LocationManager.h"
+#import "UserBusinessManager.h"
 
 @interface AppDelegate ()
 
@@ -66,7 +67,7 @@
 }
 
 - (BOOL)checkIsExistUser {
-    return YES;
+    return [[UserBusinessManager sharedInstance] isLogin];
 }
 
 - (void)loadHomeController {

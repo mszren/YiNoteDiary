@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		840D5F5E1BED7C5D00B887AC /* TrailDataCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 840D5F5D1BED7C5D00B887AC /* TrailDataCenter.m */; };
+		840D5F611BED7DF200B887AC /* TrackTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 840D5F601BED7DF200B887AC /* TrackTable.m */; };
+		840D5F641BEE1E0600B887AC /* UserDataCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 840D5F631BEE1E0600B887AC /* UserDataCenter.m */; };
+		840D5F681BEE35BA00B887AC /* UserBusinessManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 840D5F671BEE35BA00B887AC /* UserBusinessManager.m */; };
+		840D5F6B1BEE516900B887AC /* UserReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 840D5F6A1BEE516900B887AC /* UserReformer.m */; };
 		841B2F121BE83DF8008C2974 /* LDCommonParamsGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B2EC71BE83DF8008C2974 /* LDCommonParamsGenerator.m */; };
 		841B2F131BE83DF8008C2974 /* LDRequestGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B2EC91BE83DF8008C2974 /* LDRequestGenerator.m */; };
 		841B2F141BE83DF8008C2974 /* LDSignatureGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B2ECB1BE83DF8008C2974 /* LDSignatureGenerator.m */; };
@@ -50,16 +55,26 @@
 		84C072F71BE0C46100822E4B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C072F61BE0C46100822E4B /* AppDelegate.m */; };
 		84C072FF1BE0C46100822E4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84C072FE1BE0C46100822E4B /* Assets.xcassets */; };
 		84C073141BE0D0F500822E4B /* TravelTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C073131BE0D0F500822E4B /* TravelTable.m */; };
-		84C0737E1BE1AAAB00822E4B /* LoginByPhoneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C0737D1BE1AAAB00822E4B /* LoginByPhoneManager.m */; };
+		84C0737E1BE1AAAB00822E4B /* LoginByPhoneAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C0737D1BE1AAAB00822E4B /* LoginByPhoneAPIManager.m */; };
 		84C073821BE1AD2400822E4B /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C073811BE1AD2400822E4B /* LoginController.m */; };
 		84C073A21BE3047F00822E4B /* ErrorReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C073A11BE3047F00822E4B /* ErrorReformer.m */; };
-		84C073A51BE34FE100822E4B /* UserTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C073A41BE34FE100822E4B /* UserTable.m */; };
 		B21AD0BB699BEECA6DA473E1 /* libPods-Diary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C27ADBC2EC23F27E22A72CC2 /* libPods-Diary.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		054052362DEA8161644F4838 /* Pods-Diary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diary.release.xcconfig"; path = "Pods/Target Support Files/Pods-Diary/Pods-Diary.release.xcconfig"; sourceTree = "<group>"; };
 		575F6957D257E48BC9F99DBE /* Pods-Diary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Diary/Pods-Diary.debug.xcconfig"; sourceTree = "<group>"; };
+		840D5F5C1BED7C5D00B887AC /* TrailDataCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrailDataCenter.h; path = DataCenter/TrailDataCenter.h; sourceTree = "<group>"; };
+		840D5F5D1BED7C5D00B887AC /* TrailDataCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrailDataCenter.m; path = DataCenter/TrailDataCenter.m; sourceTree = "<group>"; };
+		840D5F5F1BED7DF200B887AC /* TrackTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrackTable.h; path = DataCenter/Table/TrackTable.h; sourceTree = "<group>"; };
+		840D5F601BED7DF200B887AC /* TrackTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrackTable.m; path = DataCenter/Table/TrackTable.m; sourceTree = "<group>"; };
+		840D5F621BEE1E0600B887AC /* UserDataCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserDataCenter.h; path = DataCenter/UserDataCenter.h; sourceTree = "<group>"; };
+		840D5F631BEE1E0600B887AC /* UserDataCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserDataCenter.m; path = DataCenter/UserDataCenter.m; sourceTree = "<group>"; };
+		840D5F661BEE35BA00B887AC /* UserBusinessManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserBusinessManager.h; path = Business/UserBusinessManager.h; sourceTree = "<group>"; };
+		840D5F671BEE35BA00B887AC /* UserBusinessManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserBusinessManager.m; path = Business/UserBusinessManager.m; sourceTree = "<group>"; };
+		840D5F691BEE516900B887AC /* UserReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserReformer.h; path = Reformer/User/UserReformer.h; sourceTree = "<group>"; };
+		840D5F6A1BEE516900B887AC /* UserReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserReformer.m; path = Reformer/User/UserReformer.m; sourceTree = "<group>"; };
+		840D5F6D1BEE51A700B887AC /* UserReformerKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UserReformerKeys.h; path = Reformer/User/UserReformerKeys.h; sourceTree = "<group>"; };
 		841B2EC61BE83DF8008C2974 /* LDCommonParamsGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDCommonParamsGenerator.h; sourceTree = "<group>"; };
 		841B2EC71BE83DF8008C2974 /* LDCommonParamsGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDCommonParamsGenerator.m; sourceTree = "<group>"; };
 		841B2EC81BE83DF8008C2974 /* LDRequestGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDRequestGenerator.h; sourceTree = "<group>"; };
@@ -149,8 +164,8 @@
 		84C073111BE0D06700822E4B /* SynTableProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SynTableProtocol.h; path = DataCenter/Table/SynTableProtocol.h; sourceTree = "<group>"; };
 		84C073121BE0D0F500822E4B /* TravelTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TravelTable.h; path = DataCenter/Table/TravelTable.h; sourceTree = "<group>"; };
 		84C073131BE0D0F500822E4B /* TravelTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TravelTable.m; path = DataCenter/Table/TravelTable.m; sourceTree = "<group>"; };
-		84C0737C1BE1AAAB00822E4B /* LoginByPhoneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginByPhoneManager.h; path = APIManager/Login/LoginByPhoneManager.h; sourceTree = "<group>"; };
-		84C0737D1BE1AAAB00822E4B /* LoginByPhoneManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginByPhoneManager.m; path = APIManager/Login/LoginByPhoneManager.m; sourceTree = "<group>"; };
+		84C0737C1BE1AAAB00822E4B /* LoginByPhoneAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginByPhoneAPIManager.h; path = APIManager/Login/LoginByPhoneAPIManager.h; sourceTree = "<group>"; };
+		84C0737D1BE1AAAB00822E4B /* LoginByPhoneAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginByPhoneAPIManager.m; path = APIManager/Login/LoginByPhoneAPIManager.m; sourceTree = "<group>"; };
 		84C073801BE1AD2400822E4B /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginController.h; path = Controllers/Login/LoginController.h; sourceTree = "<group>"; };
 		84C073811BE1AD2400822E4B /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginController.m; path = Controllers/Login/LoginController.m; sourceTree = "<group>"; };
 		84C073831BE1B8CB00822E4B /* Diary-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Diary-Prefix.pch"; sourceTree = "<group>"; };
@@ -158,8 +173,6 @@
 		84C0739F1BE3045100822E4B /* ErrorReformerKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ErrorReformerKeys.h; path = Reformer/Error/ErrorReformerKeys.h; sourceTree = "<group>"; };
 		84C073A01BE3047F00822E4B /* ErrorReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ErrorReformer.h; path = Reformer/Error/ErrorReformer.h; sourceTree = "<group>"; };
 		84C073A11BE3047F00822E4B /* ErrorReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ErrorReformer.m; path = Reformer/Error/ErrorReformer.m; sourceTree = "<group>"; };
-		84C073A31BE34FE100822E4B /* UserTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserTable.h; path = DataCenter/Table/UserTable.h; sourceTree = "<group>"; };
-		84C073A41BE34FE100822E4B /* UserTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserTable.m; path = DataCenter/Table/UserTable.m; sourceTree = "<group>"; };
 		C27ADBC2EC23F27E22A72CC2 /* libPods-Diary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Diary.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -183,6 +196,23 @@
 				C27ADBC2EC23F27E22A72CC2 /* libPods-Diary.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		840D5F5B1BECF53100B887AC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		840D5F6C1BEE517400B887AC /* User */ = {
+			isa = PBXGroup;
+			children = (
+				840D5F691BEE516900B887AC /* UserReformer.h */,
+				840D5F6A1BEE516900B887AC /* UserReformer.m */,
+				840D5F6D1BEE51A700B887AC /* UserReformerKeys.h */,
+			);
+			name = User;
 			sourceTree = "<group>";
 		};
 		841B2EC01BE83BAF008C2974 /* Resources */ = {
@@ -465,11 +495,12 @@
 		84C072F11BE0C46100822E4B /* Diary */ = {
 			isa = PBXGroup;
 			children = (
+				840D5F5B1BECF53100B887AC /* Views */,
 				84C0739A1BE3022400822E4B /* Reformer */,
 				84C073971BE2FD4B00822E4B /* Macro */,
 				84C0730D1BE0CDCC00822E4B /* DataCenter */,
 				84C0730C1BE0CDC000822E4B /* APIManager */,
-				84C0730B1BE0CD4800822E4B /* BLL */,
+				84C0730B1BE0CD4800822E4B /* Business */,
 				84C073091BE0CB9C00822E4B /* Controllers */,
 				84C072F51BE0C46100822E4B /* AppDelegate.h */,
 				84C072F61BE0C46100822E4B /* AppDelegate.m */,
@@ -513,11 +544,13 @@
 			name = Vendors;
 			sourceTree = "<group>";
 		};
-		84C0730B1BE0CD4800822E4B /* BLL */ = {
+		84C0730B1BE0CD4800822E4B /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				840D5F661BEE35BA00B887AC /* UserBusinessManager.h */,
+				840D5F671BEE35BA00B887AC /* UserBusinessManager.m */,
 			);
-			name = BLL;
+			name = Business;
 			sourceTree = "<group>";
 		};
 		84C0730C1BE0CDC000822E4B /* APIManager */ = {
@@ -531,8 +564,11 @@
 		84C0730D1BE0CDCC00822E4B /* DataCenter */ = {
 			isa = PBXGroup;
 			children = (
-				84C0730F1BE0CFEA00822E4B /* New Group */,
 				84C0730E1BE0CFE300822E4B /* Table */,
+				840D5F5C1BED7C5D00B887AC /* TrailDataCenter.h */,
+				840D5F5D1BED7C5D00B887AC /* TrailDataCenter.m */,
+				840D5F621BEE1E0600B887AC /* UserDataCenter.h */,
+				840D5F631BEE1E0600B887AC /* UserDataCenter.m */,
 			);
 			name = DataCenter;
 			sourceTree = "<group>";
@@ -543,24 +579,17 @@
 				84C073111BE0D06700822E4B /* SynTableProtocol.h */,
 				84C073121BE0D0F500822E4B /* TravelTable.h */,
 				84C073131BE0D0F500822E4B /* TravelTable.m */,
-				84C073A31BE34FE100822E4B /* UserTable.h */,
-				84C073A41BE34FE100822E4B /* UserTable.m */,
+				840D5F5F1BED7DF200B887AC /* TrackTable.h */,
+				840D5F601BED7DF200B887AC /* TrackTable.m */,
 			);
 			name = Table;
-			sourceTree = "<group>";
-		};
-		84C0730F1BE0CFEA00822E4B /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "New Group";
 			sourceTree = "<group>";
 		};
 		84C073781BE1A97C00822E4B /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				84C0737C1BE1AAAB00822E4B /* LoginByPhoneManager.h */,
-				84C0737D1BE1AAAB00822E4B /* LoginByPhoneManager.m */,
+				84C0737C1BE1AAAB00822E4B /* LoginByPhoneAPIManager.h */,
+				84C0737D1BE1AAAB00822E4B /* LoginByPhoneAPIManager.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -585,6 +614,7 @@
 		84C0739A1BE3022400822E4B /* Reformer */ = {
 			isa = PBXGroup;
 			children = (
+				840D5F6C1BEE517400B887AC /* User */,
 				84C0739E1BE3042700822E4B /* Error */,
 			);
 			name = Reformer;
@@ -716,8 +746,10 @@
 				841B2F281BE83DF8008C2974 /* LDViewSpotListManager.m in Sources */,
 				841B2F191BE83DF8008C2974 /* NSObject+LDNetworkingMethods.m in Sources */,
 				841B2F1F1BE83DF8008C2974 /* LDAPIBaseManager.m in Sources */,
+				840D5F5E1BED7C5D00B887AC /* TrailDataCenter.m in Sources */,
 				841B2F171BE83DF8008C2974 /* NSDictionary+LDNetworkingMethods.m in Sources */,
 				841B2F211BE83DF8008C2974 /* LDAppContext.m in Sources */,
+				840D5F6B1BEE516900B887AC /* UserReformer.m in Sources */,
 				841B2F121BE83DF8008C2974 /* LDCommonParamsGenerator.m in Sources */,
 				841B2F2A1BE83DF8008C2974 /* LDServiceFactory.m in Sources */,
 				841B2F251BE83DF8008C2974 /* LDLoginByWeiboManager.m in Sources */,
@@ -733,6 +765,8 @@
 				841B2F2D1BE83DF8008C2974 /* ToastHUD.m in Sources */,
 				841B2F181BE83DF8008C2974 /* NSMutableString+LDNetworkingMethods.m in Sources */,
 				841B2F131BE83DF8008C2974 /* LDRequestGenerator.m in Sources */,
+				840D5F641BEE1E0600B887AC /* UserDataCenter.m in Sources */,
+				840D5F681BEE35BA00B887AC /* UserBusinessManager.m in Sources */,
 				841B2F221BE83DF8008C2974 /* LDURLResponse.m in Sources */,
 				841B2F1A1BE83DF8008C2974 /* NSString+LDNetworkingMethods.m in Sources */,
 				841B2F1D1BE83DF8008C2974 /* LDCache.m in Sources */,
@@ -741,7 +775,7 @@
 				841B2F231BE83DF8008C2974 /* LDLogger.m in Sources */,
 				841B2F2C1BE83DF8008C2974 /* Globals.m in Sources */,
 				8420C9E61BE9CDCB00F09EB2 /* MyController.m in Sources */,
-				84C0737E1BE1AAAB00822E4B /* LoginByPhoneManager.m in Sources */,
+				84C0737E1BE1AAAB00822E4B /* LoginByPhoneAPIManager.m in Sources */,
 				841B2F271BE83DF8008C2974 /* LDTravelListManager.m in Sources */,
 				841B2F3C1BE8B0B0008C2974 /* MainController.m in Sources */,
 				841B2F141BE83DF8008C2974 /* LDSignatureGenerator.m in Sources */,
@@ -756,8 +790,8 @@
 				841B2F2E1BE83DF8008C2974 /* ToastManager.m in Sources */,
 				841B2F241BE83DF8008C2974 /* LDLoggerConfiguration.m in Sources */,
 				841B2F201BE83DF8008C2974 /* LDApiProxy.m in Sources */,
-				84C073A51BE34FE100822E4B /* UserTable.m in Sources */,
 				84C072F41BE0C46100822E4B /* main.m in Sources */,
+				840D5F611BED7DF200B887AC /* TrackTable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

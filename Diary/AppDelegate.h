@@ -15,5 +15,6 @@
 @property(strong, nonatomic) UIWindow *loginWindow;
 @property(strong, nonatomic) MainController *mainController;
 + (AppDelegate *)shareDelegate;
+- (void)loadHomeController;
 @end
 

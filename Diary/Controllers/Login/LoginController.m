@@ -9,13 +9,12 @@
 #import "LoginController.h"
 #import "LDNetworking.h"
 #import "Masonry.h"
-#import "LoginByPhoneManager.h"
+#import "UserBusinessManager.h"
 #import "ErrorReformer.h"
 
 @interface LoginController()<UITextFieldDelegate,
-LDAPIManagerApiCallBackDelegate,
 LDAPIManagerParamSourceDelegate>
-@property(nonatomic, strong) LDAPIBaseManager *loginByPhoneManager;
+@property(nonatomic, strong) UserBusinessManager *userBusinessManager;
 @property(nonatomic, strong) LDAPIBaseManager *loginByWeiboManager;
 @property(nonatomic,strong) id<LDAPIManagerCallbackDataReformer> dataReformer;
 @property(nonatomic, strong) UITextField *txtUserName;
@@ -113,8 +112,8 @@ LDAPIManagerParamSourceDelegate>
 - (void)loginBtnAction:(id)sender {
     [_txtUserName resignFirstResponder];
     [_txtPassword resignFirstResponder];
-    
-    [self.loginByPhoneManager loadData];
+
+    [self.userBusinessManager login:self];
     
 }
 
@@ -152,43 +151,23 @@ LDAPIManagerParamSourceDelegate>
 //                                  });
 }
 
-#pragma mark - LDAPIManagerApiCallBackDelegate
-- (void)managerCallAPIDidSuccess:(LDAPIBaseManager *)manager {
-    //[[AppDelegate shareDelegate] loadHomeController];
-}
-
-- (void)managerCallAPIDidFailed:(LDAPIBaseManager *)manager {
-    
-    if ([manager isKindOfClass:[LoginByPhoneManager class]]) {
-        
-        self.dataReformer=[[ErrorReformer alloc] init];
-        NSDictionary *dic=[manager fetchDataWithReformer:self.dataReformer];
-        [ToastManager showToast:dic[kErrorMessage]
-                       withTime:Toast_Hide_TIME];
-    }
-}
 
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager {
-    if ([manager isKindOfClass:[LoginByPhoneManager class]]) {
         return @{
                  @"username" : _txtUserName.text,
                  @"password" : _txtPassword.text
                  };
-    }
     
-    return nil;
+
 }
 
 #pragma mark - getters and setters
-- (LDAPIBaseManager *)loginByPhoneManager {
-    
-    if (_loginByPhoneManager == nil) {
-        _loginByPhoneManager = [LoginByPhoneManager sharedInstance];
-        _loginByPhoneManager.delegate = self;
-        _loginByPhoneManager.paramSource = self;
+- (UserBusinessManager *)userBusinessManager {
+    if (_userBusinessManager == nil) {
+        _userBusinessManager = [UserBusinessManager sharedInstance];
     }
-    return _loginByPhoneManager;
+    return _userBusinessManager;
 }
 
 

@@ -6,15 +6,15 @@
 //  Copyright © 2015年 Owen. All rights reserved.
 //
 
-#import "LoginByPhoneManager.h"
+#import "LoginByPhoneAPIManager.h"
 
-@interface LoginByPhoneManager()
+@interface LoginByPhoneAPIManager()
 @property(nonatomic, copy, readwrite) NSString *methodName;
 @property(nonatomic, strong) NSString *serviceType;
 @property(nonatomic, assign) LDAPIManagerRequestType requestType;
 @end
 
-@implementation LoginByPhoneManager
+@implementation LoginByPhoneAPIManager
 
 #pragma mark - life cycle
 - (instancetype)init {
@@ -48,9 +48,9 @@ isCorrectWithParamsData:(NSDictionary *)data {
 #pragma mark - public methods
 + (instancetype)sharedInstance {
     static dispatch_once_t LoginByPhoneManagerOnceToken;
-    static LoginByPhoneManager *sharedInstance = nil;
+    static LoginByPhoneAPIManager *sharedInstance = nil;
     dispatch_once(&LoginByPhoneManagerOnceToken, ^{
-        sharedInstance = [[LoginByPhoneManager alloc] init];
+        sharedInstance = [[LoginByPhoneAPIManager alloc] init];
     });
     return sharedInstance;
 }

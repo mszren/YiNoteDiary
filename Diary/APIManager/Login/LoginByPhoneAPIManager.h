@@ -8,7 +8,7 @@
 
 #import "LDAPIBaseManager.h"
 
-@interface LoginByPhoneManager : LDAPIBaseManager<LDAPIManager,LDAPIManagerValidator,
+@interface LoginByPhoneAPIManager : LDAPIBaseManager<LDAPIManager,LDAPIManagerValidator,
 LDAPIManagerInterceptor>
 + (instancetype)sharedInstance;
 @end
