@@ -6,11 +6,11 @@
 //  Copyright © 2015年 Owen. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "BusinessBaseManager.h"
 #import "LoginController.h"
 
 
-@interface UserBusinessManager : NSObject
+@interface LoginBusinessManager : BusinessBaseManager
 
 + (instancetype)sharedInstance;
 

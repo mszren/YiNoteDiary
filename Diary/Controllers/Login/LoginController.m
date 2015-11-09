@@ -9,12 +9,13 @@
 #import "LoginController.h"
 #import "LDNetworking.h"
 #import "Masonry.h"
-#import "UserBusinessManager.h"
+#import "LoginBusinessManager.h"
 #import "ErrorReformer.h"
+#import "AppDelegate.h"
 
 @interface LoginController()<UITextFieldDelegate,
-LDAPIManagerParamSourceDelegate>
-@property(nonatomic, strong) UserBusinessManager *userBusinessManager;
+LDAPIManagerParamSourceDelegate,BusinessManagerCallBackDelegate>
+@property(nonatomic, strong) LoginBusinessManager *loginBusinessManager;
 @property(nonatomic, strong) LDAPIBaseManager *loginByWeiboManager;
 @property(nonatomic,strong) id<LDAPIManagerCallbackDataReformer> dataReformer;
 @property(nonatomic, strong) UITextField *txtUserName;
@@ -113,7 +114,7 @@ LDAPIManagerParamSourceDelegate>
     [_txtUserName resignFirstResponder];
     [_txtPassword resignFirstResponder];
 
-    [self.userBusinessManager login:self];
+    [self.loginBusinessManager login:self];
     
 }
 
@@ -151,6 +152,10 @@ LDAPIManagerParamSourceDelegate>
 //                                  });
 }
 
+#pragma mark - BusinessManagerCallBackDelegate
+- (void)businessManagerCallDidSuccess:(BusinessBaseManager *)manager{
+          [[AppDelegate shareDelegate] loadHomeController];
+}
 
 #pragma mark - LDAPIManagerApiCallBackDelegate
 - (NSDictionary *)paramsForApi:(LDAPIBaseManager *)manager {
@@ -163,11 +168,12 @@ LDAPIManagerParamSourceDelegate>
 }
 
 #pragma mark - getters and setters
-- (UserBusinessManager *)userBusinessManager {
-    if (_userBusinessManager == nil) {
-        _userBusinessManager = [UserBusinessManager sharedInstance];
+- (LoginBusinessManager *)loginBusinessManager {
+    if (_loginBusinessManager == nil) {
+        _loginBusinessManager = [LoginBusinessManager sharedInstance];
+        _loginBusinessManager.delegate=self;
     }
-    return _userBusinessManager;
+    return _loginBusinessManager;
 }
 
 

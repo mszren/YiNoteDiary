@@ -10,8 +10,9 @@
 		840D5F5E1BED7C5D00B887AC /* TrailDataCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 840D5F5D1BED7C5D00B887AC /* TrailDataCenter.m */; };
 		840D5F611BED7DF200B887AC /* TrackTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 840D5F601BED7DF200B887AC /* TrackTable.m */; };
 		840D5F641BEE1E0600B887AC /* UserDataCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 840D5F631BEE1E0600B887AC /* UserDataCenter.m */; };
-		840D5F681BEE35BA00B887AC /* UserBusinessManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 840D5F671BEE35BA00B887AC /* UserBusinessManager.m */; };
+		840D5F681BEE35BA00B887AC /* LoginBusinessManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 840D5F671BEE35BA00B887AC /* LoginBusinessManager.m */; };
 		840D5F6B1BEE516900B887AC /* UserReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 840D5F6A1BEE516900B887AC /* UserReformer.m */; };
+		840D5F701BF0335100B887AC /* BusinessBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 840D5F6F1BF0335100B887AC /* BusinessBaseManager.m */; };
 		841B2F121BE83DF8008C2974 /* LDCommonParamsGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B2EC71BE83DF8008C2974 /* LDCommonParamsGenerator.m */; };
 		841B2F131BE83DF8008C2974 /* LDRequestGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B2EC91BE83DF8008C2974 /* LDRequestGenerator.m */; };
 		841B2F141BE83DF8008C2974 /* LDSignatureGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B2ECB1BE83DF8008C2974 /* LDSignatureGenerator.m */; };
@@ -70,11 +71,13 @@
 		840D5F601BED7DF200B887AC /* TrackTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrackTable.m; path = DataCenter/Table/TrackTable.m; sourceTree = "<group>"; };
 		840D5F621BEE1E0600B887AC /* UserDataCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserDataCenter.h; path = DataCenter/UserDataCenter.h; sourceTree = "<group>"; };
 		840D5F631BEE1E0600B887AC /* UserDataCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserDataCenter.m; path = DataCenter/UserDataCenter.m; sourceTree = "<group>"; };
-		840D5F661BEE35BA00B887AC /* UserBusinessManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserBusinessManager.h; path = Business/UserBusinessManager.h; sourceTree = "<group>"; };
-		840D5F671BEE35BA00B887AC /* UserBusinessManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserBusinessManager.m; path = Business/UserBusinessManager.m; sourceTree = "<group>"; };
+		840D5F661BEE35BA00B887AC /* LoginBusinessManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginBusinessManager.h; path = Business/LoginBusinessManager.h; sourceTree = "<group>"; };
+		840D5F671BEE35BA00B887AC /* LoginBusinessManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginBusinessManager.m; path = Business/LoginBusinessManager.m; sourceTree = "<group>"; };
 		840D5F691BEE516900B887AC /* UserReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserReformer.h; path = Reformer/User/UserReformer.h; sourceTree = "<group>"; };
 		840D5F6A1BEE516900B887AC /* UserReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserReformer.m; path = Reformer/User/UserReformer.m; sourceTree = "<group>"; };
 		840D5F6D1BEE51A700B887AC /* UserReformerKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UserReformerKeys.h; path = Reformer/User/UserReformerKeys.h; sourceTree = "<group>"; };
+		840D5F6E1BF0335100B887AC /* BusinessBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BusinessBaseManager.h; path = Business/BusinessBaseManager.h; sourceTree = "<group>"; };
+		840D5F6F1BF0335100B887AC /* BusinessBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BusinessBaseManager.m; path = Business/BusinessBaseManager.m; sourceTree = "<group>"; };
 		841B2EC61BE83DF8008C2974 /* LDCommonParamsGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDCommonParamsGenerator.h; sourceTree = "<group>"; };
 		841B2EC71BE83DF8008C2974 /* LDCommonParamsGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDCommonParamsGenerator.m; sourceTree = "<group>"; };
 		841B2EC81BE83DF8008C2974 /* LDRequestGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDRequestGenerator.h; sourceTree = "<group>"; };
@@ -547,8 +550,10 @@
 		84C0730B1BE0CD4800822E4B /* Business */ = {
 			isa = PBXGroup;
 			children = (
-				840D5F661BEE35BA00B887AC /* UserBusinessManager.h */,
-				840D5F671BEE35BA00B887AC /* UserBusinessManager.m */,
+				840D5F661BEE35BA00B887AC /* LoginBusinessManager.h */,
+				840D5F671BEE35BA00B887AC /* LoginBusinessManager.m */,
+				840D5F6E1BF0335100B887AC /* BusinessBaseManager.h */,
+				840D5F6F1BF0335100B887AC /* BusinessBaseManager.m */,
 			);
 			name = Business;
 			sourceTree = "<group>";
@@ -753,6 +758,7 @@
 				841B2F121BE83DF8008C2974 /* LDCommonParamsGenerator.m in Sources */,
 				841B2F2A1BE83DF8008C2974 /* LDServiceFactory.m in Sources */,
 				841B2F251BE83DF8008C2974 /* LDLoginByWeiboManager.m in Sources */,
+				840D5F701BF0335100B887AC /* BusinessBaseManager.m in Sources */,
 				84C073821BE1AD2400822E4B /* LoginController.m in Sources */,
 				841B2F261BE83DF8008C2974 /* LDLoginManager.m in Sources */,
 				841B2F1B1BE83DF8008C2974 /* NSURLRequest+LDNetworkingMethods.m in Sources */,
@@ -766,7 +772,7 @@
 				841B2F181BE83DF8008C2974 /* NSMutableString+LDNetworkingMethods.m in Sources */,
 				841B2F131BE83DF8008C2974 /* LDRequestGenerator.m in Sources */,
 				840D5F641BEE1E0600B887AC /* UserDataCenter.m in Sources */,
-				840D5F681BEE35BA00B887AC /* UserBusinessManager.m in Sources */,
+				840D5F681BEE35BA00B887AC /* LoginBusinessManager.m in Sources */,
 				841B2F221BE83DF8008C2974 /* LDURLResponse.m in Sources */,
 				841B2F1A1BE83DF8008C2974 /* NSString+LDNetworkingMethods.m in Sources */,
 				841B2F1D1BE83DF8008C2974 /* LDCache.m in Sources */,
