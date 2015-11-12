@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.6.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - Aspects (1.4.1)
   - CTPersistance (0.1.12)
   - DACircularProgress (2.3.1)
   - Masonry (0.6.3)
@@ -35,6 +36,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - Aspects
   - CTPersistance
   - Masonry
   - MBProgressHUD (~> 0.9.1)
@@ -43,6 +45,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 8e4e60500beb8bec644cf575beee72990a76d399
+  Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
   CTPersistance: 28dee99ae2ed4371e0e2820017d756160ba1c0c7
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   Masonry: ff105a956abcd19a618b2028b121cb638d7a8e2f

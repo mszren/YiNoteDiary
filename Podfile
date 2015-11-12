@@ -8,5 +8,6 @@ target 'Diary' do
     pod 'Toast'
     pod 'MWPhotoBrowser'
     pod 'MBProgressHUD', '~> 0.9.1'
+    pod 'Aspects'
 end
 

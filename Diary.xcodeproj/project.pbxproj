@@ -59,6 +59,7 @@
 		84C0737E1BE1AAAB00822E4B /* LoginByPhoneAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C0737D1BE1AAAB00822E4B /* LoginByPhoneAPIManager.m */; };
 		84C073821BE1AD2400822E4B /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C073811BE1AD2400822E4B /* LoginController.m */; };
 		84C073A21BE3047F00822E4B /* ErrorReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C073A11BE3047F00822E4B /* ErrorReformer.m */; };
+		84E8B9AC1BF2F2070051D969 /* ViewControllerIntercepter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E8B9AB1BF2F2070051D969 /* ViewControllerIntercepter.m */; };
 		B21AD0BB699BEECA6DA473E1 /* libPods-Diary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C27ADBC2EC23F27E22A72CC2 /* libPods-Diary.a */; };
 /* End PBXBuildFile section */
 
@@ -176,6 +177,8 @@
 		84C0739F1BE3045100822E4B /* ErrorReformerKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ErrorReformerKeys.h; path = Reformer/Error/ErrorReformerKeys.h; sourceTree = "<group>"; };
 		84C073A01BE3047F00822E4B /* ErrorReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ErrorReformer.h; path = Reformer/Error/ErrorReformer.h; sourceTree = "<group>"; };
 		84C073A11BE3047F00822E4B /* ErrorReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ErrorReformer.m; path = Reformer/Error/ErrorReformer.m; sourceTree = "<group>"; };
+		84E8B9AA1BF2F2070051D969 /* ViewControllerIntercepter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerIntercepter.h; path = Controllers/ViewControllerIntercepter.h; sourceTree = "<group>"; };
+		84E8B9AB1BF2F2070051D969 /* ViewControllerIntercepter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewControllerIntercepter.m; path = Controllers/ViewControllerIntercepter.m; sourceTree = "<group>"; };
 		C27ADBC2EC23F27E22A72CC2 /* libPods-Diary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Diary.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -532,6 +535,8 @@
 				841B2F3D1BE8B1BA008C2974 /* Index */,
 				841B2F391BE8B07A008C2974 /* Main */,
 				84C0737F1BE1ACBF00822E4B /* Login */,
+				84E8B9AA1BF2F2070051D969 /* ViewControllerIntercepter.h */,
+				84E8B9AB1BF2F2070051D969 /* ViewControllerIntercepter.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -788,6 +793,7 @@
 				8420C9DA1BE9CD6400F09EB2 /* IndexController.m in Sources */,
 				841B2F2B1BE83DF8008C2974 /* LDServiceLightDiary.m in Sources */,
 				841B2F2F1BE83DF8008C2974 /* ViewTransitionManager.m in Sources */,
+				84E8B9AC1BF2F2070051D969 /* ViewControllerIntercepter.m in Sources */,
 				8420C9E01BE9CD9900F09EB2 /* TrailController.m in Sources */,
 				84C073141BE0D0F500822E4B /* TravelTable.m in Sources */,
 				841B2F1C1BE83DF8008C2974 /* UIDevice+IdentifierAddition.m in Sources */,

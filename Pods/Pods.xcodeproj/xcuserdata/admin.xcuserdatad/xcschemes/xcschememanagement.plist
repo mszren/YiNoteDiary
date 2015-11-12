@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Aspects.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>CTPersistance.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,12 +62,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>16F284B956DD847E3C63BEE13A4CE050</key>
+		<key>12BEBF1D2BFEA94DED5D284EC58FCA97</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>178215093F3AF775BE01E25011986D79</key>
+		<key>1BCD2306D71AF1B2CF2D1D9A27CC2670</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1E7F7EE01DAF520051E3ACD25EA44F19</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2C835390950B6743CAD6FA36D399C2BB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,37 +87,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>38FED100559BAEAC6DF92AA75FE54334</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>396DDF289A63246B6BFA7C4BEC3C51E9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>405ABF2D1553C7B1BB1B18B99A9D8DA6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>5352D432641F0656C90741034E32F31E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>64F9224EF9A5D50B9B94D47788ECA6EB</key>
+		<key>667CA77513569BC3827F5DEA86CF1171</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7235183F0C46D26E914B6AE2D7B329C6</key>
+		<key>6C929037DC7B09DBBFEA8D0F4CD799FC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8252736FD90762C0188E9FDF448457BC</key>
+		<key>9DF2F7AED2F8EB0087C9C2809F669824</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B2BAD14D11B7C0080C585DDEB7E6C7C5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D6E4799F7ABF3823661DF77B4833378D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

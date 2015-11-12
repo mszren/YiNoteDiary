@@ -21,7 +21,7 @@ alpha:(a)]
 
 #define Toast_Hide_TIME 1
 
-#define NavBarBgColor RGBCOLOR(220, 40, 42)
+#define NavBarBgColor RGBCOLOR(135, 213, 27)
 #define TabBarColor RGBCOLOR(239, 239, 239)
 
 
