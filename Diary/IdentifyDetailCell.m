@@ -1,14 +1,14 @@
 //
-//  IdentifyHeadCell.m
+//  IdentifyDetailCell.m
 //  Diary
 //
-//  Created by 我 on 15/11/17.
+//  Created by 我 on 15/11/18.
 //  Copyright © 2015年 Owen. All rights reserved.
 //
 
-#import "IdentifyHeadCell.h"
+#import "IdentifyDetailCell.h"
 
-@implementation IdentifyHeadCell
+@implementation IdentifyDetailCell
 
 - (void)awakeFromNib {
     // Initialization code
