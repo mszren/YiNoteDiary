@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "8F046320DFED8ECC821D18A369CD2F53078F7ADC",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "56E9AE9CA156FE660667EAA3C8DE9160E3502409" : 0,
+    "8F046320DFED8ECC821D18A369CD2F53078F7ADC" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "FE88E412-E9A2-451B-96D9-9EEBA460BD7B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "56E9AE9CA156FE660667EAA3C8DE9160E3502409" : "",
+    "8F046320DFED8ECC821D18A369CD2F53078F7ADC" : "Diary\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Diary",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Diary.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:mszren\/learngit.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "56E9AE9CA156FE660667EAA3C8DE9160E3502409"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "git.oschina.net:wuweiwen\/Diary.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8F046320DFED8ECC821D18A369CD2F53078F7ADC"
+    }
+  ]
+}
