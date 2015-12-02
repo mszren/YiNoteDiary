@@ -2,6 +2,7 @@
 //  IdentifyDetailController.m
 //  Diary
 //
+
 //  Created by 我 on 15/11/30.
 //  Copyright © 2015年 Owen. All rights reserved.
 //
@@ -82,7 +83,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     static NSString* identifyDetailCellid = @"identifyDetailCellid";
     IdentifyDetailCell * identifyDetailCell = [tableView dequeueReusableCellWithIdentifier:identifyDetailCellid];
     if (!identifyDetailCell) {
@@ -148,6 +148,5 @@
     // Dispose of any resources that can be recreated.
 }
 
- 
 
 @end

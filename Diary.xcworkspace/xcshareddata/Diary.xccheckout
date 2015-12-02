@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>FE88E412-E9A2-451B-96D9-9EEBA460BD7B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Diary</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>56E9AE9CA156FE660667EAA3C8DE9160E3502409</key>
+		<string>github.com:mszren/learngit.git</string>
+		<key>8F046320DFED8ECC821D18A369CD2F53078F7ADC</key>
+		<string>git.oschina.net:wuweiwen/Diary.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Diary.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>56E9AE9CA156FE660667EAA3C8DE9160E3502409</key>
+		<string>../..</string>
+		<key>8F046320DFED8ECC821D18A369CD2F53078F7ADC</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>git.oschina.net:wuweiwen/Diary.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>8F046320DFED8ECC821D18A369CD2F53078F7ADC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>56E9AE9CA156FE660667EAA3C8DE9160E3502409</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8F046320DFED8ECC821D18A369CD2F53078F7ADC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Diary</string>
+		</dict>
+	</array>
+</dict>
+</plist>

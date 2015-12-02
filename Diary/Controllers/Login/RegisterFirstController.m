@@ -4,6 +4,7 @@
 //
 //  Created by 我 on 15/12/2.
 //  Copyright © 2015年 Owen. All rights reserved.
+
 //
 
 #import "RegisterFirstController.h"
@@ -32,7 +33,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     [self initView];
     [self.view addSubview:self.faceBtn];
     [self.view addSubview:self.nichengView];

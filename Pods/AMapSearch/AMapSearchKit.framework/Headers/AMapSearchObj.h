@@ -502,3 +502,4 @@ typedef NS_ENUM(NSInteger, AMapCloudSortType)
 @property (nonatomic, copy) NSString *shareURL; //<! 转换后的短串
 
 @end
+

@@ -6,11 +6,19 @@
 	<dict>
 		<key>Headers/AMapCommonObj.h</key>
 		<data>
+<<<<<<< HEAD
 		DBo6rvO7jmrHkhbyxXucOcZzc3U=
 		</data>
 		<key>Headers/AMapNearbySearchManager.h</key>
 		<data>
 		YaLlRhbxijVo8sPtq4uaN81Su/o=
+=======
+		9mOZMTECz2m/uuHqFBl/gqywTj4=
+		</data>
+		<key>Headers/AMapNearbySearchManager.h</key>
+		<data>
+		Aa7DZb8p31E9cuK/vknaaq1SXOA=
+>>>>>>> 1c04c2b5fa8f1266e03d296d2f8686f5d79e5f0f
 		</data>
 		<key>Headers/AMapNearbyUploadInfo.h</key>
 		<data>
@@ -18,11 +26,19 @@
 		</data>
 		<key>Headers/AMapSearchAPI.h</key>
 		<data>
+<<<<<<< HEAD
 		t8Mbk6NR3TcXMfGomXVaMWl4NJw=
 		</data>
 		<key>Headers/AMapSearchError.h</key>
 		<data>
 		F7Eb8O9eqHfgmc3vOIOuo2yXd/E=
+=======
+		43QWFUC6jkYmx2gW7hl9SAqBT4I=
+		</data>
+		<key>Headers/AMapSearchError.h</key>
+		<data>
+		tMZrxKOavKsDWecdMBd+VtGgU8Y=
+>>>>>>> 1c04c2b5fa8f1266e03d296d2f8686f5d79e5f0f
 		</data>
 		<key>Headers/AMapSearchKit.h</key>
 		<data>
@@ -30,7 +46,11 @@
 		</data>
 		<key>Headers/AMapSearchObj.h</key>
 		<data>
+<<<<<<< HEAD
 		ZIisc6hJy5tGssFR3SEn/Hvvs9o=
+=======
+		aV1cmEXGvU+HBopoXtM2rogNTBI=
+>>>>>>> 1c04c2b5fa8f1266e03d296d2f8686f5d79e5f0f
 		</data>
 		<key>Headers/AMapSearchServices.h</key>
 		<data>
@@ -41,11 +61,19 @@
 	<dict>
 		<key>Headers/AMapCommonObj.h</key>
 		<data>
+<<<<<<< HEAD
 		DBo6rvO7jmrHkhbyxXucOcZzc3U=
 		</data>
 		<key>Headers/AMapNearbySearchManager.h</key>
 		<data>
 		YaLlRhbxijVo8sPtq4uaN81Su/o=
+=======
+		9mOZMTECz2m/uuHqFBl/gqywTj4=
+		</data>
+		<key>Headers/AMapNearbySearchManager.h</key>
+		<data>
+		Aa7DZb8p31E9cuK/vknaaq1SXOA=
+>>>>>>> 1c04c2b5fa8f1266e03d296d2f8686f5d79e5f0f
 		</data>
 		<key>Headers/AMapNearbyUploadInfo.h</key>
 		<data>
@@ -53,11 +81,19 @@
 		</data>
 		<key>Headers/AMapSearchAPI.h</key>
 		<data>
+<<<<<<< HEAD
 		t8Mbk6NR3TcXMfGomXVaMWl4NJw=
 		</data>
 		<key>Headers/AMapSearchError.h</key>
 		<data>
 		F7Eb8O9eqHfgmc3vOIOuo2yXd/E=
+=======
+		43QWFUC6jkYmx2gW7hl9SAqBT4I=
+		</data>
+		<key>Headers/AMapSearchError.h</key>
+		<data>
+		tMZrxKOavKsDWecdMBd+VtGgU8Y=
+>>>>>>> 1c04c2b5fa8f1266e03d296d2f8686f5d79e5f0f
 		</data>
 		<key>Headers/AMapSearchKit.h</key>
 		<data>
@@ -65,7 +101,11 @@
 		</data>
 		<key>Headers/AMapSearchObj.h</key>
 		<data>
+<<<<<<< HEAD
 		ZIisc6hJy5tGssFR3SEn/Hvvs9o=
+=======
+		aV1cmEXGvU+HBopoXtM2rogNTBI=
+>>>>>>> 1c04c2b5fa8f1266e03d296d2f8686f5d79e5f0f
 		</data>
 		<key>Headers/AMapSearchServices.h</key>
 		<data>

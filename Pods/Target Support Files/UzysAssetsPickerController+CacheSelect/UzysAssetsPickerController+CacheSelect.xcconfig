@@ -1,5 +1,9 @@
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+<<<<<<< HEAD
 HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/UzysAssetsPickerController+CacheSelect" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/AMap3DMap" "${PODS_ROOT}/Headers/Public/AMapSearch" "${PODS_ROOT}/Headers/Public/Aspects" "${PODS_ROOT}/Headers/Public/CTPersistance" "${PODS_ROOT}/Headers/Public/DACircularProgress" "${PODS_ROOT}/Headers/Public/DZNEmptyDataSet" "${PODS_ROOT}/Headers/Public/MBProgressHUD" "${PODS_ROOT}/Headers/Public/MWPhotoBrowser" "${PODS_ROOT}/Headers/Public/Masonry" "${PODS_ROOT}/Headers/Public/SDWebImage" "${PODS_ROOT}/Headers/Public/Toast" "${PODS_ROOT}/Headers/Public/UzysAssetsPickerController+CacheSelect"
+=======
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/UzysAssetsPickerController+CacheSelect" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/AMap3DMap" "${PODS_ROOT}/Headers/Public/AMapSearch" "${PODS_ROOT}/Headers/Public/Aspects" "${PODS_ROOT}/Headers/Public/CTPersistance" "${PODS_ROOT}/Headers/Public/DACircularProgress" "${PODS_ROOT}/Headers/Public/DZNEmptyDataSet" "${PODS_ROOT}/Headers/Public/MBProgressHUD" "${PODS_ROOT}/Headers/Public/MWPhotoBrowser" "${PODS_ROOT}/Headers/Public/Masonry" "${PODS_ROOT}/Headers/Public/SDWebImage" "${PODS_ROOT}/Headers/Public/TTTAttributedLabel" "${PODS_ROOT}/Headers/Public/Toast" "${PODS_ROOT}/Headers/Public/UzysAssetsPickerController+CacheSelect"
+>>>>>>> 1c04c2b5fa8f1266e03d296d2f8686f5d79e5f0f
 OTHER_LDFLAGS = -framework "AVFoundation" -framework "AssetsLibrary" -framework "CoreGraphics" -framework "MobileCoreServices" -framework "QuartzCore"
 PODS_ROOT = ${SRCROOT}
 SKIP_INSTALL = YES

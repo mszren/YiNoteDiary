@@ -370,6 +370,7 @@
 @property (nonatomic, copy)   NSString *reportTime; //!<数据发布时间
 @property (nonatomic, strong) NSArray  *casts; //!< 天气预报AMapLocalDayWeatherForecast数组
 
+
 @end
 
 /// 某一天的天气预报信息

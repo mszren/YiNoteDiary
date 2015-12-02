@@ -41,6 +41,7 @@
 /// 附近搜索管理类，同时只能有一个实例开启，否则可能会出现错误。
 @interface AMapNearbySearchManager : NSObject
 
+<<<<<<< HEAD
 /**
  * manager单例.
  *
@@ -48,6 +49,9 @@
  *
  *  @return nearbySearch实例。
  */
+=======
+/// manager单例。
+>>>>>>> 1c04c2b5fa8f1266e03d296d2f8686f5d79e5f0f
 + (instancetype)sharedInstance;
 
 /// 请使用单例。

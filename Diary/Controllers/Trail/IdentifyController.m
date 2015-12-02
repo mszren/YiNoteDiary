@@ -21,6 +21,7 @@
     UITableView* _tableView;
 }
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initView];
@@ -95,7 +96,6 @@
                 identifyCell.backgroundColor = BGViewColor;
                 identifyCell.selectionStyle = UITableViewCellSelectionStyleNone;
             }
-            
             return identifyCell;
         }
             break;
@@ -116,6 +116,7 @@
     NSString *text = @"没有活动哦!";
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:15],
                                  NSForegroundColorAttributeName: [UIColor greenColor]};
+
     return [[NSAttributedString alloc] initWithString:text attributes:attributes];
     
 }
@@ -124,6 +125,7 @@
     
     return [UIImage imageNamed:@"ic_tywnr"];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

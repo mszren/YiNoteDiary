@@ -10,7 +10,6 @@
 #import "AMapSearchObj.h"
 #import "AMapCommonObj.h"
 
-
 @protocol AMapSearchDelegate;
 
 /// 搜索结果语言
@@ -109,7 +108,11 @@ typedef NS_ENUM(NSInteger, AMapSearchLanguage)
 /**
  *  公交线路关键字查询
  *
+<<<<<<< HEAD
  *  @param request 查询选项。具体属性字段请参考 AMapBusLineNameSearchRequest 类。
+=======
+ *  @param request 查询选项。具体属性字段请参考 AMapBusLineIDSearchRequest 类。
+>>>>>>> 1c04c2b5fa8f1266e03d296d2f8686f5d79e5f0f
  */
 - (void)AMapBusLineNameSearch:(AMapBusLineNameSearchRequest *)request;
 
@@ -318,6 +321,7 @@ typedef NS_ENUM(NSInteger, AMapSearchLanguage)
  */
 - (void)onNearbySearchDone:(AMapNearbySearchRequest *)request response:(AMapNearbySearchResponse *)response;
 
+
 #pragma mark - 云图搜索回调
 
 /**
@@ -337,5 +341,6 @@ typedef NS_ENUM(NSInteger, AMapSearchLanguage)
  *  @param response 相应结果，具体字段参考 AMapShareSearchResponse。
  */
 - (void)onShareSearchDone:(AMapShareSearchBaseRequest *)request response:(AMapShareSearchResponse *)response;
+
 
 @end
