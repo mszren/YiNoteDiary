@@ -20,9 +20,12 @@ PODS:
   - AFNetworking/UIKit (2.6.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - AMap3DMap (3.2.0)
+  - AMapSearch (3.1.0)
   - Aspects (1.4.1)
   - CTPersistance (0.1.12)
   - DACircularProgress (2.3.1)
+  - DZNEmptyDataSet (1.7.2)
   - Masonry (0.6.3)
   - MBProgressHUD (0.9.1)
   - MWPhotoBrowser (2.1.1):
@@ -33,25 +36,34 @@ PODS:
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
   - Toast (3.0)
+  - UzysAssetsPickerController+CacheSelect (1.0.0)
 
 DEPENDENCIES:
   - AFNetworking
+  - AMap3DMap
+  - AMapSearch
   - Aspects
   - CTPersistance
+  - DZNEmptyDataSet
   - Masonry
   - MBProgressHUD (~> 0.9.1)
   - MWPhotoBrowser
   - Toast
+  - UzysAssetsPickerController+CacheSelect (~> 1.0.0)
 
 SPEC CHECKSUMS:
   AFNetworking: 8e4e60500beb8bec644cf575beee72990a76d399
+  AMap3DMap: 00d7db9a1b1f83ceb621cac90c8e972c5262eaf8
+  AMapSearch: aa7621ae8aec9cb8df116710b26e3fe3d09dc0ff
   Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
   CTPersistance: 28dee99ae2ed4371e0e2820017d756160ba1c0c7
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
+  DZNEmptyDataSet: 0ec00bfc230d7450997b60c127afdd0b9f24f3b6
   Masonry: ff105a956abcd19a618b2028b121cb638d7a8e2f
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MWPhotoBrowser: ba0d0c09ffda3a7ea10093518738c502c1c7141c
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   Toast: 32c59229abfcf41850162b83bb9259dc84372473
+  UzysAssetsPickerController+CacheSelect: 06ed49878245f105a933b1424a42594c68c6d517
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0

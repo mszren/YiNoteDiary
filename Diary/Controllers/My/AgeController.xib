@@ -6,15 +6,83 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AgeController">
             <connections>
+                <outlet property="ageLabel" destination="Aqd-eQ-ykj" id="zSe-GB-pBC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="421" height="595"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sXX-X5-GGk">
+                    <rect key="frame" x="0.0" y="74" width="421" height="60"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="年龄" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2aP-wd-Qdf">
+                            <rect key="frame" x="13" y="0.0" width="50" height="60"/>
+                            <animations/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="ozU-Mf-JiF"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aqd-eQ-ykj">
+                            <rect key="frame" x="201" y="0.0" width="200" height="60"/>
+                            <animations/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="200" id="anw-w8-LFc"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="2aP-wd-Qdf" firstAttribute="leading" secondItem="sXX-X5-GGk" secondAttribute="leading" constant="13" id="0WK-sV-MKc"/>
+                        <constraint firstItem="Aqd-eQ-ykj" firstAttribute="height" secondItem="sXX-X5-GGk" secondAttribute="height" id="KIk-e9-bB8"/>
+                        <constraint firstItem="2aP-wd-Qdf" firstAttribute="height" secondItem="sXX-X5-GGk" secondAttribute="height" id="MpC-dU-tZa"/>
+                        <constraint firstAttribute="trailing" secondItem="Aqd-eQ-ykj" secondAttribute="trailing" constant="20" id="STx-Qn-VtC"/>
+                        <constraint firstAttribute="height" constant="60" id="e2j-3t-BEa"/>
+                        <constraint firstItem="2aP-wd-Qdf" firstAttribute="top" secondItem="sXX-X5-GGk" secondAttribute="top" id="fg9-j8-smy"/>
+                        <constraint firstItem="Aqd-eQ-ykj" firstAttribute="top" secondItem="sXX-X5-GGk" secondAttribute="top" id="qGF-Gj-PTw"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="输入您的出生日期，系统会自动计算出您的年龄，并且您的出生日期不会出现在个人资料里" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUG-Mr-qVU">
+                    <rect key="frame" x="20" y="134" width="381" height="50"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="bm2-6p-FFt"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
             <animations/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="eUG-Mr-qVU" secondAttribute="trailing" constant="20" id="3cT-B5-140"/>
+                <constraint firstItem="eUG-Mr-qVU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="4Ky-D9-CjJ"/>
+                <constraint firstItem="sXX-X5-GGk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="74" id="QNc-VD-7oZ"/>
+                <constraint firstItem="sXX-X5-GGk" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="fqy-tW-zlV"/>
+                <constraint firstItem="eUG-Mr-qVU" firstAttribute="top" secondItem="sXX-X5-GGk" secondAttribute="bottom" id="kFh-hL-1XV"/>
+                <constraint firstItem="sXX-X5-GGk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uAv-dG-vME"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="369.5" y="332.5"/>
         </view>
+        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="输入您的出生日期，系统会自动计算出您的年龄，并且您的出生日期不会出现在个人资料里" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Q0C-1R-cJs">
+            <rect key="frame" x="0.0" y="0.0" width="680" height="21"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <animations/>
+            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <nil key="highlightedColor"/>
+            <point key="canvasLocation" x="532" y="311.5"/>
+        </label>
     </objects>
 </document>

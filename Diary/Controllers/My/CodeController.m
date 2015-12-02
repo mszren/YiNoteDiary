@@ -12,11 +12,41 @@
 
 @end
 
-@implementation CodeController
+@implementation CodeController{
+    UIBarButtonItem* _rightButton;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self initView];
+}
+
+- (void)initView{
+    self.title = @"二维码名片";
+    self.view.backgroundColor = BGViewColor;
+    _rightButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ic_more@3x"] style:UIBarButtonItemStylePlain target:self action:@selector(onRightItem:)];
+    self.navigationItem.rightBarButtonItem = _rightButton;
+}
+
+#pragma mark -- UIBarButtonItem Action
+- (void)onRightItem:(UIBarButtonItem *)sender{
+    [self creatAlertView];
+}
+
+- (void)creatAlertView{
+    
+    UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    [alertVc addAction:[UIAlertAction actionWithTitle:@"分享二维码" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }]];
+    [alertVc addAction:[UIAlertAction actionWithTitle:@"保存到手机" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        
+    }]];
+    [alertVc addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }]];
+    [self presentViewController:alertVc animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +54,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -7,6 +7,11 @@
 //
 
 #import "SetController.h"
+#import "SafeController.h"
+#import "SecretController.h"
+#import "RemindSetController.h"
+#import "ChatSetController.h"
+#import "InforController.h"
 
 @interface SetController ()
 
@@ -16,7 +21,100 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [self initView];
+}
+
+- (void)initView{
+    
+    self.title = @"设置";
+    self.scrollView.contentSize = CGSizeMake(Screen_Width, self.infoView.frame.size.height + self.infoView.frame.origin.y);
+    
+    UITapGestureRecognizer *safeTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onTap:)];
+    [self.safeView addGestureRecognizer:safeTap];
+    
+    UITapGestureRecognizer *secretTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onTap:)];
+    [self.secretView addGestureRecognizer:secretTap];
+    
+    UITapGestureRecognizer *remindTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onTap:)];
+    [self.remindView addGestureRecognizer:remindTap];
+    
+    UITapGestureRecognizer *chatTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onTap:)];
+    [self.chatView addGestureRecognizer:chatTap];
+    
+    UITapGestureRecognizer *cleanTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onTap:)];
+    [self.cleanView addGestureRecognizer:cleanTap];
+    
+    UITapGestureRecognizer *infoTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onTap:)];
+    [self.infoView addGestureRecognizer:infoTap];
+}
+
+#pragma mark -- UITapGestureRecognizer
+- (void)onTap:(UITapGestureRecognizer *)sender{
+    switch (sender.view.tag) {
+        case 100:{
+            
+            SafeController *safeVc = [SafeController new];
+            safeVc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:safeVc animated:YES];
+        }
+            
+            break;
+        case 101:{
+            
+            SecretController *secretSetVc = [SecretController new];
+            secretSetVc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:secretSetVc animated:YES];
+        }
+            
+            break;
+        case 102:{
+            
+            RemindSetController *remindVc = [RemindSetController new];
+            remindVc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:remindVc animated:YES];
+        }
+            
+            break;
+        case 103:{
+            
+            ChatSetController *chatSetVc = [ChatSetController new];
+            chatSetVc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:chatSetVc animated:YES];
+        }
+            
+            break;
+        case 104:{
+            
+            [self creatAlertView];
+        }
+            
+            break;
+            
+        default:
+        {
+            InfoController *infoVc = [InfoController new];
+            infoVc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:infoVc animated:YES];
+        }
+            break;
+    }
+}
+
+- (void)creatAlertView{
+    UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:@"清除缓存后，包括语音、图片等多媒体消息需重新下载查看。确认清除？" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    [alertVc addAction:[UIAlertAction actionWithTitle:@"清除所有聊记录" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        
+    }]];
+    [alertVc addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }]];
+    [self presentViewController:alertVc animated:YES completion:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
 }
 
 - (void)didReceiveMemoryWarning {

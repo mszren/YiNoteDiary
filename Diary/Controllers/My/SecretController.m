@@ -16,7 +16,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [self initView];
+}
+
+- (void)initView{
+    self.title = @"隐私";
+    self.scrollView.contentSize = CGSizeMake(Screen_Width, self.areaBlackAdressView.frame.size.height + self.areaBlackAdressView.frame.origin.y);
 }
 
 - (void)didReceiveMemoryWarning {

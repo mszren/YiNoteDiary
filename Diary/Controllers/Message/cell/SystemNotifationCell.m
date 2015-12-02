@@ -6,7 +6,7 @@
 //  Copyright © 2015年 Owen. All rights reserved.
 //
 
-#import "SysytemNotifationCell.h"
+#import "SystemNotifationCell.h"
 #import "EGOImageView.h"
 #import "Masonry.h"
 
@@ -24,7 +24,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         
-        _faceImg = [[EGOImageView alloc]initWithPlaceholderImage:[UIImage imageNamed:@""]];
+        _faceImg = [[EGOImageView alloc]initWithPlaceholderImage:[UIImage imageNamed:@"pic_bg"]];
         [self addSubview:_faceImg];
         [_faceImg mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.mas_left).offset(20);
@@ -51,7 +51,7 @@
         [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(_faceImg.mas_right).offset(10);
             make.top.mas_equalTo(_nameLabel.mas_bottom);
-            make.width.mas_equalTo(@120);
+            make.width.mas_equalTo(@150);
             make.height.mas_equalTo(@30);
         }];
         _titleLabel.text = @"清凉夏日塞班岛7日游";
@@ -74,7 +74,7 @@
         [_grayLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.mas_left);
             make.top.mas_equalTo(_faceImg.mas_bottom).offset(10);
-            make.width.mas_equalTo(SCREEN_WIDTH);
+            make.width.mas_equalTo(Screen_Width);
             make.height.mas_equalTo(@0.5);
         }];
         _grayLabel.backgroundColor = COLOR_GRAY_DEFAULT_153;

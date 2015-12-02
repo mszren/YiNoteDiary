@@ -9,5 +9,19 @@
 #import <UIKit/UIKit.h>
 
 @interface FriendMaterialController : UIViewController
+@property (weak, nonatomic) IBOutlet UIImageView *faceImg;
+@property (weak, nonatomic) IBOutlet UIView *adressView;
+@property (weak, nonatomic) IBOutlet UIView *qianmingView;
+
+@property (weak, nonatomic) IBOutlet UIView *personPhotoView;
+
+@property (weak, nonatomic) IBOutlet UIView *otherPhotoView;
+@property (weak, nonatomic) IBOutlet UIView *otherQueueView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
+@property (weak, nonatomic) IBOutlet UIButton *addFriendBtn;
+
+@property (weak, nonatomic) IBOutlet UIButton *messageBtn;
+
 
 @end

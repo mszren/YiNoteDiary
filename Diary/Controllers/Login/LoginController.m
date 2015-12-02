@@ -12,12 +12,17 @@
 #import "LoginBusinessManager.h"
 #import "ErrorReformer.h"
 #import "AppDelegate.h"
+#import "Utils.h"
+#import "RegisterFirstController.h"
+#import "RevordPasswordController.h"
 
 @interface LoginController()<UITextFieldDelegate,
 LDAPIManagerParamSourceDelegate,BusinessManagerCallBackDelegate>
 @property(nonatomic, strong) LoginBusinessManager *loginBusinessManager;
 @property(nonatomic, strong) LDAPIBaseManager *loginByWeiboManager;
 @property(nonatomic,strong) id<LDAPIManagerCallbackDataReformer> dataReformer;
+@property(nonatomic,strong) UIView *userView;
+@property(nonatomic,strong) UIView *passwordView;
 @property(nonatomic, strong) UITextField *txtUserName;
 @property(nonatomic, strong) UITextField *txtPassword;
 @property(nonatomic, strong) UIButton *btnLogin;
@@ -37,10 +42,15 @@ LDAPIManagerParamSourceDelegate,BusinessManagerCallBackDelegate>
 - (void)viewDidLoad {
     [super viewDidLoad];
     //self.view.backgroundColor = BGViewGray;
+    [self initView];
+}
+
+- (void)initView{
     self.title = @"登录";
-    [self.navigationController setNavigationBarHidden:YES];
-    [self.view addSubview:self.txtUserName];
-    [self.view addSubview:self.txtPassword];
+    self.view.backgroundColor = BGViewGray;
+   
+    [self.view addSubview:self.userView];
+    [self.view addSubview:self.passwordView];
     [self.view addSubview:self.btnLogin];
     [self.view addSubview:self.btnRegister];
     [self.view addSubview:self.btnForgetPwd];
@@ -49,27 +59,56 @@ LDAPIManagerParamSourceDelegate,BusinessManagerCallBackDelegate>
     [self.view addSubview:self.ivWeibo];
 }
 
+#pragma mark -- UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [_txtPassword resignFirstResponder];
+    [_txtUserName resignFirstResponder];
+    return YES;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    if (textField == _txtPassword) {
+        
+        return [Utils checNumAndLetter:string];
+    }else
+        
+        return YES;
+    
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
     UIView *superView = self.view;
+    
+    [_userView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.width.mas_equalTo(superView);
+        make.top.mas_equalTo(superView.mas_top).offset(150);
+        make.height.mas_equalTo(@50);
+    }];
 
     [_txtUserName mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(superView.mas_top).offset(150);
-        make.width.equalTo(superView.mas_width);
-        make.left.equalTo(superView.mas_left);
-        make.height.equalTo(@30);
+        make.left.equalTo(_userView.mas_left).offset(13);
+        make.top.height.mas_equalTo(_userView);
+        make.width.mas_equalTo(@(Screen_Width - 23));
     }];
+    
+    [_passwordView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(_userView.mas_bottom).offset(10);
+        make.left.width.height.mas_equalTo(_userView);
+    }];
+    
     [_txtPassword mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_txtUserName.mas_bottom).offset(10);
-        make.width.equalTo(superView.mas_width);
-        make.left.equalTo(superView.mas_left);
-        make.height.equalTo(@30);
+        make.top.height.mas_equalTo(_passwordView);
+        make.left.mas_equalTo(_passwordView.mas_left).offset(13);
+        make.width.mas_equalTo(@(Screen_Width - 23));
     }];
+    
     [_btnLogin mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_txtPassword.mas_bottom).offset(10);
+        make.top.equalTo(_passwordView.mas_bottom).offset(10);
         make.width.equalTo(superView.mas_width).offset(-20);
         make.left.equalTo(superView.mas_left).offset(10);
-        make.height.equalTo(@30);
+        make.height.equalTo(@40);
     }];
     
     [_btnForgetPwd mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -119,13 +158,13 @@ LDAPIManagerParamSourceDelegate,BusinessManagerCallBackDelegate>
 }
 
 - (void)registerBtnAction:(id)sender {
-//    RegisterController *controller = [[RegisterController alloc] init];
-//    [self.navigationController pushViewController:controller animated:YES];
+    RegisterFirstController *controller = [[RegisterFirstController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (void)forgetBtnAction:(id)sender {
-//    ForgetPwdController *controller = [[ForgetPwdController alloc] init];
-//    [self.navigationController pushViewController:controller animated:YES];
+    RevordPasswordController *controller = [[RevordPasswordController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (void)loginByQQ:(id)sender {
@@ -176,24 +215,43 @@ LDAPIManagerParamSourceDelegate,BusinessManagerCallBackDelegate>
     return _loginBusinessManager;
 }
 
+- (UIView *)userView{
+    if (_userView == nil) {
+        _userView = [UIView new];
+        _userView.backgroundColor = BGViewColor;
+        [_userView addSubview:self.txtUserName];
+    }
+    return _userView;
+}
 
 - (UITextField *)txtUserName {
     if (_txtUserName == nil) {
         _txtUserName = [[UITextField alloc] init];
         _txtUserName.backgroundColor = [UIColor whiteColor];
         _txtUserName.delegate = self;
-        _txtUserName.font = [UIFont systemFontOfSize:13];
+        _txtUserName.font = FONT_SIZE_15;
+        _txtUserName.keyboardType = UIKeyboardTypeNumberPad;
         _txtUserName.placeholder = @"请输入帐号";
     }
     return _txtUserName;
+}
+
+- (UIView *)passwordView{
+    if (_passwordView == nil) {
+        _passwordView = [UIView new];
+        _passwordView.backgroundColor = BGViewColor;
+        [_passwordView addSubview:self.txtPassword];
+    }
+    return _passwordView;
 }
 
 - (UITextField *)txtPassword {
     if (_txtPassword == nil) {
         _txtPassword = [[UITextField alloc] init];
         _txtPassword.backgroundColor = [UIColor whiteColor];
-        _txtPassword.font = [UIFont systemFontOfSize:13];
+        _txtPassword.font = FONT_SIZE_15;
         _txtPassword.delegate = self;
+        _txtPassword.keyboardType = UIKeyboardTypeASCIICapable;
         _txtPassword.placeholder = @"请输入密码";
     }
     return _txtPassword;

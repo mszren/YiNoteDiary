@@ -7,16 +7,55 @@
 //
 
 #import "NearFeatureController.h"
+#import <MAMapKit/MAMapKit.h>
+#import <AMapSearchKit/AMapSearchAPI.h>
+#import <AMapSearchKit/AMapSearchServices.h>
+#import "FeatureListController.h"
 
-@interface NearFeatureController ()
+@interface NearFeatureController () <MAMapViewDelegate>
 
 @end
 
-@implementation NearFeatureController
+@implementation NearFeatureController{
+    
+     MAMapView *_mapView;
+    MACoordinateRegion _region;//中心点坐标
+    UIBarButtonItem* _rightButton;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self initView];
+}
+
+- (void)initView{
+    self.title = @"附近景点";
+    _rightButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ic_more@3x"] style:UIBarButtonItemStylePlain target:self action:@selector(onRightItem:)];
+    self.navigationItem.rightBarButtonItem = _rightButton;
+    
+    _mapView = [[MAMapView alloc]initWithFrame:self.view.bounds];
+    _mapView.delegate = self;
+    [self.view addSubview:_mapView];
+    
+    _mapView.showsCompass = NO;//指南针
+    _mapView.showsScale = NO;//比例尺
+    _mapView.layer.shouldRasterize = YES;
+     [_mapView setZoomLevel:13 animated:YES];
+    
+    //初始中心点
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(31.818884, 117.221945);
+    MACoordinateSpan span = MACoordinateSpanMake(0.1, 0.1);
+    _region = MACoordinateRegionMake(coordinate, span);
+    [_mapView setRegion:_region];
+}
+
+#pragma mark -- UIBarButtonItem Action
+- (void)onRightItem:(UIBarButtonItem *)sender{
+    
+    FeatureListController *listVc = [FeatureListController new];
+    listVc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:listVc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +63,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

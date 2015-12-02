@@ -7,8 +7,9 @@
 //
 
 #import "SafeController.h"
+#import "SafeView.h"
 
-@interface SafeController ()
+@interface SafeController () <SafeViewDelegate>
 
 @end
 
@@ -16,7 +17,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [self initView];
+}
+
+- (void)initView{
+    self.title = @"账户安全";
+    UITapGestureRecognizer *editTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onTap:)];
+    [self.editView addGestureRecognizer:editTap];
+}
+
+#pragma mark -- UITapGestureRecognizer
+- (void)onTap:(UITapGestureRecognizer *)sender{
+    
+    [[SafeView sharedInstance] showSafeView:@"验证原密码" andRemind:@"为保证您的账户安全，修改密码前请输入原密码已验证" andDelegate:self];
+}
+
+#pragma mark -- SafeViewDelegate
+- (void)safeView:(NSString *)password{
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +42,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

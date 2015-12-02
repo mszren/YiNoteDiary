@@ -17,6 +17,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self initView];
+}
+
+- (void)initView{
+    self.title = @"提醒设置";
 }
 
 - (void)didReceiveMemoryWarning {

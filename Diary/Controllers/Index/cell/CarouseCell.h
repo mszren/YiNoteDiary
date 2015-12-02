@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CarouseCell : UITableViewCell
+@interface CarouseCell : UITableViewCell <UIScrollViewDelegate>
 
 @end

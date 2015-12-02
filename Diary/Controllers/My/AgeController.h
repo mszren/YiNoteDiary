@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface AgeController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *ageLabel;
 
 @end

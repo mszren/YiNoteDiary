@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SafeController : UIViewController
+@interface SafeController : UIViewController 
+@property (weak, nonatomic) IBOutlet UIView *editView;
 
 @end

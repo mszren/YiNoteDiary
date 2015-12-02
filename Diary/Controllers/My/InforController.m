@@ -6,7 +6,7 @@
 //  Copyright © 2015年 Owen. All rights reserved.
 //
 
-#import "InfoController.h"
+#import "InforController.h"
 
 @interface InfoController ()
 
@@ -16,6 +16,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initView];
+}
+
+- (void)initView{
+    self.view.backgroundColor = BGViewColor;
     self.title = @"关于我们";
 }
 

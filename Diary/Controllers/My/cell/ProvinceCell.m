@@ -2,7 +2,7 @@
 //  ProvinceCell.m
 //  Diary
 //
-//  Created by 我 on 15/11/24.
+//  Created by 我 on 15/12/2.
 //  Copyright © 2015年 Owen. All rights reserved.
 //
 
@@ -10,8 +10,8 @@
 
 @implementation ProvinceCell
 
-- (void)awakeFromNib {
-    // Initialization code
+- (void)setProvince:(CityPickerProvince *)province{
+    self.provinceLabel.text = province.name;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

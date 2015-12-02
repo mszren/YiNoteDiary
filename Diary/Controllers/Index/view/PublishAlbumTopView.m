@@ -13,7 +13,7 @@
 #import "AlbumImageTileView.h"
 
 #import <AssetsLibrary/AssetsLibrary.h>
-#import "Header.h"
+
 #define ImageMaxCount 3
 @interface PublishAlbumTopView () <AlbumImageTileViewDelegate> {
 
@@ -38,7 +38,7 @@
 
 - (void)setViewDefault
 {
-    _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, PublishImageTileHeight + 20)];
+    _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, PublishImageTileHeight + 20)];
     _scrollView.bounces = NO;
     _scrollView.userInteractionEnabled = YES;
     _scrollView.showsHorizontalScrollIndicator = NO;

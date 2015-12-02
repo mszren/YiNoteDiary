@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ChatSetController : UIViewController
+@property (weak, nonatomic) IBOutlet UISwitch *telephoneSwitch;
+@property (weak, nonatomic) IBOutlet UIView *cleanView;
 
 @end

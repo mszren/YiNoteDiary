@@ -1,18 +1,70 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9058" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9048"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="CityCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cityCellidentifier" rowHeight="61" id="KGk-i7-Jjw" customClass="CityCell">
+            <rect key="frame" x="0.0" y="0.0" width="324" height="61"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="324" height="60"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wh4-py-Hb7">
+                        <rect key="frame" x="0.0" y="0.0" width="324" height="60"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="合肥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="661-bp-iVP">
+                                <rect key="frame" x="13" y="0.0" width="150" height="60"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="sdQ-jp-Zsk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="XKO-bZ-KCc">
+                                <rect key="frame" x="299" y="24" width="12" height="12"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="12" id="QYa-B0-uRe"/>
+                                    <constraint firstAttribute="width" constant="12" id="lVU-0D-MR0"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XKO-bZ-KCc" firstAttribute="top" secondItem="wh4-py-Hb7" secondAttribute="top" constant="24" id="BjB-Wd-P4U"/>
+                            <constraint firstAttribute="height" constant="60" id="dfE-iQ-dne"/>
+                            <constraint firstItem="661-bp-iVP" firstAttribute="height" secondItem="wh4-py-Hb7" secondAttribute="height" id="fiQ-FE-fO0"/>
+                            <constraint firstAttribute="trailing" secondItem="XKO-bZ-KCc" secondAttribute="trailing" constant="13" id="k6q-po-ndo"/>
+                            <constraint firstItem="661-bp-iVP" firstAttribute="top" secondItem="wh4-py-Hb7" secondAttribute="top" id="kvY-ka-q4c"/>
+                            <constraint firstItem="661-bp-iVP" firstAttribute="leading" secondItem="wh4-py-Hb7" secondAttribute="leading" constant="13" id="rbe-Jz-ccz"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <animations/>
+                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="wh4-py-Hb7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="XRm-Wg-xH6"/>
+                    <constraint firstItem="wh4-py-Hb7" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="cdM-El-W6I"/>
+                    <constraint firstItem="wh4-py-Hb7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="qNj-oz-gcT"/>
+                </constraints>
             </tableViewCellContentView>
+            <animations/>
+            <connections>
+                <outlet property="cityImg" destination="XKO-bZ-KCc" id="hl2-ax-y5S"/>
+                <outlet property="cityLabel" destination="661-bp-iVP" id="BdW-2h-Xjh"/>
+            </connections>
+            <point key="canvasLocation" x="338" y="385.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="ic_arrow.png" width="12" height="12"/>
+    </resources>
 </document>

@@ -10,8 +10,8 @@
 
 @implementation CityCell
 
-- (void)awakeFromNib {
-    // Initialization code
+- (void)setCity:(NSString *)city{
+    self.cityLabel.text = city;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -1,19 +1,118 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9058" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9048"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SexSelectController">
             <connections>
+                <outlet property="manImg" destination="SSX-QA-Xea" id="6Sh-q5-8Tj"/>
+                <outlet property="manView" destination="27B-AC-B5W" id="vLR-mk-RGC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="womanImg" destination="pWS-Wj-XoY" id="sbe-3g-I5L"/>
+                <outlet property="womanView" destination="Cho-Q7-nXk" id="CPr-XE-nO4"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="384" height="594"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <subviews>
+                <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="27B-AC-B5W">
+                    <rect key="frame" x="0.0" y="64" width="384" height="60"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="男" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBG-Yl-FAa">
+                            <rect key="frame" x="13" y="0.0" width="50" height="60"/>
+                            <animations/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="OTe-j0-6V4"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_sweep the.png" translatesAutoresizingMaskIntoConstraints="NO" id="SSX-QA-Xea">
+                            <rect key="frame" x="359" y="24" width="12" height="12"/>
+                            <animations/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="12" id="55S-mi-mAv"/>
+                                <constraint firstAttribute="height" constant="12" id="KUY-tr-h6i"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="ZBG-Yl-FAa" firstAttribute="top" secondItem="27B-AC-B5W" secondAttribute="top" id="Ity-Wy-SOf"/>
+                        <constraint firstItem="ZBG-Yl-FAa" firstAttribute="leading" secondItem="27B-AC-B5W" secondAttribute="leading" constant="13" id="NIa-Pn-tWT"/>
+                        <constraint firstAttribute="trailing" secondItem="SSX-QA-Xea" secondAttribute="trailing" constant="13" id="XKa-oJ-OfJ"/>
+                        <constraint firstItem="ZBG-Yl-FAa" firstAttribute="height" secondItem="27B-AC-B5W" secondAttribute="height" id="hYg-8U-rhU"/>
+                        <constraint firstItem="SSX-QA-Xea" firstAttribute="top" secondItem="27B-AC-B5W" secondAttribute="top" constant="24" id="ilY-e7-kPf"/>
+                        <constraint firstAttribute="height" constant="60" id="mQb-a5-SUo"/>
+                        <constraint firstAttribute="width" secondItem="27B-AC-B5W" secondAttribute="height" multiplier="32:5" id="pJD-vi-y91"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="pJD-vi-y91"/>
+                        </mask>
+                    </variation>
+                </view>
+                <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cho-Q7-nXk">
+                    <rect key="frame" x="0.0" y="125" width="384" height="60"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="女" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJM-nV-884">
+                            <rect key="frame" x="13" y="0.0" width="50" height="60"/>
+                            <animations/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="jDw-Gl-ybK"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_sweep the.png" translatesAutoresizingMaskIntoConstraints="NO" id="pWS-Wj-XoY">
+                            <rect key="frame" x="359" y="24" width="12" height="12"/>
+                            <animations/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="12" id="Qso-So-C8Q"/>
+                                <constraint firstAttribute="width" constant="12" id="bXf-IH-Uis"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="rJM-nV-884" firstAttribute="top" secondItem="Cho-Q7-nXk" secondAttribute="top" id="E49-Kz-47L"/>
+                        <constraint firstItem="pWS-Wj-XoY" firstAttribute="top" secondItem="Cho-Q7-nXk" secondAttribute="top" constant="24" id="Mbr-AV-sTh"/>
+                        <constraint firstAttribute="width" secondItem="Cho-Q7-nXk" secondAttribute="height" multiplier="32:5" id="aNW-g3-zGl"/>
+                        <constraint firstAttribute="trailing" secondItem="pWS-Wj-XoY" secondAttribute="trailing" constant="13" id="e46-Il-Hjo"/>
+                        <constraint firstAttribute="height" constant="60" id="jRH-tL-QFc"/>
+                        <constraint firstItem="rJM-nV-884" firstAttribute="leading" secondItem="Cho-Q7-nXk" secondAttribute="leading" constant="13" id="xC8-Vh-bwu"/>
+                        <constraint firstItem="rJM-nV-884" firstAttribute="height" secondItem="Cho-Q7-nXk" secondAttribute="height" id="yRY-6D-eJ6"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="aNW-g3-zGl"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="Cho-Q7-nXk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9rQ-B4-eEa"/>
+                <constraint firstItem="27B-AC-B5W" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="P5a-nV-ZfD"/>
+                <constraint firstItem="27B-AC-B5W" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="Phe-BC-1db"/>
+                <constraint firstItem="Cho-Q7-nXk" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="Udk-Ud-Uio"/>
+                <constraint firstItem="Cho-Q7-nXk" firstAttribute="top" secondItem="27B-AC-B5W" secondAttribute="bottom" constant="1" id="yHD-dX-IvG"/>
+                <constraint firstItem="27B-AC-B5W" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="yiU-6S-zOb"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="636" y="457"/>
         </view>
     </objects>
+    <resources>
+        <image name="ic_sweep the.png" width="25" height="25"/>
+    </resources>
 </document>

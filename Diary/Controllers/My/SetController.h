@@ -9,5 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface SetController : UIViewController
+@property (weak, nonatomic) IBOutlet UIView *safeView;
+@property (weak, nonatomic) IBOutlet UIView *secretView;
+@property (weak, nonatomic) IBOutlet UIView *remindView;
+@property (weak, nonatomic) IBOutlet UIView *chatView;
+@property (weak, nonatomic) IBOutlet UIView *cleanView;
+@property (weak, nonatomic) IBOutlet UIView *infoView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end

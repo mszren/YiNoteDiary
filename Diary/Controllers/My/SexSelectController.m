@@ -16,7 +16,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [self initView];
+}
+
+- (void)initView{
+    self.title = @"性别";
 }
 
 - (void)didReceiveMemoryWarning {

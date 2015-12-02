@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface SexSelectController : UIViewController
+@property (weak, nonatomic) IBOutlet UIView *manView;
+@property (weak, nonatomic) IBOutlet UIImageView *manImg;
+@property (weak, nonatomic) IBOutlet UIView *womanView;
+@property (weak, nonatomic) IBOutlet UIImageView *womanImg;
 
 @end

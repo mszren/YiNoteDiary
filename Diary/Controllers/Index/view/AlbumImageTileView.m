@@ -7,7 +7,6 @@
 //
 
 #import "AlbumImageTileView.h"
-#import "Header.h"
 
 @interface AlbumImageTileView(){
     ALAsset* _asset;

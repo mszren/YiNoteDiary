@@ -11,6 +11,8 @@
 #import "LocationManager.h"
 #import "LoginBusinessManager.h"
 
+
+
 @interface AppDelegate ()
 
 @end
@@ -24,6 +26,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     LocationManager *locationManager=[LocationManager shareInstance];
+    [[MAMapServices sharedServices] setApiKey:ApiKey];
+    [[AMapSearchServices sharedServices]setApiKey:ApiKey];
     [locationManager startLocation];
     if ([self checkIsExistUser]) {
         [self loadHomeController];

@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface RemindSetController : UIViewController
+@property (weak, nonatomic) IBOutlet UISwitch *messageSwich;
+@property (weak, nonatomic) IBOutlet UISwitch *soundSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *shakeSwitch;
 
 @end
