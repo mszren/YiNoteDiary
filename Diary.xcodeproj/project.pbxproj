@@ -67,7 +67,6 @@
 		D743532D1C0BD4AF004B89FE /* IdentifyHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D743532A1C0BD4AF004B89FE /* IdentifyHeadCell.m */; };
 		D74353351C0BD98E004B89FE /* IdentifyEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = D74353301C0BD98E004B89FE /* IdentifyEditView.m */; };
 		D74353361C0BD98E004B89FE /* QueueView.m in Sources */ = {isa = PBXBuildFile; fileRef = D74353321C0BD98E004B89FE /* QueueView.m */; };
-		D74353371C0BD98E004B89FE /* TextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D74353341C0BD98E004B89FE /* TextView.m */; };
 		D743533A1C0BEC45004B89FE /* IdentifyDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D74353391C0BEC45004B89FE /* IdentifyDetailCell.m */; };
 		D743533D1C0BECE5004B89FE /* IdentifyDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = D743533C1C0BECE5004B89FE /* IdentifyDetailController.m */; };
 		D74353401C0C116E004B89FE /* FriendListController.m in Sources */ = {isa = PBXBuildFile; fileRef = D743533F1C0C116E004B89FE /* FriendListController.m */; };
@@ -182,6 +181,12 @@
 		D77574EB1C0EC65700D26828 /* RegisterThirdController.m in Sources */ = {isa = PBXBuildFile; fileRef = D77574EA1C0EC65700D26828 /* RegisterThirdController.m */; };
 		D77574EE1C0EC7D800D26828 /* RevordPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = D77574ED1C0EC7D800D26828 /* RevordPasswordController.m */; };
 		D77574F11C0EC87100D26828 /* RevordPasswordSecondController.m in Sources */ = {isa = PBXBuildFile; fileRef = D77574F01C0EC87100D26828 /* RevordPasswordSecondController.m */; };
+		D7A908791C0FC89B00DA0713 /* IndexDetailHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A908781C0FC89B00DA0713 /* IndexDetailHeadView.m */; };
+		D7A9087C1C0FC9FD00DA0713 /* indexRecentDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A9087B1C0FC9FD00DA0713 /* indexRecentDetailController.m */; };
+		D7A9087F1C0FCC0300DA0713 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A9087E1C0FCC0300DA0713 /* CommentCell.m */; };
+		D7A908821C0FD94E00DA0713 /* PraiseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A908811C0FD94E00DA0713 /* PraiseCell.m */; };
+		D7A908851C0FE64900DA0713 /* IndexCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A908841C0FE64900DA0713 /* IndexCommentView.m */; };
+		D7A908881C0FED6900DA0713 /* CommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A908871C0FED6900DA0713 /* CommentView.m */; };
 		D7BFC7871C0D68E00054324E /* SafeView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BFC7861C0D68E00054324E /* SafeView.m */; };
 		D7C3E1CB1C084267009CE15D /* FindController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7C3E1C91C084267009CE15D /* FindController.m */; };
 		D7C3E1CC1C084267009CE15D /* FindController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7C3E1CA1C084267009CE15D /* FindController.xib */; };
@@ -332,8 +337,6 @@
 		D74353301C0BD98E004B89FE /* IdentifyEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IdentifyEditView.m; sourceTree = "<group>"; };
 		D74353311C0BD98E004B89FE /* QueueView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueueView.h; sourceTree = "<group>"; };
 		D74353321C0BD98E004B89FE /* QueueView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueueView.m; sourceTree = "<group>"; };
-		D74353331C0BD98E004B89FE /* TextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextView.h; sourceTree = "<group>"; };
-		D74353341C0BD98E004B89FE /* TextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextView.m; sourceTree = "<group>"; };
 		D74353381C0BEC45004B89FE /* IdentifyDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IdentifyDetailCell.h; sourceTree = "<group>"; };
 		D74353391C0BEC45004B89FE /* IdentifyDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IdentifyDetailCell.m; sourceTree = "<group>"; };
 		D743533B1C0BECE5004B89FE /* IdentifyDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IdentifyDetailController.h; path = Controllers/Trail/IdentifyDetailController.h; sourceTree = "<group>"; };
@@ -514,6 +517,18 @@
 		D77574ED1C0EC7D800D26828 /* RevordPasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RevordPasswordController.m; path = Controllers/Login/RevordPasswordController.m; sourceTree = "<group>"; };
 		D77574EF1C0EC87100D26828 /* RevordPasswordSecondController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RevordPasswordSecondController.h; path = Controllers/Login/RevordPasswordSecondController.h; sourceTree = "<group>"; };
 		D77574F01C0EC87100D26828 /* RevordPasswordSecondController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RevordPasswordSecondController.m; path = Controllers/Login/RevordPasswordSecondController.m; sourceTree = "<group>"; };
+		D7A908771C0FC89B00DA0713 /* IndexDetailHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexDetailHeadView.h; sourceTree = "<group>"; };
+		D7A908781C0FC89B00DA0713 /* IndexDetailHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexDetailHeadView.m; sourceTree = "<group>"; };
+		D7A9087A1C0FC9FD00DA0713 /* indexRecentDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = indexRecentDetailController.h; path = Controllers/Index/indexRecentDetailController.h; sourceTree = "<group>"; };
+		D7A9087B1C0FC9FD00DA0713 /* indexRecentDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = indexRecentDetailController.m; path = Controllers/Index/indexRecentDetailController.m; sourceTree = "<group>"; };
+		D7A9087D1C0FCC0300DA0713 /* CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
+		D7A9087E1C0FCC0300DA0713 /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
+		D7A908801C0FD94E00DA0713 /* PraiseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PraiseCell.h; sourceTree = "<group>"; };
+		D7A908811C0FD94E00DA0713 /* PraiseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PraiseCell.m; sourceTree = "<group>"; };
+		D7A908831C0FE64900DA0713 /* IndexCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexCommentView.h; sourceTree = "<group>"; };
+		D7A908841C0FE64900DA0713 /* IndexCommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexCommentView.m; sourceTree = "<group>"; };
+		D7A908861C0FED6900DA0713 /* CommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentView.h; sourceTree = "<group>"; };
+		D7A908871C0FED6900DA0713 /* CommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentView.m; sourceTree = "<group>"; };
 		D7BFC7851C0D68E00054324E /* SafeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SafeView.h; sourceTree = "<group>"; };
 		D7BFC7861C0D68E00054324E /* SafeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SafeView.m; sourceTree = "<group>"; };
 		D7C3E1C81C084267009CE15D /* FindController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FindController.h; path = Controllers/Find/FindController.h; sourceTree = "<group>"; };
@@ -829,6 +844,8 @@
 				D76AB9211C07FF44002B14C0 /* PublishController.m */,
 				8420C9D81BE9CD6400F09EB2 /* IndexController.h */,
 				8420C9D91BE9CD6400F09EB2 /* IndexController.m */,
+				D7A9087A1C0FC9FD00DA0713 /* indexRecentDetailController.h */,
+				D7A9087B1C0FC9FD00DA0713 /* indexRecentDetailController.m */,
 			);
 			name = Index;
 			sourceTree = "<group>";
@@ -1148,8 +1165,6 @@
 				D74353301C0BD98E004B89FE /* IdentifyEditView.m */,
 				D74353311C0BD98E004B89FE /* QueueView.h */,
 				D74353321C0BD98E004B89FE /* QueueView.m */,
-				D74353331C0BD98E004B89FE /* TextView.h */,
-				D74353341C0BD98E004B89FE /* TextView.m */,
 			);
 			name = view;
 			path = Controllers/Trail/view;
@@ -1318,6 +1333,10 @@
 				D76AB92B1C07FF4C002B14C0 /* NearCell.m */,
 				D76AB92C1C07FF4C002B14C0 /* WonderfulCell.h */,
 				D76AB92D1C07FF4C002B14C0 /* WonderfulCell.m */,
+				D7A9087D1C0FCC0300DA0713 /* CommentCell.h */,
+				D7A9087E1C0FCC0300DA0713 /* CommentCell.m */,
+				D7A908801C0FD94E00DA0713 /* PraiseCell.h */,
+				D7A908811C0FD94E00DA0713 /* PraiseCell.m */,
 			);
 			name = cell;
 			path = Controllers/Index/cell;
@@ -1454,10 +1473,16 @@
 		D76AB97D1C083758002B14C0 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				D7A908771C0FC89B00DA0713 /* IndexDetailHeadView.h */,
+				D7A908781C0FC89B00DA0713 /* IndexDetailHeadView.m */,
 				D76AB97E1C083758002B14C0 /* AlbumImageTileView.h */,
 				D76AB97F1C083758002B14C0 /* AlbumImageTileView.m */,
 				D76AB9801C083758002B14C0 /* PublishAlbumTopView.h */,
 				D76AB9811C083758002B14C0 /* PublishAlbumTopView.m */,
+				D7A908831C0FE64900DA0713 /* IndexCommentView.h */,
+				D7A908841C0FE64900DA0713 /* IndexCommentView.m */,
+				D7A908861C0FED6900DA0713 /* CommentView.h */,
+				D7A908871C0FED6900DA0713 /* CommentView.m */,
 			);
 			name = view;
 			path = Controllers/Index/view;
@@ -1682,6 +1707,7 @@
 				841B2F191BE83DF8008C2974 /* NSObject+LDNetworkingMethods.m in Sources */,
 				D76AB9611C08017C002B14C0 /* EGOCache.m in Sources */,
 				D76AB9621C08017C002B14C0 /* EGOImageButton.m in Sources */,
+				D7A908881C0FED6900DA0713 /* CommentView.m in Sources */,
 				D76AB90B1C07FDB2002B14C0 /* DaiDodgeKeyboard+AccessObject.m in Sources */,
 				D74353221C0BD4A5004B89FE /* IdentifyController.m in Sources */,
 				841B2F1F1BE83DF8008C2974 /* LDAPIBaseManager.m in Sources */,
@@ -1707,6 +1733,7 @@
 				841B2F1B1BE83DF8008C2974 /* NSURLRequest+LDNetworkingMethods.m in Sources */,
 				841B2F331BE83E74008C2974 /* WGS84TOGCJ02.m in Sources */,
 				D74353641C0C251E004B89FE /* InviteController.m in Sources */,
+				D7A908851C0FE64900DA0713 /* IndexCommentView.m in Sources */,
 				D76AB90C1C07FDB2002B14C0 /* DaiDodgeKeyboard+Animation.m in Sources */,
 				D77574EE1C0EC7D800D26828 /* RevordPasswordController.m in Sources */,
 				841B2F361BE83EC1008C2974 /* LocationManager.m in Sources */,
@@ -1727,13 +1754,16 @@
 				D76AB9631C08017C002B14C0 /* EGOImageLoadConnection.m in Sources */,
 				D76AB9831C083758002B14C0 /* PublishAlbumTopView.m in Sources */,
 				D76AB9721C08017C002B14C0 /* EGOPhotoScrollView.m in Sources */,
+				D7A9087C1C0FC9FD00DA0713 /* indexRecentDetailController.m in Sources */,
 				D76AB92F1C07FF4C002B14C0 /* AlbumHeadCell.m in Sources */,
 				D76AB90F1C07FDB2002B14C0 /* UIView+FirstResponderNotify.m in Sources */,
 				841B2F2D1BE83DF8008C2974 /* ToastHUD.m in Sources */,
 				D74353831C0C3D05004B89FE /* InforController.m in Sources */,
 				841B2F181BE83DF8008C2974 /* NSMutableString+LDNetworkingMethods.m in Sources */,
+				D7A9087F1C0FCC0300DA0713 /* CommentCell.m in Sources */,
 				D74353401C0C116E004B89FE /* FriendListController.m in Sources */,
 				D743533A1C0BEC45004B89FE /* IdentifyDetailCell.m in Sources */,
+				D7A908791C0FC89B00DA0713 /* IndexDetailHeadView.m in Sources */,
 				D76AB91F1C07FE3F002B14C0 /* SegmentNaviViewController.m in Sources */,
 				841B2F131BE83DF8008C2974 /* LDRequestGenerator.m in Sources */,
 				840D5F641BEE1E0600B887AC /* UserDataCenter.m in Sources */,
@@ -1742,6 +1772,7 @@
 				D77574F11C0EC87100D26828 /* RevordPasswordSecondController.m in Sources */,
 				840D5F681BEE35BA00B887AC /* LoginBusinessManager.m in Sources */,
 				841B2F221BE83DF8008C2974 /* LDURLResponse.m in Sources */,
+				D7A908821C0FD94E00DA0713 /* PraiseCell.m in Sources */,
 				D76AB92E1C07FF4C002B14C0 /* AlbumEnjoyCell.m in Sources */,
 				D74353A21C0C3D0E004B89FE /* SexSelectController.m in Sources */,
 				D743535F1C0C1E8B004B89FE /* AddFriendController.m in Sources */,
@@ -1776,7 +1807,6 @@
 				D76AB9301C07FF4C002B14C0 /* CarouseCell.m in Sources */,
 				D76AB9671C08017C002B14C0 /* EGOPhotoViewController.m in Sources */,
 				D76AB9821C083758002B14C0 /* AlbumImageTileView.m in Sources */,
-				D74353371C0BD98E004B89FE /* TextView.m in Sources */,
 				D76AB9311C07FF4C002B14C0 /* NearCell.m in Sources */,
 				D76AB9691C08017C002B14C0 /* EGOQuickPhotoSource.m in Sources */,
 				D76AB9711C08017C002B14C0 /* EGOPhotoImageView.m in Sources */,

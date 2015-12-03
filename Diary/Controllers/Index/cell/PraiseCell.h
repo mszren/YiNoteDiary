@@ -1,13 +1,13 @@
 //
-//  TextView.h
+//  PraiseCell.h
 //  Diary
 //
-//  Created by 我 on 15/11/26.
+//  Created by 我 on 15/12/3.
 //  Copyright © 2015年 Owen. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface TextView : UIView
+@interface PraiseCell : UITableViewCell
 
 @end

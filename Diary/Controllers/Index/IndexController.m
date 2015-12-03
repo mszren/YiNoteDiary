@@ -15,6 +15,7 @@
 #import "AlbumHeadCell.h"
 #import "AlbumEnjoyCell.h"
 #import "PublishController.h"
+#import "indexRecentDetailController.h"
 
 @interface IndexController() <SegmentBarViewDelegate,UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource>
 
@@ -191,22 +192,6 @@
 
 }
 
-#pragma mark SegmentBarViewDelegate
-- (void)barSelectedIndexChanged:(int)newIndex{
-    switch (newIndex) {
-        case 0:
-            self.navigationItem.rightBarButtonItem = _rightButton;
-            break;
-            
-        default:
-            
-            self.navigationItem.rightBarButtonItem = nil;
-            break;
-    }
-    [_tableView reloadData];
-}
-
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (_barView.selectedIndex) {
         case 0:
@@ -241,6 +226,27 @@
             }
             break;
     }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    indexRecentDetailController *recentDetailVc = [indexRecentDetailController new];
+    recentDetailVc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:recentDetailVc animated:YES];
+}
+
+#pragma mark SegmentBarViewDelegate
+- (void)barSelectedIndexChanged:(int)newIndex{
+    switch (newIndex) {
+        case 0:
+            self.navigationItem.rightBarButtonItem = _rightButton;
+            break;
+            
+        default:
+            
+            self.navigationItem.rightBarButtonItem = nil;
+            break;
+    }
+    [_tableView reloadData];
 }
 
 #pragma mark -- UIBarButtonItem Action

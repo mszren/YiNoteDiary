@@ -11,8 +11,6 @@
 #import "LocationManager.h"
 #import "LoginBusinessManager.h"
 
-
-
 @interface AppDelegate ()
 
 @end
@@ -29,11 +27,11 @@
     [[MAMapServices sharedServices] setApiKey:ApiKey];
     [[AMapSearchServices sharedServices]setApiKey:ApiKey];
     [locationManager startLocation];
-    if ([self checkIsExistUser]) {
+//    if ([self checkIsExistUser]) {
         [self loadHomeController];
-    } else {
-        [self loadLoginController];
-    }
+//    } else {
+//        [self loadLoginController];
+//    }
     return YES;
 }
 

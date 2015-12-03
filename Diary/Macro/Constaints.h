@@ -34,6 +34,7 @@ alpha:(a)]
 #define COLOR_GRAY_DEFAULT_30 RGBACOLOR(30, 30, 30, 1)
 
 //table
+#define AllTableViewColor RGBCOLOR(238, 238, 238)
 #define TableSeparatorColor RGBCOLOR(224, 224, 224)
 #define COLOR_GRAY_LIGHT RGBCOLOR(245, 247, 250)
 

@@ -7,11 +7,7 @@
 		<key>Diary.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
-			<integer>12</integer>
-=======
-			<integer>0</integer>
->>>>>>> 1c04c2b5fa8f1266e03d296d2f8686f5d79e5f0f
+			<integer>4</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
