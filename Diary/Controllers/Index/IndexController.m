@@ -265,6 +265,8 @@
         
     }]];
       [self presentViewController:alertVc animated:YES completion:nil];
+    
+
 }
 
 - (void)viewWillAppear:(BOOL)animated{

@@ -23,6 +23,8 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         
+        self.backgroundColor = [UIColor redColor];
+        
         _faceImg = [[EGOImageView alloc]initWithPlaceholderImage:[UIImage imageNamed:@"pic_bg"]];
         [self addSubview:_faceImg];
         [_faceImg mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -47,7 +49,7 @@
         [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(_faceImg.mas_right).offset(20);
             make.top.mas_equalTo(_faceImg.mas_top);
-            make.size.mas_equalTo(CGSizeMake(200, 20));
+            make.right.mas_equalTo(self.mas_right).offset(-30);
         }];
         _nameLabel.text = @"MR_mistake";
         _nameLabel.textColor = [UIColor greenColor];
@@ -59,7 +61,6 @@
             make.right.mas_equalTo(self.mas_right).offset(-20);
             make.top.mas_equalTo(_faceImg.mas_top);
             make.width.mas_equalTo(@120);
-            make.height.mas_equalTo(@20);
         }];
         _timeLabel.text = @"15分钟前";
         _timeLabel.font = FONT_SIZE_11;
@@ -71,11 +72,10 @@
         [_commentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(_faceImg.mas_right).offset(20);
             make.top.mas_equalTo(_nameLabel.mas_bottom);
-            make.width.mas_equalTo(@160);
-            make.height.mas_equalTo(@50);
+            make.right.mas_equalTo(self.mas_right).offset(-30);
         }];
-        _commentLabel.numberOfLines = 2;
-        NSString *commentString = @"回复327_破钟:虚伪的人，说出这种漂亮的话";
+        _commentLabel.numberOfLines = 0;
+        NSString *commentString = @"回复327_破钟:虚伪的人，说出这种漂亮的话,回复327_破钟:虚伪的人，说出这种漂亮的话,回复327_破钟:虚伪的人，说出这种漂亮的话,回复327_破钟:虚伪的人，说出这种漂亮的话,回复327_破钟:虚伪的人，说出这种漂亮的话,回复327_破钟:虚伪的人，说出这种漂亮的话,回复327_破钟:虚伪的人，说出这种漂亮的话,回复327_破钟:虚伪的人，说出这种漂亮的话,回复327_破钟:虚伪的人，说出这种漂亮的话,";
         NSInteger length = commentString.length;
         NSMutableAttributedString *attriButedString = [[NSMutableAttributedString alloc]initWithString:commentString];
         [attriButedString  addAttribute:NSFontAttributeName value:FONT_SIZE_13 range:NSMakeRange(0, length)];

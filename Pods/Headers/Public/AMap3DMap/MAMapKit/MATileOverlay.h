@@ -1,1 +1,1 @@
-../../../../AMap3DMap/MAMapKit.framework/Versions/3.2.0.6ae3b80.752/Headers/MATileOverlay.h
+../../../../AMap3DMap/MAMapKit.framework/Versions/3.2.1.94eef6d.752/Headers/MATileOverlay.h

@@ -14,6 +14,7 @@
 #import "PraiseCell.h"
 #import "IndexCommentView.h"
 #import "CommentView.h"
+#import "UITableView+FDTemplateLayoutCell.h"
 
 @interface indexRecentDetailController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,SegmentBarViewDelegate,CommentViewDelegate>
 
@@ -51,6 +52,10 @@
     _tableView.emptyDataSetSource = self;
     _tableView.emptyDataSetDelegate = self;
     _tableView.showsVerticalScrollIndicator = NO;
+    _tableView.fd_debugLogEnabled = YES;
+    if (_barView.selectedIndex == 0) {
+        [_tableView registerClass:[CommentCell class] forCellReuseIdentifier:@"commentCellIdentifier"];
+    }
     
     [_tableView setBackgroundColor:AllTableViewColor];
     _tableView.tableHeaderView = _detailHeadView;
@@ -61,6 +66,8 @@
     [_commentView.commentBtn addTarget:self action:@selector(onBtn:) forControlEvents:UIControlEventTouchUpInside];
     [_commentView.shareBtn addTarget:self action:@selector(onBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_commentView];
+    
+    [_tableView reloadData];
 }
 
 
@@ -70,14 +77,30 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 6;
+    
+    switch (_barView.selectedIndex) {
+        case 0:
+            return 3;
+            break;
+            
+        default:
+            return 6;
+            break;
+    }
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     switch (_barView.selectedIndex) {
         case 0:
-            return 93.5;
+//            return 93.5;
+        {
+         return [_tableView fd_heightForCellWithIdentifier:@"commentCellIdentifier" cacheByIndexPath:indexPath configuration:^(id cell) {
+             [self configur:cell];
+         }];
+        
+        }
             break;
             
         default:
@@ -86,18 +109,24 @@
     }
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     switch (_barView.selectedIndex) {
         case 0:{
             
-            static NSString *commentCellIdentifier = @"commentCellIdentifier";
-            CommentCell *commentCell = [tableView dequeueReusableCellWithIdentifier:commentCellIdentifier];
-            if (!commentCell) {
-                commentCell = [[CommentCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:commentCellIdentifier];
-                commentCell.backgroundColor  = BGViewColor;
-                commentCell.selectionStyle = UITableViewCellSelectionStyleNone;
-            }
+//            static NSString *commentCellIdentifier = @"commentCellIdentifier";
+//            CommentCell *commentCell = [tableView dequeueReusableCellWithIdentifier:commentCellIdentifier];
+//            if (!commentCell) {
+//                commentCell = [[CommentCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:commentCellIdentifier];
+//                commentCell.backgroundColor  = BGViewColor;
+//                commentCell.selectionStyle = UITableViewCellSelectionStyleNone;
+//            }
+//            return commentCell;
+            CommentCell *commentCell = [tableView dequeueReusableCellWithIdentifier:@"commentCellIdentifier"];
+            commentCell = [[CommentCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"commentCellIdentifier"];
+            commentCell.selectionStyle = UITableViewCellSelectionStyleNone;
+            [self configur:commentCell];
             return commentCell;
             
         }
@@ -120,6 +149,11 @@
     
 
 }
+
+- (void)configur:(CommentCell *)cell{
+    cell.fd_enforceFrameLayout = NO;
+}
+
 
 - (NSString*)tableView:(UITableView*)tableView
 titleForHeaderInSection:(NSInteger)section;
@@ -175,6 +209,11 @@ estimatedHeightForHeaderInSection:(NSInteger)section
 -(UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView{
     
     return [UIImage imageNamed:@"ic_tywnr"];
+}
+
+#pragma mark -- CommentViewDelegate
+- (void)commentViewReturn:(NSString *)content{
+    
 }
 
 #pragma mark SegmentBarViewDelegate

@@ -4,145 +4,80 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>AFNetworking 2.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>15</integer>
-		</dict>
 		<key>AFNetworking.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>0</integer>
-		</dict>
-		<key>Aspects 2.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>16</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Aspects.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
-		</dict>
-		<key>CTPersistance 2.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>17</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>CTPersistance.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
-		</dict>
-		<key>DACircularProgress 2.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>18</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>DACircularProgress.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
-		</dict>
-		<key>DZNEmptyDataSet 2.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>19</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>DZNEmptyDataSet.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>5</integer>
-		</dict>
-		<key>MBProgressHUD 2.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>21</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>7</integer>
-		</dict>
-		<key>MWPhotoBrowser 2.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>22</integer>
-		</dict>
-		<key>MWPhotoBrowser-MWPhotoBrowser 2.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>23</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>MWPhotoBrowser-MWPhotoBrowser.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>9</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>MWPhotoBrowser.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>8</integer>
-		</dict>
-		<key>Masonry 2.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>20</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Masonry.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>6</integer>
-		</dict>
-		<key>Pods-Diary 2.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>24</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-Diary.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>10</integer>
-		</dict>
-		<key>SDWebImage 2.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>25</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>11</integer>
-		</dict>
-		<key>TTTAttributedLabel.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>13</integer>
-		</dict>
-		<key>Toast 2.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>26</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Toast.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>12</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>UzysAssetsPickerController+CacheSelect 2.xcscheme</key>
+		<key>UITableView+FDTemplateLayoutCell.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>27</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>UzysAssetsPickerController+CacheSelect.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>14</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>078E6E0545598796C71DF63185CAC528</key>
+		<key>400B930BF18E101649B125C45539A899</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -162,7 +97,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>60E8A68692AF3291BB90E2B7621088B0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6D5AB86124F671F9DB899F4D39453896</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>736E57AD5AEFAAF68D47AE4E8FCB8F68</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7E62A5E8FC1DDF76D2FD786EDA1E2E6E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -173,11 +123,6 @@
 			<true/>
 		</dict>
 		<key>AC6C573058237B97B1BEE20322865172</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D95A8A57BD3D010B289D07E37CC8D6EE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -193,11 +138,6 @@
 			<true/>
 		</dict>
 		<key>E2FE87384A67337831E53490EEA8BF11</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E6A924F7FE2D9096888CBFB736BA3F97</key>
 		<dict>
 			<key>primary</key>
 			<true/>

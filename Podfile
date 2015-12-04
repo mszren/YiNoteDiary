@@ -14,5 +14,6 @@ target 'Diary' do
     pod 'AMapSearch' #搜索服务SDK
     pod 'DZNEmptyDataSet'
     pod 'UzysAssetsPickerController+CacheSelect', '~> 1.0.0'
+    pod 'UITableView+FDTemplateLayoutCell', '~> 1.4.beta'
 end
 
