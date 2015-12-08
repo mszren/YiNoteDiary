@@ -613,7 +613,7 @@
         _urlContentLabel = [UILabel new];
         _urlContentLabel.font = FONT_SIZE_13;
         _urlContentLabel.textColor = [UIColor orangeColor];
-        _urlContentLabel.text = @"http://www.bjofp.cn";
+        _urlContentLabel.text = @"http://www.baidu.com";
         _urlContentLabel.numberOfLines = 0;
         _urlContentLabel.userInteractionEnabled = YES;
         UITapGestureRecognizer *urlTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onUrlTap:)];

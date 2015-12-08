@@ -103,6 +103,8 @@
 		D74353A41C0C3D0E004B89FE /* SignController.m in Sources */ = {isa = PBXBuildFile; fileRef = D74353971C0C3D0E004B89FE /* SignController.m */; };
 		D74353A81C0C3D2D004B89FE /* MyController.m in Sources */ = {isa = PBXBuildFile; fileRef = D74353A61C0C3D2D004B89FE /* MyController.m */; };
 		D75765C31C1672CD005FDD93 /* FeatureCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D75765C21C1672CD005FDD93 /* FeatureCommentCell.m */; };
+		D75765C71C16B892005FDD93 /* CusAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = D75765C61C16B892005FDD93 /* CusAnnotationView.m */; };
+		D75765CA1C16B926005FDD93 /* CustomCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = D75765C91C16B926005FDD93 /* CustomCalloutView.m */; };
 		D76AB8C41C07FB0A002B14C0 /* AgeController.m in Sources */ = {isa = PBXBuildFile; fileRef = D76AB8C11C07FB0A002B14C0 /* AgeController.m */; };
 		D76AB8C51C07FB0A002B14C0 /* AgeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D76AB8C21C07FB0A002B14C0 /* AgeController.xib */; };
 		D76AB8E71C07FD99002B14C0 /* ic_activitiesnearby@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D76AB8CA1C07FD99002B14C0 /* ic_activitiesnearby@3x.png */; };
@@ -411,6 +413,10 @@
 		D74353A61C0C3D2D004B89FE /* MyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyController.m; path = Controllers/My/MyController.m; sourceTree = "<group>"; };
 		D75765C11C1672CD005FDD93 /* FeatureCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeatureCommentCell.h; sourceTree = "<group>"; };
 		D75765C21C1672CD005FDD93 /* FeatureCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeatureCommentCell.m; sourceTree = "<group>"; };
+		D75765C51C16B892005FDD93 /* CusAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CusAnnotationView.h; sourceTree = "<group>"; };
+		D75765C61C16B892005FDD93 /* CusAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CusAnnotationView.m; sourceTree = "<group>"; };
+		D75765C81C16B926005FDD93 /* CustomCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCalloutView.h; sourceTree = "<group>"; };
+		D75765C91C16B926005FDD93 /* CustomCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCalloutView.m; sourceTree = "<group>"; };
 		D76AB8C01C07FB0A002B14C0 /* AgeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AgeController.h; path = Controllers/My/AgeController.h; sourceTree = "<group>"; };
 		D76AB8C11C07FB0A002B14C0 /* AgeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AgeController.m; path = Controllers/My/AgeController.m; sourceTree = "<group>"; };
 		D76AB8C21C07FB0A002B14C0 /* AgeController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AgeController.xib; path = Controllers/My/AgeController.xib; sourceTree = "<group>"; };
@@ -900,6 +906,7 @@
 		841B2F3E1BE8B1DD008C2974 /* Find */ = {
 			isa = PBXGroup;
 			children = (
+				D75765C41C16B892005FDD93 /* view */,
 				D7C3E1CD1C084286009CE15D /* cell */,
 				D7C3E1F31C0855FF009CE15D /* FeatureListController.h */,
 				D7C3E1F41C0855FF009CE15D /* FeatureListController.m */,
@@ -1248,6 +1255,18 @@
 			);
 			name = cell;
 			path = Controllers/My/cell;
+			sourceTree = "<group>";
+		};
+		D75765C41C16B892005FDD93 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				D75765C81C16B926005FDD93 /* CustomCalloutView.h */,
+				D75765C91C16B926005FDD93 /* CustomCalloutView.m */,
+				D75765C51C16B892005FDD93 /* CusAnnotationView.h */,
+				D75765C61C16B892005FDD93 /* CusAnnotationView.m */,
+			);
+			name = view;
+			path = Controllers/Find/view;
 			sourceTree = "<group>";
 		};
 		D76AB8C81C07FD99002B14C0 /* image */ = {
@@ -1793,6 +1812,7 @@
 				D76AB9611C08017C002B14C0 /* EGOCache.m in Sources */,
 				D79B9ACB1C15324500D0FA3E /* ARSegmentPageController.m in Sources */,
 				D76AB9621C08017C002B14C0 /* EGOImageButton.m in Sources */,
+				D75765C71C16B892005FDD93 /* CusAnnotationView.m in Sources */,
 				D7A908881C0FED6900DA0713 /* CommentView.m in Sources */,
 				D76AB90B1C07FDB2002B14C0 /* DaiDodgeKeyboard+AccessObject.m in Sources */,
 				D74353221C0BD4A5004B89FE /* IdentifyController.m in Sources */,
@@ -1823,6 +1843,7 @@
 				841B2F331BE83E74008C2974 /* WGS84TOGCJ02.m in Sources */,
 				D74353641C0C251E004B89FE /* InviteController.m in Sources */,
 				D75765C31C1672CD005FDD93 /* FeatureCommentCell.m in Sources */,
+				D75765CA1C16B926005FDD93 /* CustomCalloutView.m in Sources */,
 				D7A908851C0FE64900DA0713 /* IndexCommentView.m in Sources */,
 				D76AB90C1C07FDB2002B14C0 /* DaiDodgeKeyboard+Animation.m in Sources */,
 				D77574EE1C0EC7D800D26828 /* RevordPasswordController.m in Sources */,
