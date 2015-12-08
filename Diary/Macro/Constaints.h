@@ -64,7 +64,12 @@ alpha:(a)]
 #define Screen_Width [UIScreen mainScreen].bounds.size.width
 #define Screen_height [UIScreen mainScreen].bounds.size.height
 
+
+#define CoolNavHeight 205.0f
 #define SearchBarHeight 44
+#define TabBarHeigh 44
+#define TabBarWidth 240
+#define statusHeight 20
 
 //发布
 #define PublishImageTileWidth ([UIScreen mainScreen].bounds.size.width - 100)/4

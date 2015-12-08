@@ -53,7 +53,7 @@
             [button setTitle:title forState:UIControlStateNormal];
             
             if (i==0) {
-                [button setTitleColor: RGBCOLOR(248, 100, 42) forState:UIControlStateNormal];
+                [button setTitleColor: [UIColor greenColor] forState:UIControlStateNormal];
                 currentBtn=button;
             }
             else
@@ -76,7 +76,7 @@
         
         CGRect rc  = [self viewWithTag:selectedIndex+kButtonTagStart].frame;
         lineView = [[UIView alloc]initWithFrame:CGRectMake(rc.origin.x, self.frame.size.height - 2, rc.size.width, 2)];
-        lineView.backgroundColor = RGBCOLOR(248, 100, 42);
+        lineView.backgroundColor = [UIColor greenColor];
         [self addSubview:lineView];
     }
     return self;
@@ -90,7 +90,7 @@
     UIButton *btn = (UIButton*)sender;
     if (currentBtn) {
         [currentBtn setTitleColor:RGBCOLOR(122,122,122) forState:UIControlStateNormal];
-        [btn setTitleColor: RGBCOLOR(248, 100, 42) forState:UIControlStateNormal];
+        [btn setTitleColor: [UIColor greenColor] forState:UIControlStateNormal];
         currentBtn=btn;
     }
 
@@ -111,7 +111,7 @@
     
         if (currentBtn) {
             [currentBtn setTitleColor:RGBCOLOR(122,122,122) forState:UIControlStateNormal];
-            [btn setTitleColor: RGBCOLOR(248, 100, 42) forState:UIControlStateNormal];
+            [btn setTitleColor: [UIColor greenColor] forState:UIControlStateNormal];
             currentBtn=btn;
         }
         

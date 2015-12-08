@@ -1,16 +1,16 @@
 //
-//  CommentCell.m
+//  FeatureCommentCell.m
 //  Diary
 //
-//  Created by 我 on 15/12/3.
+//  Created by 我 on 15/12/8.
 //  Copyright © 2015年 Owen. All rights reserved.
 //
 
-#import "CommentCell.h"
+#import "FeatureCommentCell.h"
 #import "Masonry.h"
 #import "EGOImageView.h"
 
-@interface CommentCell()
+@interface FeatureCommentCell()
 @property (nonatomic,strong) EGOImageView *faceImg;
 @property (nonatomic,strong) EGOImageView *sexImg;
 @property (nonatomic,strong) UILabel *nameLabel;
@@ -20,12 +20,12 @@
 
 @end
 
-@implementation CommentCell
+@implementation FeatureCommentCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-
+        
         [self initView];
     }
     self.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -49,18 +49,19 @@
     [_faceImg mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(superView.mas_left).offset(13);
         make.top.mas_equalTo(superView.mas_top).offset(20);
-        make.width.height.mas_equalTo(@40);
+        make.width.height.mas_equalTo(@60);
     }];
     
     [_sexImg mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(_faceImg.mas_right);
         make.centerY.mas_equalTo(_faceImg.mas_top);
-        make.width.height.mas_equalTo(@10);
+        make.width.height.mas_equalTo(@15);
     }];
     
     [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(_faceImg.mas_right).offset(20);
         make.top.mas_equalTo(_faceImg.mas_top);
+        make.height.mas_equalTo(@30);
         make.right.mas_equalTo(superView.mas_right).offset(-30);
     }];
     
@@ -72,15 +73,15 @@
     }];
     
     [_commentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(_faceImg.mas_right).offset(20);
-        make.top.mas_equalTo(_nameLabel.mas_bottom).offset(5);
+        make.left.mas_equalTo(_faceImg.mas_left).offset(20);
+        make.top.mas_equalTo(_faceImg.mas_bottom).offset(20);
         make.right.mas_equalTo(superView.mas_right).offset(-30);
     }];
     
     [_grayLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(_nameLabel.mas_left);
+        make.left.mas_equalTo(superView.mas_left);
         make.right.mas_equalTo(superView.mas_right);
-        make.top.mas_equalTo(_commentLabel.mas_bottom).offset(10);
+        make.top.mas_equalTo(_commentLabel.mas_bottom).offset(20);
         make.height.mas_equalTo(@0.5);
         make.bottom.mas_equalTo(superView.mas_bottom);
     }];
@@ -142,8 +143,8 @@
     if (_timeLabel == nil) {
         
         _timeLabel = [UILabel new];
-        _timeLabel.text = @"15分钟前";
-        _timeLabel.font = FONT_SIZE_11;
+        _timeLabel.text = @"3天前";
+        _timeLabel.font = FONT_SIZE_13;
         _timeLabel.textColor = COLOR_GRAY_DEFAULT_153;
         _timeLabel.textAlignment = NSTextAlignmentRight;
     }

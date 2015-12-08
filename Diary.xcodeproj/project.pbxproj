@@ -102,6 +102,7 @@
 		D74353A31C0C3D0E004B89FE /* SexSelectController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D74353951C0C3D0E004B89FE /* SexSelectController.xib */; };
 		D74353A41C0C3D0E004B89FE /* SignController.m in Sources */ = {isa = PBXBuildFile; fileRef = D74353971C0C3D0E004B89FE /* SignController.m */; };
 		D74353A81C0C3D2D004B89FE /* MyController.m in Sources */ = {isa = PBXBuildFile; fileRef = D74353A61C0C3D2D004B89FE /* MyController.m */; };
+		D75765C31C1672CD005FDD93 /* FeatureCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D75765C21C1672CD005FDD93 /* FeatureCommentCell.m */; };
 		D76AB8C41C07FB0A002B14C0 /* AgeController.m in Sources */ = {isa = PBXBuildFile; fileRef = D76AB8C11C07FB0A002B14C0 /* AgeController.m */; };
 		D76AB8C51C07FB0A002B14C0 /* AgeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D76AB8C21C07FB0A002B14C0 /* AgeController.xib */; };
 		D76AB8E71C07FD99002B14C0 /* ic_activitiesnearby@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D76AB8CA1C07FD99002B14C0 /* ic_activitiesnearby@3x.png */; };
@@ -181,12 +182,24 @@
 		D77574EB1C0EC65700D26828 /* RegisterThirdController.m in Sources */ = {isa = PBXBuildFile; fileRef = D77574EA1C0EC65700D26828 /* RegisterThirdController.m */; };
 		D77574EE1C0EC7D800D26828 /* RevordPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = D77574ED1C0EC7D800D26828 /* RevordPasswordController.m */; };
 		D77574F11C0EC87100D26828 /* RevordPasswordSecondController.m in Sources */ = {isa = PBXBuildFile; fileRef = D77574F01C0EC87100D26828 /* RevordPasswordSecondController.m */; };
+		D79B9AB61C1521C500D0FA3E /* ContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = D79B9AB31C1521C500D0FA3E /* ContentView.m */; };
+		D79B9AB71C1521C500D0FA3E /* SegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = D79B9AB51C1521C500D0FA3E /* SegmentView.m */; };
+		D79B9ABA1C15221400D0FA3E /* ActivityController.m in Sources */ = {isa = PBXBuildFile; fileRef = D79B9AB91C15221400D0FA3E /* ActivityController.m */; };
+		D79B9ABD1C15222900D0FA3E /* NearController.m in Sources */ = {isa = PBXBuildFile; fileRef = D79B9ABC1C15222900D0FA3E /* NearController.m */; };
+		D79B9AC01C15224200D0FA3E /* RemindController.m in Sources */ = {isa = PBXBuildFile; fileRef = D79B9ABF1C15224200D0FA3E /* RemindController.m */; };
+		D79B9ACB1C15324500D0FA3E /* ARSegmentPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = D79B9AC31C15324500D0FA3E /* ARSegmentPageController.m */; };
+		D79B9ACC1C15324500D0FA3E /* ARSegmentPageHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = D79B9AC61C15324500D0FA3E /* ARSegmentPageHeader.m */; };
+		D79B9ACD1C15324500D0FA3E /* ARSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = D79B9AC81C15324500D0FA3E /* ARSegmentView.m */; };
+		D79B9ACE1C15324500D0FA3E /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D79B9ACA1C15324500D0FA3E /* NavigationViewController.m */; };
+		D79B9AD21C1553E900D0FA3E /* CoolNavi.m in Sources */ = {isa = PBXBuildFile; fileRef = D79B9AD11C1553E900D0FA3E /* CoolNavi.m */; };
 		D7A908791C0FC89B00DA0713 /* IndexDetailHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A908781C0FC89B00DA0713 /* IndexDetailHeadView.m */; };
 		D7A9087C1C0FC9FD00DA0713 /* indexRecentDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A9087B1C0FC9FD00DA0713 /* indexRecentDetailController.m */; };
 		D7A9087F1C0FCC0300DA0713 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A9087E1C0FCC0300DA0713 /* CommentCell.m */; };
 		D7A908821C0FD94E00DA0713 /* PraiseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A908811C0FD94E00DA0713 /* PraiseCell.m */; };
 		D7A908851C0FE64900DA0713 /* IndexCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A908841C0FE64900DA0713 /* IndexCommentView.m */; };
 		D7A908881C0FED6900DA0713 /* CommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A908871C0FED6900DA0713 /* CommentView.m */; };
+		D7AE8E121C1191DA00693FA3 /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7AE8E111C1191DA00693FA3 /* MAMapKit.framework */; };
+		D7AE8E141C1192BD00693FA3 /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D7AE8E131C1192BD00693FA3 /* AMap.bundle */; };
 		D7BFC7871C0D68E00054324E /* SafeView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BFC7861C0D68E00054324E /* SafeView.m */; };
 		D7C3E1CB1C084267009CE15D /* FindController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7C3E1C91C084267009CE15D /* FindController.m */; };
 		D7C3E1CC1C084267009CE15D /* FindController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7C3E1CA1C084267009CE15D /* FindController.xib */; };
@@ -396,6 +409,8 @@
 		D74353971C0C3D0E004B89FE /* SignController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignController.m; path = Controllers/My/SignController.m; sourceTree = "<group>"; };
 		D74353A51C0C3D2D004B89FE /* MyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyController.h; path = Controllers/My/MyController.h; sourceTree = "<group>"; };
 		D74353A61C0C3D2D004B89FE /* MyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyController.m; path = Controllers/My/MyController.m; sourceTree = "<group>"; };
+		D75765C11C1672CD005FDD93 /* FeatureCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeatureCommentCell.h; sourceTree = "<group>"; };
+		D75765C21C1672CD005FDD93 /* FeatureCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeatureCommentCell.m; sourceTree = "<group>"; };
 		D76AB8C01C07FB0A002B14C0 /* AgeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AgeController.h; path = Controllers/My/AgeController.h; sourceTree = "<group>"; };
 		D76AB8C11C07FB0A002B14C0 /* AgeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AgeController.m; path = Controllers/My/AgeController.m; sourceTree = "<group>"; };
 		D76AB8C21C07FB0A002B14C0 /* AgeController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AgeController.xib; path = Controllers/My/AgeController.xib; sourceTree = "<group>"; };
@@ -517,6 +532,28 @@
 		D77574ED1C0EC7D800D26828 /* RevordPasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RevordPasswordController.m; path = Controllers/Login/RevordPasswordController.m; sourceTree = "<group>"; };
 		D77574EF1C0EC87100D26828 /* RevordPasswordSecondController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RevordPasswordSecondController.h; path = Controllers/Login/RevordPasswordSecondController.h; sourceTree = "<group>"; };
 		D77574F01C0EC87100D26828 /* RevordPasswordSecondController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RevordPasswordSecondController.m; path = Controllers/Login/RevordPasswordSecondController.m; sourceTree = "<group>"; };
+		D79B9AB21C1521C500D0FA3E /* ContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentView.h; sourceTree = "<group>"; };
+		D79B9AB31C1521C500D0FA3E /* ContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentView.m; sourceTree = "<group>"; };
+		D79B9AB41C1521C500D0FA3E /* SegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentView.h; sourceTree = "<group>"; };
+		D79B9AB51C1521C500D0FA3E /* SegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentView.m; sourceTree = "<group>"; };
+		D79B9AB81C15221400D0FA3E /* ActivityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityController.h; path = Controllers/Index/ActivityController.h; sourceTree = "<group>"; };
+		D79B9AB91C15221400D0FA3E /* ActivityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityController.m; path = Controllers/Index/ActivityController.m; sourceTree = "<group>"; };
+		D79B9ABB1C15222900D0FA3E /* NearController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NearController.h; path = Controllers/Index/NearController.h; sourceTree = "<group>"; };
+		D79B9ABC1C15222900D0FA3E /* NearController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NearController.m; path = Controllers/Index/NearController.m; sourceTree = "<group>"; };
+		D79B9ABE1C15224200D0FA3E /* RemindController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RemindController.h; path = Controllers/Index/RemindController.h; sourceTree = "<group>"; };
+		D79B9ABF1C15224200D0FA3E /* RemindController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RemindController.m; path = Controllers/Index/RemindController.m; sourceTree = "<group>"; };
+		D79B9AC11C15324500D0FA3E /* ARSegmentControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSegmentControllerDelegate.h; sourceTree = "<group>"; };
+		D79B9AC21C15324500D0FA3E /* ARSegmentPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSegmentPageController.h; sourceTree = "<group>"; };
+		D79B9AC31C15324500D0FA3E /* ARSegmentPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSegmentPageController.m; sourceTree = "<group>"; };
+		D79B9AC41C15324500D0FA3E /* ARSegmentPageControllerHeaderProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSegmentPageControllerHeaderProtocol.h; sourceTree = "<group>"; };
+		D79B9AC51C15324500D0FA3E /* ARSegmentPageHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSegmentPageHeader.h; sourceTree = "<group>"; };
+		D79B9AC61C15324500D0FA3E /* ARSegmentPageHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSegmentPageHeader.m; sourceTree = "<group>"; };
+		D79B9AC71C15324500D0FA3E /* ARSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSegmentView.h; sourceTree = "<group>"; };
+		D79B9AC81C15324500D0FA3E /* ARSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSegmentView.m; sourceTree = "<group>"; };
+		D79B9AC91C15324500D0FA3E /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
+		D79B9ACA1C15324500D0FA3E /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
+		D79B9AD01C1553E900D0FA3E /* CoolNavi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoolNavi.h; sourceTree = "<group>"; };
+		D79B9AD11C1553E900D0FA3E /* CoolNavi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoolNavi.m; sourceTree = "<group>"; };
 		D7A908771C0FC89B00DA0713 /* IndexDetailHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexDetailHeadView.h; sourceTree = "<group>"; };
 		D7A908781C0FC89B00DA0713 /* IndexDetailHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexDetailHeadView.m; sourceTree = "<group>"; };
 		D7A9087A1C0FC9FD00DA0713 /* indexRecentDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = indexRecentDetailController.h; path = Controllers/Index/indexRecentDetailController.h; sourceTree = "<group>"; };
@@ -529,6 +566,8 @@
 		D7A908841C0FE64900DA0713 /* IndexCommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexCommentView.m; sourceTree = "<group>"; };
 		D7A908861C0FED6900DA0713 /* CommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentView.h; sourceTree = "<group>"; };
 		D7A908871C0FED6900DA0713 /* CommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentView.m; sourceTree = "<group>"; };
+		D7AE8E111C1191DA00693FA3 /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MAMapKit.framework; path = Pods/AMap3DMap/MAMapKit.framework; sourceTree = "<group>"; };
+		D7AE8E131C1192BD00693FA3 /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AMap.bundle; path = Pods/AMap3DMap/MAMapKit.framework/Versions/3.2.1.94eef6d.752/Resources/AMap.bundle; sourceTree = "<group>"; };
 		D7BFC7851C0D68E00054324E /* SafeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SafeView.h; sourceTree = "<group>"; };
 		D7BFC7861C0D68E00054324E /* SafeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SafeView.m; sourceTree = "<group>"; };
 		D7C3E1C81C084267009CE15D /* FindController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FindController.h; path = Controllers/Find/FindController.h; sourceTree = "<group>"; };
@@ -564,6 +603,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7AE8E121C1191DA00693FA3 /* MAMapKit.framework in Frameworks */,
 				D7C3E1F21C084DF1009CE15D /* libc++.tbd in Frameworks */,
 				D7C3E1F01C084DD9009CE15D /* Security.framework in Frameworks */,
 				D7C3E1EE1C084DC2009CE15D /* libstdc++.6.0.9.tbd in Frameworks */,
@@ -586,6 +626,7 @@
 		2DAE23E1F9A949483082CAEB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D7AE8E111C1191DA00693FA3 /* MAMapKit.framework */,
 				D7C3E1F11C084DF1009CE15D /* libc++.tbd */,
 				D7C3E1EF1C084DD9009CE15D /* Security.framework */,
 				D7C3E1ED1C084DC2009CE15D /* libstdc++.6.0.9.tbd */,
@@ -846,6 +887,12 @@
 				8420C9D91BE9CD6400F09EB2 /* IndexController.m */,
 				D7A9087A1C0FC9FD00DA0713 /* indexRecentDetailController.h */,
 				D7A9087B1C0FC9FD00DA0713 /* indexRecentDetailController.m */,
+				D79B9AB81C15221400D0FA3E /* ActivityController.h */,
+				D79B9AB91C15221400D0FA3E /* ActivityController.m */,
+				D79B9ABB1C15222900D0FA3E /* NearController.h */,
+				D79B9ABC1C15222900D0FA3E /* NearController.m */,
+				D79B9ABE1C15224200D0FA3E /* RemindController.h */,
+				D79B9ABF1C15224200D0FA3E /* RemindController.m */,
 			);
 			name = Index;
 			sourceTree = "<group>";
@@ -960,6 +1007,7 @@
 		84C072E61BE0C46100822E4B = {
 			isa = PBXGroup;
 			children = (
+				D7AE8E131C1192BD00693FA3 /* AMap.bundle */,
 				84C0730A1BE0CD0600822E4B /* Vendors */,
 				841B2EC01BE83BAF008C2974 /* Resources */,
 				84C072F11BE0C46100822E4B /* Diary */,
@@ -1023,6 +1071,8 @@
 		84C0730A1BE0CD0600822E4B /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				D79B9ACF1C1553E900D0FA3E /* CoolNavi */,
+				D79B9AB11C1521C500D0FA3E /* SegmentBar */,
 				D76AB9351C08017C002B14C0 /* EGOImageCache */,
 				D76AB9161C07FE3F002B14C0 /* SegmentPage */,
 				D76AB9101C07FDBA002B14C0 /* ARSegmentPageController */,
@@ -1299,6 +1349,16 @@
 		D76AB9101C07FDBA002B14C0 /* ARSegmentPageController */ = {
 			isa = PBXGroup;
 			children = (
+				D79B9AC11C15324500D0FA3E /* ARSegmentControllerDelegate.h */,
+				D79B9AC21C15324500D0FA3E /* ARSegmentPageController.h */,
+				D79B9AC31C15324500D0FA3E /* ARSegmentPageController.m */,
+				D79B9AC41C15324500D0FA3E /* ARSegmentPageControllerHeaderProtocol.h */,
+				D79B9AC51C15324500D0FA3E /* ARSegmentPageHeader.h */,
+				D79B9AC61C15324500D0FA3E /* ARSegmentPageHeader.m */,
+				D79B9AC71C15324500D0FA3E /* ARSegmentView.h */,
+				D79B9AC81C15324500D0FA3E /* ARSegmentView.m */,
+				D79B9AC91C15324500D0FA3E /* NavigationViewController.h */,
+				D79B9ACA1C15324500D0FA3E /* NavigationViewController.m */,
 				D76AB9111C07FDBA002B14C0 /* UIImage+ImageEffects.h */,
 				D76AB9121C07FDBA002B14C0 /* UIImage+ImageEffects.m */,
 			);
@@ -1509,6 +1569,28 @@
 			path = Resources/Utils;
 			sourceTree = "<group>";
 		};
+		D79B9AB11C1521C500D0FA3E /* SegmentBar */ = {
+			isa = PBXGroup;
+			children = (
+				D79B9AB21C1521C500D0FA3E /* ContentView.h */,
+				D79B9AB31C1521C500D0FA3E /* ContentView.m */,
+				D79B9AB41C1521C500D0FA3E /* SegmentView.h */,
+				D79B9AB51C1521C500D0FA3E /* SegmentView.m */,
+			);
+			name = SegmentBar;
+			path = Diary/Vendors/SegmentBar;
+			sourceTree = "<group>";
+		};
+		D79B9ACF1C1553E900D0FA3E /* CoolNavi */ = {
+			isa = PBXGroup;
+			children = (
+				D79B9AD01C1553E900D0FA3E /* CoolNavi.h */,
+				D79B9AD11C1553E900D0FA3E /* CoolNavi.m */,
+			);
+			name = CoolNavi;
+			path = Diary/Vendors/CoolNavi;
+			sourceTree = "<group>";
+		};
 		D7BFC7841C0D68BE0054324E /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -1526,6 +1608,8 @@
 				D7C3E1CF1C084286009CE15D /* FeatureCell.m */,
 				D7C3E1D01C084286009CE15D /* FeatureDetailHeadCell.h */,
 				D7C3E1D11C084286009CE15D /* FeatureDetailHeadCell.m */,
+				D75765C11C1672CD005FDD93 /* FeatureCommentCell.h */,
+				D75765C21C1672CD005FDD93 /* FeatureCommentCell.m */,
 			);
 			name = cell;
 			path = Controllers/Find/cell;
@@ -1628,6 +1712,7 @@
 				D743537A1C0C3D05004B89FE /* CityCell.xib in Resources */,
 				D76AB8F41C07FD99002B14C0 /* ic_notice@3x.png in Resources */,
 				D76AB8F61C07FD99002B14C0 /* ic_arrow@3x.png in Resources */,
+				D7AE8E141C1192BD00693FA3 /* AMap.bundle in Resources */,
 				D76AB97A1C080CCA002B14C0 /* ic_landmark@3x.png in Resources */,
 				D76AB8C51C07FB0A002B14C0 /* AgeController.xib in Resources */,
 				D76AB96F1C08017C002B14C0 /* egopv_right@2x.png in Resources */,
@@ -1706,12 +1791,14 @@
 				841B2F281BE83DF8008C2974 /* LDViewSpotListManager.m in Sources */,
 				841B2F191BE83DF8008C2974 /* NSObject+LDNetworkingMethods.m in Sources */,
 				D76AB9611C08017C002B14C0 /* EGOCache.m in Sources */,
+				D79B9ACB1C15324500D0FA3E /* ARSegmentPageController.m in Sources */,
 				D76AB9621C08017C002B14C0 /* EGOImageButton.m in Sources */,
 				D7A908881C0FED6900DA0713 /* CommentView.m in Sources */,
 				D76AB90B1C07FDB2002B14C0 /* DaiDodgeKeyboard+AccessObject.m in Sources */,
 				D74353221C0BD4A5004B89FE /* IdentifyController.m in Sources */,
 				841B2F1F1BE83DF8008C2974 /* LDAPIBaseManager.m in Sources */,
 				840D5F5E1BED7C5D00B887AC /* TrailDataCenter.m in Sources */,
+				D79B9ACC1C15324500D0FA3E /* ARSegmentPageHeader.m in Sources */,
 				841B2F171BE83DF8008C2974 /* NSDictionary+LDNetworkingMethods.m in Sources */,
 				841B2F211BE83DF8008C2974 /* LDAppContext.m in Sources */,
 				D74353791C0C3D05004B89FE /* CityCell.m in Sources */,
@@ -1720,9 +1807,11 @@
 				D77574D51C0E98E000D26828 /* Utils.m in Sources */,
 				D7C3E1D51C084286009CE15D /* FeatureDetailHeadCell.m in Sources */,
 				841B2F2A1BE83DF8008C2974 /* LDServiceFactory.m in Sources */,
+				D79B9ACD1C15324500D0FA3E /* ARSegmentView.m in Sources */,
 				841B2F251BE83DF8008C2974 /* LDLoginByWeiboManager.m in Sources */,
 				D74353591C0C1C9E004B89FE /* AdressBookController.m in Sources */,
 				D76AB91E1C07FE3F002B14C0 /* SegmentBarView.m in Sources */,
+				D79B9ABA1C15221400D0FA3E /* ActivityController.m in Sources */,
 				D77574DE1C0E9C3D00D26828 /* ProvinceCell.m in Sources */,
 				840D5F701BF0335100B887AC /* BusinessBaseManager.m in Sources */,
 				D7C3E1D41C084286009CE15D /* FeatureCell.m in Sources */,
@@ -1733,6 +1822,7 @@
 				841B2F1B1BE83DF8008C2974 /* NSURLRequest+LDNetworkingMethods.m in Sources */,
 				841B2F331BE83E74008C2974 /* WGS84TOGCJ02.m in Sources */,
 				D74353641C0C251E004B89FE /* InviteController.m in Sources */,
+				D75765C31C1672CD005FDD93 /* FeatureCommentCell.m in Sources */,
 				D7A908851C0FE64900DA0713 /* IndexCommentView.m in Sources */,
 				D76AB90C1C07FDB2002B14C0 /* DaiDodgeKeyboard+Animation.m in Sources */,
 				D77574EE1C0EC7D800D26828 /* RevordPasswordController.m in Sources */,
@@ -1795,7 +1885,10 @@
 				D74353501C0C15EB004B89FE /* SystemNotifationCell.m in Sources */,
 				D743534E1C0C15EB004B89FE /* NotifationCell.m in Sources */,
 				841B2F231BE83DF8008C2974 /* LDLogger.m in Sources */,
+				D79B9AD21C1553E900D0FA3E /* CoolNavi.m in Sources */,
+				D79B9AB61C1521C500D0FA3E /* ContentView.m in Sources */,
 				D743539A1C0C3D0E004B89FE /* RemindSetController.m in Sources */,
+				D79B9ACE1C15324500D0FA3E /* NavigationViewController.m in Sources */,
 				D74353551C0C15F3004B89FE /* NotifationController.m in Sources */,
 				D74353361C0BD98E004B89FE /* QueueView.m in Sources */,
 				841B2F2C1BE83DF8008C2974 /* Globals.m in Sources */,
@@ -1810,6 +1903,7 @@
 				D76AB9311C07FF4C002B14C0 /* NearCell.m in Sources */,
 				D76AB9691C08017C002B14C0 /* EGOQuickPhotoSource.m in Sources */,
 				D76AB9711C08017C002B14C0 /* EGOPhotoImageView.m in Sources */,
+				D79B9ABD1C15222900D0FA3E /* NearController.m in Sources */,
 				D76AB90E1C07FDB2002B14C0 /* DaiDodgeKeyboardObjects.m in Sources */,
 				84C0737E1BE1AAAB00822E4B /* LoginByPhoneAPIManager.m in Sources */,
 				D76AB9651C08017C002B14C0 /* EGOImageView.m in Sources */,
@@ -1817,6 +1911,7 @@
 				841B2F3C1BE8B0B0008C2974 /* MainController.m in Sources */,
 				841B2F141BE83DF8008C2974 /* LDSignatureGenerator.m in Sources */,
 				D76AB9641C08017C002B14C0 /* EGOImageLoader.m in Sources */,
+				D79B9AC01C15224200D0FA3E /* RemindController.m in Sources */,
 				8420C9DA1BE9CD6400F09EB2 /* IndexController.m in Sources */,
 				841B2F2B1BE83DF8008C2974 /* LDServiceLightDiary.m in Sources */,
 				841B2F2F1BE83DF8008C2974 /* ViewTransitionManager.m in Sources */,
@@ -1836,6 +1931,7 @@
 				840D5F611BED7DF200B887AC /* TrackTable.m in Sources */,
 				D743534D1C0C15EB004B89FE /* MessageCell.m in Sources */,
 				D76AB90D1C07FDB2002B14C0 /* DaiDodgeKeyboard.m in Sources */,
+				D79B9AB71C1521C500D0FA3E /* SegmentView.m in Sources */,
 				D743532B1C0BD4AF004B89FE /* FriendCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1932,6 +2028,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/AMap3DMap",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Diary/Diary-Prefix.pch";
 				INFOPLIST_FILE = Diary/Info.plist;
@@ -1949,6 +2049,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/AMap3DMap",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Diary/Diary-Prefix.pch";
 				INFOPLIST_FILE = Diary/Info.plist;

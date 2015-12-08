@@ -49,10 +49,10 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _tableView.backgroundColor = BGViewColor;
     _tableView.emptyDataSetSource = self;
     _tableView.emptyDataSetDelegate = self;
     _tableView.showsVerticalScrollIndicator = NO;
-    _tableView.fd_debugLogEnabled = YES;
     if (_barView.selectedIndex == 0) {
         [_tableView registerClass:[CommentCell class] forCellReuseIdentifier:@"commentCellIdentifier"];
     }
@@ -80,7 +80,8 @@
     
     switch (_barView.selectedIndex) {
         case 0:
-            return 3;
+            
+            return 5;
             break;
             
         default:
@@ -94,11 +95,9 @@
     
     switch (_barView.selectedIndex) {
         case 0:
-//            return 93.5;
         {
-         return [_tableView fd_heightForCellWithIdentifier:@"commentCellIdentifier" cacheByIndexPath:indexPath configuration:^(id cell) {
-             [self configur:cell];
-         }];
+            
+            return [_tableView fd_heightForCellWithIdentifier:@"commentCellIdentifier" cacheByIndexPath:indexPath configuration:nil];
         
         }
             break;
@@ -114,19 +113,8 @@
     
     switch (_barView.selectedIndex) {
         case 0:{
-            
-//            static NSString *commentCellIdentifier = @"commentCellIdentifier";
-//            CommentCell *commentCell = [tableView dequeueReusableCellWithIdentifier:commentCellIdentifier];
-//            if (!commentCell) {
-//                commentCell = [[CommentCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:commentCellIdentifier];
-//                commentCell.backgroundColor  = BGViewColor;
-//                commentCell.selectionStyle = UITableViewCellSelectionStyleNone;
-//            }
-//            return commentCell;
-            CommentCell *commentCell = [tableView dequeueReusableCellWithIdentifier:@"commentCellIdentifier"];
-            commentCell = [[CommentCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"commentCellIdentifier"];
-            commentCell.selectionStyle = UITableViewCellSelectionStyleNone;
-            [self configur:commentCell];
+
+            CommentCell *commentCell = [tableView dequeueReusableCellWithIdentifier:@"commentCellIdentifier" forIndexPath:indexPath];
             return commentCell;
             
         }
@@ -149,11 +137,6 @@
     
 
 }
-
-- (void)configur:(CommentCell *)cell{
-    cell.fd_enforceFrameLayout = NO;
-}
-
 
 - (NSString*)tableView:(UITableView*)tableView
 titleForHeaderInSection:(NSInteger)section;

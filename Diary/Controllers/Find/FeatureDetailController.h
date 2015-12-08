@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+
+static NSString * const FeatureDetailHeadCellIdentifier = @"FeatureDetailHeadCellIdentifier";
+static NSString * const FeatureCommentCellIdentifier = @"FeatureCommentCellIdentifier";
 @interface FeatureDetailController : UIViewController
 
 @end

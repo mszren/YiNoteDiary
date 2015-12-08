@@ -14,6 +14,7 @@
 #import "Masonry.h"
 #import "QueueView.h"
 #import "IdentifyController.h"
+#import "UIImage+ImageEffects.h"
 
 @interface TrailController () <MAMapViewDelegate>
 
@@ -121,6 +122,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
 }
 
 @end
