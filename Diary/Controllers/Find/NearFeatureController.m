@@ -25,7 +25,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     [self initView];
 }
 
@@ -41,7 +40,7 @@
     _mapView.showsCompass = NO;//指南针
     _mapView.showsScale = NO;//比例尺
     _mapView.layer.shouldRasterize = YES;
-     [_mapView setZoomLevel:13 animated:YES];
+     [_mapView setZoomLevel:11 animated:YES];
     
     //初始中心点
     CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(31.818884, 117.221945);

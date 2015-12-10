@@ -102,9 +102,11 @@
 		D74353A31C0C3D0E004B89FE /* SexSelectController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D74353951C0C3D0E004B89FE /* SexSelectController.xib */; };
 		D74353A41C0C3D0E004B89FE /* SignController.m in Sources */ = {isa = PBXBuildFile; fileRef = D74353971C0C3D0E004B89FE /* SignController.m */; };
 		D74353A81C0C3D2D004B89FE /* MyController.m in Sources */ = {isa = PBXBuildFile; fileRef = D74353A61C0C3D2D004B89FE /* MyController.m */; };
+		D74D31761C1800EA00AC7DA4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D74D31751C1800EA00AC7DA4 /* CoreData.framework */; };
 		D75765C31C1672CD005FDD93 /* FeatureCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D75765C21C1672CD005FDD93 /* FeatureCommentCell.m */; };
 		D75765C71C16B892005FDD93 /* CusAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = D75765C61C16B892005FDD93 /* CusAnnotationView.m */; };
 		D75765CA1C16B926005FDD93 /* CustomCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = D75765C91C16B926005FDD93 /* CustomCalloutView.m */; };
+		D757660D1C16DA56005FDD93 /* arrowTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = D757660C1C16DA56005FDD93 /* arrowTexture.png */; };
 		D76AB8C41C07FB0A002B14C0 /* AgeController.m in Sources */ = {isa = PBXBuildFile; fileRef = D76AB8C11C07FB0A002B14C0 /* AgeController.m */; };
 		D76AB8C51C07FB0A002B14C0 /* AgeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D76AB8C21C07FB0A002B14C0 /* AgeController.xib */; };
 		D76AB8E71C07FD99002B14C0 /* ic_activitiesnearby@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D76AB8CA1C07FD99002B14C0 /* ic_activitiesnearby@3x.png */; };
@@ -411,12 +413,14 @@
 		D74353971C0C3D0E004B89FE /* SignController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignController.m; path = Controllers/My/SignController.m; sourceTree = "<group>"; };
 		D74353A51C0C3D2D004B89FE /* MyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyController.h; path = Controllers/My/MyController.h; sourceTree = "<group>"; };
 		D74353A61C0C3D2D004B89FE /* MyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyController.m; path = Controllers/My/MyController.m; sourceTree = "<group>"; };
+		D74D31751C1800EA00AC7DA4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D75765C11C1672CD005FDD93 /* FeatureCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeatureCommentCell.h; sourceTree = "<group>"; };
 		D75765C21C1672CD005FDD93 /* FeatureCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeatureCommentCell.m; sourceTree = "<group>"; };
 		D75765C51C16B892005FDD93 /* CusAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CusAnnotationView.h; sourceTree = "<group>"; };
 		D75765C61C16B892005FDD93 /* CusAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CusAnnotationView.m; sourceTree = "<group>"; };
 		D75765C81C16B926005FDD93 /* CustomCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCalloutView.h; sourceTree = "<group>"; };
 		D75765C91C16B926005FDD93 /* CustomCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCalloutView.m; sourceTree = "<group>"; };
+		D757660C1C16DA56005FDD93 /* arrowTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowTexture.png; sourceTree = "<group>"; };
 		D76AB8C01C07FB0A002B14C0 /* AgeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AgeController.h; path = Controllers/My/AgeController.h; sourceTree = "<group>"; };
 		D76AB8C11C07FB0A002B14C0 /* AgeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AgeController.m; path = Controllers/My/AgeController.m; sourceTree = "<group>"; };
 		D76AB8C21C07FB0A002B14C0 /* AgeController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AgeController.xib; path = Controllers/My/AgeController.xib; sourceTree = "<group>"; };
@@ -609,6 +613,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D74D31761C1800EA00AC7DA4 /* CoreData.framework in Frameworks */,
 				D7AE8E121C1191DA00693FA3 /* MAMapKit.framework in Frameworks */,
 				D7C3E1F21C084DF1009CE15D /* libc++.tbd in Frameworks */,
 				D7C3E1F01C084DD9009CE15D /* Security.framework in Frameworks */,
@@ -632,6 +637,7 @@
 		2DAE23E1F9A949483082CAEB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D74D31751C1800EA00AC7DA4 /* CoreData.framework */,
 				D7AE8E111C1191DA00693FA3 /* MAMapKit.framework */,
 				D7C3E1F11C084DF1009CE15D /* libc++.tbd */,
 				D7C3E1EF1C084DD9009CE15D /* Security.framework */,
@@ -1289,6 +1295,7 @@
 				D76AB8CB1C07FD99002B14C0 /* ic_arrow@3x.png */,
 				D76AB8CC1C07FD99002B14C0 /* ic_nearbyattractions@3x.png */,
 				D76AB8CD1C07FD99002B14C0 /* ic_nearphotos@3x.png */,
+				D757660C1C16DA56005FDD93 /* arrowTexture.png */,
 				D76AB8CE1C07FD99002B14C0 /* ic_peoplenearby@3x.png */,
 			);
 			path = find;
@@ -1748,6 +1755,7 @@
 				D74353A31C0C3D0E004B89FE /* SexSelectController.xib in Resources */,
 				D76AB8E81C07FD99002B14C0 /* ic_arrow@3x.png in Resources */,
 				D76AB9791C080CCA002B14C0 /* ic_browse@3x.png in Resources */,
+				D757660D1C16DA56005FDD93 /* arrowTexture.png in Resources */,
 				D76AB8EB1C07FD99002B14C0 /* ic_peoplenearby@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -15,11 +15,15 @@
 @end
 
 @implementation FindController
+{
+    NSManagedObjectContext *_managedObjectContext;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self initView];
+ 
 }
 
 - (void)initView{

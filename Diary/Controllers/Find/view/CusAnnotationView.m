@@ -12,13 +12,13 @@
 
 
 
-#define kWidth  86.f
+#define kWidth  106.f
 #define kHeight 86.f
 
-#define KBackgroundViewWidth 66.f
+#define KBackgroundViewWidth 86.f
 #define KBackgroundViewHeight 66.f
 
-#define kPortraitWidth  60.f
+#define kPortraitWidth  80.f
 #define kPortraitHeight 60.f
 
 #define KCountBtnWidth 20.f
