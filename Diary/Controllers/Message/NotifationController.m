@@ -9,6 +9,7 @@
 #import "NotifationController.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import "SystemNotifationCell.h"
+#import "BaseNavigation.h"
 
 @interface NotifationController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource>
 
@@ -21,12 +22,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [BaseNavigation setGreenNavigationBar:self andTitle:@"系统通知"];
     [self initView];
 }
 
 - (void)initView{
     
-    self.title = @"系统通知";
     _tableView = [[UITableView alloc]
                   initWithFrame:CGRectMake(0, 0, Screen_Width,
                                            Screen_height  )

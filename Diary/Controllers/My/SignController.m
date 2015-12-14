@@ -8,6 +8,7 @@
 
 #import "SignController.h"
 #import "Masonry.h"
+#import "BaseNavigation.h"
 
 @interface SignController () <UITextViewDelegate>
 @property (nonatomic,strong)UITextView *signText;
@@ -20,11 +21,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+     [BaseNavigation setGreenNavigationBar:self andTitle:@"个性签名"];
     [self initView];
 }
 
 - (void)initView{
-    self.title = @"个性签名";
+
     self.view.backgroundColor = BGViewGray;
     self.edgesForExtendedLayout = UIRectEdgeNone;
     [self.view addSubview:self.signText];

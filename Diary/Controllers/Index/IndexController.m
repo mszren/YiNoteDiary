@@ -13,6 +13,7 @@
 #import "RemindController.h"
 #import "SegmentView.h"
 #import "ContentView.h"
+#import "BaseNavigation.h"
 
 @interface IndexController() <SegmentDelegate>
 
@@ -25,13 +26,13 @@
 @implementation IndexController{
     
     UITableView* _tableView;
-    
     UIBarButtonItem* _rightButton;
     
 }
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    [BaseNavigation setGreenNavigationBar:self];
     [self initView];
 }
 
@@ -39,7 +40,6 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     NSArray *captions = @[@"动态", @"附近",@"推荐"];
     _barView = [[SegmentView alloc] initWithFrame:CGRectMake(0, 0, TabBarWidth, TabBarHeigh) andItems:captions];
-    _barView.backgroundColor = BGViewColor;
     _barView.clickDelegate = self;
     self.navigationItem.titleView = _barView;
     

@@ -40,9 +40,9 @@ PODS:
   - UzysAssetsPickerController+CacheSelect (1.0.0)
 
 DEPENDENCIES:
-  - AFNetworking
+  - AFNetworking (~> 2.6.3)
   - AMap3DMap (~> 3.2.1)
-  - AMapSearch
+  - AMapSearch (~> 3.1.0)
   - Aspects
   - CTPersistance
   - DZNEmptyDataSet

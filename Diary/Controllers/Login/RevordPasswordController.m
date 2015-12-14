@@ -10,6 +10,7 @@
 #import "Masonry.h"
 #import "Utils.h"
 #import "RevordPasswordSecondController.h"
+#import "BaseNavigation.h"
 
 @interface RevordPasswordController ()
 @property (nonatomic,strong)UIView *phoneView;
@@ -21,6 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+     [BaseNavigation setGreenNavigationBar:self andTitle:@"重置密码"];
     [self initView];
     [self.view addSubview:self.phoneView];
 }
@@ -46,7 +48,6 @@
 
 - (void)initView{
     
-    self.title = @"重置密码";
     self.view.backgroundColor = BGViewGray;
     
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithTitle:@"下一步" style:UIBarButtonItemStyleDone target:self action:@selector(onRightBtn:)];
@@ -77,7 +78,7 @@
     UIView *superView = self.view;
     [_phoneView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(superView.mas_left);
-        make.top.mas_equalTo(superView.mas_top).offset(104);
+        make.top.mas_equalTo(superView.mas_top).offset(40);
         make.width.mas_equalTo(superView.mas_width);
         make.height.mas_equalTo(@60);
     }];

@@ -10,6 +10,7 @@
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import "FriendCell.h"
 #import "AddFriendController.h"
+#import "BaseNavigation.h"
 
 @interface AdressBookController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,UISearchBarDelegate>
 
@@ -24,12 +25,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [BaseNavigation setGreenNavigationBar:self andTitle:@"好友列表"];
     [self initView];
 }
 
 - (void)initView{
-    
-    self.title = @"好友列表";
     
     _rightButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ic_more@3x"] style:UIBarButtonItemStylePlain target:self action:@selector(onRightItem:)];
     self.navigationItem.rightBarButtonItem = _rightButton;

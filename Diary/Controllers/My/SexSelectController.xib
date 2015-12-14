@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="27B-AC-B5W">
-                    <rect key="frame" x="0.0" y="64" width="384" height="60"/>
+                    <rect key="frame" x="0.0" y="0.0" width="384" height="60"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="男" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBG-Yl-FAa">
                             <rect key="frame" x="13" y="0.0" width="50" height="60"/>
@@ -59,7 +59,7 @@
                     </variation>
                 </view>
                 <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cho-Q7-nXk">
-                    <rect key="frame" x="0.0" y="125" width="384" height="60"/>
+                    <rect key="frame" x="0.0" y="61" width="384" height="60"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="女" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJM-nV-884">
                             <rect key="frame" x="13" y="0.0" width="50" height="60"/>
@@ -103,7 +103,7 @@
             <constraints>
                 <constraint firstItem="Cho-Q7-nXk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9rQ-B4-eEa"/>
                 <constraint firstItem="27B-AC-B5W" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="P5a-nV-ZfD"/>
-                <constraint firstItem="27B-AC-B5W" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="Phe-BC-1db"/>
+                <constraint firstItem="27B-AC-B5W" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Phe-BC-1db"/>
                 <constraint firstItem="Cho-Q7-nXk" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="Udk-Ud-Uio"/>
                 <constraint firstItem="Cho-Q7-nXk" firstAttribute="top" secondItem="27B-AC-B5W" secondAttribute="bottom" constant="1" id="yHD-dX-IvG"/>
                 <constraint firstItem="27B-AC-B5W" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="yiU-6S-zOb"/>

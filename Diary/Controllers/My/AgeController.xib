@@ -16,7 +16,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sXX-X5-GGk">
-                    <rect key="frame" x="0.0" y="74" width="421" height="60"/>
+                    <rect key="frame" x="0.0" y="10" width="421" height="60"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="年龄" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2aP-wd-Qdf">
                             <rect key="frame" x="13" y="0.0" width="50" height="60"/>
@@ -52,7 +52,7 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="输入您的出生日期，系统会自动计算出您的年龄，并且您的出生日期不会出现在个人资料里" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUG-Mr-qVU">
-                    <rect key="frame" x="20" y="134" width="381" height="50"/>
+                    <rect key="frame" x="20" y="70" width="381" height="50"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="bm2-6p-FFt"/>
@@ -67,7 +67,7 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="eUG-Mr-qVU" secondAttribute="trailing" constant="20" id="3cT-B5-140"/>
                 <constraint firstItem="eUG-Mr-qVU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="4Ky-D9-CjJ"/>
-                <constraint firstItem="sXX-X5-GGk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="74" id="QNc-VD-7oZ"/>
+                <constraint firstItem="sXX-X5-GGk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="QNc-VD-7oZ"/>
                 <constraint firstItem="sXX-X5-GGk" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="fqy-tW-zlV"/>
                 <constraint firstItem="eUG-Mr-qVU" firstAttribute="top" secondItem="sXX-X5-GGk" secondAttribute="bottom" id="kFh-hL-1XV"/>
                 <constraint firstItem="sXX-X5-GGk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uAv-dG-vME"/>

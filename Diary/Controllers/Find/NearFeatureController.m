@@ -11,6 +11,7 @@
 #import <AMapSearchKit/AMapSearchAPI.h>
 #import <AMapSearchKit/AMapSearchServices.h>
 #import "FeatureListController.h"
+#import "BaseNavigation.h"
 
 @interface NearFeatureController () <MAMapViewDelegate>
 
@@ -29,7 +30,7 @@
 }
 
 - (void)initView{
-    self.title = @"附近景点";
+    
     _rightButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ic_more@3x"] style:UIBarButtonItemStylePlain target:self action:@selector(onRightItem:)];
     self.navigationItem.rightBarButtonItem = _rightButton;
     
@@ -55,6 +56,11 @@
     FeatureListController *listVc = [FeatureListController new];
     listVc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:listVc animated:YES];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [BaseNavigation setGreenNavigationBar:self andTitle:@"附近景点"];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -18,7 +18,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Xb-6q-T3Y">
-                    <rect key="frame" x="0.0" y="84" width="404" height="60"/>
+                    <rect key="frame" x="0.0" y="20" width="404" height="60"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="接收新消息提醒" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSO-il-swk">
                             <rect key="frame" x="13" y="0.0" width="150" height="60"/>
@@ -50,7 +50,7 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提醒方式" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJr-Xn-gYO">
-                    <rect key="frame" x="13" y="154" width="100" height="40"/>
+                    <rect key="frame" x="13" y="90" width="100" height="40"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="Bt5-bV-UEA"/>
@@ -61,7 +61,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MAf-Ql-Gfh">
-                    <rect key="frame" x="0.0" y="194" width="404" height="60"/>
+                    <rect key="frame" x="0.0" y="130" width="404" height="60"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="声音" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUH-eG-wkH">
                             <rect key="frame" x="13" y="0.0" width="100" height="60"/>
@@ -93,7 +93,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sPk-Fa-cAh">
-                    <rect key="frame" x="0.0" y="255" width="404" height="60"/>
+                    <rect key="frame" x="0.0" y="191" width="404" height="60"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="震动" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmu-TJ-ZRN">
                             <rect key="frame" x="13" y="0.0" width="100" height="60"/>
@@ -134,7 +134,7 @@
                 <constraint firstItem="MAf-Ql-Gfh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Lsv-b5-9xa"/>
                 <constraint firstItem="MAf-Ql-Gfh" firstAttribute="top" secondItem="NJr-Xn-gYO" secondAttribute="bottom" id="P6d-zi-UBz"/>
                 <constraint firstItem="3Xb-6q-T3Y" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="Pbl-0k-Ldl"/>
-                <constraint firstItem="3Xb-6q-T3Y" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="84" id="V2x-mc-47U"/>
+                <constraint firstItem="3Xb-6q-T3Y" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="V2x-mc-47U"/>
                 <constraint firstItem="sPk-Fa-cAh" firstAttribute="top" secondItem="MAf-Ql-Gfh" secondAttribute="bottom" constant="1" id="VXl-Dk-mZ2"/>
                 <constraint firstItem="3Xb-6q-T3Y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="eE1-MZ-Qgi"/>
                 <constraint firstItem="NJr-Xn-gYO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="13" id="gbf-6U-BXc"/>

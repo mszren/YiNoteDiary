@@ -43,9 +43,10 @@
         for (int i = 0; i < captions.count; i++) {
             UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
             btn.backgroundColor = [UIColor clearColor];
-            btn.titleLabel.font = [UIFont systemFontOfSize:kButtonNormalSize];
-            [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-            [btn setTitleColor:[UIColor greenColor] forState:UIControlStateSelected];
+//            btn.titleLabel.font = [UIFont systemFontOfSize:kButtonNormalSize];
+            btn.titleLabel.font = BOLDFont_SIZE_19;
+            [btn setTitleColor:BGViewColor forState:UIControlStateNormal];
+//            [btn setTitleColor:[UIColor greenColor] forState:UIControlStateSelected];
             [btn addTarget:self action:@selector(segmentClickAction:) forControlEvents:UIControlEventTouchUpInside];
             
             NSString *caption = [captions objectAtIndex:i];
@@ -66,8 +67,8 @@
         self.showsHorizontalScrollIndicator = NO;
         
         CGRect rc = [self viewWithTag:_currentIndex + kButtonTagStart].frame;
-        _lineView = [[UIView alloc] initWithFrame:CGRectMake(rc.origin.x - 2, self.frame.size.height - 2, rc.size.width+4, 2)];
-        _lineView.backgroundColor = [UIColor greenColor];
+        _lineView = [[UIView alloc] initWithFrame:CGRectMake(rc.origin.x - 2, self.frame.size.height - 3, rc.size.width+4, 3)];
+        _lineView.backgroundColor = BGViewLightGreen;
         [self addSubview:_lineView];
     }
     return self;
@@ -88,12 +89,14 @@
         UIButton *currentBtn = [_segmentArray objectAtIndex:_currentIndex];
         UIButton *lastBtn = [_segmentArray objectAtIndex:_lastIndex];
         currentBtn.selected = YES;
-        currentBtn.titleLabel.font = [UIFont systemFontOfSize:kButtonSelectSize];
+//        currentBtn.titleLabel.font = [UIFont systemFontOfSize:kButtonSelectSize];
+        currentBtn.titleLabel.font = BOLDFont_SIZE_19;
         lastBtn.selected = NO;
-        lastBtn.titleLabel.font = [UIFont systemFontOfSize:kButtonNormalSize];
+//        lastBtn.titleLabel.font = [UIFont systemFontOfSize:kButtonNormalSize];
+        lastBtn.titleLabel.font = BOLDFont_SIZE_19;
         
         CGRect lineRC = [self viewWithTag:currentBtn.tag].frame;
-        _lineView.frame = CGRectMake(lineRC.origin.x-3, self.frame.size.height - 2, lineRC.size.width + 4, 2);
+        _lineView.frame = CGRectMake(lineRC.origin.x-3, self.frame.size.height - 3, lineRC.size.width + 4, 3);
         if (lineRC.origin.x - self.contentOffset.x > self.frame.size.width * 2 / 3 ) {
             NSInteger index = _currentIndex;
             if (index + 2 < [_segmentArray count]) {

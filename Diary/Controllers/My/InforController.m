@@ -7,6 +7,7 @@
 //
 
 #import "InforController.h"
+#import "BaseNavigation.h"
 
 @interface InfoController ()
 
@@ -16,12 +17,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [BaseNavigation setGreenNavigationBar:self andTitle:@"关于我们"];
     [self initView];
 }
 
 - (void)initView{
     self.view.backgroundColor = BGViewColor;
-    self.title = @"关于我们";
 }
 
 - (void)didReceiveMemoryWarning {

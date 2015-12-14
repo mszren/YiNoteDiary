@@ -8,6 +8,7 @@
 
 #import "SafeController.h"
 #import "SafeView.h"
+#import "BaseNavigation.h"
 
 @interface SafeController () <SafeViewDelegate>
 
@@ -17,11 +18,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+     [BaseNavigation setGreenNavigationBar:self andTitle:@"账户安全"];
     [self initView];
 }
 
 - (void)initView{
-    self.title = @"账户安全";
+
     UITapGestureRecognizer *editTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onTap:)];
     [self.editView addGestureRecognizer:editTap];
 }

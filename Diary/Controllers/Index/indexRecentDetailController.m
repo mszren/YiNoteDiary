@@ -15,6 +15,7 @@
 #import "IndexCommentView.h"
 #import "CommentView.h"
 #import "UITableView+FDTemplateLayoutCell.h"
+#import "BaseNavigation.h"
 
 @interface indexRecentDetailController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,SegmentBarViewDelegate,CommentViewDelegate>
 
@@ -29,12 +30,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+     [BaseNavigation setGreenNavigationBar:self andTitle:@"详情"];
     [self initView];
 }
 
 - (void)initView{
     
-    self.title = @"详情";
     _detailHeadView = [[IndexDetailHeadView alloc]init];
     _barView = [[SegmentBarView alloc]
                 initWithFrame:CGRectMake(0, 0, Screen_Width, 40)
@@ -221,6 +222,10 @@ estimatedHeightForHeaderInSection:(NSInteger)section
         default:
             break;
     }
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning {

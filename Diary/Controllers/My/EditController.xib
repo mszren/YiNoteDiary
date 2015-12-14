@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ypU-5o-sDS">
-                    <rect key="frame" x="0.0" y="84" width="379" height="60"/>
+                    <rect key="frame" x="0.0" y="20" width="379" height="60"/>
                     <subviews>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入昵称" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xFH-kf-4aq">
                             <rect key="frame" x="13" y="0.0" width="316" height="60"/>
@@ -51,7 +51,7 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="好的昵称能让朋友们更容易记住你" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tab-z6-LZv">
-                    <rect key="frame" x="20" y="144" width="359" height="40"/>
+                    <rect key="frame" x="20" y="80" width="359" height="40"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="rhc-9D-dAC"/>
@@ -64,7 +64,7 @@
             <animations/>
             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="ypU-5o-sDS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="84" id="00p-XN-Gq8"/>
+                <constraint firstItem="ypU-5o-sDS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="00p-XN-Gq8"/>
                 <constraint firstItem="ypU-5o-sDS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="7Vu-0j-xcq"/>
                 <constraint firstItem="ypU-5o-sDS" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="Eac-8o-T1C"/>
                 <constraint firstAttribute="trailing" secondItem="Tab-z6-LZv" secondAttribute="trailing" id="Mvd-al-agE"/>

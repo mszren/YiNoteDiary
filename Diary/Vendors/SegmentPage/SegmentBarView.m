@@ -53,7 +53,7 @@
             [button setTitle:title forState:UIControlStateNormal];
             
             if (i==0) {
-                [button setTitleColor: [UIColor greenColor] forState:UIControlStateNormal];
+                [button setTitleColor: BGViewGreen forState:UIControlStateNormal];
                 currentBtn=button;
             }
             else
@@ -75,8 +75,8 @@
         
         
         CGRect rc  = [self viewWithTag:selectedIndex+kButtonTagStart].frame;
-        lineView = [[UIView alloc]initWithFrame:CGRectMake(rc.origin.x, self.frame.size.height - 2, rc.size.width, 2)];
-        lineView.backgroundColor = [UIColor greenColor];
+        lineView = [[UIView alloc]initWithFrame:CGRectMake(rc.origin.x, self.frame.size.height - 3, rc.size.width, 3)];
+        lineView.backgroundColor = BGViewGreen;
         [self addSubview:lineView];
     }
     return self;
@@ -90,7 +90,7 @@
     UIButton *btn = (UIButton*)sender;
     if (currentBtn) {
         [currentBtn setTitleColor:RGBCOLOR(122,122,122) forState:UIControlStateNormal];
-        [btn setTitleColor: [UIColor greenColor] forState:UIControlStateNormal];
+        [btn setTitleColor: BGViewGreen forState:UIControlStateNormal];
         currentBtn=btn;
     }
 
@@ -111,7 +111,7 @@
     
         if (currentBtn) {
             [currentBtn setTitleColor:RGBCOLOR(122,122,122) forState:UIControlStateNormal];
-            [btn setTitleColor: [UIColor greenColor] forState:UIControlStateNormal];
+            [btn setTitleColor: BGViewGreen forState:UIControlStateNormal];
             currentBtn=btn;
         }
         
@@ -130,7 +130,7 @@
         [UIView beginAnimations:@"" context:nil];
         [UIView setAnimationDuration:0.2];
         CGRect lineRC  = [self viewWithTag:selectedIndex+kButtonTagStart].frame;
-        lineView.frame = CGRectMake(lineRC.origin.x, self.frame.size.height - 2, lineRC.size.width, 2);
+        lineView.frame = CGRectMake(lineRC.origin.x, self.frame.size.height - 3, lineRC.size.width, 3);
         [UIView commitAnimations];
         
         if (clickDelegate != nil && [clickDelegate respondsToSelector:@selector(barSelectedIndexChanged:)])
@@ -168,9 +168,7 @@
             [self scrollRectToVisible:rc animated:YES];
         }
         
-        
     }
-
 }
 
 -(void)setLineOffsetWithPage:(float)page andRatio:(float)ratio
@@ -194,7 +192,7 @@
     float x = lineRC.origin.x + (lineRC2.origin.x - lineRC.origin.x)*ratio;
     
     
-    lineView.frame = CGRectMake(x,  self.frame.size.height - 2,width,   2);
+    lineView.frame = CGRectMake(x,  self.frame.size.height - 3,width,   3);
     
     
     

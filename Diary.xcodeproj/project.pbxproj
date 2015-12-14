@@ -103,6 +103,7 @@
 		D74353A41C0C3D0E004B89FE /* SignController.m in Sources */ = {isa = PBXBuildFile; fileRef = D74353971C0C3D0E004B89FE /* SignController.m */; };
 		D74353A81C0C3D2D004B89FE /* MyController.m in Sources */ = {isa = PBXBuildFile; fileRef = D74353A61C0C3D2D004B89FE /* MyController.m */; };
 		D74D31761C1800EA00AC7DA4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D74D31751C1800EA00AC7DA4 /* CoreData.framework */; };
+		D750251E1C1E9BD900C0AB99 /* BaseNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = D750251D1C1E9BD900C0AB99 /* BaseNavigation.m */; };
 		D75765C31C1672CD005FDD93 /* FeatureCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D75765C21C1672CD005FDD93 /* FeatureCommentCell.m */; };
 		D75765C71C16B892005FDD93 /* CusAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = D75765C61C16B892005FDD93 /* CusAnnotationView.m */; };
 		D75765CA1C16B926005FDD93 /* CustomCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = D75765C91C16B926005FDD93 /* CustomCalloutView.m */; };
@@ -414,6 +415,8 @@
 		D74353A51C0C3D2D004B89FE /* MyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyController.h; path = Controllers/My/MyController.h; sourceTree = "<group>"; };
 		D74353A61C0C3D2D004B89FE /* MyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyController.m; path = Controllers/My/MyController.m; sourceTree = "<group>"; };
 		D74D31751C1800EA00AC7DA4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D750251C1C1E9BD900C0AB99 /* BaseNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigation.h; sourceTree = "<group>"; };
+		D750251D1C1E9BD900C0AB99 /* BaseNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigation.m; sourceTree = "<group>"; };
 		D75765C11C1672CD005FDD93 /* FeatureCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeatureCommentCell.h; sourceTree = "<group>"; };
 		D75765C21C1672CD005FDD93 /* FeatureCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeatureCommentCell.m; sourceTree = "<group>"; };
 		D75765C51C16B892005FDD93 /* CusAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CusAnnotationView.h; sourceTree = "<group>"; };
@@ -1588,6 +1591,8 @@
 		D77574D21C0E98E000D26828 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				D750251C1C1E9BD900C0AB99 /* BaseNavigation.h */,
+				D750251D1C1E9BD900C0AB99 /* BaseNavigation.m */,
 				D77574D31C0E98E000D26828 /* Utils.h */,
 				D77574D41C0E98E000D26828 /* Utils.m */,
 			);
@@ -1893,6 +1898,7 @@
 				841B2F221BE83DF8008C2974 /* LDURLResponse.m in Sources */,
 				D7A908821C0FD94E00DA0713 /* PraiseCell.m in Sources */,
 				D76AB92E1C07FF4C002B14C0 /* AlbumEnjoyCell.m in Sources */,
+				D750251E1C1E9BD900C0AB99 /* BaseNavigation.m in Sources */,
 				D74353A21C0C3D0E004B89FE /* SexSelectController.m in Sources */,
 				D743535F1C0C1E8B004B89FE /* AddFriendController.m in Sources */,
 				841B2F1A1BE83DF8008C2974 /* NSString+LDNetworkingMethods.m in Sources */,

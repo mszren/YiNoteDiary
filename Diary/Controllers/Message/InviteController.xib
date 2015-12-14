@@ -20,11 +20,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="466" height="637"/>
+            <rect key="frame" x="0.0" y="0.0" width="466" height="675"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W6W-bE-BMW">
-                    <rect key="frame" x="0.0" y="0.0" width="466" height="637"/>
+                    <rect key="frame" x="0.0" y="0.0" width="466" height="675"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分享#XXXXX#" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0i-lI-f6B">
                             <rect key="frame" x="140" y="35" width="200" height="30"/>
@@ -389,6 +389,7 @@
                         <constraint firstItem="aeN-R6-Coh" firstAttribute="width" secondItem="W6W-bE-BMW" secondAttribute="width" id="xpc-JV-NQG"/>
                         <constraint firstItem="GaQ-G6-gTd" firstAttribute="width" secondItem="W6W-bE-BMW" secondAttribute="width" id="yc4-jf-SgP"/>
                     </constraints>
+                    <inset key="scrollIndicatorInsets" minX="0.0" minY="60" maxX="0.0" maxY="0.0"/>
                 </scrollView>
             </subviews>
             <animations/>
@@ -397,6 +398,7 @@
                 <constraint firstItem="W6W-bE-BMW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0IX-8q-zBK"/>
                 <constraint firstItem="W6W-bE-BMW" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="1LU-Vg-Qzl"/>
                 <constraint firstAttribute="bottom" secondItem="W6W-bE-BMW" secondAttribute="bottom" id="6Th-9D-BcV"/>
+                <constraint firstItem="W6W-bE-BMW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="BPh-zh-EB4"/>
                 <constraint firstItem="W6W-bE-BMW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="CED-3c-UWi"/>
                 <constraint firstAttribute="bottom" secondItem="W6W-bE-BMW" secondAttribute="bottom" id="Dcp-8x-Nnc"/>
                 <constraint firstItem="W6W-bE-BMW" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="LJG-b1-UPK"/>
@@ -407,7 +409,7 @@
                     <exclude reference="6Th-9D-BcV"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="622" y="763.5"/>
+            <point key="canvasLocation" x="680" y="160.5"/>
         </view>
         <view contentMode="scaleToFill" id="FkP-kI-pvq">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>

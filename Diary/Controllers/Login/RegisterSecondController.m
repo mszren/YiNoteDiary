@@ -10,6 +10,7 @@
 #import "Masonry.h"
 #import "Utils.h"
 #import "RegisterThirdController.h"
+#import "BaseNavigation.h"
 
 @interface RegisterSecondController ()
 @property (nonatomic,strong)UIView *phoneView;
@@ -21,6 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [BaseNavigation setGreenNavigationBar:self andTitle:@"注册2/3"];
     [self initView];
     [self.view addSubview:self.phoneView];
 }
@@ -96,7 +98,6 @@
 
 - (void)initView{
     
-    self.title = @"注册2/3";
     self.view.backgroundColor = BGViewGray;
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithTitle:@"下一步" style:UIBarButtonItemStyleDone target:self action:@selector(onRightBtn:)];
     self.navigationItem.rightBarButtonItem = rightItem;

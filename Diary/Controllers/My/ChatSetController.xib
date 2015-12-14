@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ep7-Yz-dxM">
-                    <rect key="frame" x="0.0" y="64" width="371" height="60"/>
+                    <rect key="frame" x="0.0" y="0.0" width="371" height="60"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="听筒模式" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAh-VM-ZPP">
                             <rect key="frame" x="13" y="0.0" width="150" height="60"/>
@@ -50,7 +50,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NaL-iH-1Cs">
-                    <rect key="frame" x="0.0" y="144" width="371" height="60"/>
+                    <rect key="frame" x="0.0" y="80" width="371" height="60"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="清除所有聊天记录" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qVy-rW-X1i">
                             <rect key="frame" x="13" y="0.0" width="136" height="60"/>
@@ -91,10 +91,10 @@
                 <constraint firstItem="Ep7-Yz-dxM" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="Yg1-K7-LEB"/>
                 <constraint firstItem="Ep7-Yz-dxM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ZGu-tJ-bX6"/>
                 <constraint firstItem="NaL-iH-1Cs" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="Zsh-7W-abA"/>
-                <constraint firstItem="Ep7-Yz-dxM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="sd8-gn-VGW"/>
+                <constraint firstItem="Ep7-Yz-dxM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="sd8-gn-VGW"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="304.5" y="213"/>
+            <point key="canvasLocation" x="-98.5" y="182"/>
         </view>
     </objects>
     <resources>

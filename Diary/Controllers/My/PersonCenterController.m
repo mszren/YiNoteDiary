@@ -13,6 +13,7 @@
 #import "AgeController.h"
 #import "ProvinceController.h"
 #import "CodeController.h"
+#import "BaseNavigation.h"
 
 @interface PersonCenterController ()
 
@@ -22,11 +23,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+     [BaseNavigation setGreenNavigationBar:self andTitle:@"个人中心"];
     [self initView];
 }
 
 - (void)initView{
-    self.title = @"个人中心";
+   
     self.scrollView.contentSize = CGSizeMake(Screen_Width, self.outBtn.frame.size.height + self.outBtn.frame.origin.y + 10);
     
     self.faceView.userInteractionEnabled = YES;

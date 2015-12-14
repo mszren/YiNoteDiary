@@ -19,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0dl-fv-ed0">
-                    <rect key="frame" x="0.0" y="84" width="460" height="56"/>
+                    <rect key="frame" x="0.0" y="20" width="460" height="56"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_collect.png" translatesAutoresizingMaskIntoConstraints="NO" id="VwF-pd-hea">
                             <rect key="frame" x="13" y="13" width="30" height="30"/>
@@ -52,7 +52,7 @@
                     </constraints>
                 </view>
                 <view tag="101" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lu9-lH-boN">
-                    <rect key="frame" x="0.0" y="180" width="460" height="56"/>
+                    <rect key="frame" x="0.0" y="116" width="460" height="56"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_sweep the.png" translatesAutoresizingMaskIntoConstraints="NO" id="9Rv-cl-TP7">
                             <rect key="frame" x="13" y="13" width="30" height="30"/>
@@ -85,7 +85,7 @@
                     </constraints>
                 </view>
                 <view tag="102" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bi4-ln-Yom">
-                    <rect key="frame" x="0.0" y="256" width="460" height="56"/>
+                    <rect key="frame" x="0.0" y="192" width="460" height="56"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_albums.png" translatesAutoresizingMaskIntoConstraints="NO" id="dvL-nV-FG6">
                             <rect key="frame" x="13" y="13" width="30" height="30"/>
@@ -118,7 +118,7 @@
                     </constraints>
                 </view>
                 <view tag="103" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TEn-QD-Evo">
-                    <rect key="frame" x="0.0" y="332" width="460" height="56"/>
+                    <rect key="frame" x="0.0" y="268" width="460" height="56"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_locus.png" translatesAutoresizingMaskIntoConstraints="NO" id="bKB-Uq-bEe">
                             <rect key="frame" x="13" y="13" width="30" height="30"/>
@@ -163,7 +163,7 @@
                 <constraint firstItem="lu9-lH-boN" firstAttribute="top" secondItem="0dl-fv-ed0" secondAttribute="bottom" constant="40" id="fWs-bk-Aue"/>
                 <constraint firstItem="TEn-QD-Evo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hCn-b5-kjN"/>
                 <constraint firstItem="0dl-fv-ed0" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="idM-0x-zFG"/>
-                <constraint firstItem="0dl-fv-ed0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="84" id="syk-Yg-luf"/>
+                <constraint firstItem="0dl-fv-ed0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="syk-Yg-luf"/>
                 <constraint firstItem="TEn-QD-Evo" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="tST-zG-8aI"/>
                 <constraint firstItem="lu9-lH-boN" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="u94-8F-gu3"/>
             </constraints>

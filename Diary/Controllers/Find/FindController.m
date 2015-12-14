@@ -9,6 +9,7 @@
 #import "FindController.h"
 #import "NearPersonController.h"
 #import "NearFeatureController.h"
+#import "BaseNavigation.h"
 
 @interface FindController ()
 
@@ -21,13 +22,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [BaseNavigation setGreenNavigationBar:self andTitle:@"发现"];
+    
     [self initView];
- 
 }
 
 - (void)initView{
-    self.title = @"发现";
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     self.view.backgroundColor = COLOR_GRAY_DEFAULT_240;
     
     self.nearPersonLabel.textColor = COLOR_GRAY_DEFAULT_153;
@@ -79,15 +80,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

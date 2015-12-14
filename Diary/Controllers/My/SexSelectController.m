@@ -7,6 +7,7 @@
 //
 
 #import "SexSelectController.h"
+#import "BaseNavigation.h"
 
 @interface SexSelectController ()
 
@@ -16,11 +17,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+     [BaseNavigation setGreenNavigationBar:self andTitle:@"性别"];
     [self initView];
 }
 
 - (void)initView{
-    self.title = @"性别";
+    
 }
 
 - (void)didReceiveMemoryWarning {

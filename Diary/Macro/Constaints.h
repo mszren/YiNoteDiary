@@ -30,6 +30,8 @@ alpha:(a)]
 //背景
 #define BGViewColor RGBCOLOR(255, 255, 255)
 #define BGViewGray RGBCOLOR(242, 242, 242)
+#define BGViewGreen RGBCOLOR(135, 213, 27)
+#define BGViewLightGreen RGBCOLOR(34, 139, 34)
 #define COLOR_GRAY_DEFAULT_185 RGBACOLOR(185, 185, 185, 1)
 #define COLOR_GRAY_DEFAULT_30 RGBACOLOR(30, 30, 30, 1)
 
@@ -49,6 +51,7 @@ alpha:(a)]
 //Font
 #define FONT_NAME @"Helvetica"
 #define FONT_SIZE(s) [UIFont fontWithName:FONT_NAME size:s]
+#define BOLDFont_SIZE(s) [UIFont boldSystemFontOfSize:s]
 
 #define FONT_SIZE_11 FONT_SIZE(11)
 #define FONT_SIZE_12 FONT_SIZE(12)
@@ -60,6 +63,8 @@ alpha:(a)]
 #define FONT_SIZE_18 FONT_SIZE(18)
 #define FONT_SIZE_19 FONT_SIZE(19)
 #define FONT_SIZE_20 FONT_SIZE(20)
+
+#define BOLDFont_SIZE_19  BOLDFont_SIZE(19)
 
 #define Screen_Width [UIScreen mainScreen].bounds.size.width
 #define Screen_height [UIScreen mainScreen].bounds.size.height

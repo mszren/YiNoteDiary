@@ -10,6 +10,7 @@
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import "FriendCell.h"
 #import "FriendMaterialController.h"
+#import "BaseNavigation.h"
 
 @interface FriendListController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource>
 
@@ -22,12 +23,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+     [BaseNavigation setGreenNavigationBar:self andTitle:@"好友列表"];
     [self initView];
 }
 
 - (void)initView{
     
-    self.title = @"好友列表";
     _tableView = [[UITableView alloc]
                   initWithFrame:CGRectMake(0, 0, Screen_Width,
                                            Screen_height  )

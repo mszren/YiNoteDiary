@@ -15,6 +15,7 @@
 #import "QueueView.h"
 #import "IdentifyController.h"
 #import "UIImage+ImageEffects.h"
+#import "BaseNavigation.h"
 
 @interface TrailController () <MAMapViewDelegate>
 @property (nonatomic, strong) NSMutableArray *overlaysAboveRoads;
@@ -30,11 +31,11 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    [BaseNavigation setGreenNavigationBar:self andTitle:@"我的轨迹"];
     [self initView];
 }
 
 - (void)initView{
-    self.title = @"发现";
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     _mapView = [[MAMapView alloc]initWithFrame:self.view.bounds];

@@ -7,6 +7,7 @@
 //
 
 #import "SecretController.h"
+#import "BaseNavigation.h"
 
 @interface SecretController ()
 
@@ -16,11 +17,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+     [BaseNavigation setGreenNavigationBar:self andTitle:@"隐私"];
     [self initView];
 }
 
 - (void)initView{
-    self.title = @"隐私";
+
     self.scrollView.contentSize = CGSizeMake(Screen_Width, self.areaBlackAdressView.frame.size.height + self.areaBlackAdressView.frame.origin.y);
 }
 

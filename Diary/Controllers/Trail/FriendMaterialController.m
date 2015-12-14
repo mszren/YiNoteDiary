@@ -7,6 +7,7 @@
 //
 
 #import "FriendMaterialController.h"
+#import "BaseNavigation.h"
 
 @interface FriendMaterialController ()
 
@@ -17,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"详细资料";
+    [BaseNavigation setGreenNavigationBar:self andTitle:@"详细资料"];
     self.scrollView.contentSize = CGSizeMake(Screen_Width, self.messageBtn.frame.size.height + self.messageBtn.frame.origin.y + 10);
 }
 

@@ -16,7 +16,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1PQ-nc-Ays">
-                    <rect key="frame" x="0.0" y="64" width="347" height="60"/>
+                    <rect key="frame" x="0.0" y="0.0" width="347" height="60"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登录密码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ty-G7-ymJ">
                             <rect key="frame" x="13" y="0.0" width="120" height="60"/>
@@ -49,7 +49,7 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="定期修改密码有利于您的账户安全" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azg-N9-HMQ">
-                    <rect key="frame" x="20" y="124" width="250" height="60"/>
+                    <rect key="frame" x="20" y="60" width="250" height="60"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="1n9-4R-kiR"/>
@@ -64,7 +64,7 @@
             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="azg-N9-HMQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="8NJ-Zp-1CZ"/>
-                <constraint firstItem="1PQ-nc-Ays" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="92J-ou-dXa"/>
+                <constraint firstItem="1PQ-nc-Ays" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="92J-ou-dXa"/>
                 <constraint firstItem="1PQ-nc-Ays" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ErV-4D-AJb"/>
                 <constraint firstItem="azg-N9-HMQ" firstAttribute="top" secondItem="1PQ-nc-Ays" secondAttribute="bottom" id="q60-la-P5I"/>
                 <constraint firstItem="1PQ-nc-Ays" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="w1I-rV-Mpt"/>

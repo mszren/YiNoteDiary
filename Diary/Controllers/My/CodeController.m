@@ -7,6 +7,7 @@
 //
 
 #import "CodeController.h"
+#import "BaseNavigation.h"
 
 @interface CodeController ()
 
@@ -18,11 +19,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+     [BaseNavigation setGreenNavigationBar:self andTitle:@"二维码名片"];
     [self initView];
 }
 
 - (void)initView{
-    self.title = @"二维码名片";
+
     self.view.backgroundColor = BGViewColor;
     _rightButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ic_more@3x"] style:UIBarButtonItemStylePlain target:self action:@selector(onRightItem:)];
     self.navigationItem.rightBarButtonItem = _rightButton;

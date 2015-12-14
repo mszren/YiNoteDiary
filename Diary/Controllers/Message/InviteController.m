@@ -7,6 +7,7 @@
 //
 
 #import "InviteController.h"
+#import "BaseNavigation.h"
 
 @interface InviteController ()
 
@@ -16,12 +17,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [BaseNavigation setGreenNavigationBar:self andTitle:@"分享"];
     [self initView];
 }
 
 - (void)initView{
-    self.title = @"分享";
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     self.scrollView.contentSize = CGSizeMake(Screen_Width, self.weichatKoneView.frame.size.height + self.weichatKoneView.frame.origin.y + 10);
 }
 

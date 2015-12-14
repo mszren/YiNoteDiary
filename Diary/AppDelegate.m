@@ -21,11 +21,11 @@
     return (AppDelegate *)[UIApplication sharedApplication].delegate;
 }
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    LocationManager *locationManager=[LocationManager shareInstance];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     [[MAMapServices sharedServices] setApiKey:ApiKey];
     [[AMapSearchServices sharedServices]setApiKey:ApiKey];
+    LocationManager *locationManager=[LocationManager shareInstance];
     [locationManager startLocation];
 //    if ([self checkIsExistUser]) {
         [self loadHomeController];
@@ -78,5 +78,6 @@
     self.window.rootViewController = self.mainController;
     [self.window makeKeyAndVisible];
 }
+
 
 @end

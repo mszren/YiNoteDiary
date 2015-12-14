@@ -8,6 +8,7 @@
 
 #import "AgeController.h"
 #import "Masonry.h"
+#import "BaseNavigation.h"
 
 @interface AgeController ()
 @property (nonatomic,strong)UIDatePicker *datePicker;
@@ -18,11 +19,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+     [BaseNavigation setGreenNavigationBar:self andTitle:@"个人信息"];
     [self initView];
 }
 
 - (void)initView{
-    self.title = @"个人信息";
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     [self.view addSubview:self.datePicker];
 }
 

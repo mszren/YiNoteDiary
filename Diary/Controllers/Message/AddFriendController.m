@@ -9,6 +9,7 @@
 #import "AddFriendController.h"
 #import "NearPersonController.h"
 #import "InviteController.h"
+#import "BaseNavigation.h"
 
 @interface AddFriendController ()
 
@@ -18,12 +19,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [BaseNavigation setGreenNavigationBar:self andTitle:@"添加好友"];
     [self initView];
 }
 
 - (void)initView{
-    self.title = @"添加好友";
+
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     UITapGestureRecognizer * nichengTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onTap:)];
     [self.nichengView addGestureRecognizer:nichengTap];
     

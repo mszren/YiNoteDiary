@@ -12,6 +12,7 @@
 #import "RemindSetController.h"
 #import "ChatSetController.h"
 #import "InforController.h"
+#import "BaseNavigation.h"
 
 @interface SetController ()
 
@@ -21,12 +22,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+     [BaseNavigation setGreenNavigationBar:self andTitle:@"设置"];
     [self initView];
 }
 
 - (void)initView{
     
-    self.title = @"设置";
     self.scrollView.contentSize = CGSizeMake(Screen_Width, self.infoView.frame.size.height + self.infoView.frame.origin.y);
     
     UITapGestureRecognizer *safeTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onTap:)];

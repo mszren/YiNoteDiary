@@ -13,6 +13,7 @@
 #import "PersonCell.h"
 #import "AdressBookController.h"
 #import "NotifationController.h"
+#import "BaseNavigation.h"
 
 @interface MessageController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource>
 
@@ -25,12 +26,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [BaseNavigation setGreenNavigationBar:self andTitle:@"附近景点"];
     [self initView];
 }
 
 - (void)initView{
-    
-    self.title = @"消息";
+
     _tableView = [[UITableView alloc]
                   initWithFrame:CGRectMake(0, 0, Screen_Width,
                                            Screen_height  )
@@ -161,6 +162,10 @@
 -(UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView{
     
     return [UIImage imageNamed:@"ic_tywnr"];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
 }
 
 @end

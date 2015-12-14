@@ -7,6 +7,7 @@
 //
 
 #import "EditController.h"
+#import "BaseNavigation.h"
 
 @interface EditController () <UITextFieldDelegate>
 
@@ -16,11 +17,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [BaseNavigation setGreenNavigationBar:self andTitle:@"昵称"];
     [self initView];
 }
 
 - (void)initView{
-    self.title = @"昵称";
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     self.editText.delegate = self;
     
 }

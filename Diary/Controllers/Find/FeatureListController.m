@@ -10,6 +10,7 @@
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import "FeatureCell.h"
 #import "FeatureDetailController.h"
+#import "BaseNavigation.h"
 
 @interface FeatureListController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource>
 
@@ -28,7 +29,6 @@
 
 - (void)initView{
 
-    self.title = @"折叠列表";
     _tableView = [[UITableView alloc]
                   initWithFrame:CGRectMake(0, 0, Screen_Width,
                                            Screen_height  )
@@ -96,6 +96,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
+    [BaseNavigation setGreenNavigationBar:self andTitle:@"折叠列表"];
 }
 
 - (void)didReceiveMemoryWarning {

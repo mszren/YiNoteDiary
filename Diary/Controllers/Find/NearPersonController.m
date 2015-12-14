@@ -11,6 +11,7 @@
 #import <AMapSearchKit/AMapSearchAPI.h>
 #import <AMapSearchKit/AMapSearchServices.h>
 #import "CusAnnotationView.h"
+#import "BaseNavigation.h"
 
 #define kCalloutViewMargin          -8
 
@@ -27,12 +28,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [BaseNavigation setGreenNavigationBar:self andTitle:@"附近的人"];
+    
     [self initView];
 }
 
 - (void)initView{
-    self.title = @"附近的人";
- 
     
     _mapView = [[MAMapView alloc]initWithFrame:self.view.bounds];
     _mapView.delegate = self;
@@ -41,19 +42,17 @@
     _mapView.showsCompass = NO;//指南针
     _mapView.showsScale = NO;//比例尺
     _mapView.layer.shouldRasterize = YES;
-//    [_mapView setZoomLevel:13 animated:YES];
-    
+    [_mapView setZoomLevel:11 animated:YES];
     
     //初始中心点
-//    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(31.818884, 117.221945);
-//    MACoordinateSpan span = MACoordinateSpanMake(0.1, 0.1);
-//    _region = MACoordinateRegionMake(coordinate, span);
-//    [_mapView setRegion:_region];
-    
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(39.992520, 116.336170);
+    MACoordinateSpan span = MACoordinateSpanMake(0.1, 0.1);
+    _region = MACoordinateRegionMake(coordinate, span);
+    [_mapView setRegion:_region];
     
     self.annotations = [NSMutableArray array];
     
-    CLLocationCoordinate2D coordinates[10] = {
+    CLLocationCoordinate2D coordinates[8] = {
         {39.992520, 116.336170},
         {39.992520, 116.336170},
         {39.998293, 116.352343},
@@ -63,28 +62,17 @@
         {39.979590, 116.324219},
         {39.978234, 116.352792}};
     
-    for (int i = 0; i < 8; ++i)
+    for (int i = 0; i < 8; i++)
     {
         MAPointAnnotation *annotation = [[MAPointAnnotation alloc] init];
         annotation.coordinate = coordinates[i];
         annotation.title      = [NSString stringWithFormat:@"anno: %d", i];
         [self.annotations addObject:annotation];
     }
-    
+
     [_mapView addAnnotations:self.annotations];
-    [_mapView showAnnotations:self.annotations edgePadding:UIEdgeInsetsMake(20, 20, 20, 80) animated:YES];
+//    [_mapView showAnnotations:self.annotations edgePadding:UIEdgeInsetsMake(20, 20, 20, 80) animated:YES];
 }
-
-#pragma mark - Utility
-- (CGSize)offsetToContainRect:(CGRect)innerRect inRect:(CGRect)outerRect
-{
-    CGFloat nudgeRight = fmaxf(0, CGRectGetMinX(outerRect) - (CGRectGetMinX(innerRect)));
-    CGFloat nudgeLeft = fminf(0, CGRectGetMaxX(outerRect) - (CGRectGetMaxX(innerRect)));
-    CGFloat nudgeTop = fmaxf(0, CGRectGetMinY(outerRect) - (CGRectGetMinY(innerRect)));
-    CGFloat nudgeBottom = fminf(0, CGRectGetMaxY(outerRect) - (CGRectGetMaxY(innerRect)));
-    return CGSizeMake(nudgeLeft ?: nudgeRight, nudgeTop ?: nudgeBottom);
-}
-
 
 #pragma mark - MAMapViewDelegate
 
@@ -103,7 +91,7 @@
         }
         
         // must set to NO, so we can show the custom callout view.
-        annotationView.canShowCallout   = NO;
+        annotationView.canShowCallout   = YES;
         annotationView.draggable        = YES;
         annotationView.calloutOffset    = CGPointMake(0, -5);
         
@@ -142,6 +130,16 @@
         }
         
     }
+}
+
+#pragma mark - Utility
+- (CGSize)offsetToContainRect:(CGRect)innerRect inRect:(CGRect)outerRect
+{
+    CGFloat nudgeRight = fmaxf(0, CGRectGetMinX(outerRect) - (CGRectGetMinX(innerRect)));
+    CGFloat nudgeLeft = fminf(0, CGRectGetMaxX(outerRect) - (CGRectGetMaxX(innerRect)));
+    CGFloat nudgeTop = fmaxf(0, CGRectGetMinY(outerRect) - (CGRectGetMinY(innerRect)));
+    CGFloat nudgeBottom = fminf(0, CGRectGetMaxY(outerRect) - (CGRectGetMaxY(innerRect)));
+    return CGSizeMake(nudgeLeft ?: nudgeRight, nudgeTop ?: nudgeBottom);
 }
 
 - (void)didReceiveMemoryWarning {

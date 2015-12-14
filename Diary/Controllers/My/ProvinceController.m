@@ -10,6 +10,7 @@
 #import "ProvinceCell.h"
 #import "CityPickerProvince.h"
 #import "CityController.h"
+#import "BaseNavigation.h"
 
 @interface ProvinceController () <UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong)NSMutableArray *provinces;
@@ -23,12 +24,12 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [BaseNavigation setGreenNavigationBar:self andTitle:@"地区"];
     [self initView];
 }
 
 - (void)initView{
     
-    self.title = @"地区";
     self.view.backgroundColor = BGViewGray;
     _tableView = [[UITableView alloc]
                   initWithFrame:CGRectMake(0, 0, Screen_Width,

@@ -32,7 +32,7 @@
 }
 
 - (void)initView{
-    
+ 
     _tableView = [[UITableView alloc]
                   initWithFrame:CGRectMake(0, -statusHeight, Screen_Width,
                                            Screen_height + statusHeight)
@@ -45,7 +45,7 @@
     _tableView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:_tableView];
     
-    _headerView = [[CoolNavi alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, CoolNavHeight) backGroudImage:@"pic_bg" ];
+    _headerView = [[CoolNavi alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, CoolNavHeight) backGroudImage:@"pic_bg"];
     _headerView.scrollView = _tableView;
     [self.view addSubview:_headerView];
     
@@ -171,7 +171,4 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
-
 @end

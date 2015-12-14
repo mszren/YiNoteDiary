@@ -9,6 +9,7 @@
 #import "CityController.h"
 #import "CityPickerProvince.h"
 #import "CityCell.h"
+#import "BaseNavigation.h"
 
 @interface CityController () <UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong)NSMutableArray *provinces;
@@ -18,18 +19,18 @@
 @implementation CityController{
     
     UITableView* _tableView;
-    CityPickerProvince *_cityPicker;;
+    CityPickerProvince *_cityPicker;
     
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [BaseNavigation setGreenNavigationBar:self andTitle:self.titleString];
     [self initView];
 }
 
 - (void)initView{
     
-    self.title = self.titleString;
     self.view.backgroundColor = BGViewGray;
     _tableView = [[UITableView alloc]
                   initWithFrame:CGRectMake(0, 0, Screen_Width,

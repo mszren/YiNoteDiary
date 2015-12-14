@@ -8,12 +8,12 @@
 //
 
 #import "RegisterFirstController.h"
-
 #import "Masonry.h"
 #import "EGOImageView.h"
 #import "DaiDodgeKeyboard.h"
 #import "UzysAssetsPickerController.h"
 #import "RegisterSecondController.h"
+#import "BaseNavigation.h"
 
 @interface RegisterFirstController () <UITextFieldDelegate,UzysAssetsPickerControllerDelegate>
 @property (nonatomic,strong)UIButton *faceBtn;
@@ -33,7 +33,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    [BaseNavigation setGreenNavigationBar:self andTitle:@"注册1/3"];
     [self initView];
     [self.view addSubview:self.faceBtn];
     [self.view addSubview:self.nichengView];
@@ -112,7 +112,6 @@
 - (void)initView{
     
     [DaiDodgeKeyboard addRegisterTheViewNeedDodgeKeyboard:self.view];
-    self.title = @"注册1/3";
     self.view.backgroundColor = BGViewGray;
     _picker = [[UzysAssetsPickerController alloc] init];
     _picker.maximumNumberOfSelectionVideo = 0;
@@ -133,7 +132,7 @@
     
     [_faceBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(@(Screen_Width/2 - 45));
-        make.top.mas_equalTo(superView.mas_top).offset(114);
+        make.top.mas_equalTo(superView.mas_top).offset(50);
         make.width.height.mas_equalTo(@90);
     }];
     

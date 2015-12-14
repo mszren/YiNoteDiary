@@ -11,6 +11,8 @@
 #import "PublishAlbumTopView.h"
 #import "EGOImageView.h"
 #import "UzysAssetsPickerController.h"
+#import "BaseNavigation.h"
+#import "BaseNavigation.h"
 
 
 @interface PublishController () <PublishAlbumTopViewDelegate,UITextViewDelegate,UzysAssetsPickerControllerDelegate>
@@ -29,7 +31,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [BaseNavigation setGreenNavigationBar:self];
     [self.view addSubview:self.contentText];
     [self.view addSubview:self.publishAlbumTopView];
     [self.view addSubview:self.addressView];

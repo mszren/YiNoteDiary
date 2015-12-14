@@ -7,6 +7,7 @@
 //
 
 #import "ChatSetController.h"
+#import "BaseNavigation.h"
 
 @interface ChatSetController ()
 
@@ -16,11 +17,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+     [BaseNavigation setGreenNavigationBar:self andTitle:@"聊天设置"];
     [self initView];
 }
 
 - (void)initView{
-    self.title = @"聊天设置";
+
     UITapGestureRecognizer *cleanTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onCleanTap:)];
     [self.cleanView addGestureRecognizer:cleanTap];
 }

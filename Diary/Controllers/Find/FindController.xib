@@ -23,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UzX-iy-0Rn">
-                    <rect key="frame" x="0.0" y="77" width="403" height="57"/>
+                    <rect key="frame" x="0.0" y="17" width="403" height="57"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="附近的人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEc-IH-cUW">
                             <rect key="frame" x="56" y="0.0" width="200" height="57"/>
@@ -56,7 +56,7 @@
                     </constraints>
                 </view>
                 <view tag="101" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vli-F9-Jfg">
-                    <rect key="frame" x="0.0" y="147" width="403" height="57"/>
+                    <rect key="frame" x="0.0" y="87" width="403" height="57"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_nearbyattractions@3x" translatesAutoresizingMaskIntoConstraints="NO" id="g6W-Vz-Xmt">
                             <rect key="frame" x="13" y="13" width="30" height="30"/>
@@ -113,7 +113,7 @@
                     </constraints>
                 </view>
                 <view tag="102" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gUo-O1-Tpc">
-                    <rect key="frame" x="0.0" y="204" width="403" height="57"/>
+                    <rect key="frame" x="0.0" y="144" width="403" height="57"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_nearphotos@3x" translatesAutoresizingMaskIntoConstraints="NO" id="Zh1-Z3-xYY">
                             <rect key="frame" x="13" y="13" width="30" height="30"/>
@@ -157,7 +157,7 @@
                     </constraints>
                 </view>
                 <view tag="103" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X6e-UP-E4n">
-                    <rect key="frame" x="0.0" y="274" width="403" height="57"/>
+                    <rect key="frame" x="0.0" y="214" width="403" height="57"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_activitiesnearby@3x" translatesAutoresizingMaskIntoConstraints="NO" id="Yjm-ug-hvs">
                             <rect key="frame" x="13" y="9" width="30" height="30"/>
@@ -201,7 +201,7 @@
                     </constraints>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_nearphotos@3x" translatesAutoresizingMaskIntoConstraints="NO" id="Qbw-dD-pol">
-                    <rect key="frame" x="13" y="91" width="30" height="30"/>
+                    <rect key="frame" x="13" y="31" width="30" height="30"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="7o5-xS-wFB"/>
@@ -212,7 +212,7 @@
             <animations/>
             <color key="backgroundColor" red="0.97227032230640986" green="0.97920274172980748" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="UzX-iy-0Rn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="77" id="ALW-c3-r4s"/>
+                <constraint firstItem="UzX-iy-0Rn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="17" id="ALW-c3-r4s"/>
                 <constraint firstItem="gUo-O1-Tpc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="B7R-W3-Bzp"/>
                 <constraint firstItem="X6e-UP-E4n" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BlD-88-Rqc"/>
                 <constraint firstItem="X6e-UP-E4n" firstAttribute="top" secondItem="gUo-O1-Tpc" secondAttribute="bottom" constant="13" id="DhD-H1-hHf"/>
