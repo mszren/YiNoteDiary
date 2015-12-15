@@ -11,8 +11,10 @@
 #import "Utils.h"
 #import "RevordPasswordSecondController.h"
 #import "BaseNavigation.h"
+#import "checkOutView.h"
+#import "RemindView.h"
 
-@interface RevordPasswordController ()
+@interface RevordPasswordController () <CheckOutViewDelegate>
 @property (nonatomic,strong)UIView *phoneView;
 @property (nonatomic,strong)UITextField *phoneText;
 
@@ -26,6 +28,12 @@
     [self.view addSubview:self.phoneView];
 }
 
+- (void)certainJump{
+    
+    RevordPasswordSecondController *revordVc = [RevordPasswordSecondController new];
+    [self.navigationController pushViewController:revordVc animated:YES];
+}
+
 #pragma mark -- UIBarButtonItem Acyion
 - (void)onRightBtn:(UIBarButtonItem *)sender{
     
@@ -36,13 +44,8 @@
         
     }else{
         
-        UIAlertController*al=[UIAlertController alertControllerWithTitle:nil message:@"请输入正确的手机号" preferredStyle:UIAlertControllerStyleAlert];
-        [al addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        }]];
-        [self presentViewController:al animated:YES completion:nil];
+       [[RemindView sharedInstance] showRemindView:@"请输入正确的手机号"];
     }
-    
-    
 }
 
 - (void)initView{
@@ -56,19 +59,8 @@
 //创建提示选择框
 - (void)creatAlertController{
     
-    UIAlertController*al=[UIAlertController alertControllerWithTitle:@"确认手机号码" message:[NSString stringWithFormat:@"我们将发送验证码到该手机:%@",_phoneText.text] preferredStyle:UIAlertControllerStyleAlert];
-    [al addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        
-        RevordPasswordSecondController *revordVc = [RevordPasswordSecondController new];
-        [self.navigationController pushViewController:revordVc animated:YES];
-        
-    }]];
     
-    [al addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
-        NSLog(@"取消");
-    }]];
-    [self presentViewController:al animated:YES completion:nil];
-    
+    [[CheckOutView sharedInstance] showCheckOutView:@"确认手机号码" andRemind:[NSString stringWithFormat:@"我们将发送验证码到该手机:%@",_phoneText.text] andDelegate:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

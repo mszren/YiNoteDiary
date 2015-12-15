@@ -9,6 +9,7 @@
 #import "NearController.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import "NearCell.h"
+#import "indexRecentDetailController.h"
 
 @interface NearController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource>
 
@@ -66,6 +67,12 @@
     return nearCell;
     
     
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    indexRecentDetailController *detailVc = [indexRecentDetailController new];
+    detailVc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:detailVc animated:YES];
 }
 
 #pragma mark DZNEmptyDataSetDelegate,DZNEmptyDataSetSource

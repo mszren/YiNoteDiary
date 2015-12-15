@@ -23,7 +23,7 @@
 @property (nonatomic,strong)EGOImageView *addressImg;
 @property (nonatomic,strong)UILabel *addressLabel;
 @property (nonatomic,strong) EGOImageView *tapImg;
-@property (nonatomic,strong)UzysAssetsPickerController* picker;;
+@property (nonatomic,strong)UzysAssetsPickerController* picker;
 
 @end
 

@@ -16,7 +16,6 @@
 #import "BaseNavigation.h"
 
 @interface IndexController() <SegmentDelegate>
-
 @property (nonatomic, assign) int currentIndex;
 @property (nonatomic, strong) SegmentView *barView;
 @property (nonatomic, strong) ContentView *contentView;
@@ -27,6 +26,7 @@
     
     UITableView* _tableView;
     UIBarButtonItem* _rightButton;
+    PublishController *_publishVc;
     
 }
 
@@ -94,10 +94,10 @@
         
     }]];
     [alertVc addAction:[UIAlertAction actionWithTitle:@"从手机相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        PublishController *publishVc = [PublishController new];
-        publishVc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:publishVc animated:YES];
         
+        _publishVc = [PublishController new];
+        _publishVc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:_publishVc animated:YES];
     }]];
     [alertVc addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
