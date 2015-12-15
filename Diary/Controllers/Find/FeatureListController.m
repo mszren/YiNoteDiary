@@ -23,7 +23,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     [self initView];
 }
 
@@ -96,7 +95,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
-    [BaseNavigation setGreenNavigationBar:self andTitle:@"折叠列表"];
+     [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:@"折叠列表"];
 }
 
 - (void)didReceiveMemoryWarning {

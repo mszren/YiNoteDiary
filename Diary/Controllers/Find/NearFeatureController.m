@@ -60,7 +60,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [BaseNavigation setGreenNavigationBar:self andTitle:@"附近景点"];
+    [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:@"附近景点"];
 }
 
 - (void)didReceiveMemoryWarning {

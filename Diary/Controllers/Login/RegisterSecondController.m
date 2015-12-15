@@ -22,7 +22,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [BaseNavigation setGreenNavigationBar:self andTitle:@"注册2/3"];
     [self initView];
     [self.view addSubview:self.phoneView];
 }
@@ -61,7 +60,9 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     UIView *superView = self.view;
+    [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:@"注册2/3"];
     [_phoneView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(superView.mas_left);
         make.top.mas_equalTo(superView.mas_top).offset(104);

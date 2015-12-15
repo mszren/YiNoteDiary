@@ -17,14 +17,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    [BaseNavigation setGreenNavigationBar:self andTitle:@"详细资料"];
     self.scrollView.contentSize = CGSizeMake(Screen_Width, self.messageBtn.frame.size.height + self.messageBtn.frame.origin.y + 10);
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
+    [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:@"详细资料"];
 }
 
 - (void)didReceiveMemoryWarning {

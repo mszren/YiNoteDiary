@@ -24,7 +24,6 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [BaseNavigation setGreenNavigationBar:self andTitle:@"地区"];
     [self initView];
 }
 
@@ -80,6 +79,11 @@
     CityPickerProvince *province = _provinces[indexPath.row];
     cityVc.titleString = province.name;
     [self.navigationController pushViewController:cityVc animated:YES];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:@"地区"];
 }
 
 - (void)didReceiveMemoryWarning {

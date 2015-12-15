@@ -17,7 +17,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [BaseNavigation setGreenNavigationBar:self andTitle:@"昵称"];
     [self initView];
 }
 
@@ -30,6 +29,11 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     [self.editText resignFirstResponder];
     return self;
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:@"昵称"];
 }
 
 - (void)didReceiveMemoryWarning {

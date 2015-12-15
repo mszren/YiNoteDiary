@@ -70,6 +70,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     indexRecentDetailController *detailVc = [indexRecentDetailController new];
+    detailVc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:detailVc animated:YES];
 }
 

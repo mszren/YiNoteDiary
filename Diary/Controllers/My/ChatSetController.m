@@ -17,7 +17,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-     [BaseNavigation setGreenNavigationBar:self andTitle:@"聊天设置"];
     [self initView];
 }
 
@@ -38,6 +37,11 @@
         
     }]];
     [self presentViewController:alertVc animated:YES completion:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+     [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:@"聊天设置"];
 }
 
 - (void)didReceiveMemoryWarning {

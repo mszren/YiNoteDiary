@@ -19,7 +19,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-     [BaseNavigation setGreenNavigationBar:self andTitle:@"个人信息"];
     [self initView];
 }
 
@@ -36,6 +35,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+     [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:@"个人信息"];
     UIView *superView = self.view;
     
     [_datePicker mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -21,7 +21,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-     [BaseNavigation setGreenNavigationBar:self andTitle:@"个性签名"];
     [self initView];
 }
 
@@ -72,6 +71,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:@"个性签名"];
     UIView *superView = self.view;
     
     [_signText mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -22,7 +22,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-     [BaseNavigation setGreenNavigationBar:self andTitle:@"设置"];
     [self initView];
 }
 
@@ -116,6 +115,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
+     [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:@"设置"];
 }
 
 - (void)didReceiveMemoryWarning {

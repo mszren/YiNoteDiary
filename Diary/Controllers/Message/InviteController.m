@@ -17,13 +17,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [BaseNavigation setGreenNavigationBar:self andTitle:@"分享"];
     [self initView];
 }
 
 - (void)initView{
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.scrollView.contentSize = CGSizeMake(Screen_Width, self.weichatKoneView.frame.size.height + self.weichatKoneView.frame.origin.y + 10);
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:@"分享"];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -22,7 +22,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-     [BaseNavigation setGreenNavigationBar:self andTitle:@"重置密码"];
     [self initView];
     [self.view addSubview:self.phoneView];
 }
@@ -73,8 +72,9 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
-    [super viewWillAppear:animated];
+     [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:@"重置密码"];
     UIView *superView = self.view;
     [_phoneView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(superView.mas_left);

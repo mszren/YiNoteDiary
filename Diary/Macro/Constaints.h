@@ -75,6 +75,7 @@ alpha:(a)]
 #define TabBarHeigh 44
 #define TabBarWidth 240
 #define statusHeight 20
+#define NavigationBarHeight 64
 
 //发布
 #define PublishImageTileWidth ([UIScreen mainScreen].bounds.size.width - 100)/4

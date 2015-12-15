@@ -32,7 +32,6 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    [BaseNavigation setGreenNavigationBar:self];
     [self initView];
 }
 
@@ -108,6 +107,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [[BaseNavigation sharedInstance] setIndexGreenNavigationBar:self andTitle:nil];
 }
 
 @end

@@ -19,7 +19,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [BaseNavigation setGreenNavigationBar:self andTitle:@"添加好友"];
     [self initView];
 }
 
@@ -66,6 +65,11 @@
         }
             break;
     }
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:@"添加好友"];
 }
 
 - (void)didReceiveMemoryWarning {

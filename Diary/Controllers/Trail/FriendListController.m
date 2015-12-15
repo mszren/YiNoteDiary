@@ -23,7 +23,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-     [BaseNavigation setGreenNavigationBar:self andTitle:@"好友列表"];
     [self initView];
 }
 
@@ -89,6 +88,11 @@
 -(UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView{
     
     return [UIImage imageNamed:@"ic_tywnr"];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:@"好友列表"];
 }
 
 - (void)didReceiveMemoryWarning {

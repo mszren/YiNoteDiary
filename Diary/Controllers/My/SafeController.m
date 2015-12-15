@@ -18,7 +18,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-     [BaseNavigation setGreenNavigationBar:self andTitle:@"账户安全"];
     [self initView];
 }
 
@@ -37,6 +36,11 @@
 #pragma mark -- SafeViewDelegate
 - (void)safeView:(NSString *)password{
     
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear: animated];
+    [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:@"账户安全"];
 }
 
 - (void)didReceiveMemoryWarning {

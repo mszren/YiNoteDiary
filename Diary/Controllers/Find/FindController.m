@@ -22,8 +22,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [BaseNavigation setGreenNavigationBar:self andTitle:@"发现"];
-    
     [self initView];
 }
 
@@ -75,6 +73,10 @@
     }
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [[BaseNavigation sharedInstance] setIndexGreenNavigationBar:self andTitle:@"发现"];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -30,7 +30,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-     [BaseNavigation setGreenNavigationBar:self andTitle:@"详情"];
     [self initView];
 }
 
@@ -62,7 +61,7 @@
     _tableView.tableHeaderView = _detailHeadView;
     [self.view addSubview:_tableView];
     
-    _commentView = [[IndexCommentView alloc]initWithFrame:CGRectMake(0, Screen_height - 40.5, Screen_Width, 40.5)];
+    _commentView = [[IndexCommentView alloc]initWithFrame:CGRectMake(0, Screen_height - NavigationBarHeight - 40.5, Screen_Width, 40.5)];
     [_commentView.praiseBtn addTarget:self action:@selector(onBtn:) forControlEvents:UIControlEventTouchUpInside];
     [_commentView.commentBtn addTarget:self action:@selector(onBtn:) forControlEvents:UIControlEventTouchUpInside];
     [_commentView.shareBtn addTarget:self action:@selector(onBtn:) forControlEvents:UIControlEventTouchUpInside];
@@ -226,6 +225,7 @@ estimatedHeightForHeaderInSection:(NSInteger)section
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:@"详情"];
 }
 
 - (void)didReceiveMemoryWarning {

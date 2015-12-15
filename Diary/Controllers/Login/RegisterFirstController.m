@@ -33,7 +33,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [BaseNavigation setGreenNavigationBar:self andTitle:@"注册1/3"];
     [self initView];
     [self.view addSubview:self.faceBtn];
     [self.view addSubview:self.nichengView];
@@ -127,7 +126,9 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
+    [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:@"注册1/3"];
     UIView *superView = self.view;
     
     [_faceBtn mas_makeConstraints:^(MASConstraintMaker *make) {

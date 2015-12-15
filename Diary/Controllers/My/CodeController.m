@@ -19,7 +19,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-     [BaseNavigation setGreenNavigationBar:self andTitle:@"二维码名片"];
     [self initView];
 }
 
@@ -49,6 +48,11 @@
         
     }]];
     [self presentViewController:alertVc animated:YES completion:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:@"二维码名片"];
 }
 
 - (void)didReceiveMemoryWarning {

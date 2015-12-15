@@ -28,8 +28,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [BaseNavigation setGreenNavigationBar:self andTitle:@"附近的人"];
-    
     [self initView];
 }
 
@@ -140,6 +138,11 @@
     CGFloat nudgeTop = fmaxf(0, CGRectGetMinY(outerRect) - (CGRectGetMinY(innerRect)));
     CGFloat nudgeBottom = fminf(0, CGRectGetMaxY(outerRect) - (CGRectGetMaxY(innerRect)));
     return CGSizeMake(nudgeLeft ?: nudgeRight, nudgeTop ?: nudgeBottom);
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+     [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:@"附近的人"];
 }
 
 - (void)didReceiveMemoryWarning {

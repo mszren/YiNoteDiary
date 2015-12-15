@@ -31,7 +31,6 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    [BaseNavigation setGreenNavigationBar:self andTitle:@"我的轨迹"];
     [self initView];
 }
 
@@ -211,6 +210,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
+    [[BaseNavigation sharedInstance] setIndexGreenNavigationBar:self andTitle:@"我的轨迹"];
 }
 
 @end

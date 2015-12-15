@@ -103,7 +103,9 @@
 		D74353A41C0C3D0E004B89FE /* SignController.m in Sources */ = {isa = PBXBuildFile; fileRef = D74353971C0C3D0E004B89FE /* SignController.m */; };
 		D74353A81C0C3D2D004B89FE /* MyController.m in Sources */ = {isa = PBXBuildFile; fileRef = D74353A61C0C3D2D004B89FE /* MyController.m */; };
 		D74D31761C1800EA00AC7DA4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D74D31751C1800EA00AC7DA4 /* CoreData.framework */; };
-		D750251E1C1E9BD900C0AB99 /* BaseNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = D750251D1C1E9BD900C0AB99 /* BaseNavigation.m */; };
+		D75398721C1F9F380023A62C /* BaseNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = D75398711C1F9F380023A62C /* BaseNavigation.m */; };
+		D75398791C1FB4E50023A62C /* SelectAdressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D75398771C1FB4E50023A62C /* SelectAdressCell.m */; };
+		D753987D1C1FB66F0023A62C /* SelectAdressController.m in Sources */ = {isa = PBXBuildFile; fileRef = D753987C1C1FB66F0023A62C /* SelectAdressController.m */; };
 		D75765C31C1672CD005FDD93 /* FeatureCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D75765C21C1672CD005FDD93 /* FeatureCommentCell.m */; };
 		D75765C71C16B892005FDD93 /* CusAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = D75765C61C16B892005FDD93 /* CusAnnotationView.m */; };
 		D75765CA1C16B926005FDD93 /* CustomCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = D75765C91C16B926005FDD93 /* CustomCalloutView.m */; };
@@ -415,8 +417,12 @@
 		D74353A51C0C3D2D004B89FE /* MyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyController.h; path = Controllers/My/MyController.h; sourceTree = "<group>"; };
 		D74353A61C0C3D2D004B89FE /* MyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyController.m; path = Controllers/My/MyController.m; sourceTree = "<group>"; };
 		D74D31751C1800EA00AC7DA4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		D750251C1C1E9BD900C0AB99 /* BaseNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigation.h; sourceTree = "<group>"; };
-		D750251D1C1E9BD900C0AB99 /* BaseNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigation.m; sourceTree = "<group>"; };
+		D75398701C1F9F380023A62C /* BaseNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigation.h; sourceTree = "<group>"; };
+		D75398711C1F9F380023A62C /* BaseNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigation.m; sourceTree = "<group>"; };
+		D75398761C1FB4E50023A62C /* SelectAdressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectAdressCell.h; sourceTree = "<group>"; };
+		D75398771C1FB4E50023A62C /* SelectAdressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectAdressCell.m; sourceTree = "<group>"; };
+		D753987B1C1FB66F0023A62C /* SelectAdressController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectAdressController.h; path = Controllers/Index/SelectAdressController.h; sourceTree = "<group>"; };
+		D753987C1C1FB66F0023A62C /* SelectAdressController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectAdressController.m; path = Controllers/Index/SelectAdressController.m; sourceTree = "<group>"; };
 		D75765C11C1672CD005FDD93 /* FeatureCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeatureCommentCell.h; sourceTree = "<group>"; };
 		D75765C21C1672CD005FDD93 /* FeatureCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeatureCommentCell.m; sourceTree = "<group>"; };
 		D75765C51C16B892005FDD93 /* CusAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CusAnnotationView.h; sourceTree = "<group>"; };
@@ -908,6 +914,8 @@
 				D79B9ABC1C15222900D0FA3E /* NearController.m */,
 				D79B9ABE1C15224200D0FA3E /* RemindController.h */,
 				D79B9ABF1C15224200D0FA3E /* RemindController.m */,
+				D753987B1C1FB66F0023A62C /* SelectAdressController.h */,
+				D753987C1C1FB66F0023A62C /* SelectAdressController.m */,
 			);
 			name = Index;
 			sourceTree = "<group>";
@@ -1426,6 +1434,8 @@
 				D7A9087E1C0FCC0300DA0713 /* CommentCell.m */,
 				D7A908801C0FD94E00DA0713 /* PraiseCell.h */,
 				D7A908811C0FD94E00DA0713 /* PraiseCell.m */,
+				D75398761C1FB4E50023A62C /* SelectAdressCell.h */,
+				D75398771C1FB4E50023A62C /* SelectAdressCell.m */,
 			);
 			name = cell;
 			path = Controllers/Index/cell;
@@ -1591,10 +1601,10 @@
 		D77574D21C0E98E000D26828 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				D750251C1C1E9BD900C0AB99 /* BaseNavigation.h */,
-				D750251D1C1E9BD900C0AB99 /* BaseNavigation.m */,
 				D77574D31C0E98E000D26828 /* Utils.h */,
 				D77574D41C0E98E000D26828 /* Utils.m */,
+				D75398701C1F9F380023A62C /* BaseNavigation.h */,
+				D75398711C1F9F380023A62C /* BaseNavigation.m */,
 			);
 			name = Utils;
 			path = Resources/Utils;
@@ -1821,6 +1831,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				841B2F281BE83DF8008C2974 /* LDViewSpotListManager.m in Sources */,
+				D753987D1C1FB66F0023A62C /* SelectAdressController.m in Sources */,
 				841B2F191BE83DF8008C2974 /* NSObject+LDNetworkingMethods.m in Sources */,
 				D76AB9611C08017C002B14C0 /* EGOCache.m in Sources */,
 				D79B9ACB1C15324500D0FA3E /* ARSegmentPageController.m in Sources */,
@@ -1898,7 +1909,7 @@
 				841B2F221BE83DF8008C2974 /* LDURLResponse.m in Sources */,
 				D7A908821C0FD94E00DA0713 /* PraiseCell.m in Sources */,
 				D76AB92E1C07FF4C002B14C0 /* AlbumEnjoyCell.m in Sources */,
-				D750251E1C1E9BD900C0AB99 /* BaseNavigation.m in Sources */,
+				D75398721C1F9F380023A62C /* BaseNavigation.m in Sources */,
 				D74353A21C0C3D0E004B89FE /* SexSelectController.m in Sources */,
 				D743535F1C0C1E8B004B89FE /* AddFriendController.m in Sources */,
 				841B2F1A1BE83DF8008C2974 /* NSString+LDNetworkingMethods.m in Sources */,
@@ -1964,6 +1975,7 @@
 				D74353801C0C3D05004B89FE /* CodeController.m in Sources */,
 				84C072F41BE0C46100822E4B /* main.m in Sources */,
 				840D5F611BED7DF200B887AC /* TrackTable.m in Sources */,
+				D75398791C1FB4E50023A62C /* SelectAdressCell.m in Sources */,
 				D743534D1C0C15EB004B89FE /* MessageCell.m in Sources */,
 				D76AB90D1C07FDB2002B14C0 /* DaiDodgeKeyboard.m in Sources */,
 				D79B9AB71C1521C500D0FA3E /* SegmentView.m in Sources */,

@@ -25,7 +25,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [BaseNavigation setGreenNavigationBar:self andTitle:@"好友列表"];
     [self initView];
 }
 
@@ -122,6 +121,7 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+     [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:@"好友列表"];
     [_searchBar resignFirstResponder];
 }
 

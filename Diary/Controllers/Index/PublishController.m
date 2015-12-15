@@ -13,7 +13,7 @@
 #import "UzysAssetsPickerController.h"
 #import "BaseNavigation.h"
 #import "BaseNavigation.h"
-
+#import "SelectAdressController.h"
 
 @interface PublishController () <PublishAlbumTopViewDelegate,UITextViewDelegate,UzysAssetsPickerControllerDelegate>
 @property (nonatomic,strong)UITextView *contentText;
@@ -31,7 +31,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [BaseNavigation setGreenNavigationBar:self];
     [self.view addSubview:self.contentText];
     [self.view addSubview:self.publishAlbumTopView];
     [self.view addSubview:self.addressView];
@@ -43,10 +42,7 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     UIBarButtonItem * rightButton = [[UIBarButtonItem alloc]initWithTitle:@"发布" style:UIBarButtonItemStylePlain target:self action:@selector(onPublishBtn:)];
     self.navigationItem.rightBarButtonItem = rightButton;
-    
-    _picker = [[UzysAssetsPickerController alloc] init];
-    _picker.maximumNumberOfSelectionVideo = 0;
-    _picker.maximumNumberOfSelectionPhoto = 4;
+
 }
 
 #pragma mark -- UIBarButtonItem
@@ -60,13 +56,19 @@
     
 #if 0
     UzysAppearanceConfig *appearanceConfig = [[UzysAppearanceConfig alloc] init];
-    appearanceConfig.finishSelectionButtonColor = [UIColor blueColor];
+    appearanceConfig.finishSelectionButtonColor = BGViewGreen;
     appearanceConfig.assetsGroupSelectedImageName = @"checker.png";
     appearanceConfig.cellSpacing = 1.0f;
     appearanceConfig.assetsCountInALine = 4;
+    [UzysAssetsPickerController defaultAssetsLibrary];
     [UzysAssetsPickerController setUpAppearanceConfig:appearanceConfig];
 #endif
+
+    _picker = [[UzysAssetsPickerController alloc] init];
+    _picker.maximumNumberOfSelectionVideo = 0;
+    _picker.maximumNumberOfSelectionPhoto = 4;
     _picker.delegate = self;
+    _picker.selectedAssetArray = _publishAlbumTopView.dataList;
     
     [self presentViewController:_picker
                        animated:YES
@@ -81,7 +83,6 @@
     
     if ([[assets[0] valueForProperty:@"ALAssetPropertyType"] isEqualToString:@"ALAssetTypePhoto"]) //Photo
     {
-        
         [_publishAlbumTopView addImgUrls:assets];
         
         
@@ -123,7 +124,16 @@
     return YES;
 }
 
+#pragma mark -- UITapGestureRecognizer
+- (void)onTap:(UITapGestureRecognizer *)sender{
+    
+    SelectAdressController *addressVc = [SelectAdressController new];
+    addressVc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:addressVc animated:YES];
+}
+
 - (void)viewWillAppear:(BOOL)animated{
+    [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:nil];
     [super viewWillAppear:animated];
     UIView *superView = self.view;
     
@@ -207,6 +217,9 @@
 - (UIView *)addressView{
     if (_addressView == nil) {
         _addressView = [UIView new];
+        _addressView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *addressTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onTap:)];
+        [_addressView addGestureRecognizer:addressTap];
         _addressView.backgroundColor = BGViewColor;
         [_addressView addSubview:self.addressImg];
         [_addressView addSubview:self.addressLabel];

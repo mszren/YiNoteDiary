@@ -25,7 +25,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [BaseNavigation setGreenNavigationBar:self andTitle:self.titleString];
     [self initView];
 }
 
@@ -75,6 +74,11 @@
     [cityCell setCity:_cityPicker.cities[indexPath.row]];
     return cityCell;
     
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:self.titleString];
 }
 
 - (void)didReceiveMemoryWarning {
