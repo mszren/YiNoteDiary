@@ -44,7 +44,7 @@
     _mapView.showsCompass = NO;//指南针
     _mapView.showsScale = NO;//比例尺
     _mapView.layer.shouldRasterize = YES;
-    [_mapView setZoomLevel:13 animated:YES];
+//    [_mapView setZoomLevel:13 animated:YES];
     
     //初始中心点
 //    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(31.818884, 117.221945);
@@ -171,7 +171,7 @@
     else if ([overlay isKindOfClass:[MAPolyline class]])
     {
         MAPolylineView *polylineView = [[MAPolylineView alloc] initWithPolyline:overlay];
-        polylineView.lineWidth    = 15.f;
+        polylineView.lineWidth    = 8.f;
         [polylineView loadStrokeTextureImage:[UIImage imageNamed:@"arrowTexture"]];
         //        polylineView.strokeColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.6];
         //        polylineView.lineJoinType = kMALineJoinRound;//连接类型

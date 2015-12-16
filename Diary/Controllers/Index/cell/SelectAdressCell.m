@@ -20,6 +20,11 @@
     return self;
 }
 
+- (void)selectAderess:(NSInteger)selectIndex{
+    
+    [_addressImg setPlaceholderImage:[UIImage imageNamed:@"tabbar_home_selected"]];
+}
+
 - (void)initView{
     
     [self.contentView addSubview:self.addressLabel];
@@ -36,8 +41,8 @@
     
     [_addressImg mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(contentView.mas_right).offset(-13);
-        make.top.mas_equalTo(contentView.mas_top).offset(24);
-        make.height.width.mas_equalTo(@12);
+        make.top.mas_equalTo(contentView.mas_top).offset(19);
+        make.height.width.mas_equalTo(@22);
     }];
     
     [_grayLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -58,7 +63,7 @@
 
 - (EGOImageView *)addressImg{
     if (_addressImg == nil) {
-        _addressImg = [[EGOImageView alloc]initWithPlaceholderImage:[UIImage imageNamed:@"ic_arrow"]];
+        _addressImg = [[EGOImageView alloc]initWithPlaceholderImage:[UIImage imageNamed:@"tabbar_home_normal"]];
     }
     return _addressImg;
 }

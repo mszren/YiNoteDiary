@@ -31,6 +31,7 @@ alpha:(a)]
 #define BGViewColor RGBCOLOR(255, 255, 255)
 #define BGViewGray RGBCOLOR(242, 242, 242)
 #define BGViewGreen RGBCOLOR(135, 213, 27)
+#define BGViewAGreen RGBACOLOR(135, 213, 27，0)
 #define BGViewLightGreen RGBCOLOR(34, 139, 34)
 #define COLOR_GRAY_DEFAULT_185 RGBACOLOR(185, 185, 185, 1)
 #define COLOR_GRAY_DEFAULT_30 RGBACOLOR(30, 30, 30, 1)
@@ -70,7 +71,7 @@ alpha:(a)]
 #define Screen_height [UIScreen mainScreen].bounds.size.height
 
 
-#define CoolNavHeight 205.0f
+#define CoolNavHeight 300.0f
 #define SearchBarHeight 44
 #define TabBarHeigh 44
 #define TabBarWidth 240

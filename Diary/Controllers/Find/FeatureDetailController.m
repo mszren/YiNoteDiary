@@ -13,12 +13,14 @@
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import "FeatureDetailHeadCell.h"
 #import "FeatureCommentCell.h"
-#import "CoolNavi.h"
+#import "BaseNavigation.h"
+#import "UIImage+Utils.h"
+#import "category.h"
+#import "EGOImageView.h"
 
-@interface FeatureDetailController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource>
+@interface FeatureDetailController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,BaseNavigationDelegate>
 @property (nonatomic,strong)UITableView *tableView;
-@property (nonatomic,strong) CoolNavi *headerView;
-@property (nonatomic, strong) UIImageView *returnImg;
+@property (nonatomic,strong) EGOImageView *featureImg;
 
 @end
 
@@ -32,38 +34,25 @@
 - (void)initView{
     
     _tableView = [[UITableView alloc]
-                  initWithFrame:CGRectMake(0, -statusHeight, Screen_Width,
-                                           Screen_height + statusHeight)
+                  initWithFrame:CGRectMake(0, -NavigationBarHeight, Screen_Width,
+                                           Screen_height + NavigationBarHeight)
                   style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    _tableView.backgroundColor = BGViewColor;
     _tableView.emptyDataSetSource = self;
     _tableView.emptyDataSetDelegate = self;
     _tableView.showsVerticalScrollIndicator = NO;
+    [_tableView setBackgroundColor:AllTableViewColor];
     
     [_tableView registerClass:[FeatureDetailHeadCell class] forCellReuseIdentifier:FeatureDetailHeadCellIdentifier];
     
     [_tableView registerClass:[FeatureCommentCell class] forCellReuseIdentifier:FeatureCommentCellIdentifier];
     
-    
-    [_tableView setBackgroundColor:AllTableViewColor];
+    _featureImg = [[EGOImageView alloc]initWithPlaceholderImage:[UIImage imageNamed: @"pic_bg"]];
+    _featureImg.frame = CGRectMake(0, 0, Screen_Width, CoolNavHeight);
+    _tableView.tableHeaderView = _featureImg;
     [self.view addSubview:_tableView];
-    
-    _headerView = [[CoolNavi alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, CoolNavHeight) backGroudImage:@"pic_bg" ];
-    _headerView.scrollView = _tableView;
-    [self.view addSubview:_headerView];
-    
-    _returnImg = [[UIImageView alloc]initWithFrame:CGRectMake(12, 33, 22, 22)];
-    _returnImg.image = [UIImage imageNamed:@"ic_return"];
-    _returnImg.tag = 100;
-    _returnImg.userInteractionEnabled = YES;
-    UITapGestureRecognizer *returnTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onReturnTap:)];
-    [_returnImg addGestureRecognizer:returnTap];
-    [self.view addSubview:_returnImg];
-    
-
 }
 
 #pragma mark -- UITableViewDelegate
@@ -116,6 +105,13 @@
     
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGFloat offsetY = scrollView.contentOffset.y;
+    
+    [category changeNacigationBarStatus:offsetY andController:self];
+}
+
 #pragma mark DZNEmptyDataSetDelegate,DZNEmptyDataSetSource
 -(NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView{
     
@@ -131,17 +127,9 @@
     return [UIImage imageNamed:@"ic_tywnr"];
 }
 
-
-#pragma mark -- UITapGestureRecognizer
-- (void)onReturnTap:(UITapGestureRecognizer *)sender{
-    
-    [_headerView removeObserver];
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = YES;
+        [[BaseNavigation sharedInstance] setCleanNavigationBar:self andRightItemTitle:nil withDelegate:self];
 }
 
 - (void)didReceiveMemoryWarning {

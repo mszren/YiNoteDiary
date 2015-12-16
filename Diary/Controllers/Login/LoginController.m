@@ -15,6 +15,7 @@
 #import "Utils.h"
 #import "RegisterFirstController.h"
 #import "RevordPasswordController.h"
+#import "BaseNavigation.h"
 
 @interface LoginController()<UITextFieldDelegate,
 LDAPIManagerParamSourceDelegate,BusinessManagerCallBackDelegate>
@@ -41,12 +42,10 @@ LDAPIManagerParamSourceDelegate,BusinessManagerCallBackDelegate>
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //self.view.backgroundColor = BGViewGray;
     [self initView];
 }
 
 - (void)initView{
-    self.title = @"登录";
     self.view.backgroundColor = BGViewGray;
    
     [self.view addSubview:self.userView];
@@ -78,7 +77,7 @@ LDAPIManagerParamSourceDelegate,BusinessManagerCallBackDelegate>
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES];
+    [[BaseNavigation sharedInstance] setLoginNavigationBar:self];
     UIView *superView = self.view;
     
     [_userView mas_makeConstraints:^(MASConstraintMaker *make) {

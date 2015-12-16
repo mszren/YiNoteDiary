@@ -103,7 +103,6 @@
 		D74353A41C0C3D0E004B89FE /* SignController.m in Sources */ = {isa = PBXBuildFile; fileRef = D74353971C0C3D0E004B89FE /* SignController.m */; };
 		D74353A81C0C3D2D004B89FE /* MyController.m in Sources */ = {isa = PBXBuildFile; fileRef = D74353A61C0C3D2D004B89FE /* MyController.m */; };
 		D74D31761C1800EA00AC7DA4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D74D31751C1800EA00AC7DA4 /* CoreData.framework */; };
-		D75398721C1F9F380023A62C /* BaseNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = D75398711C1F9F380023A62C /* BaseNavigation.m */; };
 		D75398791C1FB4E50023A62C /* SelectAdressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D75398771C1FB4E50023A62C /* SelectAdressCell.m */; };
 		D753987D1C1FB66F0023A62C /* SelectAdressController.m in Sources */ = {isa = PBXBuildFile; fileRef = D753987C1C1FB66F0023A62C /* SelectAdressController.m */; };
 		D753989C1C20001E0023A62C /* AlbumImageTileView.m in Sources */ = {isa = PBXBuildFile; fileRef = D75398931C20001E0023A62C /* AlbumImageTileView.m */; };
@@ -182,6 +181,9 @@
 		D76AB97A1C080CCA002B14C0 /* ic_landmark@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D76AB9761C080CCA002B14C0 /* ic_landmark@3x.png */; };
 		D76AB97B1C080CCA002B14C0 /* ic_like@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D76AB9771C080CCA002B14C0 /* ic_like@3x.png */; };
 		D76AB97C1C080CCA002B14C0 /* ic_review@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D76AB9781C080CCA002B14C0 /* ic_review@3x.png */; };
+		D76CB4BD1C213D70007ED8FA /* category.m in Sources */ = {isa = PBXBuildFile; fileRef = D76CB4BC1C213D70007ED8FA /* category.m */; };
+		D76CB4C11C2141CC007ED8FA /* BaseNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = D76CB4C01C2141CC007ED8FA /* BaseNavigation.m */; };
+		D76CB4C41C214218007ED8FA /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = D76CB4C31C214218007ED8FA /* UIImage+Utils.m */; };
 		D77574CF1C0E98D800D26828 /* cities.plist in Resources */ = {isa = PBXBuildFile; fileRef = D77574CA1C0E98D800D26828 /* cities.plist */; };
 		D77574D01C0E98D800D26828 /* CityPickerProvince.m in Sources */ = {isa = PBXBuildFile; fileRef = D77574CC1C0E98D800D26828 /* CityPickerProvince.m */; };
 		D77574D51C0E98E000D26828 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = D77574D41C0E98E000D26828 /* Utils.m */; };
@@ -419,8 +421,6 @@
 		D74353A51C0C3D2D004B89FE /* MyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyController.h; path = Controllers/My/MyController.h; sourceTree = "<group>"; };
 		D74353A61C0C3D2D004B89FE /* MyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyController.m; path = Controllers/My/MyController.m; sourceTree = "<group>"; };
 		D74D31751C1800EA00AC7DA4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		D75398701C1F9F380023A62C /* BaseNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigation.h; sourceTree = "<group>"; };
-		D75398711C1F9F380023A62C /* BaseNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigation.m; sourceTree = "<group>"; };
 		D75398761C1FB4E50023A62C /* SelectAdressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectAdressCell.h; sourceTree = "<group>"; };
 		D75398771C1FB4E50023A62C /* SelectAdressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectAdressCell.m; sourceTree = "<group>"; };
 		D753987B1C1FB66F0023A62C /* SelectAdressController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectAdressController.h; path = Controllers/Index/SelectAdressController.h; sourceTree = "<group>"; };
@@ -541,6 +541,12 @@
 		D76AB9761C080CCA002B14C0 /* ic_landmark@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_landmark@3x.png"; sourceTree = "<group>"; };
 		D76AB9771C080CCA002B14C0 /* ic_like@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_like@3x.png"; sourceTree = "<group>"; };
 		D76AB9781C080CCA002B14C0 /* ic_review@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_review@3x.png"; sourceTree = "<group>"; };
+		D76CB4BB1C213D70007ED8FA /* category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = category.h; sourceTree = "<group>"; };
+		D76CB4BC1C213D70007ED8FA /* category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = category.m; sourceTree = "<group>"; };
+		D76CB4BF1C2141CC007ED8FA /* BaseNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigation.h; sourceTree = "<group>"; };
+		D76CB4C01C2141CC007ED8FA /* BaseNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigation.m; sourceTree = "<group>"; };
+		D76CB4C21C214218007ED8FA /* UIImage+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Utils.h"; sourceTree = "<group>"; };
+		D76CB4C31C214218007ED8FA /* UIImage+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Utils.m"; sourceTree = "<group>"; };
 		D77574CA1C0E98D800D26828 /* cities.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cities.plist; sourceTree = "<group>"; };
 		D77574CB1C0E98D800D26828 /* CityPickerProvince.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityPickerProvince.h; sourceTree = "<group>"; };
 		D77574CC1C0E98D800D26828 /* CityPickerProvince.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityPickerProvince.m; sourceTree = "<group>"; };
@@ -691,6 +697,8 @@
 		841B2EC01BE83BAF008C2974 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D76CB4BE1C2141CC007ED8FA /* Basenavigation */,
+				D76CB4B61C213C5D007ED8FA /* Category */,
 				D77574D21C0E98E000D26828 /* Utils */,
 				D77574C91C0E98D800D26828 /* citypicker */,
 				D76AB8C81C07FD99002B14C0 /* image */,
@@ -1606,6 +1614,26 @@
 			path = EGOPhotoScrollView;
 			sourceTree = "<group>";
 		};
+		D76CB4B61C213C5D007ED8FA /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				D76CB4BB1C213D70007ED8FA /* category.h */,
+				D76CB4BC1C213D70007ED8FA /* category.m */,
+			);
+			name = Category;
+			path = Resources/Category;
+			sourceTree = "<group>";
+		};
+		D76CB4BE1C2141CC007ED8FA /* Basenavigation */ = {
+			isa = PBXGroup;
+			children = (
+				D76CB4BF1C2141CC007ED8FA /* BaseNavigation.h */,
+				D76CB4C01C2141CC007ED8FA /* BaseNavigation.m */,
+			);
+			name = Basenavigation;
+			path = Resources/Basenavigation;
+			sourceTree = "<group>";
+		};
 		D77574C91C0E98D800D26828 /* citypicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -1620,10 +1648,10 @@
 		D77574D21C0E98E000D26828 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				D76CB4C21C214218007ED8FA /* UIImage+Utils.h */,
+				D76CB4C31C214218007ED8FA /* UIImage+Utils.m */,
 				D77574D31C0E98E000D26828 /* Utils.h */,
 				D77574D41C0E98E000D26828 /* Utils.m */,
-				D75398701C1F9F380023A62C /* BaseNavigation.h */,
-				D75398711C1F9F380023A62C /* BaseNavigation.m */,
 			);
 			name = Utils;
 			path = Resources/Utils;
@@ -1900,6 +1928,7 @@
 				D743532D1C0BD4AF004B89FE /* IdentifyHeadCell.m in Sources */,
 				D743534F1C0C15EB004B89FE /* PersonCell.m in Sources */,
 				D77574E81C0EC59500D26828 /* RegisterSecondController.m in Sources */,
+				D76CB4C11C2141CC007ED8FA /* BaseNavigation.m in Sources */,
 				D743537D1C0C3D05004B89FE /* ChatSetController.m in Sources */,
 				D7C3E1DC1C08428D009CE15D /* NearPersonController.m in Sources */,
 				D76AB9321C07FF4C002B14C0 /* WonderfulCell.m in Sources */,
@@ -1915,11 +1944,13 @@
 				D76AB90F1C07FDB2002B14C0 /* UIView+FirstResponderNotify.m in Sources */,
 				841B2F2D1BE83DF8008C2974 /* ToastHUD.m in Sources */,
 				D74353831C0C3D05004B89FE /* InforController.m in Sources */,
+				D76CB4BD1C213D70007ED8FA /* category.m in Sources */,
 				841B2F181BE83DF8008C2974 /* NSMutableString+LDNetworkingMethods.m in Sources */,
 				D7A9087F1C0FCC0300DA0713 /* CommentCell.m in Sources */,
 				D74353401C0C116E004B89FE /* FriendListController.m in Sources */,
 				D743533A1C0BEC45004B89FE /* IdentifyDetailCell.m in Sources */,
 				D76AB91F1C07FE3F002B14C0 /* SegmentNaviViewController.m in Sources */,
+				D76CB4C41C214218007ED8FA /* UIImage+Utils.m in Sources */,
 				841B2F131BE83DF8008C2974 /* LDRequestGenerator.m in Sources */,
 				840D5F641BEE1E0600B887AC /* UserDataCenter.m in Sources */,
 				D74353201C0BD4A5004B89FE /* FriendMaterialController.m in Sources */,
@@ -1929,7 +1960,6 @@
 				841B2F221BE83DF8008C2974 /* LDURLResponse.m in Sources */,
 				D7A908821C0FD94E00DA0713 /* PraiseCell.m in Sources */,
 				D76AB92E1C07FF4C002B14C0 /* AlbumEnjoyCell.m in Sources */,
-				D75398721C1F9F380023A62C /* BaseNavigation.m in Sources */,
 				D74353A21C0C3D0E004B89FE /* SexSelectController.m in Sources */,
 				D743535F1C0C1E8B004B89FE /* AddFriendController.m in Sources */,
 				841B2F1A1BE83DF8008C2974 /* NSString+LDNetworkingMethods.m in Sources */,

@@ -12,12 +12,14 @@
 #import "IdentifyDetailCell.h"
 #import "Masonry.h"
 #import "IdentifyEditView.h"
-#import "CoolNavi.h"
+#import "BaseNavigation.h"
+#import "UIImage+Utils.h"
+#import "category.h"
+#import "EGOImageView.h"
 
-@interface IdentifyDetailController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,IdentifyEditViewDelegate>
-@property (nonatomic, strong) UIImageView *returnImg;
-@property (nonatomic,strong) UIButton *nextBtn;
-@property (nonatomic,strong) CoolNavi *headerView;
+@interface IdentifyDetailController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,IdentifyEditViewDelegate,BaseNavigationDelegate>
+@property (strong, nonatomic) NSLayoutConstraint *headHCons;
+@property (nonatomic,strong) EGOImageView *featureImg;
 
 @end
 
@@ -38,8 +40,8 @@
     
      
     _tableView = [[UITableView alloc]
-                  initWithFrame:CGRectMake(0, -statusHeight, Screen_Width,
-                                           Screen_height + statusHeight)
+                  initWithFrame:CGRectMake(0, -NavigationBarHeight, Screen_Width,
+                                           Screen_height + NavigationBarHeight)
                   style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -47,26 +49,12 @@
     _tableView.emptyDataSetSource = self;
     _tableView.emptyDataSetDelegate = self;
     _tableView.showsVerticalScrollIndicator = NO;
+    
+    _featureImg = [[EGOImageView alloc]initWithPlaceholderImage:[UIImage imageNamed: @"pic_bg"]];
+    _featureImg.frame = CGRectMake(0, 0, Screen_Width, CoolNavHeight);
+    _tableView.tableHeaderView = _featureImg;
     [self.view addSubview:_tableView];
-    
-    _headerView = [[CoolNavi alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, CoolNavHeight) backGroudImage:@"pic_bg" ];
-    _headerView.scrollView = _tableView;
-    [self.view addSubview:_headerView];
-    
-    _returnImg = [[UIImageView alloc]initWithFrame:CGRectMake(12, 33, 22, 22)];
-    _returnImg.image = [UIImage imageNamed:@"ic_return"];
-    _returnImg.tag = 100;
-    _returnImg.userInteractionEnabled = YES;
-    UITapGestureRecognizer *returnTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onReturnTap:)];
-    [_returnImg addGestureRecognizer:returnTap];
-    [self.view addSubview:_returnImg];
-    
-    _nextBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    _nextBtn.frame = CGRectMake(Screen_Width - 80, 30, 70, 25);
-    _nextBtn.titleLabel.font = [UIFont boldSystemFontOfSize:17];
-    [_nextBtn setTitle:@"完成" forState:UIControlStateNormal];
-    [_nextBtn addTarget:self action:@selector(onNextBtn:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:_nextBtn];
+
 }
 
 - (void)creatTextView{
@@ -120,6 +108,13 @@
  
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGFloat offsetY = scrollView.contentOffset.y;
+    
+    [category changeNacigationBarStatus:offsetY andController:self];
+}
+
 #pragma mark DZNEmptyDataSetDelegate,DZNEmptyDataSetSource
 -(NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView{
     
@@ -141,15 +136,9 @@
     _textLabel.text = address;
 }
 
-#pragma mark -- UIButton Action
-- (void)onNextBtn:(UIButton *)sender{
-    
-}
+#pragma mark -- BaseNavigationDelegate
+- (void)baseNavigationDelegateOnRightItemAction{
 
-#pragma mark -- UITapGestureRecognizer
-- (void)onReturnTap:(UITapGestureRecognizer *)sender{
-    [_headerView removeObserver];
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)onTap:(UITapGestureRecognizer *)sender{
@@ -159,6 +148,8 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [[BaseNavigation sharedInstance] setCleanNavigationBar:self andRightItemTitle:@"完成" withDelegate:self];
+    
     UIView *superView = self.view;
     
     [_textView mas_makeConstraints:^(MASConstraintMaker *make) {

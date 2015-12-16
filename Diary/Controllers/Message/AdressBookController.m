@@ -121,8 +121,12 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-     [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:@"好友列表"];
     [_searchBar resignFirstResponder];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+     [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:@"好友列表"];
 }
 
 #pragma mark -- UIBarButtonItem Action

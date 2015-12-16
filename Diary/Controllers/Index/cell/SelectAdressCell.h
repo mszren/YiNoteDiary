@@ -13,5 +13,7 @@
 @property (nonatomic,strong) UILabel *addressLabel;
 @property (nonatomic,strong) UILabel *grayLabel;
 @property (nonatomic,strong) EGOImageView *addressImg;
+
+- (void)selectAderess:(NSInteger)selectIndex;
  
 @end
