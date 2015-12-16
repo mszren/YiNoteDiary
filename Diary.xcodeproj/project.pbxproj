@@ -184,6 +184,9 @@
 		D76CB4BD1C213D70007ED8FA /* category.m in Sources */ = {isa = PBXBuildFile; fileRef = D76CB4BC1C213D70007ED8FA /* category.m */; };
 		D76CB4C11C2141CC007ED8FA /* BaseNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = D76CB4C01C2141CC007ED8FA /* BaseNavigation.m */; };
 		D76CB4C41C214218007ED8FA /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = D76CB4C31C214218007ED8FA /* UIImage+Utils.m */; };
+		D76CB4C81C215D41007ED8FA /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D76CB4C71C215D41007ED8FA /* libiconv.tbd */; };
+		D76CB4CA1C215D66007ED8FA /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D76CB4C91C215D66007ED8FA /* libsqlite3.tbd */; };
+		D76CB4CC1C215D9B007ED8FA /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D76CB4CB1C215D9B007ED8FA /* libstdc++.tbd */; };
 		D77574CF1C0E98D800D26828 /* cities.plist in Resources */ = {isa = PBXBuildFile; fileRef = D77574CA1C0E98D800D26828 /* cities.plist */; };
 		D77574D01C0E98D800D26828 /* CityPickerProvince.m in Sources */ = {isa = PBXBuildFile; fileRef = D77574CC1C0E98D800D26828 /* CityPickerProvince.m */; };
 		D77574D51C0E98E000D26828 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = D77574D41C0E98E000D26828 /* Utils.m */; };
@@ -547,6 +550,9 @@
 		D76CB4C01C2141CC007ED8FA /* BaseNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigation.m; sourceTree = "<group>"; };
 		D76CB4C21C214218007ED8FA /* UIImage+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Utils.h"; sourceTree = "<group>"; };
 		D76CB4C31C214218007ED8FA /* UIImage+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Utils.m"; sourceTree = "<group>"; };
+		D76CB4C71C215D41007ED8FA /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		D76CB4C91C215D66007ED8FA /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		D76CB4CB1C215D9B007ED8FA /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		D77574CA1C0E98D800D26828 /* cities.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cities.plist; sourceTree = "<group>"; };
 		D77574CB1C0E98D800D26828 /* CityPickerProvince.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityPickerProvince.h; sourceTree = "<group>"; };
 		D77574CC1C0E98D800D26828 /* CityPickerProvince.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityPickerProvince.m; sourceTree = "<group>"; };
@@ -634,10 +640,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D76CB4CC1C215D9B007ED8FA /* libstdc++.tbd in Frameworks */,
+				D76CB4CA1C215D66007ED8FA /* libsqlite3.tbd in Frameworks */,
+				D76CB4C81C215D41007ED8FA /* libiconv.tbd in Frameworks */,
+				D7C3E1F01C084DD9009CE15D /* Security.framework in Frameworks */,
 				D74D31761C1800EA00AC7DA4 /* CoreData.framework in Frameworks */,
 				D7AE8E121C1191DA00693FA3 /* MAMapKit.framework in Frameworks */,
 				D7C3E1F21C084DF1009CE15D /* libc++.tbd in Frameworks */,
-				D7C3E1F01C084DD9009CE15D /* Security.framework in Frameworks */,
 				D7C3E1EE1C084DC2009CE15D /* libstdc++.6.0.9.tbd in Frameworks */,
 				D7C3E1EC1C084DB8009CE15D /* libz.tbd in Frameworks */,
 				D7C3E1EA1C084DAE009CE15D /* SystemConfiguration.framework in Frameworks */,
@@ -658,6 +667,9 @@
 		2DAE23E1F9A949483082CAEB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D76CB4CB1C215D9B007ED8FA /* libstdc++.tbd */,
+				D76CB4C91C215D66007ED8FA /* libsqlite3.tbd */,
+				D76CB4C71C215D41007ED8FA /* libiconv.tbd */,
 				D74D31751C1800EA00AC7DA4 /* CoreData.framework */,
 				D7AE8E111C1191DA00693FA3 /* MAMapKit.framework */,
 				D7C3E1F11C084DF1009CE15D /* libc++.tbd */,

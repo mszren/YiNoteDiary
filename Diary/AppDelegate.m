@@ -11,6 +11,12 @@
 #import "LocationManager.h"
 #import "LoginBusinessManager.h"
 
+#import "UMSocial.h"
+#import "UMSocialSinaHandler.h"
+#import "UMSocialWechatHandler.h"
+#import "UMSocialQQHandler.h"
+#import "UMSocialConfig.h"
+
 @interface AppDelegate ()
 
 @end
@@ -23,6 +29,27 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    
+
+    [UMSocialData setAppKey:@"558b6e7b67e58e833c006f6d"];
+    
+    [UMSocialSinaHandler
+     openSSOWithRedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
+    
+    [UMSocialWechatHandler setWXAppId:@"wx352e935d3715247a"
+                            appSecret:@"d3ff113f047b48506290796d8ff05196"
+                                  url:@"http://t.cn/RwFRWYQ"];
+    
+    [UMSocialQQHandler setQQWithAppId:@"100424468" appKey:@"c7394704798a158208a74ab60104f0ba" url:@"http://www.umeng.com/social"];
+    
+    //由于苹果审核政策需求，建议大家对未安装客户端平台进行隐藏，在设置QQ、微信AppID之后调用下面的方法
+    [UMSocialConfig hiddenNotInstallPlatforms:@[
+                                                UMShareToQQ,
+                                                UMShareToQzone,
+                                                UMShareToWechatSession,
+                                                UMShareToWechatTimeline
+                                                ]];
+    
     [[MAMapServices sharedServices] setApiKey:ApiKey];
     [[AMapSearchServices sharedServices]setApiKey:ApiKey];
     LocationManager *locationManager=[LocationManager shareInstance];
@@ -57,6 +84,19 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (BOOL)application:(UIApplication*)application handleOpenURL:(NSURL*)url
+{
+    return [UMSocialSnsService handleOpenURL:url];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    BOOL result = [UMSocialSnsService handleOpenURL:url];
+    if (result == FALSE) {
+        //调用其他SDK，例如支付宝SDK等
+    }
+    return result;
+}
 
 - (void)loadLoginController {
     LoginController *controller = [[LoginController alloc] init];

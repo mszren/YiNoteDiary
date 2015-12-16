@@ -15,5 +15,6 @@ target 'Diary' do
     pod 'DZNEmptyDataSet'
     pod 'UzysAssetsPickerController+CacheSelect', '~> 1.0.0'
     pod 'UITableView+FDTemplateLayoutCell', '~> 1.4.beta'
+    pod 'UMengSocial', '~> 4.3'
 end
 
