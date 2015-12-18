@@ -8,12 +8,13 @@
 
 #import "MessageController.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
-#import "MessageCell.h"
+#import "NewsCell.h"
 #import "NotifationCell.h"
 #import "PersonCell.h"
 #import "AdressBookController.h"
 #import "NotifationController.h"
 #import "BaseNavigation.h"
+#import "ChatController.h"
 
 @interface MessageController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource>
 
@@ -108,17 +109,17 @@
             
         default:{
             
-            static NSString* messageCellid = @"messageCellid";
-            MessageCell * messageCell = [tableView dequeueReusableCellWithIdentifier:messageCellid];
-            if (!messageCell) {
-                messageCell =
-                [[MessageCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                      reuseIdentifier:messageCellid];
-                messageCell.backgroundColor = BGViewColor;
-                messageCell.selectionStyle = UITableViewCellSelectionStyleNone;
+            static NSString* newsCellid = @"newsCellid";
+            NewsCell * newsCell = [tableView dequeueReusableCellWithIdentifier:newsCellid];
+            if (!newsCell) {
+                newsCell =
+                [[NewsCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                      reuseIdentifier:newsCellid];
+                newsCell.backgroundColor = BGViewColor;
+                newsCell.selectionStyle = UITableViewCellSelectionStyleNone;
             }
             
-            return messageCell;
+            return newsCell;
         }
             break;
     }
@@ -140,10 +141,14 @@
             adressBookVc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:adressBookVc animated:YES];
         }
-            
             break;
             
-        default:
+        default:{
+            
+            ChatController *chatVc = [ChatController new];
+            chatVc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:chatVc animated:YES];
+        }
             break;
     }
 }

@@ -6,11 +6,11 @@
 //  Copyright © 2015年 Owen. All rights reserved.
 //
 
-#import "MessageCell.h"
+#import "NewsCell.h"
 #import "Masonry.h"
 #import "EGOImageView.h"
 
-@implementation MessageCell{
+@implementation NewsCell{
     EGOImageView *_faceImg;
     UILabel *_nameLabel;
     UILabel *_timeLabel;

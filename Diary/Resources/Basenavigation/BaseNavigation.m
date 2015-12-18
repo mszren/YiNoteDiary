@@ -108,7 +108,7 @@
 - (void)setLoginNavigationBar:(UIViewController *)controller{
     
     [controller.navigationController.navigationBar setBarTintColor:BGViewGray];
-    controller.navigationController.navigationBar.alpha = 1.0;
+    controller.navigationController.navigationBar.alpha = 1;
     [controller.navigationController.navigationBar setTranslucent:NO];
     [controller.navigationController.navigationBar setTintColor:BGViewColor];
     

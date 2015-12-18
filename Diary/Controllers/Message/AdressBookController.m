@@ -11,6 +11,7 @@
 #import "FriendCell.h"
 #import "AddFriendController.h"
 #import "BaseNavigation.h"
+#import "ChatController.h"
 
 @interface AdressBookController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,UISearchBarDelegate>
 
@@ -82,6 +83,12 @@
     }
     
     return friendCell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    ChatController *chatVc = [ChatController new];
+    chatVc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:chatVc animated:YES];
 }
 
 #pragma mark DZNEmptyDataSetDelegate,DZNEmptyDataSetSource

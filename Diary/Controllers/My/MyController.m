@@ -12,6 +12,7 @@
 #import "FriendMaterialController.h"
 #import "SetController.h"
 #import "PersonCenterController.h"
+#import "BaseNavigation.h"
 
 @interface MyController ()
 @property (nonatomic,strong)EGOImageView *backGroundView;
@@ -88,6 +89,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
+    
     UIView *superView = self.view;
     
     [_scrollView mas_makeConstraints:^(MASConstraintMaker *make) {

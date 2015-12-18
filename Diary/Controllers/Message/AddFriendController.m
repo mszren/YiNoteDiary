@@ -10,6 +10,7 @@
 #import "NearPersonController.h"
 #import "InviteController.h"
 #import "BaseNavigation.h"
+#import "ScanController.h"
 
 @interface AddFriendController ()
 
@@ -45,7 +46,12 @@
         case 100:
             
             break;
-        case 101:
+        case 101:{
+            
+            ScanController *scanVc= [ScanController new];
+            scanVc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:scanVc animated:YES];
+        }
             
             break;
         case 102:{
