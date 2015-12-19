@@ -14,7 +14,7 @@
 #import "AdressBookController.h"
 #import "NotifationController.h"
 #import "BaseNavigation.h"
-#import "ChatController.h"
+#import "ChatToolController.h"
 
 @interface MessageController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource>
 
@@ -145,7 +145,7 @@
             
         default:{
             
-            ChatController *chatVc = [ChatController new];
+            ChatToolController *chatVc = [ChatToolController new];
             chatVc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:chatVc animated:YES];
         }

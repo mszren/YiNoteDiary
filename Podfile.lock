@@ -26,6 +26,9 @@ PODS:
   - CTPersistance (0.1.13)
   - DACircularProgress (2.3.1)
   - DZNEmptyDataSet (1.7.2)
+  - EaseMobSDK (2.1.9)
+  - JSONModel (1.1.2)
+  - LVRecordTool (1.4)
   - Masonry (0.6.3)
   - MBProgressHUD (0.9.1)
   - MWPhotoBrowser (2.1.1):
@@ -47,9 +50,13 @@ DEPENDENCIES:
   - Aspects
   - CTPersistance
   - DZNEmptyDataSet
+  - EaseMobSDK
+  - JSONModel
+  - LVRecordTool (~> 1.4)
   - Masonry
   - MBProgressHUD (~> 0.9.1)
   - MWPhotoBrowser
+  - SDWebImage
   - Toast
   - UITableView+FDTemplateLayoutCell (~> 1.4.beta)
   - UMengSocial (~> 4.3)
@@ -63,6 +70,9 @@ SPEC CHECKSUMS:
   CTPersistance: 62edef6e4e508dd348923490bd79eaa5e6282a1e
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   DZNEmptyDataSet: 0ec00bfc230d7450997b60c127afdd0b9f24f3b6
+  EaseMobSDK: cc8415cb99a65debf4711fa2c9c349fd5c843299
+  JSONModel: 216584d0311b053ff714f1d6cb700dbf890847bc
+  LVRecordTool: 6b430b53de7e69f0b99201f7a97430001207ea6f
   Masonry: ff105a956abcd19a618b2028b121cb638d7a8e2f
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MWPhotoBrowser: ba0d0c09ffda3a7ea10093518738c502c1c7141c

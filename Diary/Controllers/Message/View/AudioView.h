@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <CoreVideo/CoreVideo.h>
 #import <AVFoundation/AVFoundation.h>
+#import "LVRecordTool.h"
 
 @protocol AudioViewDelegate <NSObject>
 

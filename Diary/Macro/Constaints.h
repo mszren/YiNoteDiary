@@ -24,6 +24,9 @@ alpha:(a)]
 //高德开发Key
 #define ApiKey @"2faa79d859dfef7fb1f8f754679077c9"
 
+//录音文件存储地址
+#define LVRecordFielName @"lvRecord.caf"
+
 #define NavBarBgColor RGBCOLOR(135, 213, 27)
 #define TabBarColor RGBCOLOR(239, 239, 239)
 
@@ -66,6 +69,7 @@ alpha:(a)]
 #define FONT_SIZE_20 FONT_SIZE(20)
 
 #define BOLDFont_SIZE_19  BOLDFont_SIZE(19)
+#define BOLDFont_SIZE_13  BOLDFont_SIZE(13)
 
 #define Screen_Width [UIScreen mainScreen].bounds.size.width
 #define Screen_height [UIScreen mainScreen].bounds.size.height

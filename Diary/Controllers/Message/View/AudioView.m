@@ -8,7 +8,6 @@
 
 #import "AudioView.h"
 
-
 #define WIDTH (Screen_Width - 240)/4
 @implementation AudioView  
 {
@@ -18,9 +17,7 @@
     NSInteger _timeTick;//录制时间
     NSInteger _recordTime;//播放时间
     NSURL *_recordedTmpFile;
-    AVAudioRecorder *_recorder;
-    NSError *error;
-    AVAudioPlayer * _avPlayer;
+    LVRecordTool *_recordTool;
 }
 
 + (instancetype)sharedInstance{
@@ -113,9 +110,8 @@
     _luzhiLabel.text = @"点击开始录音";
     [_backGroundView addSubview:_luzhiLabel];
     
-    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
-    [audioSession setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
-    [audioSession setActive:YES error:nil];
+    //初始化录音设备
+    _recordTool = [LVRecordTool sharedRecordTool];
     
     // The window has to be un-hidden on the main thread
    dispatch_async(dispatch_get_main_queue(), ^{
@@ -156,8 +152,9 @@
             
         case 100:{//点击取消录制视图
             [_timer invalidate];
-            _recorder = nil;
-            _avPlayer = nil;
+            if ([_recordTool.recorder isRecording]) [_recordTool stopRecording];
+            
+            if ([_recordTool.player isPlaying]) [_recordTool stopPlaying];
             [self clean];
         }
             break;
@@ -172,10 +169,8 @@
             [_timer invalidate];
             _timer = nil;
             
-            NSFileManager *fm = [NSFileManager defaultManager];
-            [fm removeItemAtPath:[_recordedTmpFile path] error:nil];
-            _recorder = nil;
-            _recordedTmpFile = nil;
+            [_recordTool destructionRecordingFile];
+            
         }
             
             break;
@@ -186,9 +181,10 @@
             if (button.selected == YES) {
                 
                 _luzhiLabel.text = @"正在录音中...";
-                [self startLuzhi];
                 _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeFireMethod) userInfo:nil repeats:YES];
-                
+                [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+                [_timer fire];
+                [_recordTool startRecording];
                 
             }else{
                 
@@ -199,7 +195,7 @@
                 [_timer invalidate];
                 _timer = nil;
                 _luzhiLabel.text = @"点击播放录音";
-                [_recorder stop];
+                [_recordTool stopRecording];
             }
         }
             
@@ -212,19 +208,16 @@
                 
                 _luzhiLabel.text = @"正在播放录音";
                 _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeFireMethod) userInfo:nil repeats:YES];
-                
-                _avPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:_recordedTmpFile error:nil];
-                _avPlayer.volume = 1;
-                [_avPlayer prepareToPlay];
-                [_avPlayer play];
+                [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+                [_timer fire];
+                [_recordTool playRecordingFile];
             }else{
                 
                 _luzhiLabel.text = @"点击播放录音";
                 _recordTime = 0;
                 [_timer invalidate];
                 _timer = nil;
-                [_avPlayer stop];
-                _avPlayer = nil;
+                [_recordTool stopPlaying];
             }
         }
             
@@ -233,17 +226,6 @@
         default:
             break;
     }
-}
-
-//初始化录制
--(void)startLuzhi{
-    
-    NSDictionary *setting = [[NSDictionary alloc] initWithObjectsAndKeys: [NSNumber numberWithFloat: 44100.0],AVSampleRateKey, [NSNumber numberWithInt: kAudioFormatLinearPCM],AVFormatIDKey, [NSNumber numberWithInt:16],AVLinearPCMBitDepthKey, [NSNumber numberWithInt: 2], AVNumberOfChannelsKey, [NSNumber numberWithBool:NO],AVLinearPCMIsBigEndianKey, [NSNumber numberWithBool:NO],AVLinearPCMIsFloatKey,nil];
-    _recordedTmpFile = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent: [NSString stringWithFormat: @"%.0f.%@", [NSDate timeIntervalSinceReferenceDate] * 1000.0, @"caf"]]];
-    _recorder = [[ AVAudioRecorder alloc] initWithURL:_recordedTmpFile settings:setting error:nil];
-    _recorder.delegate = self;
-    [_recorder prepareToRecord];
-    [_recorder record];
 }
 
 //计时器计时
@@ -260,15 +242,13 @@
         
         
         if (_recordTime == _timeTick) {
-            
             [_timer invalidate];
             _timer = nil;
             _recordTime = 0;
             _timeLabel.text = @"00:00";
             _bofanBtn.selected = NO;
             _luzhiLabel.text = @"点击播放录音";
-            [_avPlayer stop];
-            _avPlayer = nil;
+
         }else{
             _recordTime ++;
             NSInteger seconds = _recordTime % 60;
@@ -281,7 +261,10 @@
 
 -(void)clean{
     
-    
+    // 1.获取沙盒地址
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *filePath = [path stringByAppendingPathComponent:LVRecordFielName];
+    _recordedTmpFile = [NSURL fileURLWithPath:filePath];
     [self.delegate AudioViewDelegateWithAudioFile:_recordedTmpFile];
    
     dispatch_async(dispatch_get_main_queue(), ^{
