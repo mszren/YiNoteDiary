@@ -34,6 +34,7 @@
 @property (assign ,nonatomic) CGFloat recordTime;// 录音时间
 @property (strong ,nonatomic) NSTimer *recordTimer;// 定时器
 @property (strong ,nonatomic) UIViewController *viewController; //主视图控制器
+@property (strong ,nonatomic) NSMutableAttributedString *mutableString;//表情符号
 
 @end
 @implementation CSChatToolView
@@ -83,7 +84,7 @@
   //  _contentBackground.image = [UIImage imageNamed:@"Action_Sheet_Normal_New"];
     // FIX ME 以后修改四角适配
     _contentBackground.backgroundColor = [UIColor lightGrayColor];
-    _contentBackground.layer.cornerRadius = 5;
+    _contentBackground.layer.cornerRadius = 0.5;
     _contentTextView.font = [UIFont systemFontOfSize:KCONTENT_FONT];
     _contentTextView.delegate = self;
     _contentTextView.returnKeyType = UIReturnKeySend;
@@ -97,8 +98,10 @@
     _talkBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [_talkBtn setTitle:@"按住说话" forState:UIControlStateNormal];
     [_talkBtn setTitle:@"松开结束" forState:UIControlStateHighlighted];
-    [_talkBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [_talkBtn setTitleColor:[UIColor blueColor] forState:UIControlStateHighlighted];
+    [_talkBtn setTitleColor:COLOR_GRAY_DEFAULT_47 forState:UIControlStateNormal];
+    [_talkBtn setTitleColor:COLOR_GRAY_DEFAULT_47 forState:UIControlStateHighlighted];
+    _talkBtn.titleLabel.font = FONT_SIZE_15;
+    _talkBtn.backgroundColor = BGViewColor;
     
     [_talkBtn addTarget:self action:@selector(beginRecordVioce:) forControlEvents:UIControlEventTouchDown];
     [_talkBtn addTarget:self action:@selector(endRecordVoice:) forControlEvents:UIControlEventTouchUpInside];
@@ -107,6 +110,8 @@
     [_talkBtn addTarget:self action:@selector(remindDragEnter:) forControlEvents:UIControlEventTouchDragEnter];
     
     [_talkBtn setHidden:TRUE];
+    
+     _mutableString = [NSMutableAttributedString new];
 }
 
 - (void)addSubviewsAndAutoLayout{
@@ -204,14 +209,21 @@
 -(void)clickFaceBoard:(NSMutableString *)String
 {
     NSLog(@"点击了表情 : %@",String);
-    NSMutableString *cutString = [NSMutableString stringWithString:String];
-    [cutString deleteCharactersInRange:NSMakeRange(0, 2)];
+    NSArray *arry = [String componentsSeparatedByString:@","];
+    for (NSInteger i = 0; i < arry.count - 1; i++) {
+        
+        NSMutableString *cutString = [NSMutableString stringWithString:arry[i]];
+        [cutString deleteCharactersInRange:NSMakeRange(0, 2)];
+        
+        UIImage *emotionImage = [UIImage imageNamed:cutString];
+        NSTextAttachment *textAttachment = [[NSTextAttachment alloc] initWithData:nil ofType:nil] ;
+        textAttachment.image = emotionImage; //要添加的图片
+        NSAttributedString *textAttachmentString = [NSAttributedString attributedStringWithAttachment:textAttachment] ;
+        [_mutableString appendAttributedString:textAttachmentString];
+       
+    }
+     _contentTextView.attributedText = _mutableString;
 
-    UIImage *emotionImage = [UIImage imageNamed:cutString];
-    NSTextAttachment *textAttachment = [[NSTextAttachment alloc] initWithData:nil ofType:nil] ;
-    textAttachment.image = emotionImage; //要添加的图片
-    NSAttributedString *textAttachmentString = [NSAttributedString attributedStringWithAttachment:textAttachment] ;
-    _contentTextView.attributedText = textAttachmentString;
 }
 
 #pragma mark ChatAssistanceViewDelegate
@@ -409,9 +421,9 @@
 
     if (flag) {
         NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"tmp/arm.wav"];
-        NSData *data = [NSData dataWithContentsOfFile:path];
-        if (_observer && [_observer respondsToSelector:@selector(sendSoundWithData:)]) {
-            [_observer sendSoundWithData:data];
+        NSURL *urlPath = [NSURL URLWithString:path];
+        if (_observer && [_observer respondsToSelector:@selector(sendSoundWithUrl: andRecordTime:)]) {
+            [_observer sendSoundWithUrl:urlPath andRecordTime:self.recordTime];
         }
         
     }else{
@@ -443,6 +455,7 @@
         if ([_observer respondsToSelector:@selector(sendMessageWithText:)]) {
             [_observer sendMessageWithText:textView.text];
         }
+        _mutableString = [NSMutableAttributedString new];
            textView.text = nil;
         return NO;
     }

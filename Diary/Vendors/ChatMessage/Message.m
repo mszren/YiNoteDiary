@@ -20,6 +20,7 @@
     self.contentImg = dict[@"contentImg"];
     self.type = [dict[@"type"] intValue];
     self.contentType = [dict[@"contentType"] intValue];
+    self.contentTime = [dict[@"contentTime"] intValue];
 }
 
 

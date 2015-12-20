@@ -7,7 +7,7 @@
 //
 
 #import "FaceBoard.h"
-
+#import "CSChatToolView.h"
 #import <Masonry/Masonry.h>
 
 #define FACE_COUNT_ALL 85
@@ -56,7 +56,6 @@
         faceView.showsVerticalScrollIndicator = NO;
         faceView.delegate = self;
         
-        self.faceString = [NSMutableString string];
         for (int i = 1; i <= FACE_COUNT_ALL; i++) {
             UIButton *faceButton = [UIButton buttonWithType:UIButtonTypeCustom];
             [faceButton addTarget:self action:@selector(faceButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -90,6 +89,7 @@
         [back addTarget:self action:@selector(backFace) forControlEvents:UIControlEventTouchUpInside];
         back.frame = CGRectMake(SCREENWIDTH - 50, SCREENHEIGHT - 50, 38, 28);
         [faceView addSubview:back];
+        
     }
     return self;
 }
@@ -109,7 +109,7 @@
 - (void)faceButton:(id)sender {
     NSInteger i = ((UIButton *)sender).tag;
     self.faceString = [NSMutableString string];
-    [self.faceString appendString:[_faceMap objectForKey:[NSString stringWithFormat:@"%03ld", (long)i]]];
+    [self.faceString appendString:[NSString stringWithFormat:@"%@,",[_faceMap objectForKey:[NSString stringWithFormat:@"%03ld", (long)i]]]];
     [self.FaceDelegate clickFaceBoard:self.faceString];
 }
 

@@ -11,15 +11,20 @@
 #import "MessageFrame.h"
 #import "EGOImageView.h"
 #import "MWPhotoBrowser.h"
+#import <CoreVideo/CoreVideo.h>
+#import <AVFoundation/AVFoundation.h>
+#import <QuartzCore/QuartzCore.h>
 
-@interface MessageCell () <MWPhotoBrowserDelegate>
+@interface MessageCell () <MWPhotoBrowserDelegate,AVAudioRecorderDelegate>
 {
     UIButton     *_timeBtn;
     UIImageView *_iconView;
     UIButton    *_contentBtn;
     EGOImageView *_stuffImg;
+    UILabel *_stuffTimeLabel;
     Message *_message;
     NSMutableArray *_photos;
+    AVAudioPlayer *_avPlayer;
 }
 
 @end
@@ -57,6 +62,13 @@
         _stuffImg = [[EGOImageView alloc]init];
         _stuffImg.userInteractionEnabled = NO;
         [_contentBtn addSubview:_stuffImg];
+        
+        //5、录音时长label
+        _stuffTimeLabel = [[UILabel alloc]init];
+        _stuffTimeLabel.font = FONT_SIZE_16;
+        _stuffTimeLabel.textColor = COLOR_GRAY_DEFAULT_153;
+        [self.contentView addSubview:_stuffTimeLabel];
+        [_stuffTimeLabel setHidden:YES];
         
     }
     return self;
@@ -107,13 +119,20 @@
     switch (_message.contentType) {
         case MessageContentFile:{
             _stuffImg.image = nil;
+         
             [_contentBtn setTitle:_message.content forState:UIControlStateNormal];
         }
             break;
         case MessageContentVoice:{
             [_contentBtn setTitle:nil forState:UIControlStateNormal];
-            _stuffImg.frame = _messageFrame.stuffF;
+            CGRect voiceRect = _messageFrame.stuffF;
+            voiceRect.size.width = 20;
+            _stuffImg.frame = voiceRect;
             _stuffImg.image = [UIImage imageNamed:@"btn_kanzhe_tbyy_selected"];
+            
+            _stuffTimeLabel.frame = _messageFrame.StuffTimeF;
+            _stuffTimeLabel.text = [NSString stringWithFormat:@"%ld''",(long)_message.contentTime];
+            [_stuffTimeLabel setHidden:NO];
         }
             
             break;
@@ -147,33 +166,15 @@
         case MessageContentFile:
             
             break;
-        case MessageContentVoice:
+        case MessageContentVoice:{
+            
+            [self openRecord];
+        }
             
             break;
         case MessageContentPicture:{
             
-            BOOL displayActionButton = YES;
-            BOOL displaySelectionButtons = NO;
-            BOOL displayNavArrows = NO;
-            BOOL enableGrid = YES;
-            BOOL startOnGrid = YES;
-            BOOL autoPlayOnAppear = NO;
-            MWPhoto *photo = [MWPhoto photoWithImage:_message.contentImg];
-            _photos = [[NSMutableArray alloc]initWithCapacity:0];
-            [_photos addObject:photo];
-            
-            MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
-            browser.displayActionButton = displayActionButton;
-            browser.displayNavArrows = displayNavArrows;
-            browser.displaySelectionButtons = displaySelectionButtons;
-            browser.alwaysShowControls = displaySelectionButtons;
-            browser.zoomPhotosToFill = YES;
-            browser.enableGrid = enableGrid;
-            browser.startOnGrid = startOnGrid;
-            browser.enableSwipeToDismiss = NO;
-            browser.autoPlayOnAppear = autoPlayOnAppear;
-            [browser setCurrentPhotoIndex:0];
-            [self.viewController.navigationController pushViewController:browser animated:YES];
+            [self openPhotoBrower];
         }
             
             break;
@@ -196,6 +197,42 @@
     if (index < _photos.count)
         return [_photos objectAtIndex:index];
     return nil;
+}
+
+//打开MWPhotoBrowser
+- (void)openPhotoBrower{
+    
+    BOOL displayActionButton = YES;
+    BOOL displaySelectionButtons = NO;
+    BOOL displayNavArrows = NO;
+    BOOL enableGrid = YES;
+    BOOL startOnGrid = YES;
+    BOOL autoPlayOnAppear = NO;
+    MWPhoto *photo = [MWPhoto photoWithImage:_message.contentImg];
+    _photos = [[NSMutableArray alloc]initWithCapacity:0];
+    [_photos addObject:photo];
+    
+    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+    browser.displayActionButton = displayActionButton;
+    browser.displayNavArrows = displayNavArrows;
+    browser.displaySelectionButtons = displaySelectionButtons;
+    browser.alwaysShowControls = displaySelectionButtons;
+    browser.zoomPhotosToFill = YES;
+    browser.enableGrid = enableGrid;
+    browser.startOnGrid = startOnGrid;
+    browser.enableSwipeToDismiss = NO;
+    browser.autoPlayOnAppear = autoPlayOnAppear;
+    [browser setCurrentPhotoIndex:0];
+    [self.viewController.navigationController pushViewController:browser animated:YES];
+}
+
+//播放录音
+- (void)openRecord{
+    
+    _avPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:_message.voiceUrl error:nil];
+    _avPlayer.volume = 1;
+    [_avPlayer prepareToPlay];
+    [_avPlayer play];
 }
 
 @end

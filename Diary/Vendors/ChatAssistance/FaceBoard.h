@@ -19,6 +19,7 @@
 @interface FaceBoard : UIView
 @property (nonatomic ,assign)id<FaceBoardDelegate>FaceDelegate;
 @property (nonatomic ,strong) NSMutableString *faceString;
+
 -(void)backFace;
 
 @end

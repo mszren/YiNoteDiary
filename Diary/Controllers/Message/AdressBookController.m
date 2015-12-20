@@ -11,7 +11,7 @@
 #import "FriendCell.h"
 #import "AddFriendController.h"
 #import "BaseNavigation.h"
-#import "ChatController.h"
+#import "ChatToolController.h"
 
 @interface AdressBookController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,UISearchBarDelegate>
 
@@ -86,7 +86,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    ChatController *chatVc = [ChatController new];
+    ChatToolController *chatVc = [ChatToolController new];
     chatVc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:chatVc animated:YES];
 }

@@ -30,7 +30,9 @@ typedef enum {
 @property (nonatomic, copy) NSString *icon;
 @property (nonatomic, copy) NSString *time;
 @property (nonatomic, copy) NSString *content;
+@property (nonatomic, assign) NSInteger contentTime;
 @property (nonatomic, copy) UIImage *contentImg;
+@property (nonatomic, copy) NSURL *voiceUrl;
 @property (nonatomic, assign) MessageType type;
 @property (nonatomic, assign) MessageContentType contentType;
 

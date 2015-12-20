@@ -7,17 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+
 @class CSChatToolView;
 @protocol CSChatToolViewKeyboardProtcol <NSObject>
 @optional
 - (void)chatKeyboardWillShow:(CGFloat)keyBoardHeight;
 - (void)chatKeyboardWillHide;
 - (void)sendMessageWithText:(id )text;
-- (void)sendSoundWithData:(NSData *)data;
+- (void)sendSoundWithUrl:(NSURL *)filePath andRecordTime:(NSInteger)time;
 @end
 @interface CSChatToolView : UIView
 
 @property (strong ,nonatomic) UITextView *contentTextView;
+
 - (instancetype)init __unavailable;
 - (instancetype)initWithFrame:(CGRect)frame __unavailable;
 /**

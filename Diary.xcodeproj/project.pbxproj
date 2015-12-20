@@ -134,12 +134,10 @@
 		D767684F1C2247C300FCF4D2 /* qrcode_scan_light_green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D767683F1C2247C300FCF4D2 /* qrcode_scan_light_green@2x.png */; };
 		D76768501C2247C300FCF4D2 /* qrcode_scan_titlebar_back_nor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D76768401C2247C300FCF4D2 /* qrcode_scan_titlebar_back_nor@2x.png */; };
 		D76768511C2247C300FCF4D2 /* qrcode_scan_titlebar_back_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D76768411C2247C300FCF4D2 /* qrcode_scan_titlebar_back_pressed@2x.png */; };
-		D76768541C2259FB00FCF4D2 /* ChatController.m in Sources */ = {isa = PBXBuildFile; fileRef = D76768531C2259FB00FCF4D2 /* ChatController.m */; };
 		D767685D1C225C9A00FCF4D2 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = D76768571C225C9A00FCF4D2 /* Message.m */; };
 		D767685E1C225C9A00FCF4D2 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D76768591C225C9A00FCF4D2 /* MessageCell.m */; };
 		D767685F1C225C9A00FCF4D2 /* MessageFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = D767685B1C225C9A00FCF4D2 /* MessageFrame.m */; };
 		D76768601C225C9A00FCF4D2 /* messages.plist in Resources */ = {isa = PBXBuildFile; fileRef = D767685C1C225C9A00FCF4D2 /* messages.plist */; };
-		D76768641C225D7800FCF4D2 /* AudioView.m in Sources */ = {isa = PBXBuildFile; fileRef = D76768631C225D7800FCF4D2 /* AudioView.m */; };
 		D76768661C225EFA00FCF4D2 /* bg_kanzhe_fsp.png in Resources */ = {isa = PBXBuildFile; fileRef = D76768651C225EFA00FCF4D2 /* bg_kanzhe_fsp.png */; };
 		D76768681C225F1100FCF4D2 /* btn_kanzhe_tbyy_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = D76768671C225F1100FCF4D2 /* btn_kanzhe_tbyy_normal.png */; };
 		D767686A1C225F1800FCF4D2 /* btn_kanzhe_tbyy_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D76768691C225F1800FCF4D2 /* btn_kanzhe_tbyy_selected.png */; };
@@ -725,8 +723,6 @@
 		D767683F1C2247C300FCF4D2 /* qrcode_scan_light_green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qrcode_scan_light_green@2x.png"; sourceTree = "<group>"; };
 		D76768401C2247C300FCF4D2 /* qrcode_scan_titlebar_back_nor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qrcode_scan_titlebar_back_nor@2x.png"; sourceTree = "<group>"; };
 		D76768411C2247C300FCF4D2 /* qrcode_scan_titlebar_back_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qrcode_scan_titlebar_back_pressed@2x.png"; sourceTree = "<group>"; };
-		D76768521C2259FB00FCF4D2 /* ChatController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatController.h; path = Controllers/Message/ChatController.h; sourceTree = "<group>"; };
-		D76768531C2259FB00FCF4D2 /* ChatController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatController.m; path = Controllers/Message/ChatController.m; sourceTree = "<group>"; };
 		D76768561C225C9A00FCF4D2 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		D76768571C225C9A00FCF4D2 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 		D76768581C225C9A00FCF4D2 /* MessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
@@ -734,8 +730,6 @@
 		D767685A1C225C9A00FCF4D2 /* MessageFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageFrame.h; sourceTree = "<group>"; };
 		D767685B1C225C9A00FCF4D2 /* MessageFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageFrame.m; sourceTree = "<group>"; };
 		D767685C1C225C9A00FCF4D2 /* messages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = messages.plist; sourceTree = "<group>"; };
-		D76768621C225D7800FCF4D2 /* AudioView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioView.h; sourceTree = "<group>"; };
-		D76768631C225D7800FCF4D2 /* AudioView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioView.m; sourceTree = "<group>"; };
 		D76768651C225EFA00FCF4D2 /* bg_kanzhe_fsp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_kanzhe_fsp.png; sourceTree = "<group>"; };
 		D76768671C225F1100FCF4D2 /* btn_kanzhe_tbyy_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_kanzhe_tbyy_normal.png; sourceTree = "<group>"; };
 		D76768691C225F1800FCF4D2 /* btn_kanzhe_tbyy_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_kanzhe_tbyy_selected.png; sourceTree = "<group>"; };
@@ -1538,8 +1532,6 @@
 				D74353631C0C251E004B89FE /* InviteController.xib */,
 				D767682B1C22445E00FCF4D2 /* ScanController.h */,
 				D767682C1C22445E00FCF4D2 /* ScanController.m */,
-				D76768521C2259FB00FCF4D2 /* ChatController.h */,
-				D76768531C2259FB00FCF4D2 /* ChatController.m */,
 				D76E696B1C251EFA00A73E11 /* ChatToolController.h */,
 				D76E696C1C251EFA00A73E11 /* ChatToolController.m */,
 			);
@@ -1928,8 +1920,6 @@
 			children = (
 				D76E69681C251E5C00A73E11 /* CSChatToolView.h */,
 				D76E69691C251E5C00A73E11 /* CSChatToolView.m */,
-				D76768621C225D7800FCF4D2 /* AudioView.h */,
-				D76768631C225D7800FCF4D2 /* AudioView.m */,
 			);
 			name = View;
 			path = Controllers/Message/View;
@@ -3033,7 +3023,6 @@
 				D743532D1C0BD4AF004B89FE /* IdentifyHeadCell.m in Sources */,
 				D743534F1C0C15EB004B89FE /* PersonCell.m in Sources */,
 				D77574E81C0EC59500D26828 /* RegisterSecondController.m in Sources */,
-				D76768641C225D7800FCF4D2 /* AudioView.m in Sources */,
 				D76CB4C11C2141CC007ED8FA /* BaseNavigation.m in Sources */,
 				D743537D1C0C3D05004B89FE /* ChatSetController.m in Sources */,
 				D7C3E1DC1C08428D009CE15D /* NearPersonController.m in Sources */,
@@ -3046,7 +3035,6 @@
 				D76AB9631C08017C002B14C0 /* EGOImageLoadConnection.m in Sources */,
 				D76AB9721C08017C002B14C0 /* EGOPhotoScrollView.m in Sources */,
 				D7A9087C1C0FC9FD00DA0713 /* indexRecentDetailController.m in Sources */,
-				D76768541C2259FB00FCF4D2 /* ChatController.m in Sources */,
 				D76AB92F1C07FF4C002B14C0 /* AlbumHeadCell.m in Sources */,
 				D76AB90F1C07FDB2002B14C0 /* UIView+FirstResponderNotify.m in Sources */,
 				841B2F2D1BE83DF8008C2974 /* ToastHUD.m in Sources */,

@@ -22,6 +22,7 @@
      UITableView *_tableView;
      NSMutableArray  *_allMessagesFrame;
      UIBarButtonItem *_rightItem;
+
 }
 
 #pragma mark init
@@ -141,18 +142,20 @@
 
 #pragma mark -- CSChatToolViewKeyboardProtcol
 - (void)sendMessageWithText:(id)text{
-    
-    [self addMessageWithContent:text time:[self currentTime]];
+
+    [self addMessageWithContent:text time:[self currentTime] andRecordTime:0];
     [_tableView reloadData];
     [_tableView scrollRectToVisible:CGRectMake(0, _tableView.contentSize.height - 15, _tableView.frame.size.width, 10) animated:YES];
 }
 
-- (void)sendSoundWithData:(NSData *)data{
+//返回录音数据
+- (void)sendSoundWithUrl:(NSURL *)filePath andRecordTime:(NSInteger)time{
     
+    [self addMessageWithContent:filePath time:[self currentTime] andRecordTime:time];
 }
 
 #pragma mark 给数据源增加内容
-- (void)addMessageWithContent:(id)content time:(NSString *)time{
+- (void)addMessageWithContent:(id)content time:(NSString *)time andRecordTime:(NSInteger)recordTime{
     
     MessageFrame *mf = [[MessageFrame alloc] init];
     Message *msg = [[Message alloc] init];
@@ -168,8 +171,10 @@
     }else if ([content isKindOfClass:[NSURL class]]){
         
         msg.contentType = MessageContentVoice;
+        msg.voiceUrl = content;
     }
     msg.time = time;
+    msg.contentTime = recordTime;
     msg.icon = @"icon01.png";
     msg.type = MessageTypeMe;
     mf.showTime = YES;

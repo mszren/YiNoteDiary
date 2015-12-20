@@ -41,11 +41,14 @@
     // 3、计算内容位置
     CGFloat contentX = CGRectGetMaxX(_iconF) + kMargin;
     CGFloat contentY = iconY;
-    CGFloat stuffX=  10;
+    CGFloat stuffX =  10;
     CGFloat stuffY =  4;
+    CGFloat stuffTimeX = contentX;
+    CGFloat stuffTimeY = iconY + 6 ;
     
     CGSize contentSize;
     CGSize stuffSize;
+    CGSize stuffTimeSize;
     switch (_message.contentType) {
         case  MessageContentFile:{
             
@@ -55,7 +58,9 @@
             break;
         case  MessageContentVoice:{
             
-            contentSize = CGSizeMake(KcontentVoiceWH, KcontentVoiceWH);
+            contentSize = CGSizeMake(KcontentVoiceW, KcontentVoiceH);
+            stuffTimeSize = CGSizeMake(KcontentVoiceTimeW, KcontentVoiceTimeH);
+            stuffTimeX = contentX + contentSize.width + 10;
         }
             
             break;
@@ -81,7 +86,16 @@
         contentX = iconX - kMargin - contentSize.width - kContentLeft - kContentRight;
     }
     
+    if (_message.type == MessageTypeMe && _message.contentType == MessageContentVoice) {
+        
+        stuffY = 6;
+        stuffX = stuffSize.width;
+        stuffTimeX = contentX - 20;
+    }
+    
     _stuffF = CGRectMake(stuffX, stuffY, stuffSize.width + 10, stuffSize.height + 13);
+    
+    _StuffTimeF = CGRectMake(stuffTimeX, stuffTimeY, stuffTimeSize.width, stuffTimeSize.height);
     
     _contentF = CGRectMake(contentX, contentY, contentSize.width + kContentLeft + kContentRight, contentSize.height + kContentTop + kContentBottom);
 
