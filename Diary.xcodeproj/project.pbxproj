@@ -266,6 +266,7 @@
 		D7798AE71C23E5E500F81879 /* btn_kanzhe_fyy.png in Resources */ = {isa = PBXBuildFile; fileRef = D7798AE61C23E5E500F81879 /* btn_kanzhe_fyy.png */; };
 		D7798AE91C23E5FC00F81879 /* btn_kanzhe_yuying.png in Resources */ = {isa = PBXBuildFile; fileRef = D7798AE81C23E5FC00F81879 /* btn_kanzhe_yuying.png */; };
 		D78026671C2BC7D800CA6890 /* test.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D78026661C2BC7D800CA6890 /* test.mp4 */; };
+		D78026691C2BE50800CA6890 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D78026681C2BE50800CA6890 /* MediaPlayer.framework */; };
 		D79B9AB61C1521C500D0FA3E /* ContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = D79B9AB31C1521C500D0FA3E /* ContentView.m */; };
 		D79B9AB71C1521C500D0FA3E /* SegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = D79B9AB51C1521C500D0FA3E /* SegmentView.m */; };
 		D79B9ABA1C15221400D0FA3E /* ActivityController.m in Sources */ = {isa = PBXBuildFile; fileRef = D79B9AB91C15221400D0FA3E /* ActivityController.m */; };
@@ -921,6 +922,7 @@
 		D7798AE61C23E5E500F81879 /* btn_kanzhe_fyy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_kanzhe_fyy.png; sourceTree = "<group>"; };
 		D7798AE81C23E5FC00F81879 /* btn_kanzhe_yuying.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_kanzhe_yuying.png; sourceTree = "<group>"; };
 		D78026661C2BC7D800CA6890 /* test.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.mp4; sourceTree = "<group>"; };
+		D78026681C2BE50800CA6890 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		D79B9AB21C1521C500D0FA3E /* ContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentView.h; sourceTree = "<group>"; };
 		D79B9AB31C1521C500D0FA3E /* ContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentView.m; sourceTree = "<group>"; };
 		D79B9AB41C1521C500D0FA3E /* SegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentView.h; sourceTree = "<group>"; };
@@ -1184,6 +1186,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D78026691C2BE50800CA6890 /* MediaPlayer.framework in Frameworks */,
 				D7F29C2E1C2538A300358C1B /* AudioToolbox.framework in Frameworks */,
 				D76768941C22829900FCF4D2 /* Photos.framework in Frameworks */,
 				D76768301C22461D00FCF4D2 /* AVFoundation.framework in Frameworks */,
@@ -1214,6 +1217,7 @@
 		2DAE23E1F9A949483082CAEB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D78026681C2BE50800CA6890 /* MediaPlayer.framework */,
 				D7F29C2D1C2538A300358C1B /* AudioToolbox.framework */,
 				D76768931C22829900FCF4D2 /* Photos.framework */,
 				D767682E1C2245B100FCF4D2 /* AVFoundation.framework */,

@@ -8,10 +8,11 @@
 
 #import "CodeController.h"
 #import "BaseNavigation.h"
-#import <AVFoundation/AVPlayer.h>
+#import <MediaPlayer/MediaPlayer.h>
 #import <AVKit/AVKit.h>
 
 @interface CodeController ()
+@property (nonatomic,strong) MPMoviePlayerController *player;;
 
 @end
 
@@ -54,14 +55,18 @@
 }
 
 - (void)paly{
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"test" withExtension:@"mp4"];
-    AVPlayerViewController *avVc = [[AVPlayerViewController alloc]init];
-    AVPlayer *paly = [AVPlayer playerWithURL:url];
-    avVc.player = paly;
-    avVc.view.frame= CGRectMake(0, 80, Screen_Width, 300);
-    [self.view addSubview:avVc.view];
-//    [self presentViewController:avVc animated:YES completion:nil];
+//    NSURL *url = [[NSBundle mainBundle] URLForResource:@"test" withExtension:@"mp4"];
+//    _player = [[MPMoviePlayerController alloc]initWithContentURL:url];
+//    _player.view.frame = CGRectMake(0, 100, Screen_Width, 200);
+//    _player.controlStyle = MPMovieControlStyleDefault;
+//    _player.shouldAutoplay = NO;
+//    [_player prepareToPlay];
+//    [self.view addSubview:_player.view];
     
+}
+
+-(void)exitFullScreen:(NSNotification *)notification{
+    [_player.view removeFromSuperview];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -73,5 +78,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 @end
