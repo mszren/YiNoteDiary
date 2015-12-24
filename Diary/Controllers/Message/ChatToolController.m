@@ -172,6 +172,9 @@
         
         msg.contentType = MessageContentVoice;
         msg.voiceUrl = content;
+    }else if ([content isKindOfClass:[NSDictionary class]]){
+        msg.contentType = MessageContentLocation;
+        msg.locationDic = content;
     }
     msg.time = time;
     msg.contentTime = recordTime;

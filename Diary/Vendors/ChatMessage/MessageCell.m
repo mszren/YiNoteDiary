@@ -14,17 +14,22 @@
 #import <CoreVideo/CoreVideo.h>
 #import <AVFoundation/AVFoundation.h>
 #import <QuartzCore/QuartzCore.h>
+#import "ToastManager.h"
+#import <MapKit/MapKit.h>
+#import "LocationView.h"
 
-@interface MessageCell () <MWPhotoBrowserDelegate,AVAudioRecorderDelegate>
+@interface MessageCell () <MWPhotoBrowserDelegate,AVAudioPlayerDelegate,MKMapViewDelegate>
 {
-    UIButton     *_timeBtn;
-    UIImageView *_iconView;
-    UIButton    *_contentBtn;
-    EGOImageView *_stuffImg;
-    UILabel *_stuffTimeLabel;
+    UIButton     *_timeBtn; //时间按钮
+    UIImageView *_iconView; //头像按钮
+    UIButton    *_contentBtn; //内容按钮
+    EGOImageView *_stuffImg; //内容图片
+    UILabel *_stuffTimeLabel; //录音计时
+    UIButton *_errorBtn; //警告按钮
     Message *_message;
     NSMutableArray *_photos;
     AVAudioPlayer *_avPlayer;
+    MKMapView *_mapView; //分享的地图
 }
 
 @end
@@ -35,8 +40,6 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-#warning 必须先设置为clearColor，否则tableView的背景会被遮住
-        self.backgroundColor = [UIColor clearColor];
         
         // 1、创建时间按钮
         _timeBtn = [[UIButton alloc] init];
@@ -48,6 +51,10 @@
         
         // 2、创建头像
         _iconView = [[UIImageView alloc] init];
+        _iconView.contentMode = UIViewContentModeScaleAspectFill;
+        _iconView.layer.cornerRadius = 20;
+        _iconView.clipsToBounds = YES;
+        _iconView.layer.shouldRasterize = YES;
         [self.contentView addSubview:_iconView];
         
         // 3、创建内容
@@ -57,6 +64,9 @@
         _contentBtn.titleLabel.numberOfLines = 0;
         [_contentBtn addTarget:self action:@selector(onContentBtn:) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:_contentBtn];
+        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(onLongPress:)];
+        longPress.minimumPressDuration = 0.5; //定义按的时间
+        [_contentBtn addGestureRecognizer:longPress];
         
         //4、非文本文件时创建发送实体图片
         _stuffImg = [[EGOImageView alloc]init];
@@ -70,7 +80,24 @@
         [self.contentView addSubview:_stuffTimeLabel];
         [_stuffTimeLabel setHidden:YES];
         
+        //6、警告按钮
+        _errorBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_errorBtn setImage:[UIImage imageNamed:@"messageSendFail"] forState:UIControlStateNormal];
+        [self.contentView addSubview:_errorBtn];
+        [_errorBtn setHidden:YES];
+        
+        //7、位置地图
+        _mapView = [[MKMapView alloc] init];
+        _mapView.delegate = self;
+        _mapView.mapType = MKMapTypeStandard;
+        _mapView.zoomEnabled = YES;
+        [_stuffImg addSubview:_mapView];
+        [_mapView setHidden:YES];
+        
+        
+        
     }
+    self.backgroundColor = [UIColor clearColor];
     return self;
 }
 
@@ -115,15 +142,21 @@
     [_contentBtn setBackgroundImage:normal forState:UIControlStateNormal];
     [_contentBtn setBackgroundImage:focused forState:UIControlStateHighlighted];
     
-    //5、设置按钮内容（文字、图片、语音或音频)
+    //、设置警告按钮
+    _errorBtn.frame = _messageFrame.errorF;
+    [_errorBtn setHidden:YES];
+    
+    //6、设置按钮内容（文字、图片、语音或音频)
     switch (_message.contentType) {
         case MessageContentFile:{
             _stuffImg.image = nil;
-         
+            [_mapView setHidden:YES];
+            [_stuffTimeLabel setHidden:YES];
             [_contentBtn setTitle:_message.content forState:UIControlStateNormal];
         }
             break;
         case MessageContentVoice:{
+            [_mapView setHidden:YES];
             [_contentBtn setTitle:nil forState:UIControlStateNormal];
             CGRect voiceRect = _messageFrame.stuffF;
             voiceRect.size.width = 20;
@@ -137,6 +170,8 @@
             
             break;
         case MessageContentPicture:{
+            [_stuffTimeLabel setHidden:YES];
+            [_mapView setHidden:YES];
             [_contentBtn setTitle:nil forState:UIControlStateNormal];
             _stuffImg.layer.cornerRadius = 8;
             _stuffImg.clipsToBounds = YES;
@@ -144,10 +179,30 @@
             _stuffImg.frame = _messageFrame.stuffF;
             _stuffImg.image = _message.contentImg;
         }
+            break;
+        case MessageContentLocation:{
+            
+            [_stuffTimeLabel setHidden:YES];
+            [_contentBtn setTitle:nil forState:UIControlStateNormal];
+            _stuffImg.frame = _messageFrame.stuffF;
+            CGRect imgRect = _messageFrame.stuffF;
+            _mapView.frame = CGRectMake(0, 0, imgRect.size.width, imgRect.size.height);
+            [_mapView setHidden:NO];
+            CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([_message.locationDic[@"latitude"] floatValue], [_message.locationDic[@"longitude"] floatValue]);
+            MKCoordinateSpan span = MKCoordinateSpanMake(0.01, 0.01);
+            
+            MKCoordinateRegion region = MKCoordinateRegionMake(coordinate, span);
+            [_mapView setRegion:region];//指定地图的显示范围。
+            MKPointAnnotation *pin = [[MKPointAnnotation alloc]init];
+            pin.coordinate = coordinate;
+            pin.title = _message.locationDic[@"address"];
+            [_mapView addAnnotation:pin];
+        }
             
             break;
         case MessageContentAudio:{
-            
+            [_stuffTimeLabel setHidden:YES];
+            [_mapView setHidden:YES];
             [_contentBtn setTitle:nil forState:UIControlStateNormal];
             _stuffImg.frame = _messageFrame.stuffF;
         }
@@ -157,6 +212,94 @@
         default:
             break;
     }
+}
+
+#pragma mark -- UILongPressGestureRecognizer
+- (void)onLongPress:(UILongPressGestureRecognizer *)sender{
+    
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        
+        [self becomeFirstResponder];
+        
+        //复制
+        UIMenuItem *copyItem = [[UIMenuItem alloc] initWithTitle:@"复制" action:@selector(copyItemClicked:)];
+        
+        //收藏
+        UIMenuItem *collectItem = [[UIMenuItem alloc] initWithTitle:@"收藏" action:@selector(collectItemClicked:)];
+        
+        //分享
+        UIMenuItem *shareItem = [[UIMenuItem alloc] initWithTitle:@"分享" action:@selector(shareItemClicked:)];
+        
+        switch (_message.contentType) {
+            case MessageContentFile:{
+                
+                UIMenuController *fileMenu = [UIMenuController sharedMenuController];
+                fileMenu.menuItems = @[copyItem,collectItem,shareItem];
+                [fileMenu setMenuVisible:YES animated:YES];
+                [fileMenu setTargetRect:_messageFrame.contentF inView:self];
+            }
+                break;
+                
+            case MessageContentPicture:{
+                
+                UIMenuController *pictureMenu = [UIMenuController sharedMenuController];
+                pictureMenu.menuItems = @[collectItem,shareItem];
+                [pictureMenu setMenuVisible:YES animated:YES];
+                [pictureMenu setTargetRect:_messageFrame.contentF inView:self];
+            }
+                
+                break;
+                
+            case MessageContentVoice:
+                
+                break;
+                
+            case MessageContentAudio:
+                
+                break;
+                
+            default:
+                break;
+        }
+    }
+}
+
+
+//处理item点击事件
+- (void)copyItemClicked:(UIMenuItem *)item
+{
+    NSLog(@"复制");
+}
+
+- (void)collectItemClicked:(UIMenuItem *)item
+{
+    NSLog(@"收藏");
+}
+
+- (void)shareItemClicked:(UIMenuItem *)item
+{
+    NSLog(@"分享");
+}
+
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender
+{
+    if (action == @selector(copyItemClicked:)) {
+        
+        return YES;
+    }else if(action == @selector(collectItemClicked:))
+    {
+        return YES;
+    }else if (action == @selector(shareItemClicked:)){
+        
+        return YES;
+    }
+    
+    return [super canPerformAction:action withSender:sender];
+}
+
+- (BOOL)canBecomeFirstResponder
+{
+    return YES;
 }
 
 #pragma mark -- UIButton Action
@@ -174,12 +317,17 @@
             break;
         case MessageContentPicture:{
             
-            [self openPhotoBrower];
+            [self openPhotoBrower:_message.contentImg];
         }
             
             break;
         case MessageContentAudio:
             
+            break;
+        case MessageContentLocation:{
+            
+            [[LocationView sharedInstance] showLocationView:_message.locationDic];
+        }
             break;
             
         default:
@@ -200,7 +348,7 @@
 }
 
 //打开MWPhotoBrowser
-- (void)openPhotoBrower{
+- (void)openPhotoBrower:(id)sendContent{
     
     BOOL displayActionButton = YES;
     BOOL displaySelectionButtons = NO;
@@ -208,7 +356,7 @@
     BOOL enableGrid = YES;
     BOOL startOnGrid = YES;
     BOOL autoPlayOnAppear = NO;
-    MWPhoto *photo = [MWPhoto photoWithImage:_message.contentImg];
+    MWPhoto *photo = [MWPhoto photoWithImage:sendContent];
     _photos = [[NSMutableArray alloc]initWithCapacity:0];
     [_photos addObject:photo];
     
@@ -228,11 +376,38 @@
 
 //播放录音
 - (void)openRecord{
-    
-    _avPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:_message.voiceUrl error:nil];
-    _avPlayer.volume = 1;
+    NSLog(@"url :%@",_message.voiceUrl);
+    NSError *error;
+    _avPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:_message.voiceUrl error:&error];
+    if (error) {
+        
+        [ToastManager showToast:error.localizedDescription withTime:2];
+    }
+    _avPlayer.delegate = self;
     [_avPlayer prepareToPlay];
     [_avPlayer play];
+}
+
+#pragma mark -- AVAudioPlayerDelegate
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
+    [_avPlayer stop];
+}
+
+#pragma mark -- MKMapViewDelegate
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+{
+   
+    static NSString *identifer = @"MyPinId";
+    MKPinAnnotationView *pinView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:identifer];
+    if (!pinView) {
+        pinView = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:identifer];
+        pinView.canShowCallout = YES;//点大头针时是否弹出提示
+        
+    } else {
+        pinView.annotation = annotation;
+      
+    }
+    return pinView;
 }
 
 @end

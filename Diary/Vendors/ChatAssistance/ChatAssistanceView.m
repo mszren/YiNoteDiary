@@ -9,6 +9,7 @@
 #import "ChatAssistanceView.h"
 #import "ChatAssistanceModel.h"
 #import "UzysAssetsPickerController.h"
+#import "LocationViewController.h"
 
 #define CHARTASSISTACED @"ChatResourse"
 
@@ -20,12 +21,12 @@
 
 #define CHATASSISTANCE_COUNT_CLU 4 // 每行个数
 
-#define CHATASSISTANCE_ITEM_SIZE 58 * SCREENHEIGHT / 667
+#define CHATASSISTANCE_ITEM_SIZE 68 * SCREENHEIGHT / 667
 
 #define CHATASSISTANCE_COUNT_PAGE (CHATASSISTANCE_COUNT_ROW * CHATASSISTANCE_COUNT_CLU)
 
 #define ITEM_DISTANCE_SIZE 20 * SCREENWIDTH / 375
-@interface ChatAssistanceView ()<UIScrollViewDelegate,UzysAssetsPickerControllerDelegate>{
+@interface ChatAssistanceView ()<UIScrollViewDelegate,UzysAssetsPickerControllerDelegate,LocationViewDelegate>{
     UIScrollView *chatAssistanceScrollView;
     GrayPageControl *assistancePageControl;
     ChatAssistanceModel *assistanceM;
@@ -144,6 +145,12 @@
     
 }
 
+#pragma mark -- LocationViewDelegate
+-(void)sendLocationLatitude:(double)latitude longitude:(double)longitude andAddress:(NSString *)address{
+    NSDictionary *locationDic = @{@(latitude) : @"latitude", @(longitude):@"longitude",address:@"address"};
+    [_delegate selectResult:locationDic];
+}
+
 - (void)itemButton:(UIButton *)sender {
  
     switch (sender.tag) {
@@ -159,7 +166,11 @@
             [self initPickerVc:1 andPhotoNum:0];
             break;
             
-        default:
+        default:{
+            LocationViewController *locationVc = [LocationViewController new];
+            locationVc.delegate = self;
+           [_currentVc.navigationController pushViewController:locationVc animated:YES];
+        }
             break;
     }
 }
@@ -179,12 +190,6 @@
                            }];
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+
 
 @end

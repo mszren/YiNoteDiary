@@ -35,6 +35,7 @@
 @property (strong ,nonatomic) NSTimer *recordTimer;// 定时器
 @property (strong ,nonatomic) UIViewController *viewController; //主视图控制器
 @property (strong ,nonatomic) NSMutableAttributedString *mutableString;//表情符号
+@property (assign ,nonatomic) NSInteger isSend;
 
 @end
 @implementation CSChatToolView
@@ -45,6 +46,7 @@
         if (object) {
               _observer = object;
         }
+        _isSend = NO;
         _hiddenKeyboardRect = CGRectMake(0, Screen_height-KINPUTVIEW_HEIGHT - NavigationBarHeight, Screen_Width, (KINPUTVIEW_HEIGHT+KASSIGANTVIEW_HEIGHT));
         _showkeyboardRect = _hiddenKeyboardRect;
         _viewController = viewController;
@@ -223,13 +225,21 @@
        
     }
      _contentTextView.attributedText = _mutableString;
-
 }
 
 #pragma mark ChatAssistanceViewDelegate
 - (void)selectResult:(id)sendMessage{
     
     [_observer sendMessageWithText:sendMessage];
+    
+    if (_moreItemBtn.selected) {
+        
+         _moreItemBtn.selected = NO;
+    }
+    [UIView animateWithDuration:0.25 animations:^{
+       self.frame = CGRectMake(0, Screen_height-KINPUTVIEW_HEIGHT - NavigationBarHeight, Screen_Width, (KINPUTVIEW_HEIGHT+KASSIGANTVIEW_HEIGHT));
+        
+    }];
 }
 
 #pragma mark 键盘隐藏的监听方法
@@ -379,12 +389,14 @@
 
 - (void)endRecordVoice:(UIButton *)button
 {
+    _isSend = YES;
     [UUProgressHUD dismissWithSuccess:nil];
     [self.recorder stop];
 }
 
 - (void)cancelRecordVoice:(UIButton *)button
 {
+    _isSend = NO;
     [self.recorder stop];
     [self.recorder deleteRecording];
     [UUProgressHUD dismissWithError:@"取消"];
@@ -392,6 +404,7 @@
 
 - (void)remindDragExit:(UIButton *)button
 {
+    _isSend = NO;
     [UUProgressHUD changeSubTitle:@"松开手指,取消发送"];
 }
 
@@ -419,9 +432,9 @@
         return;
     }
 
-    if (flag) {
+    if (flag && _isSend) {
         NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"tmp/arm.wav"];
-        NSURL *urlPath = [NSURL URLWithString:path];
+        NSURL *urlPath = [NSURL fileURLWithPath:path];
         if (_observer && [_observer respondsToSelector:@selector(sendSoundWithUrl: andRecordTime:)]) {
             [_observer sendSoundWithUrl:urlPath andRecordTime:self.recordTime];
         }
@@ -452,7 +465,7 @@
 {
     if ([text isEqualToString:@"\n"]) {
     
-        if ([_observer respondsToSelector:@selector(sendMessageWithText:)]) {
+        if ([_observer respondsToSelector:@selector(sendMessageWithText:)] && textView.text != nil && textView.text.length > 0) {
             [_observer sendMessageWithText:textView.text];
         }
         _mutableString = [NSMutableAttributedString new];

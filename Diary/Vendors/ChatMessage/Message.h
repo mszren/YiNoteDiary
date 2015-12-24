@@ -20,7 +20,8 @@ typedef enum {
     MessageContentVoice = 1, //录音文件
     MessageContentPicture = 2, //图片文件
     MessageContentAudio = 3, //音频文件
-    MessageContentRed = 4, //红包
+    MessageContentLocation = 4, //位置
+    MessageContentRed = 5, //红包
     
 }MessageContentType;
 
@@ -32,6 +33,7 @@ typedef enum {
 @property (nonatomic, copy) NSString *content;
 @property (nonatomic, assign) NSInteger contentTime;
 @property (nonatomic, copy) UIImage *contentImg;
+@property (nonatomic, copy) NSDictionary *locationDic;
 @property (nonatomic, copy) NSURL *voiceUrl;
 @property (nonatomic, assign) MessageType type;
 @property (nonatomic, assign) MessageContentType contentType;

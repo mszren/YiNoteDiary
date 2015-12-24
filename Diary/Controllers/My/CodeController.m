@@ -8,6 +8,8 @@
 
 #import "CodeController.h"
 #import "BaseNavigation.h"
+#import <AVFoundation/AVPlayer.h>
+#import <AVKit/AVKit.h>
 
 @interface CodeController ()
 
@@ -20,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initView];
+    [self paly];
 }
 
 - (void)initView{
@@ -50,6 +53,17 @@
     [self presentViewController:alertVc animated:YES completion:nil];
 }
 
+- (void)paly{
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"test" withExtension:@"mp4"];
+    AVPlayerViewController *avVc = [[AVPlayerViewController alloc]init];
+    AVPlayer *paly = [AVPlayer playerWithURL:url];
+    avVc.player = paly;
+    avVc.view.frame= CGRectMake(0, 80, Screen_Width, 300);
+    [self.view addSubview:avVc.view];
+//    [self presentViewController:avVc animated:YES completion:nil];
+    
+}
+
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:@"二维码名片"];
@@ -59,7 +73,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
 
 @end

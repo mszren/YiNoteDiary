@@ -59,6 +59,15 @@
 		84C073A21BE3047F00822E4B /* ErrorReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C073A11BE3047F00822E4B /* ErrorReformer.m */; };
 		84E8B9AC1BF2F2070051D969 /* ViewControllerIntercepter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E8B9AB1BF2F2070051D969 /* ViewControllerIntercepter.m */; };
 		B21AD0BB699BEECA6DA473E1 /* libPods-Diary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C27ADBC2EC23F27E22A72CC2 /* libPods-Diary.a */; };
+		D7350FAD1C2A722400C5E62A /* chatBar_colorMore_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7350FAC1C2A722400C5E62A /* chatBar_colorMore_location@2x.png */; };
+		D7350FAF1C2A723400C5E62A /* chatBar_colorMore_photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7350FAE1C2A723400C5E62A /* chatBar_colorMore_photo@2x.png */; };
+		D7350FB11C2A724600C5E62A /* chatBar_colorMore_camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7350FB01C2A724600C5E62A /* chatBar_colorMore_camera@2x.png */; };
+		D7350FB31C2A727200C5E62A /* chatBar_colorMore_videoCall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7350FB21C2A727200C5E62A /* chatBar_colorMore_videoCall@2x.png */; };
+		D7350FB61C2A733B00C5E62A /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7350FB51C2A733B00C5E62A /* LocationViewController.m */; };
+		D7350FBD1C2A7BA700C5E62A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7350FBC1C2A7BA700C5E62A /* Localizable.strings */; };
+		D7350FC81C2A7E8F00C5E62A /* UIViewController+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D7350FC71C2A7E8F00C5E62A /* UIViewController+HUD.m */; };
+		D7350FCA1C2A936300C5E62A /* messageSendFail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7350FC91C2A936300C5E62A /* messageSendFail@2x.png */; };
+		D7350FCD1C2A9E6600C5E62A /* LocationView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7350FCC1C2A9E6600C5E62A /* LocationView.m */; };
 		D74353201C0BD4A5004B89FE /* FriendMaterialController.m in Sources */ = {isa = PBXBuildFile; fileRef = D743531B1C0BD4A5004B89FE /* FriendMaterialController.m */; };
 		D74353211C0BD4A5004B89FE /* FriendMaterialController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D743531C1C0BD4A5004B89FE /* FriendMaterialController.xib */; };
 		D74353221C0BD4A5004B89FE /* IdentifyController.m in Sources */ = {isa = PBXBuildFile; fileRef = D743531E1C0BD4A5004B89FE /* IdentifyController.m */; };
@@ -256,6 +265,7 @@
 		D77574F11C0EC87100D26828 /* RevordPasswordSecondController.m in Sources */ = {isa = PBXBuildFile; fileRef = D77574F01C0EC87100D26828 /* RevordPasswordSecondController.m */; };
 		D7798AE71C23E5E500F81879 /* btn_kanzhe_fyy.png in Resources */ = {isa = PBXBuildFile; fileRef = D7798AE61C23E5E500F81879 /* btn_kanzhe_fyy.png */; };
 		D7798AE91C23E5FC00F81879 /* btn_kanzhe_yuying.png in Resources */ = {isa = PBXBuildFile; fileRef = D7798AE81C23E5FC00F81879 /* btn_kanzhe_yuying.png */; };
+		D78026671C2BC7D800CA6890 /* test.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D78026661C2BC7D800CA6890 /* test.mp4 */; };
 		D79B9AB61C1521C500D0FA3E /* ContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = D79B9AB31C1521C500D0FA3E /* ContentView.m */; };
 		D79B9AB71C1521C500D0FA3E /* SegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = D79B9AB51C1521C500D0FA3E /* SegmentView.m */; };
 		D79B9ABA1C15221400D0FA3E /* ActivityController.m in Sources */ = {isa = PBXBuildFile; fileRef = D79B9AB91C15221400D0FA3E /* ActivityController.m */; };
@@ -604,6 +614,18 @@
 		84E8B9AA1BF2F2070051D969 /* ViewControllerIntercepter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerIntercepter.h; path = Controllers/ViewControllerIntercepter.h; sourceTree = "<group>"; };
 		84E8B9AB1BF2F2070051D969 /* ViewControllerIntercepter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewControllerIntercepter.m; path = Controllers/ViewControllerIntercepter.m; sourceTree = "<group>"; };
 		C27ADBC2EC23F27E22A72CC2 /* libPods-Diary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Diary.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7350FAC1C2A722400C5E62A /* chatBar_colorMore_location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chatBar_colorMore_location@2x.png"; sourceTree = "<group>"; };
+		D7350FAE1C2A723400C5E62A /* chatBar_colorMore_photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chatBar_colorMore_photo@2x.png"; sourceTree = "<group>"; };
+		D7350FB01C2A724600C5E62A /* chatBar_colorMore_camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chatBar_colorMore_camera@2x.png"; sourceTree = "<group>"; };
+		D7350FB21C2A727200C5E62A /* chatBar_colorMore_videoCall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chatBar_colorMore_videoCall@2x.png"; sourceTree = "<group>"; };
+		D7350FB41C2A733B00C5E62A /* LocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
+		D7350FB51C2A733B00C5E62A /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
+		D7350FBC1C2A7BA700C5E62A /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = Resources/Localizable.strings; sourceTree = "<group>"; };
+		D7350FC61C2A7E8F00C5E62A /* UIViewController+HUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HUD.h"; sourceTree = "<group>"; };
+		D7350FC71C2A7E8F00C5E62A /* UIViewController+HUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HUD.m"; sourceTree = "<group>"; };
+		D7350FC91C2A936300C5E62A /* messageSendFail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "messageSendFail@2x.png"; sourceTree = "<group>"; };
+		D7350FCB1C2A9E6600C5E62A /* LocationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationView.h; sourceTree = "<group>"; };
+		D7350FCC1C2A9E6600C5E62A /* LocationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationView.m; sourceTree = "<group>"; };
 		D743531A1C0BD4A5004B89FE /* FriendMaterialController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendMaterialController.h; path = Controllers/Trail/FriendMaterialController.h; sourceTree = "<group>"; };
 		D743531B1C0BD4A5004B89FE /* FriendMaterialController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendMaterialController.m; path = Controllers/Trail/FriendMaterialController.m; sourceTree = "<group>"; };
 		D743531C1C0BD4A5004B89FE /* FriendMaterialController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FriendMaterialController.xib; path = Controllers/Trail/FriendMaterialController.xib; sourceTree = "<group>"; };
@@ -898,6 +920,7 @@
 		D77574F01C0EC87100D26828 /* RevordPasswordSecondController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RevordPasswordSecondController.m; path = Controllers/Login/RevordPasswordSecondController.m; sourceTree = "<group>"; };
 		D7798AE61C23E5E500F81879 /* btn_kanzhe_fyy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_kanzhe_fyy.png; sourceTree = "<group>"; };
 		D7798AE81C23E5FC00F81879 /* btn_kanzhe_yuying.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_kanzhe_yuying.png; sourceTree = "<group>"; };
+		D78026661C2BC7D800CA6890 /* test.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.mp4; sourceTree = "<group>"; };
 		D79B9AB21C1521C500D0FA3E /* ContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentView.h; sourceTree = "<group>"; };
 		D79B9AB31C1521C500D0FA3E /* ContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentView.m; sourceTree = "<group>"; };
 		D79B9AB41C1521C500D0FA3E /* SegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentView.h; sourceTree = "<group>"; };
@@ -1630,6 +1653,7 @@
 				84C073031BE0C46100822E4B /* Info.plist */,
 				84C072F31BE0C46100822E4B /* main.m */,
 				84C073831BE1B8CB00822E4B /* Diary-Prefix.pch */,
+				D7350FBC1C2A7BA700C5E62A /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1653,6 +1677,7 @@
 		84C0730A1BE0CD0600822E4B /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				D7350FC51C2A7E8F00C5E62A /* UIViewController+HUD */,
 				D76E69531C251D3000A73E11 /* ChatAssistance */,
 				D76768551C225C9A00FCF4D2 /* ChatMessage */,
 				D79B9ACF1C1553E900D0FA3E /* CoolNavi */,
@@ -1775,6 +1800,16 @@
 				054052362DEA8161644F4838 /* Pods-Diary.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		D7350FC51C2A7E8F00C5E62A /* UIViewController+HUD */ = {
+			isa = PBXGroup;
+			children = (
+				D7350FC61C2A7E8F00C5E62A /* UIViewController+HUD.h */,
+				D7350FC71C2A7E8F00C5E62A /* UIViewController+HUD.m */,
+			);
+			name = "UIViewController+HUD";
+			path = "Diary/Vendors/UIViewController+HUD";
 			sourceTree = "<group>";
 		};
 		D74353241C0BD4AF004B89FE /* cell */ = {
@@ -1920,6 +1955,8 @@
 			children = (
 				D76E69681C251E5C00A73E11 /* CSChatToolView.h */,
 				D76E69691C251E5C00A73E11 /* CSChatToolView.m */,
+				D7350FCB1C2A9E6600C5E62A /* LocationView.h */,
+				D7350FCC1C2A9E6600C5E62A /* LocationView.m */,
 			);
 			name = View;
 			path = Controllers/Message/View;
@@ -1976,6 +2013,11 @@
 			isa = PBXGroup;
 			children = (
 				D76768911C22651600FCF4D2 /* bg_kanzhe_fpic.png */,
+				D7350FB01C2A724600C5E62A /* chatBar_colorMore_camera@2x.png */,
+				D7350FC91C2A936300C5E62A /* messageSendFail@2x.png */,
+				D7350FB21C2A727200C5E62A /* chatBar_colorMore_videoCall@2x.png */,
+				D7350FAE1C2A723400C5E62A /* chatBar_colorMore_photo@2x.png */,
+				D7350FAC1C2A722400C5E62A /* chatBar_colorMore_location@2x.png */,
 				D767688F1C2264D900FCF4D2 /* bg_kanzhe_xuanze.png */,
 				D7F29C1D1C25350B00358C1B /* ToolViewInputVoice@2x.png */,
 				D7F29C291C25352F00358C1B /* ToolViewKeyboardHL@2x.png */,
@@ -2035,6 +2077,7 @@
 		D76AB8DA1C07FD99002B14C0 /* my */ = {
 			isa = PBXGroup;
 			children = (
+				D78026661C2BC7D800CA6890 /* test.mp4 */,
 				D76AB8DB1C07FD99002B14C0 /* ic_albums@3x.png */,
 				D76AB8DC1C07FD99002B14C0 /* ic_arrow@3x.png */,
 				D76AB8DD1C07FD99002B14C0 /* ic_aSet up@3x.png */,
@@ -2284,8 +2327,8 @@
 		D76E69531C251D3000A73E11 /* ChatAssistance */ = {
 			isa = PBXGroup;
 			children = (
-				D7F29C2F1C253B7F00358C1B /* ChatResourse.plist */,
 				D76E69641C251E2A00A73E11 /* UUProgress */,
+				D7F29C2F1C253B7F00358C1B /* ChatResourse.plist */,
 				D76E695E1C251D7200A73E11 /* FaceBoard.h */,
 				D76E695F1C251D7200A73E11 /* FaceBoard.m */,
 				D76E69601C251D7200A73E11 /* GrayPageControl.h */,
@@ -2296,6 +2339,8 @@
 				D76E69571C251D3000A73E11 /* ChatAssistanceModel.m */,
 				D76E69581C251D3000A73E11 /* ChatAssistanceView.h */,
 				D76E69591C251D3000A73E11 /* ChatAssistanceView.m */,
+				D7350FB41C2A733B00C5E62A /* LocationViewController.h */,
+				D7350FB51C2A733B00C5E62A /* LocationViewController.m */,
 			);
 			name = ChatAssistance;
 			path = Diary/Vendors/ChatAssistance;
@@ -2651,6 +2696,7 @@
 				D743537E1C0C3D05004B89FE /* ChatSetController.xib in Resources */,
 				D7F29BEB1C25346D00358C1B /* 079.png in Resources */,
 				D7F29BDC1C25346D00358C1B /* 071@2x.png in Resources */,
+				D7350FAF1C2A723400C5E62A /* chatBar_colorMore_photo@2x.png in Resources */,
 				D7F29B501C25346D00358C1B /* 001@2x.png in Resources */,
 				D7F29C241C25351D00358C1B /* ToolViewInputVoiceHL@3x.png in Resources */,
 				D7F29BAC1C25346D00358C1B /* 047@2x.png in Resources */,
@@ -2682,6 +2728,7 @@
 				D7F29C0E1C2534D500358C1B /* del_emoji_select@2x.png in Resources */,
 				D7F29B5A1C25346D00358C1B /* 006@2x.png in Resources */,
 				D7F29B921C25346D00358C1B /* 034@2x.png in Resources */,
+				D7350FAD1C2A722400C5E62A /* chatBar_colorMore_location@2x.png in Resources */,
 				D767688E1C22636900FCF4D2 /* icon02.png in Resources */,
 				D7F29B761C25346D00358C1B /* 020@2x.png in Resources */,
 				D7F29B6F1C25346D00358C1B /* 017.png in Resources */,
@@ -2690,6 +2737,7 @@
 				D76AB96E1C08017C002B14C0 /* egopv_photo_placeholder@2x.png in Resources */,
 				D7F29B611C25346D00358C1B /* 010.png in Resources */,
 				D7F29C261C25352400358C1B /* Album_ToolViewKeyboard@2x.png in Resources */,
+				D7350FB31C2A727200C5E62A /* chatBar_colorMore_videoCall@2x.png in Resources */,
 				D76AB8EE1C07FD99002B14C0 /* btn_share@2x.png in Resources */,
 				D7F29BA91C25346D00358C1B /* 046.png in Resources */,
 				D7F29BE71C25346D00358C1B /* 077.png in Resources */,
@@ -2708,6 +2756,7 @@
 				D767684D1C2247C300FCF4D2 /* qrcode_scan_btn_photo_nor@2x.png in Resources */,
 				D7F29BA11C25346D00358C1B /* 042.png in Resources */,
 				D7F29C021C2534AB00358C1B /* board_emoji@2x.png in Resources */,
+				D7350FBD1C2A7BA700C5E62A /* Localizable.strings in Resources */,
 				D7F29B9F1C25346D00358C1B /* 041.png in Resources */,
 				D7F29B841C25346D00358C1B /* 027@2x.png in Resources */,
 				D76AB8E71C07FD99002B14C0 /* ic_activitiesnearby@3x.png in Resources */,
@@ -2795,6 +2844,7 @@
 				D7F29B591C25346D00358C1B /* 006.png in Resources */,
 				D767684B1C2247C300FCF4D2 /* qrcode_scan_btn_myqrcode_nor@2x.png in Resources */,
 				D743537A1C0C3D05004B89FE /* CityCell.xib in Resources */,
+				D7350FB11C2A724600C5E62A /* chatBar_colorMore_camera@2x.png in Resources */,
 				D76AB8F41C07FD99002B14C0 /* ic_notice@3x.png in Resources */,
 				D7F29B561C25346D00358C1B /* 004@2x.png in Resources */,
 				D76768501C2247C300FCF4D2 /* qrcode_scan_titlebar_back_nor@2x.png in Resources */,
@@ -2828,6 +2878,7 @@
 				D7F29B881C25346D00358C1B /* 029@2x.png in Resources */,
 				D76AB8C51C07FB0A002B14C0 /* AgeController.xib in Resources */,
 				D7F29B9A1C25346D00358C1B /* 038@2x.png in Resources */,
+				D7350FCA1C2A936300C5E62A /* messageSendFail@2x.png in Resources */,
 				D7F29B991C25346D00358C1B /* 038.png in Resources */,
 				D7F29BC71C25346D00358C1B /* 061.png in Resources */,
 				D76AB96F1C08017C002B14C0 /* egopv_right@2x.png in Resources */,
@@ -2891,6 +2942,7 @@
 				D76768841C22636100FCF4D2 /* chat_bottom_voice_nor.png in Resources */,
 				D7F29BD01C25346D00358C1B /* 065@2x.png in Resources */,
 				D76AB8ED1C07FD99002B14C0 /* btn_publish@2x.png in Resources */,
+				D78026671C2BC7D800CA6890 /* test.mp4 in Resources */,
 				D7F29BC61C25346D00358C1B /* 060@2x.png in Resources */,
 				D74353A11C0C3D0E004B89FE /* SetController.xib in Resources */,
 				D7F29BA51C25346D00358C1B /* 044.png in Resources */,
@@ -3013,9 +3065,11 @@
 				D75765CA1C16B926005FDD93 /* CustomCalloutView.m in Sources */,
 				D76AB90C1C07FDB2002B14C0 /* DaiDodgeKeyboard+Animation.m in Sources */,
 				D77574EE1C0EC7D800D26828 /* RevordPasswordController.m in Sources */,
+				D7350FC81C2A7E8F00C5E62A /* UIViewController+HUD.m in Sources */,
 				841B2F361BE83EC1008C2974 /* LocationManager.m in Sources */,
 				84C072F71BE0C46100822E4B /* AppDelegate.m in Sources */,
 				D76E69621C251D7200A73E11 /* FaceBoard.m in Sources */,
+				D7350FB61C2A733B00C5E62A /* LocationViewController.m in Sources */,
 				841B2F1E1BE83DF8008C2974 /* LDCachedObject.m in Sources */,
 				D76AB91D1C07FE3F002B14C0 /* LandscapeTableView.m in Sources */,
 				8420C9E31BE9CDB500F09EB2 /* MessageController.m in Sources */,
@@ -3110,6 +3164,7 @@
 				841B2F271BE83DF8008C2974 /* LDTravelListManager.m in Sources */,
 				841B2F3C1BE8B0B0008C2974 /* MainController.m in Sources */,
 				841B2F141BE83DF8008C2974 /* LDSignatureGenerator.m in Sources */,
+				D7350FCD1C2A9E6600C5E62A /* LocationView.m in Sources */,
 				D76AB9641C08017C002B14C0 /* EGOImageLoader.m in Sources */,
 				D79B9AC01C15224200D0FA3E /* RemindController.m in Sources */,
 				8420C9DA1BE9CD6400F09EB2 /* IndexController.m in Sources */,
@@ -3238,6 +3293,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Diary/Diary-Prefix.pch";
 				INFOPLIST_FILE = Diary/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.1bj.Diary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3259,6 +3315,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Diary/Diary-Prefix.pch";
 				INFOPLIST_FILE = Diary/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.1bj.Diary;
 				PRODUCT_NAME = "$(TARGET_NAME)";

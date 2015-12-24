@@ -14,9 +14,9 @@
 #define KcontentVoiceW 40//内容录音宽
 #define KcontentVoiceTimeW 20 //录音时间label宽
 #define KcontentVoiceTimeH 20 //录音时间label高
+#define KErrorBtnWH  20 //警告按钮宽高
 #define kTimeMarginW 15 //时间文本与边框间隔宽度方向
 #define kTimeMarginH 10 //时间文本与边框间隔高度方向
-
 #define kContentTop 15 //文本内容与按钮上边缘间隔
 #define kContentLeft 25 //文本内容与按钮左边缘间隔
 #define kContentBottom 15 //文本内容与按钮下边缘间隔
@@ -37,6 +37,7 @@
 @property (nonatomic, assign, readonly) CGRect contentF;
 @property (nonatomic, assign, readonly) CGRect stuffF; //内容填充（图片或音频)
 @property (nonatomic, assign, readonly) CGRect StuffTimeF; //录音时间长
+@property (nonatomic, assign, readonly) CGRect errorF; //警告按钮
 
 @property (nonatomic, assign, readonly) CGFloat cellHeight; //cell高度
 

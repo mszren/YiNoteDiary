@@ -6,15 +6,21 @@
 	<array>
 		<dict>
 			<key>iconButtonBcakImage</key>
-			<string>bg_kanzhe_fpic</string>
+			<string>chatBar_colorMore_camera</string>
 			<key>iconTitle</key>
 			<string>图片</string>
 		</dict>
 		<dict>
 			<key>iconButtonBcakImage</key>
-			<string>bg_kanzhe_fsp</string>
+			<string>chatBar_colorMore_videoCall</string>
 			<key>iconTitle</key>
 			<string>小视频</string>
+		</dict>
+		<dict>
+			<key>iconButtonBcakImage</key>
+			<string>chatBar_colorMore_location</string>
+			<key>iconTitle</key>
+			<string>我的位置</string>
 		</dict>
 	</array>
 	<key>moreIconName</key>

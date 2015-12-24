@@ -18,6 +18,7 @@
     self.time = dict[@"time"];
     self.content = dict[@"content"];
     self.contentImg = dict[@"contentImg"];
+    self.locationDic = dict[@"locationDic"];
     self.type = [dict[@"type"] intValue];
     self.contentType = [dict[@"contentType"] intValue];
     self.contentTime = [dict[@"contentTime"] intValue];

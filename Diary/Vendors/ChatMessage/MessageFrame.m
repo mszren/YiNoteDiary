@@ -45,14 +45,36 @@
     CGFloat stuffY =  4;
     CGFloat stuffTimeX = contentX;
     CGFloat stuffTimeY = iconY + 6 ;
+    CGFloat errorX;
+    CGFloat errorY = iconY + 6;
     
     CGSize contentSize;
     CGSize stuffSize;
     CGSize stuffTimeSize;
+    CGSize errorSize;
     switch (_message.contentType) {
         case  MessageContentFile:{
             
-            contentSize = [_message.content sizeWithFont:kContentFont constrainedToSize:CGSizeMake(kContentW, CGFLOAT_MAX)];
+            static float systemVersion;
+            static dispatch_once_t onceToken;
+            
+            dispatch_once(&onceToken, ^{
+                systemVersion = [[[UIDevice currentDevice] systemVersion] floatValue];
+            });
+            if (systemVersion >= 7.0) {
+                
+                NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+                [paragraphStyle setLineSpacing:0];
+                contentSize = [_message.content boundingRectWithSize:CGSizeMake(kContentW, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{
+                                                                                                                                                                   NSFontAttributeName:kContentFont,
+                                                                                                                                                                   NSParagraphStyleAttributeName:paragraphStyle
+                                                                                                                                                                   } context:nil].size;
+            }else{
+                
+                            contentSize = [_message.content sizeWithFont:kContentFont constrainedToSize:CGSizeMake(kContentW, CGFLOAT_MAX)];
+            }
+            
+
         }
             
             break;
@@ -61,10 +83,17 @@
             contentSize = CGSizeMake(KcontentVoiceW, KcontentVoiceH);
             stuffTimeSize = CGSizeMake(KcontentVoiceTimeW, KcontentVoiceTimeH);
             stuffTimeX = contentX + contentSize.width + 10;
+            errorX = stuffTimeX + 30;
         }
             
             break;
         case  MessageContentPicture:{
+            
+            contentSize = CGSizeMake(KcontentPictureWH, KcontentPictureWH);
+        }
+            
+            break;
+        case MessageContentLocation:{
             
             contentSize = CGSizeMake(KcontentPictureWH, KcontentPictureWH);
         }
@@ -81,9 +110,12 @@
     }
     
     stuffSize = CGSizeMake(contentSize.width, contentSize.height);
+    errorSize = CGSizeMake(KErrorBtnWH, KErrorBtnWH);
+    errorX = contentX + contentSize.width + kContentLeft + kContentRight + 10;
     
     if (_message.type == MessageTypeMe) {
         contentX = iconX - kMargin - contentSize.width - kContentLeft - kContentRight;
+        errorX = contentX - 30;
     }
     
     if (_message.type == MessageTypeMe && _message.contentType == MessageContentVoice) {
@@ -91,14 +123,17 @@
         stuffY = 6;
         stuffX = stuffSize.width;
         stuffTimeX = contentX - 20;
+        errorX = stuffTimeX - 30;
     }
+    
+    _contentF = CGRectMake(contentX, contentY, contentSize.width + kContentLeft + kContentRight, contentSize.height + kContentTop + kContentBottom);
     
     _stuffF = CGRectMake(stuffX, stuffY, stuffSize.width + 10, stuffSize.height + 13);
     
     _StuffTimeF = CGRectMake(stuffTimeX, stuffTimeY, stuffTimeSize.width, stuffTimeSize.height);
     
-    _contentF = CGRectMake(contentX, contentY, contentSize.width + kContentLeft + kContentRight, contentSize.height + kContentTop + kContentBottom);
-
+    _errorF = CGRectMake(errorX, errorY, errorSize.width, errorSize.height);
+    
     // 4、计算高度
     _cellHeight = MAX(CGRectGetMaxY(_contentF), CGRectGetMaxY(_iconF))  + kMargin;
 }
