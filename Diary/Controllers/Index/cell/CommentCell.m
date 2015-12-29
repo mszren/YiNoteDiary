@@ -48,7 +48,7 @@
     
     [_faceImg mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(superView.mas_left).offset(13);
-        make.top.mas_equalTo(superView.mas_top).offset(20);
+        make.top.mas_equalTo(superView.mas_top).offset(23);
         make.width.height.mas_equalTo(@40);
     }];
     
@@ -111,7 +111,7 @@
         
         _nameLabel = [UILabel new];
         _nameLabel.text = @"MR_mistake";
-        _nameLabel.textColor = [UIColor greenColor];
+        _nameLabel.textColor = BGViewGreen;
         _nameLabel.font = FONT_SIZE_13;
     }
     return _nameLabel;

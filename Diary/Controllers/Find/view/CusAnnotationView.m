@@ -143,6 +143,7 @@
         /* Create portrait image view and add to view hierarchy. */
         self.backGroundView = [UIView new];
         [self addSubview:self.backGroundView];
+        self.backGroundView.userInteractionEnabled = YES;
         [self.backGroundView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.centerX.mas_equalTo(self);
             make.size.mas_equalTo(CGSizeMake(KBackgroundViewWidth, KBackgroundViewHeight));
@@ -152,6 +153,7 @@
         self.backGroundView.clipsToBounds = YES;
 
         self.portraitImageView = [UIImageView new];
+        self.portraitImageView.userInteractionEnabled = YES;
         [self.backGroundView addSubview:self.portraitImageView];
         [self.portraitImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.centerY.mas_equalTo(self.backGroundView);

@@ -26,7 +26,7 @@
         [self addSubview:_faceImg];
         [_faceImg mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.mas_left).offset(20);
-            make.top.mas_equalTo(self.mas_top).offset(13);
+            make.top.mas_equalTo(self.mas_top).offset(23);
             make.width.height.mas_equalTo(@40);
         }];
         _faceImg.layer.cornerRadius = 4;

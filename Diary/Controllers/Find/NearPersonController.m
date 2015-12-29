@@ -12,6 +12,8 @@
 #import <AMapSearchKit/AMapSearchServices.h>
 #import "CusAnnotationView.h"
 #import "BaseNavigation.h"
+#import "FriendMaterialController.h"
+#import "FriendListController.h"
 
 #define kCalloutViewMargin          -8
 
@@ -24,6 +26,7 @@
     
     MAMapView *_mapView;
     MACoordinateRegion _region;//中心点坐标
+    UIBarButtonItem* _rightButton;
 }
 
 - (void)viewDidLoad {
@@ -32,6 +35,9 @@
 }
 
 - (void)initView{
+    
+    _rightButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ic_more@3x"] style:UIBarButtonItemStylePlain target:self action:@selector(onRightItem:)];
+    self.navigationItem.rightBarButtonItem = _rightButton;
     
     _mapView = [[MAMapView alloc]initWithFrame:self.view.bounds];
     _mapView.delegate = self;
@@ -92,6 +98,7 @@
         annotationView.canShowCallout   = YES;
         annotationView.draggable        = YES;
         annotationView.calloutOffset    = CGPointMake(0, -5);
+        [annotationView.portraitImageView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onTap:)]];
         
         annotationView.portrait         = [UIImage imageNamed:@"pic_bg"];
         annotationView.name             = @"17";
@@ -138,6 +145,22 @@
     CGFloat nudgeTop = fmaxf(0, CGRectGetMinY(outerRect) - (CGRectGetMinY(innerRect)));
     CGFloat nudgeBottom = fminf(0, CGRectGetMaxY(outerRect) - (CGRectGetMaxY(innerRect)));
     return CGSizeMake(nudgeLeft ?: nudgeRight, nudgeTop ?: nudgeBottom);
+}
+
+#pragma mark -- UIBarButtonItem Action
+- (void)onRightItem:(UIBarButtonItem *)sender{
+ 
+    FriendListController *friendListVc = [FriendListController new];
+    friendListVc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:friendListVc animated:YES];
+}
+
+#pragma mark -- UITapGestureRecognizer
+- (void)onTap:(UITapGestureRecognizer *)sender{
+    
+    FriendMaterialController *materialVc = [FriendMaterialController new];
+    materialVc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:materialVc animated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

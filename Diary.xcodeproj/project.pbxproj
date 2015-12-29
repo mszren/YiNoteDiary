@@ -125,6 +125,9 @@
 		D75765C71C16B892005FDD93 /* CusAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = D75765C61C16B892005FDD93 /* CusAnnotationView.m */; };
 		D75765CA1C16B926005FDD93 /* CustomCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = D75765C91C16B926005FDD93 /* CustomCalloutView.m */; };
 		D757660D1C16DA56005FDD93 /* arrowTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = D757660C1C16DA56005FDD93 /* arrowTexture.png */; };
+		D76458061C327BA2003E17E1 /* CheckoutMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D76458051C327BA2003E17E1 /* CheckoutMessageView.m */; };
+		D764580A1C327F20003E17E1 /* PersonChatSetController.m in Sources */ = {isa = PBXBuildFile; fileRef = D76458081C327F20003E17E1 /* PersonChatSetController.m */; };
+		D764580B1C327F20003E17E1 /* PersonChatSetController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D76458091C327F20003E17E1 /* PersonChatSetController.xib */; };
 		D767682D1C22445E00FCF4D2 /* ScanController.m in Sources */ = {isa = PBXBuildFile; fileRef = D767682C1C22445E00FCF4D2 /* ScanController.m */; };
 		D76768301C22461D00FCF4D2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D767682E1C2245B100FCF4D2 /* AVFoundation.framework */; };
 		D76768421C2247C300FCF4D2 /* .qrcode_scan_bg_Green@2x~imageoptim.png in Resources */ = {isa = PBXBuildFile; fileRef = D76768321C2247C300FCF4D2 /* .qrcode_scan_bg_Green@2x~imageoptim.png */; };
@@ -727,6 +730,11 @@
 		D75765C81C16B926005FDD93 /* CustomCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCalloutView.h; sourceTree = "<group>"; };
 		D75765C91C16B926005FDD93 /* CustomCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCalloutView.m; sourceTree = "<group>"; };
 		D757660C1C16DA56005FDD93 /* arrowTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowTexture.png; sourceTree = "<group>"; };
+		D76458041C327BA2003E17E1 /* CheckoutMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckoutMessageView.h; sourceTree = "<group>"; };
+		D76458051C327BA2003E17E1 /* CheckoutMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckoutMessageView.m; sourceTree = "<group>"; };
+		D76458071C327F20003E17E1 /* PersonChatSetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersonChatSetController.h; path = Controllers/Find/PersonChatSetController.h; sourceTree = "<group>"; };
+		D76458081C327F20003E17E1 /* PersonChatSetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersonChatSetController.m; path = Controllers/Find/PersonChatSetController.m; sourceTree = "<group>"; };
+		D76458091C327F20003E17E1 /* PersonChatSetController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PersonChatSetController.xib; path = Controllers/Find/PersonChatSetController.xib; sourceTree = "<group>"; };
 		D767682B1C22445E00FCF4D2 /* ScanController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScanController.h; path = Controllers/Message/ScanController.h; sourceTree = "<group>"; };
 		D767682C1C22445E00FCF4D2 /* ScanController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScanController.m; path = Controllers/Message/ScanController.m; sourceTree = "<group>"; };
 		D767682E1C2245B100FCF4D2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -1516,6 +1524,9 @@
 				D7C3E1C81C084267009CE15D /* FindController.h */,
 				D7C3E1C91C084267009CE15D /* FindController.m */,
 				D7C3E1CA1C084267009CE15D /* FindController.xib */,
+				D76458071C327F20003E17E1 /* PersonChatSetController.h */,
+				D76458081C327F20003E17E1 /* PersonChatSetController.m */,
+				D76458091C327F20003E17E1 /* PersonChatSetController.xib */,
 			);
 			name = Find;
 			sourceTree = "<group>";
@@ -1911,6 +1922,8 @@
 				D75765C91C16B926005FDD93 /* CustomCalloutView.m */,
 				D75765C51C16B892005FDD93 /* CusAnnotationView.h */,
 				D75765C61C16B892005FDD93 /* CusAnnotationView.m */,
+				D76458041C327BA2003E17E1 /* CheckoutMessageView.h */,
+				D76458051C327BA2003E17E1 /* CheckoutMessageView.m */,
 			);
 			name = view;
 			path = Controllers/Find/view;
@@ -2941,6 +2954,7 @@
 				D7F29B511C25346D00358C1B /* 002.png in Resources */,
 				D7F29B6D1C25346D00358C1B /* 016.png in Resources */,
 				D7F29B791C25346D00358C1B /* 022.png in Resources */,
+				D764580B1C327F20003E17E1 /* PersonChatSetController.xib in Resources */,
 				D7F29B8C1C25346D00358C1B /* 031@2x.png in Resources */,
 				D7F29BCA1C25346D00358C1B /* 062@2x.png in Resources */,
 				D76768841C22636100FCF4D2 /* chat_bottom_voice_nor.png in Resources */,
@@ -3042,6 +3056,7 @@
 				841B2F171BE83DF8008C2974 /* NSDictionary+LDNetworkingMethods.m in Sources */,
 				841B2F211BE83DF8008C2974 /* LDAppContext.m in Sources */,
 				D753989C1C20001E0023A62C /* AlbumImageTileView.m in Sources */,
+				D764580A1C327F20003E17E1 /* PersonChatSetController.m in Sources */,
 				D74353791C0C3D05004B89FE /* CityCell.m in Sources */,
 				840D5F6B1BEE516900B887AC /* UserReformer.m in Sources */,
 				841B2F121BE83DF8008C2974 /* LDCommonParamsGenerator.m in Sources */,
@@ -3169,6 +3184,7 @@
 				841B2F3C1BE8B0B0008C2974 /* MainController.m in Sources */,
 				841B2F141BE83DF8008C2974 /* LDSignatureGenerator.m in Sources */,
 				D7350FCD1C2A9E6600C5E62A /* LocationView.m in Sources */,
+				D76458061C327BA2003E17E1 /* CheckoutMessageView.m in Sources */,
 				D76AB9641C08017C002B14C0 /* EGOImageLoader.m in Sources */,
 				D79B9AC01C15224200D0FA3E /* RemindController.m in Sources */,
 				8420C9DA1BE9CD6400F09EB2 /* IndexController.m in Sources */,
@@ -3288,7 +3304,7 @@
 			baseConfigurationReference = 575F6957D257E48BC9F99DBE /* Pods-Diary.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: com.gaode.PushDemo";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3310,7 +3326,7 @@
 			baseConfigurationReference = 054052362DEA8161644F4838 /* Pods-Diary.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: com.gaode.PushDemo";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
