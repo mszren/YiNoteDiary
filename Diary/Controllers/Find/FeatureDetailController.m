@@ -77,8 +77,6 @@
                 return [_tableView fd_heightForCellWithIdentifier:FeatureCommentCellIdentifier cacheByIndexPath:indexPath configuration:nil];
             break;
     }
-
-    
 }
 
 
@@ -86,7 +84,6 @@
     switch (indexPath.row) {
         case 0:{
             
-
             FeatureDetailHeadCell *featureDetailHeadCell = [tableView dequeueReusableCellWithIdentifier:FeatureDetailHeadCellIdentifier forIndexPath:indexPath];
             return featureDetailHeadCell;
         }
@@ -95,7 +92,6 @@
             
         default:{
             
-
             FeatureCommentCell *featureCommentCell = [tableView dequeueReusableCellWithIdentifier:FeatureCommentCellIdentifier forIndexPath:indexPath];
             return featureCommentCell;
         }

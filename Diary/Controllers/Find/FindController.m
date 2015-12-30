@@ -10,15 +10,13 @@
 #import "NearPersonController.h"
 #import "NearFeatureController.h"
 #import "BaseNavigation.h"
+#import "NearPictureController.h"
 
 @interface FindController ()
 
 @end
 
 @implementation FindController
-{
-    NSManagedObjectContext *_managedObjectContext;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,7 +39,7 @@
     [self.nearFeatureView addGestureRecognizer:featureTap];
     
     UITapGestureRecognizer *pictureTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onTap:)];
-    [self.nearPictureView addGestureRecognizer:pictureTap];
+    [self.nearPicVIew addGestureRecognizer:pictureTap];
     
     UITapGestureRecognizer *activityTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onTap:)];
     [self.nearActivityView addGestureRecognizer:activityTap];
@@ -64,11 +62,19 @@
         }
             
             break;
-        case 102:
+        case 102:{
+            
+            NearPictureController *pictureVc = [NearPictureController new];
+            pictureVc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:pictureVc animated:YES];
+        }
             
             break;
             
-        default:
+        default:{
+            
+        }
+            
             break;
     }
 }

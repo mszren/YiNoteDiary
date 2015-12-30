@@ -12,8 +12,8 @@
                 <outlet property="nearFeatureView" destination="vli-F9-Jfg" id="g8t-sN-hoW"/>
                 <outlet property="nearPersonLabel" destination="VEc-IH-cUW" id="LeQ-9R-blf"/>
                 <outlet property="nearPersonView" destination="UzX-iy-0Rn" id="r8b-eU-pYc"/>
+                <outlet property="nearPicVIew" destination="gUo-O1-Tpc" id="nML-X4-F1D"/>
                 <outlet property="nearPictureLabel" destination="C1R-9I-C7n" id="ECq-JZ-VQO"/>
-                <outlet property="nearPictureView" destination="C1R-9I-C7n" id="BBb-56-SVo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -230,7 +230,7 @@
                 <constraint firstItem="Qbw-dD-pol" firstAttribute="top" secondItem="UzX-iy-0Rn" secondAttribute="bottom" constant="-43" id="rBS-Bx-N1j"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="531.5" y="203.5"/>
+            <point key="canvasLocation" x="333.5" y="170.5"/>
         </view>
     </objects>
     <resources>

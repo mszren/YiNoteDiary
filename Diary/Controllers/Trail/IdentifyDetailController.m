@@ -16,6 +16,7 @@
 #import "UIImage+Utils.h"
 #import "category.h"
 #import "EGOImageView.h"
+#import "PictureSaveController.h"
 
 @interface IdentifyDetailController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,IdentifyEditViewDelegate,BaseNavigationDelegate>
 @property (strong, nonatomic) NSLayoutConstraint *headHCons;
@@ -139,6 +140,9 @@
 #pragma mark -- BaseNavigationDelegate
 - (void)baseNavigationDelegateOnRightItemAction{
 
+    PictureSaveController *pictureSaveVc = [PictureSaveController new];
+    pictureSaveVc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:pictureSaveVc animated:YES];
 }
 
 - (void)onTap:(UITapGestureRecognizer *)sender{

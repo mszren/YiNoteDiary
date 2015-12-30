@@ -174,6 +174,10 @@
 		D76768901C2264D900FCF4D2 /* bg_kanzhe_xuanze.png in Resources */ = {isa = PBXBuildFile; fileRef = D767688F1C2264D900FCF4D2 /* bg_kanzhe_xuanze.png */; };
 		D76768921C22651600FCF4D2 /* bg_kanzhe_fpic.png in Resources */ = {isa = PBXBuildFile; fileRef = D76768911C22651600FCF4D2 /* bg_kanzhe_fpic.png */; };
 		D76768941C22829900FCF4D2 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D76768931C22829900FCF4D2 /* Photos.framework */; };
+		D767EC731C33737A00CE8760 /* NearPictureController.m in Sources */ = {isa = PBXBuildFile; fileRef = D767EC721C33737A00CE8760 /* NearPictureController.m */; };
+		D767EC771C337F9D00CE8760 /* AZXCollectionViewPubuLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D767EC761C337F9D00CE8760 /* AZXCollectionViewPubuLayout.m */; };
+		D767EC7A1C338B1500CE8760 /* NearPictureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D767EC791C338B1500CE8760 /* NearPictureCell.m */; };
+		D767EC801C33C8BB00CE8760 /* PictureSaveController.m in Sources */ = {isa = PBXBuildFile; fileRef = D767EC7F1C33C8BB00CE8760 /* PictureSaveController.m */; };
 		D76AB8C41C07FB0A002B14C0 /* AgeController.m in Sources */ = {isa = PBXBuildFile; fileRef = D76AB8C11C07FB0A002B14C0 /* AgeController.m */; };
 		D76AB8C51C07FB0A002B14C0 /* AgeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D76AB8C21C07FB0A002B14C0 /* AgeController.xib */; };
 		D76AB8E71C07FD99002B14C0 /* ic_activitiesnearby@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D76AB8CA1C07FD99002B14C0 /* ic_activitiesnearby@3x.png */; };
@@ -785,6 +789,14 @@
 		D767688F1C2264D900FCF4D2 /* bg_kanzhe_xuanze.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_kanzhe_xuanze.png; sourceTree = "<group>"; };
 		D76768911C22651600FCF4D2 /* bg_kanzhe_fpic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_kanzhe_fpic.png; sourceTree = "<group>"; };
 		D76768931C22829900FCF4D2 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		D767EC711C33737A00CE8760 /* NearPictureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NearPictureController.h; path = Controllers/Find/NearPictureController.h; sourceTree = "<group>"; };
+		D767EC721C33737A00CE8760 /* NearPictureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NearPictureController.m; path = Controllers/Find/NearPictureController.m; sourceTree = "<group>"; };
+		D767EC751C337F9D00CE8760 /* AZXCollectionViewPubuLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZXCollectionViewPubuLayout.h; sourceTree = "<group>"; };
+		D767EC761C337F9D00CE8760 /* AZXCollectionViewPubuLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZXCollectionViewPubuLayout.m; sourceTree = "<group>"; };
+		D767EC781C338B1500CE8760 /* NearPictureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearPictureCell.h; sourceTree = "<group>"; };
+		D767EC791C338B1500CE8760 /* NearPictureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearPictureCell.m; sourceTree = "<group>"; };
+		D767EC7E1C33C8BB00CE8760 /* PictureSaveController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PictureSaveController.h; path = Controllers/Trail/PictureSaveController.h; sourceTree = "<group>"; };
+		D767EC7F1C33C8BB00CE8760 /* PictureSaveController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PictureSaveController.m; path = Controllers/Trail/PictureSaveController.m; sourceTree = "<group>"; };
 		D76AB8C01C07FB0A002B14C0 /* AgeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AgeController.h; path = Controllers/My/AgeController.h; sourceTree = "<group>"; };
 		D76AB8C11C07FB0A002B14C0 /* AgeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AgeController.m; path = Controllers/My/AgeController.m; sourceTree = "<group>"; };
 		D76AB8C21C07FB0A002B14C0 /* AgeController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AgeController.xib; path = Controllers/My/AgeController.xib; sourceTree = "<group>"; };
@@ -1527,6 +1539,8 @@
 				D76458071C327F20003E17E1 /* PersonChatSetController.h */,
 				D76458081C327F20003E17E1 /* PersonChatSetController.m */,
 				D76458091C327F20003E17E1 /* PersonChatSetController.xib */,
+				D767EC711C33737A00CE8760 /* NearPictureController.h */,
+				D767EC721C33737A00CE8760 /* NearPictureController.m */,
 			);
 			name = Find;
 			sourceTree = "<group>";
@@ -1536,6 +1550,8 @@
 			children = (
 				D743532E1C0BD98E004B89FE /* view */,
 				D74353241C0BD4AF004B89FE /* cell */,
+				D767EC7E1C33C8BB00CE8760 /* PictureSaveController.h */,
+				D767EC7F1C33C8BB00CE8760 /* PictureSaveController.m */,
 				D743531A1C0BD4A5004B89FE /* FriendMaterialController.h */,
 				D743531B1C0BD4A5004B89FE /* FriendMaterialController.m */,
 				D743531C1C0BD4A5004B89FE /* FriendMaterialController.xib */,
@@ -1692,6 +1708,7 @@
 		84C0730A1BE0CD0600822E4B /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				D767EC741C337F9D00CE8760 /* AZXCollectionViewPubuLayout */,
 				D7350FC51C2A7E8F00C5E62A /* UIViewController+HUD */,
 				D76E69531C251D3000A73E11 /* ChatAssistance */,
 				D76768551C225C9A00FCF4D2 /* ChatMessage */,
@@ -1977,6 +1994,16 @@
 			);
 			name = View;
 			path = Controllers/Message/View;
+			sourceTree = "<group>";
+		};
+		D767EC741C337F9D00CE8760 /* AZXCollectionViewPubuLayout */ = {
+			isa = PBXGroup;
+			children = (
+				D767EC751C337F9D00CE8760 /* AZXCollectionViewPubuLayout.h */,
+				D767EC761C337F9D00CE8760 /* AZXCollectionViewPubuLayout.m */,
+			);
+			name = AZXCollectionViewPubuLayout;
+			path = Diary/Vendors/AZXCollectionViewPubuLayout;
 			sourceTree = "<group>";
 		};
 		D76AB8C81C07FD99002B14C0 /* image */ = {
@@ -2436,6 +2463,8 @@
 				D7C3E1D11C084286009CE15D /* FeatureDetailHeadCell.m */,
 				D75765C11C1672CD005FDD93 /* FeatureCommentCell.h */,
 				D75765C21C1672CD005FDD93 /* FeatureCommentCell.m */,
+				D767EC781C338B1500CE8760 /* NearPictureCell.h */,
+				D767EC791C338B1500CE8760 /* NearPictureCell.m */,
 			);
 			name = cell;
 			path = Controllers/Find/cell;
@@ -3041,6 +3070,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D767EC771C337F9D00CE8760 /* AZXCollectionViewPubuLayout.m in Sources */,
 				841B2F281BE83DF8008C2974 /* LDViewSpotListManager.m in Sources */,
 				D753987D1C1FB66F0023A62C /* SelectAdressController.m in Sources */,
 				841B2F191BE83DF8008C2974 /* NSObject+LDNetworkingMethods.m in Sources */,
@@ -3051,6 +3081,7 @@
 				D76AB90B1C07FDB2002B14C0 /* DaiDodgeKeyboard+AccessObject.m in Sources */,
 				D74353221C0BD4A5004B89FE /* IdentifyController.m in Sources */,
 				841B2F1F1BE83DF8008C2974 /* LDAPIBaseManager.m in Sources */,
+				D767EC801C33C8BB00CE8760 /* PictureSaveController.m in Sources */,
 				840D5F5E1BED7C5D00B887AC /* TrailDataCenter.m in Sources */,
 				D79B9ACC1C15324500D0FA3E /* ARSegmentPageHeader.m in Sources */,
 				841B2F171BE83DF8008C2974 /* NSDictionary+LDNetworkingMethods.m in Sources */,
@@ -3163,6 +3194,7 @@
 				D7C3E1DB1C08428D009CE15D /* NearFeatureController.m in Sources */,
 				D76E695C1C251D3000A73E11 /* ChatAssistanceModel.m in Sources */,
 				D7BFC7871C0D68E00054324E /* SafeView.m in Sources */,
+				D767EC7A1C338B1500CE8760 /* NearPictureCell.m in Sources */,
 				D74353A81C0C3D2D004B89FE /* MyController.m in Sources */,
 				D753989F1C20001E0023A62C /* IndexDetailHeadView.m in Sources */,
 				D76E69631C251D7200A73E11 /* GrayPageControl.m in Sources */,
@@ -3189,6 +3221,7 @@
 				D79B9AC01C15224200D0FA3E /* RemindController.m in Sources */,
 				8420C9DA1BE9CD6400F09EB2 /* IndexController.m in Sources */,
 				841B2F2B1BE83DF8008C2974 /* LDServiceLightDiary.m in Sources */,
+				D767EC731C33737A00CE8760 /* NearPictureController.m in Sources */,
 				841B2F2F1BE83DF8008C2974 /* ViewTransitionManager.m in Sources */,
 				D767682D1C22445E00FCF4D2 /* ScanController.m in Sources */,
 				84E8B9AC1BF2F2070051D969 /* ViewControllerIntercepter.m in Sources */,
