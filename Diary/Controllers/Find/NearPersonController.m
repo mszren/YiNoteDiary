@@ -152,6 +152,7 @@
  
     FriendListController *friendListVc = [FriendListController new];
     friendListVc.hidesBottomBarWhenPushed = YES;
+    friendListVc.title = @"折叠列表";
     [self.navigationController pushViewController:friendListVc animated:YES];
 }
 

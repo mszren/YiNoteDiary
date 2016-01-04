@@ -9,6 +9,7 @@
 #import "QueueView.h"
 #import "Masonry.h"
 #import "FriendListController.h"
+#import "NearPersonController.h"
 
 @implementation QueueView
 
@@ -142,12 +143,17 @@
     UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     [alertVc addAction:[UIAlertAction actionWithTitle:@"附近的人" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
+        [self clean];
+        NearPersonController *nearPersonVc = [NearPersonController new];
+        nearPersonVc.hidesBottomBarWhenPushed = YES;
+        [self.baseViewController.navigationController pushViewController:nearPersonVc animated:YES];
     }]];
     [alertVc addAction:[UIAlertAction actionWithTitle:@"我的好友" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
  
         [self clean];
         FriendListController *friendVc = [FriendListController new];
         friendVc.hidesBottomBarWhenPushed = YES;
+        friendVc.title = @"好友列表";
         [self.baseViewController.navigationController pushViewController:friendVc animated:YES];
         
     }]];

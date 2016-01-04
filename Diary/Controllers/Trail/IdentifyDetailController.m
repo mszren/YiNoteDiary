@@ -152,6 +152,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
     [[BaseNavigation sharedInstance] setCleanNavigationBar:self andRightItemTitle:@"完成" withDelegate:self];
     
     UIView *superView = self.view;

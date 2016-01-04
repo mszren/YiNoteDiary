@@ -68,10 +68,12 @@ alpha:(a)]
 #define FONT_SIZE_19 FONT_SIZE(19)
 #define FONT_SIZE_20 FONT_SIZE(20)
 
-#define BOLDFont_SIZE_19  BOLDFont_SIZE(19)
-#define BOLDFont_SIZE_16  BOLDFont_SIZE(16)
 #define BOLDFont_SIZE_13  BOLDFont_SIZE(13)
 #define BOLDFont_SIZE_14  BOLDFont_SIZE(14)
+#define BOLDFont_SIZE_15  BOLDFont_SIZE(15)
+#define BOLDFont_SIZE_16  BOLDFont_SIZE(16)
+#define BOLDFont_SIZE_17  BOLDFont_SIZE(17)
+#define BOLDFont_SIZE_19  BOLDFont_SIZE(19)
 
 #define Screen_Width [UIScreen mainScreen].bounds.size.width
 #define Screen_height [UIScreen mainScreen].bounds.size.height

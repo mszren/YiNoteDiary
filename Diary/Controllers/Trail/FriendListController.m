@@ -92,7 +92,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:@"好友列表"];
+    [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:self.title];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -125,9 +125,17 @@
 		D75765C71C16B892005FDD93 /* CusAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = D75765C61C16B892005FDD93 /* CusAnnotationView.m */; };
 		D75765CA1C16B926005FDD93 /* CustomCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = D75765C91C16B926005FDD93 /* CustomCalloutView.m */; };
 		D757660D1C16DA56005FDD93 /* arrowTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = D757660C1C16DA56005FDD93 /* arrowTexture.png */; };
+		D75A8A551C34BB3C0047F145 /* MyTeamController.m in Sources */ = {isa = PBXBuildFile; fileRef = D75A8A541C34BB3C0047F145 /* MyTeamController.m */; };
+		D75A8A591C34BD260047F145 /* TrailSetController.m in Sources */ = {isa = PBXBuildFile; fileRef = D75A8A571C34BD260047F145 /* TrailSetController.m */; };
+		D75A8A5A1C34BD260047F145 /* TrailSetController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D75A8A581C34BD260047F145 /* TrailSetController.xib */; };
+		D75A8A5D1C34C5F10047F145 /* LocationBlackController.m in Sources */ = {isa = PBXBuildFile; fileRef = D75A8A5C1C34C5F10047F145 /* LocationBlackController.m */; };
 		D76458061C327BA2003E17E1 /* CheckoutMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D76458051C327BA2003E17E1 /* CheckoutMessageView.m */; };
 		D764580A1C327F20003E17E1 /* PersonChatSetController.m in Sources */ = {isa = PBXBuildFile; fileRef = D76458081C327F20003E17E1 /* PersonChatSetController.m */; };
 		D764580B1C327F20003E17E1 /* PersonChatSetController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D76458091C327F20003E17E1 /* PersonChatSetController.xib */; };
+		D7666DD61C3A11CB0084614F /* MyTrailController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7666DD51C3A11CB0084614F /* MyTrailController.m */; };
+		D7666DD91C3A14450084614F /* RecordView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7666DD81C3A14450084614F /* RecordView.m */; };
+		D7666DDC1C3A23540084614F /* OtherTrailController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7666DDB1C3A23540084614F /* OtherTrailController.m */; };
+		D7666DDF1C3A23F80084614F /* OtherTrailView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7666DDE1C3A23F80084614F /* OtherTrailView.m */; };
 		D767682D1C22445E00FCF4D2 /* ScanController.m in Sources */ = {isa = PBXBuildFile; fileRef = D767682C1C22445E00FCF4D2 /* ScanController.m */; };
 		D76768301C22461D00FCF4D2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D767682E1C2245B100FCF4D2 /* AVFoundation.framework */; };
 		D76768421C2247C300FCF4D2 /* .qrcode_scan_bg_Green@2x~imageoptim.png in Resources */ = {isa = PBXBuildFile; fileRef = D76768321C2247C300FCF4D2 /* .qrcode_scan_bg_Green@2x~imageoptim.png */; };
@@ -289,6 +297,7 @@
 		D7A908821C0FD94E00DA0713 /* PraiseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A908811C0FD94E00DA0713 /* PraiseCell.m */; };
 		D7AE8E121C1191DA00693FA3 /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7AE8E111C1191DA00693FA3 /* MAMapKit.framework */; };
 		D7AE8E141C1192BD00693FA3 /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D7AE8E131C1192BD00693FA3 /* AMap.bundle */; };
+		D7B36DFE1C350D3300266301 /* AOTag.m in Sources */ = {isa = PBXBuildFile; fileRef = D7B36DFD1C350D3300266301 /* AOTag.m */; };
 		D7BFC7871C0D68E00054324E /* SafeView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BFC7861C0D68E00054324E /* SafeView.m */; };
 		D7C3E1CB1C084267009CE15D /* FindController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7C3E1C91C084267009CE15D /* FindController.m */; };
 		D7C3E1CC1C084267009CE15D /* FindController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7C3E1CA1C084267009CE15D /* FindController.xib */; };
@@ -734,11 +743,26 @@
 		D75765C81C16B926005FDD93 /* CustomCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCalloutView.h; sourceTree = "<group>"; };
 		D75765C91C16B926005FDD93 /* CustomCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCalloutView.m; sourceTree = "<group>"; };
 		D757660C1C16DA56005FDD93 /* arrowTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowTexture.png; sourceTree = "<group>"; };
+		D75A8A531C34BB3C0047F145 /* MyTeamController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyTeamController.h; path = Controllers/Trail/MyTeamController.h; sourceTree = "<group>"; };
+		D75A8A541C34BB3C0047F145 /* MyTeamController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyTeamController.m; path = Controllers/Trail/MyTeamController.m; sourceTree = "<group>"; };
+		D75A8A561C34BD260047F145 /* TrailSetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrailSetController.h; path = Controllers/Trail/TrailSetController.h; sourceTree = "<group>"; };
+		D75A8A571C34BD260047F145 /* TrailSetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrailSetController.m; path = Controllers/Trail/TrailSetController.m; sourceTree = "<group>"; };
+		D75A8A581C34BD260047F145 /* TrailSetController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TrailSetController.xib; path = Controllers/Trail/TrailSetController.xib; sourceTree = "<group>"; };
+		D75A8A5B1C34C5F10047F145 /* LocationBlackController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationBlackController.h; path = Controllers/Trail/LocationBlackController.h; sourceTree = "<group>"; };
+		D75A8A5C1C34C5F10047F145 /* LocationBlackController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationBlackController.m; path = Controllers/Trail/LocationBlackController.m; sourceTree = "<group>"; };
 		D76458041C327BA2003E17E1 /* CheckoutMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckoutMessageView.h; sourceTree = "<group>"; };
 		D76458051C327BA2003E17E1 /* CheckoutMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckoutMessageView.m; sourceTree = "<group>"; };
 		D76458071C327F20003E17E1 /* PersonChatSetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersonChatSetController.h; path = Controllers/Find/PersonChatSetController.h; sourceTree = "<group>"; };
 		D76458081C327F20003E17E1 /* PersonChatSetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersonChatSetController.m; path = Controllers/Find/PersonChatSetController.m; sourceTree = "<group>"; };
 		D76458091C327F20003E17E1 /* PersonChatSetController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PersonChatSetController.xib; path = Controllers/Find/PersonChatSetController.xib; sourceTree = "<group>"; };
+		D7666DD41C3A11CB0084614F /* MyTrailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyTrailController.h; path = Controllers/Trail/MyTrailController.h; sourceTree = "<group>"; };
+		D7666DD51C3A11CB0084614F /* MyTrailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyTrailController.m; path = Controllers/Trail/MyTrailController.m; sourceTree = "<group>"; };
+		D7666DD71C3A14450084614F /* RecordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordView.h; sourceTree = "<group>"; };
+		D7666DD81C3A14450084614F /* RecordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordView.m; sourceTree = "<group>"; };
+		D7666DDA1C3A23540084614F /* OtherTrailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OtherTrailController.h; path = Controllers/Trail/OtherTrailController.h; sourceTree = "<group>"; };
+		D7666DDB1C3A23540084614F /* OtherTrailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OtherTrailController.m; path = Controllers/Trail/OtherTrailController.m; sourceTree = "<group>"; };
+		D7666DDD1C3A23F80084614F /* OtherTrailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherTrailView.h; sourceTree = "<group>"; };
+		D7666DDE1C3A23F80084614F /* OtherTrailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherTrailView.m; sourceTree = "<group>"; };
 		D767682B1C22445E00FCF4D2 /* ScanController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScanController.h; path = Controllers/Message/ScanController.h; sourceTree = "<group>"; };
 		D767682C1C22445E00FCF4D2 /* ScanController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScanController.m; path = Controllers/Message/ScanController.m; sourceTree = "<group>"; };
 		D767682E1C2245B100FCF4D2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -973,6 +997,8 @@
 		D7A908811C0FD94E00DA0713 /* PraiseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PraiseCell.m; sourceTree = "<group>"; };
 		D7AE8E111C1191DA00693FA3 /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MAMapKit.framework; path = Pods/AMap3DMap/MAMapKit.framework; sourceTree = "<group>"; };
 		D7AE8E131C1192BD00693FA3 /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AMap.bundle; path = Pods/AMap3DMap/MAMapKit.framework/Versions/3.2.1.94eef6d.752/Resources/AMap.bundle; sourceTree = "<group>"; };
+		D7B36DFC1C350D3300266301 /* AOTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOTag.h; sourceTree = "<group>"; };
+		D7B36DFD1C350D3300266301 /* AOTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOTag.m; sourceTree = "<group>"; };
 		D7BFC7851C0D68E00054324E /* SafeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SafeView.h; sourceTree = "<group>"; };
 		D7BFC7861C0D68E00054324E /* SafeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SafeView.m; sourceTree = "<group>"; };
 		D7C3E1C81C084267009CE15D /* FindController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FindController.h; path = Controllers/Find/FindController.h; sourceTree = "<group>"; };
@@ -1563,6 +1589,17 @@
 				D743533C1C0BECE5004B89FE /* IdentifyDetailController.m */,
 				D743533E1C0C116E004B89FE /* FriendListController.h */,
 				D743533F1C0C116E004B89FE /* FriendListController.m */,
+				D75A8A531C34BB3C0047F145 /* MyTeamController.h */,
+				D75A8A541C34BB3C0047F145 /* MyTeamController.m */,
+				D75A8A561C34BD260047F145 /* TrailSetController.h */,
+				D75A8A571C34BD260047F145 /* TrailSetController.m */,
+				D75A8A581C34BD260047F145 /* TrailSetController.xib */,
+				D75A8A5B1C34C5F10047F145 /* LocationBlackController.h */,
+				D75A8A5C1C34C5F10047F145 /* LocationBlackController.m */,
+				D7666DD41C3A11CB0084614F /* MyTrailController.h */,
+				D7666DD51C3A11CB0084614F /* MyTrailController.m */,
+				D7666DDA1C3A23540084614F /* OtherTrailController.h */,
+				D7666DDB1C3A23540084614F /* OtherTrailController.m */,
 			);
 			name = Trail;
 			sourceTree = "<group>";
@@ -1708,6 +1745,7 @@
 		84C0730A1BE0CD0600822E4B /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				D7B36DFA1C350D3300266301 /* AOTag */,
 				D767EC741C337F9D00CE8760 /* AZXCollectionViewPubuLayout */,
 				D7350FC51C2A7E8F00C5E62A /* UIViewController+HUD */,
 				D76E69531C251D3000A73E11 /* ChatAssistance */,
@@ -1867,6 +1905,10 @@
 				D74353301C0BD98E004B89FE /* IdentifyEditView.m */,
 				D74353311C0BD98E004B89FE /* QueueView.h */,
 				D74353321C0BD98E004B89FE /* QueueView.m */,
+				D7666DD71C3A14450084614F /* RecordView.h */,
+				D7666DD81C3A14450084614F /* RecordView.m */,
+				D7666DDD1C3A23F80084614F /* OtherTrailView.h */,
+				D7666DDE1C3A23F80084614F /* OtherTrailView.m */,
 			);
 			name = view;
 			path = Controllers/Trail/view;
@@ -2444,6 +2486,16 @@
 			path = Diary/Vendors/CoolNavi;
 			sourceTree = "<group>";
 		};
+		D7B36DFA1C350D3300266301 /* AOTag */ = {
+			isa = PBXGroup;
+			children = (
+				D7B36DFC1C350D3300266301 /* AOTag.h */,
+				D7B36DFD1C350D3300266301 /* AOTag.m */,
+			);
+			name = AOTag;
+			path = Diary/Vendors/AOTag;
+			sourceTree = "<group>";
+		};
 		D7BFC7841C0D68BE0054324E /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -2758,6 +2810,7 @@
 				D7F29B801C25346D00358C1B /* 025@2x.png in Resources */,
 				D76AB8EC1C07FD99002B14C0 /* bg_wojia.png in Resources */,
 				D7F29BEC1C25346D00358C1B /* 079@2x.png in Resources */,
+				D75A8A5A1C34BD260047F145 /* TrailSetController.xib in Resources */,
 				D76AB8F51C07FD99002B14C0 /* ic_albums@3x.png in Resources */,
 				D7F29BF31C25346D00358C1B /* 083.png in Resources */,
 				84C072FF1BE0C46100822E4B /* Assets.xcassets in Resources */,
@@ -3074,6 +3127,7 @@
 				841B2F281BE83DF8008C2974 /* LDViewSpotListManager.m in Sources */,
 				D753987D1C1FB66F0023A62C /* SelectAdressController.m in Sources */,
 				841B2F191BE83DF8008C2974 /* NSObject+LDNetworkingMethods.m in Sources */,
+				D75A8A5D1C34C5F10047F145 /* LocationBlackController.m in Sources */,
 				D76AB9611C08017C002B14C0 /* EGOCache.m in Sources */,
 				D79B9ACB1C15324500D0FA3E /* ARSegmentPageController.m in Sources */,
 				D76AB9621C08017C002B14C0 /* EGOImageButton.m in Sources */,
@@ -3093,6 +3147,7 @@
 				841B2F121BE83DF8008C2974 /* LDCommonParamsGenerator.m in Sources */,
 				D77574D51C0E98E000D26828 /* Utils.m in Sources */,
 				D7C3E1D51C084286009CE15D /* FeatureDetailHeadCell.m in Sources */,
+				D7B36DFE1C350D3300266301 /* AOTag.m in Sources */,
 				841B2F2A1BE83DF8008C2974 /* LDServiceFactory.m in Sources */,
 				D79B9ACD1C15324500D0FA3E /* ARSegmentView.m in Sources */,
 				D753989D1C20001E0023A62C /* CommentView.m in Sources */,
@@ -3132,6 +3187,7 @@
 				D7C3E1DC1C08428D009CE15D /* NearPersonController.m in Sources */,
 				D76AB9321C07FF4C002B14C0 /* WonderfulCell.m in Sources */,
 				D7C3E1F51C0855FF009CE15D /* FeatureListController.m in Sources */,
+				D7666DDC1C3A23540084614F /* OtherTrailController.m in Sources */,
 				841B2F161BE83DF8008C2974 /* NSArray+LDNetworkingMethods.m in Sources */,
 				D753989E1C20001E0023A62C /* IndexCommentView.m in Sources */,
 				D76AB9701C08017C002B14C0 /* EGOPhotoCaptionView.m in Sources */,
@@ -3145,6 +3201,7 @@
 				D74353831C0C3D05004B89FE /* InforController.m in Sources */,
 				D767685F1C225C9A00FCF4D2 /* MessageFrame.m in Sources */,
 				D76CB4BD1C213D70007ED8FA /* category.m in Sources */,
+				D75A8A591C34BD260047F145 /* TrailSetController.m in Sources */,
 				841B2F181BE83DF8008C2974 /* NSMutableString+LDNetworkingMethods.m in Sources */,
 				D7A9087F1C0FCC0300DA0713 /* CommentCell.m in Sources */,
 				D74353401C0C116E004B89FE /* FriendListController.m in Sources */,
@@ -3169,6 +3226,7 @@
 				D77574D91C0E998000D26828 /* ProvinceController.m in Sources */,
 				D743532C1C0BD4AF004B89FE /* IdentifyCell.m in Sources */,
 				841B2F1D1BE83DF8008C2974 /* LDCache.m in Sources */,
+				D75A8A551C34BB3C0047F145 /* MyTeamController.m in Sources */,
 				84C073A21BE3047F00822E4B /* ErrorReformer.m in Sources */,
 				D76AB9221C07FF44002B14C0 /* PublishController.m in Sources */,
 				D76AB9131C07FDBA002B14C0 /* UIImage+ImageEffects.m in Sources */,
@@ -3179,6 +3237,7 @@
 				D743539E1C0C3D0E004B89FE /* SecretController.m in Sources */,
 				841B2F291BE83DF8008C2974 /* LDService.m in Sources */,
 				D74353351C0BD98E004B89FE /* IdentifyEditView.m in Sources */,
+				D7666DD61C3A11CB0084614F /* MyTrailController.m in Sources */,
 				D7C3E1D61C084286009CE15D /* FeatureDetailController.m in Sources */,
 				D76AB9661C08017C002B14C0 /* EGOimageViewWithBorder.m in Sources */,
 				D74353501C0C15EB004B89FE /* SystemNotifationCell.m in Sources */,
@@ -3236,8 +3295,10 @@
 				D77574EB1C0EC65700D26828 /* RegisterThirdController.m in Sources */,
 				841B2F201BE83DF8008C2974 /* LDApiProxy.m in Sources */,
 				D74353801C0C3D05004B89FE /* CodeController.m in Sources */,
+				D7666DDF1C3A23F80084614F /* OtherTrailView.m in Sources */,
 				84C072F41BE0C46100822E4B /* main.m in Sources */,
 				840D5F611BED7DF200B887AC /* TrackTable.m in Sources */,
+				D7666DD91C3A14450084614F /* RecordView.m in Sources */,
 				D75398791C1FB4E50023A62C /* SelectAdressCell.m in Sources */,
 				D743534D1C0C15EB004B89FE /* NewsCell.m in Sources */,
 				D76AB90D1C07FDB2002B14C0 /* DaiDodgeKeyboard.m in Sources */,

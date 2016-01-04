@@ -20,5 +20,6 @@ target 'Diary' do
     pod 'JSONModel'
 #    pod 'ReactiveCocoa'
     pod 'SDWebImage'
+    pod 'DBCamera'
 end
 
