@@ -142,6 +142,7 @@
 
     PictureSaveController *pictureSaveVc = [PictureSaveController new];
     pictureSaveVc.hidesBottomBarWhenPushed = YES;
+    pictureSaveVc.saveTitleStr = @"把我的照片分享到";
     [self.navigationController pushViewController:pictureSaveVc animated:YES];
 }
 

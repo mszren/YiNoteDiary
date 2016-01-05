@@ -17,6 +17,8 @@
 #import "CusAnnotationView.h"
 #import "RecordView.h"
 #import "MWPhotoBrowser.h"
+#import "PictureSaveController.h"
+#import "MyAlbumController.h"
 
 #define kCalloutViewMargin          -8
 
@@ -294,16 +296,36 @@
 
 #pragma mark -- UIBarButtonItem Action
 - (void)onRightItem:(UIBarButtonItem *)sender{
+    UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    [alertVc addAction:[UIAlertAction actionWithTitle:@"生成专辑" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        MyAlbumController *myAlbumVc = [MyAlbumController new];
+        myAlbumVc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:myAlbumVc animated:YES];
+    }]];
+    [alertVc addAction:[UIAlertAction actionWithTitle:@"保存足迹" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        PictureSaveController *saveVc = [PictureSaveController new];
+        saveVc.hidesBottomBarWhenPushed = YES;
+        saveVc.saveTitleStr = @"把我的轨迹分享到";
+        self.navigationController.navigationBarHidden = YES;
+        [self.navigationController pushViewController:saveVc animated:YES];
+
+    }]];
+    [alertVc addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }]];
+    [self presentViewController:alertVc animated:YES completion:nil];
     
-    [self openPhotoBrower:0];
 }
 
 - (void)onAnnotationViewTap:(UITapGestureRecognizer *)sender{
     
+    [self openPhotoBrower:0];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
     [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:@"我的轨迹"];
 }
 

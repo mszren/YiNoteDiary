@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface PictureSaveController : UIViewController
+@property (nonatomic, strong)NSString *saveTitleStr;
 
 @end

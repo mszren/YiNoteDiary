@@ -282,6 +282,10 @@
 		D7798AE91C23E5FC00F81879 /* btn_kanzhe_yuying.png in Resources */ = {isa = PBXBuildFile; fileRef = D7798AE81C23E5FC00F81879 /* btn_kanzhe_yuying.png */; };
 		D78026671C2BC7D800CA6890 /* test.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D78026661C2BC7D800CA6890 /* test.mp4 */; };
 		D78026691C2BE50800CA6890 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D78026681C2BE50800CA6890 /* MediaPlayer.framework */; };
+		D788E6491C3B6C8C00154499 /* MyAlbumController.m in Sources */ = {isa = PBXBuildFile; fileRef = D788E6481C3B6C8C00154499 /* MyAlbumController.m */; };
+		D788E64C1C3B6F2500154499 /* MyAlbumHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D788E64B1C3B6F2500154499 /* MyAlbumHeadCell.m */; };
+		D788E64F1C3B70F000154499 /* MyAlbumFirstCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D788E64E1C3B70F000154499 /* MyAlbumFirstCell.m */; };
+		D788E6521C3B89FD00154499 /* MyAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D788E6511C3B89FD00154499 /* MyAlbumCell.m */; };
 		D79B9AB61C1521C500D0FA3E /* ContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = D79B9AB31C1521C500D0FA3E /* ContentView.m */; };
 		D79B9AB71C1521C500D0FA3E /* SegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = D79B9AB51C1521C500D0FA3E /* SegmentView.m */; };
 		D79B9ABA1C15221400D0FA3E /* ActivityController.m in Sources */ = {isa = PBXBuildFile; fileRef = D79B9AB91C15221400D0FA3E /* ActivityController.m */; };
@@ -318,6 +322,11 @@
 		D7C3E1F01C084DD9009CE15D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C3E1EF1C084DD9009CE15D /* Security.framework */; };
 		D7C3E1F21C084DF1009CE15D /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C3E1F11C084DF1009CE15D /* libc++.tbd */; };
 		D7C3E1F51C0855FF009CE15D /* FeatureListController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7C3E1F41C0855FF009CE15D /* FeatureListController.m */; };
+		D7DFE1C91C3B959700D4A6CE /* MyDiaryController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DFE1C81C3B959700D4A6CE /* MyDiaryController.m */; };
+		D7DFE1CC1C3B99FC00D4A6CE /* MyDiaryHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DFE1CB1C3B99FC00D4A6CE /* MyDiaryHeadCell.m */; };
+		D7DFE1CF1C3BA15100D4A6CE /* MyDiaryFirstCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DFE1CE1C3BA15100D4A6CE /* MyDiaryFirstCell.m */; };
+		D7DFE1D21C3BB20E00D4A6CE /* MyDiaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DFE1D11C3BB20E00D4A6CE /* MyDiaryCell.m */; };
+		D7DFE1D51C3BBB7D00D4A6CE /* EditDiaryController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DFE1D41C3BBB7D00D4A6CE /* EditDiaryController.m */; };
 		D7F29B4F1C25346D00358C1B /* 001.png in Resources */ = {isa = PBXBuildFile; fileRef = D7F29AA51C25346D00358C1B /* 001.png */; };
 		D7F29B501C25346D00358C1B /* 001@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7F29AA61C25346D00358C1B /* 001@2x.png */; };
 		D7F29B511C25346D00358C1B /* 002.png in Resources */ = {isa = PBXBuildFile; fileRef = D7F29AA71C25346D00358C1B /* 002.png */; };
@@ -967,6 +976,14 @@
 		D7798AE81C23E5FC00F81879 /* btn_kanzhe_yuying.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_kanzhe_yuying.png; sourceTree = "<group>"; };
 		D78026661C2BC7D800CA6890 /* test.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.mp4; sourceTree = "<group>"; };
 		D78026681C2BE50800CA6890 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		D788E6471C3B6C8C00154499 /* MyAlbumController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyAlbumController.h; path = Controllers/Trail/MyAlbumController.h; sourceTree = "<group>"; };
+		D788E6481C3B6C8C00154499 /* MyAlbumController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyAlbumController.m; path = Controllers/Trail/MyAlbumController.m; sourceTree = "<group>"; };
+		D788E64A1C3B6F2500154499 /* MyAlbumHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAlbumHeadCell.h; sourceTree = "<group>"; };
+		D788E64B1C3B6F2500154499 /* MyAlbumHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAlbumHeadCell.m; sourceTree = "<group>"; };
+		D788E64D1C3B70F000154499 /* MyAlbumFirstCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAlbumFirstCell.h; sourceTree = "<group>"; };
+		D788E64E1C3B70F000154499 /* MyAlbumFirstCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAlbumFirstCell.m; sourceTree = "<group>"; };
+		D788E6501C3B89FD00154499 /* MyAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAlbumCell.h; sourceTree = "<group>"; };
+		D788E6511C3B89FD00154499 /* MyAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAlbumCell.m; sourceTree = "<group>"; };
 		D79B9AB21C1521C500D0FA3E /* ContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentView.h; sourceTree = "<group>"; };
 		D79B9AB31C1521C500D0FA3E /* ContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentView.m; sourceTree = "<group>"; };
 		D79B9AB41C1521C500D0FA3E /* SegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentView.h; sourceTree = "<group>"; };
@@ -1027,6 +1044,16 @@
 		D7C3E1F11C084DF1009CE15D /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		D7C3E1F31C0855FF009CE15D /* FeatureListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeatureListController.h; path = Controllers/Find/FeatureListController.h; sourceTree = "<group>"; };
 		D7C3E1F41C0855FF009CE15D /* FeatureListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeatureListController.m; path = Controllers/Find/FeatureListController.m; sourceTree = "<group>"; };
+		D7DFE1C71C3B959700D4A6CE /* MyDiaryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyDiaryController.h; path = Controllers/Trail/MyDiaryController.h; sourceTree = "<group>"; };
+		D7DFE1C81C3B959700D4A6CE /* MyDiaryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyDiaryController.m; path = Controllers/Trail/MyDiaryController.m; sourceTree = "<group>"; };
+		D7DFE1CA1C3B99FC00D4A6CE /* MyDiaryHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDiaryHeadCell.h; sourceTree = "<group>"; };
+		D7DFE1CB1C3B99FC00D4A6CE /* MyDiaryHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDiaryHeadCell.m; sourceTree = "<group>"; };
+		D7DFE1CD1C3BA15100D4A6CE /* MyDiaryFirstCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDiaryFirstCell.h; sourceTree = "<group>"; };
+		D7DFE1CE1C3BA15100D4A6CE /* MyDiaryFirstCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDiaryFirstCell.m; sourceTree = "<group>"; };
+		D7DFE1D01C3BB20E00D4A6CE /* MyDiaryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDiaryCell.h; sourceTree = "<group>"; };
+		D7DFE1D11C3BB20E00D4A6CE /* MyDiaryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDiaryCell.m; sourceTree = "<group>"; };
+		D7DFE1D31C3BBB7D00D4A6CE /* EditDiaryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditDiaryController.h; path = Controllers/Trail/EditDiaryController.h; sourceTree = "<group>"; };
+		D7DFE1D41C3BBB7D00D4A6CE /* EditDiaryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditDiaryController.m; path = Controllers/Trail/EditDiaryController.m; sourceTree = "<group>"; };
 		D7F29AA51C25346D00358C1B /* 001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 001.png; sourceTree = "<group>"; };
 		D7F29AA61C25346D00358C1B /* 001@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "001@2x.png"; sourceTree = "<group>"; };
 		D7F29AA71C25346D00358C1B /* 002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 002.png; sourceTree = "<group>"; };
@@ -1600,6 +1627,12 @@
 				D7666DD51C3A11CB0084614F /* MyTrailController.m */,
 				D7666DDA1C3A23540084614F /* OtherTrailController.h */,
 				D7666DDB1C3A23540084614F /* OtherTrailController.m */,
+				D788E6471C3B6C8C00154499 /* MyAlbumController.h */,
+				D788E6481C3B6C8C00154499 /* MyAlbumController.m */,
+				D7DFE1C71C3B959700D4A6CE /* MyDiaryController.h */,
+				D7DFE1C81C3B959700D4A6CE /* MyDiaryController.m */,
+				D7DFE1D31C3BBB7D00D4A6CE /* EditDiaryController.h */,
+				D7DFE1D41C3BBB7D00D4A6CE /* EditDiaryController.m */,
 			);
 			name = Trail;
 			sourceTree = "<group>";
@@ -1893,6 +1926,18 @@
 				D743532A1C0BD4AF004B89FE /* IdentifyHeadCell.m */,
 				D74353381C0BEC45004B89FE /* IdentifyDetailCell.h */,
 				D74353391C0BEC45004B89FE /* IdentifyDetailCell.m */,
+				D788E64A1C3B6F2500154499 /* MyAlbumHeadCell.h */,
+				D788E64B1C3B6F2500154499 /* MyAlbumHeadCell.m */,
+				D788E64D1C3B70F000154499 /* MyAlbumFirstCell.h */,
+				D788E64E1C3B70F000154499 /* MyAlbumFirstCell.m */,
+				D788E6501C3B89FD00154499 /* MyAlbumCell.h */,
+				D788E6511C3B89FD00154499 /* MyAlbumCell.m */,
+				D7DFE1CA1C3B99FC00D4A6CE /* MyDiaryHeadCell.h */,
+				D7DFE1CB1C3B99FC00D4A6CE /* MyDiaryHeadCell.m */,
+				D7DFE1CD1C3BA15100D4A6CE /* MyDiaryFirstCell.h */,
+				D7DFE1CE1C3BA15100D4A6CE /* MyDiaryFirstCell.m */,
+				D7DFE1D01C3BB20E00D4A6CE /* MyDiaryCell.h */,
+				D7DFE1D11C3BB20E00D4A6CE /* MyDiaryCell.m */,
 			);
 			name = cell;
 			path = Controllers/Trail/cell;
@@ -2733,7 +2778,7 @@
 				TargetAttributes = {
 					84C072EE1BE0C46100822E4B = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = G6887RS5KM;
+						DevelopmentTeam = CC6LSQLQ32;
 					};
 				};
 			};
@@ -3144,12 +3189,15 @@
 				D764580A1C327F20003E17E1 /* PersonChatSetController.m in Sources */,
 				D74353791C0C3D05004B89FE /* CityCell.m in Sources */,
 				840D5F6B1BEE516900B887AC /* UserReformer.m in Sources */,
+				D788E64C1C3B6F2500154499 /* MyAlbumHeadCell.m in Sources */,
 				841B2F121BE83DF8008C2974 /* LDCommonParamsGenerator.m in Sources */,
 				D77574D51C0E98E000D26828 /* Utils.m in Sources */,
+				D788E64F1C3B70F000154499 /* MyAlbumFirstCell.m in Sources */,
 				D7C3E1D51C084286009CE15D /* FeatureDetailHeadCell.m in Sources */,
 				D7B36DFE1C350D3300266301 /* AOTag.m in Sources */,
 				841B2F2A1BE83DF8008C2974 /* LDServiceFactory.m in Sources */,
 				D79B9ACD1C15324500D0FA3E /* ARSegmentView.m in Sources */,
+				D788E6521C3B89FD00154499 /* MyAlbumCell.m in Sources */,
 				D753989D1C20001E0023A62C /* CommentView.m in Sources */,
 				841B2F251BE83DF8008C2974 /* LDLoginByWeiboManager.m in Sources */,
 				D74353591C0C1C9E004B89FE /* AdressBookController.m in Sources */,
@@ -3165,6 +3213,7 @@
 				D74353981C0C3D0E004B89FE /* PersonCenterController.m in Sources */,
 				841B2F1B1BE83DF8008C2974 /* NSURLRequest+LDNetworkingMethods.m in Sources */,
 				841B2F331BE83E74008C2974 /* WGS84TOGCJ02.m in Sources */,
+				D7DFE1D21C3BB20E00D4A6CE /* MyDiaryCell.m in Sources */,
 				D74353641C0C251E004B89FE /* InviteController.m in Sources */,
 				D75765C31C1672CD005FDD93 /* FeatureCommentCell.m in Sources */,
 				D75765CA1C16B926005FDD93 /* CustomCalloutView.m in Sources */,
@@ -3173,6 +3222,7 @@
 				D7350FC81C2A7E8F00C5E62A /* UIViewController+HUD.m in Sources */,
 				841B2F361BE83EC1008C2974 /* LocationManager.m in Sources */,
 				84C072F71BE0C46100822E4B /* AppDelegate.m in Sources */,
+				D7DFE1CC1C3B99FC00D4A6CE /* MyDiaryHeadCell.m in Sources */,
 				D76E69621C251D7200A73E11 /* FaceBoard.m in Sources */,
 				D7350FB61C2A733B00C5E62A /* LocationViewController.m in Sources */,
 				841B2F1E1BE83DF8008C2974 /* LDCachedObject.m in Sources */,
@@ -3180,6 +3230,7 @@
 				8420C9E31BE9CDB500F09EB2 /* MessageController.m in Sources */,
 				D74353A41C0C3D0E004B89FE /* SignController.m in Sources */,
 				D743532D1C0BD4AF004B89FE /* IdentifyHeadCell.m in Sources */,
+				D7DFE1CF1C3BA15100D4A6CE /* MyDiaryFirstCell.m in Sources */,
 				D743534F1C0C15EB004B89FE /* PersonCell.m in Sources */,
 				D77574E81C0EC59500D26828 /* RegisterSecondController.m in Sources */,
 				D76CB4C11C2141CC007ED8FA /* BaseNavigation.m in Sources */,
@@ -3204,6 +3255,7 @@
 				D75A8A591C34BD260047F145 /* TrailSetController.m in Sources */,
 				841B2F181BE83DF8008C2974 /* NSMutableString+LDNetworkingMethods.m in Sources */,
 				D7A9087F1C0FCC0300DA0713 /* CommentCell.m in Sources */,
+				D788E6491C3B6C8C00154499 /* MyAlbumController.m in Sources */,
 				D74353401C0C116E004B89FE /* FriendListController.m in Sources */,
 				D743533A1C0BEC45004B89FE /* IdentifyDetailCell.m in Sources */,
 				D76AB91F1C07FE3F002B14C0 /* SegmentNaviViewController.m in Sources */,
@@ -3258,6 +3310,7 @@
 				D753989F1C20001E0023A62C /* IndexDetailHeadView.m in Sources */,
 				D76E69631C251D7200A73E11 /* GrayPageControl.m in Sources */,
 				D743533D1C0BECE5004B89FE /* IdentifyDetailController.m in Sources */,
+				D7DFE1D51C3BBB7D00D4A6CE /* EditDiaryController.m in Sources */,
 				D74353811C0C3D05004B89FE /* EditController.m in Sources */,
 				D76AB9301C07FF4C002B14C0 /* CarouseCell.m in Sources */,
 				D75398A01C20001E0023A62C /* PublishAlbumTopView.m in Sources */,
@@ -3303,6 +3356,7 @@
 				D743534D1C0C15EB004B89FE /* NewsCell.m in Sources */,
 				D76AB90D1C07FDB2002B14C0 /* DaiDodgeKeyboard.m in Sources */,
 				D767685E1C225C9A00FCF4D2 /* MessageCell.m in Sources */,
+				D7DFE1C91C3B959700D4A6CE /* MyDiaryController.m in Sources */,
 				D79B9AB71C1521C500D0FA3E /* SegmentView.m in Sources */,
 				D743532B1C0BD4AF004B89FE /* FriendCell.m in Sources */,
 			);
@@ -3398,8 +3452,8 @@
 			baseConfigurationReference = 575F6957D257E48BC9F99DBE /* Pods-Diary.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: com.gaode.PushDemo";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 2721241424@qq.com (6M56N68F5A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 2721241424@qq.com (6M56N68F5A)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/AMap3DMap",
@@ -3407,11 +3461,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Diary/Diary-Prefix.pch";
 				INFOPLIST_FILE = Diary/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.1bj.Diary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "c525ce1c-d934-4416-b938-37840822530e";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -3420,8 +3475,8 @@
 			baseConfigurationReference = 054052362DEA8161644F4838 /* Pods-Diary.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: com.gaode.PushDemo";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 2721241424@qq.com (6M56N68F5A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 2721241424@qq.com (6M56N68F5A)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/AMap3DMap",
@@ -3429,11 +3484,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Diary/Diary-Prefix.pch";
 				INFOPLIST_FILE = Diary/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.1bj.Diary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "c525ce1c-d934-4416-b938-37840822530e";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

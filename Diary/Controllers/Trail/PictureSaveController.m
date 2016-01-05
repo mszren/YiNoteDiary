@@ -56,7 +56,11 @@
     [self.view addSubview:self.sinaLabel];
     [self.view addSubview:self.qqBtn];
     [self.view addSubview:self.qqLabel];
+    
+    self.titleLabel.text = self.saveTitleStr;
 }
+
+
 
 #pragma mark-- UM
 - (void)didFinishGetUMSocialDataInViewController:(UMSocialResponseEntity*)response
@@ -178,7 +182,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = YES;
+//    self.navigationController.navigationBarHidden = YES;
     UIView *superView = self.view;
     
     [_returnBtn mas_makeConstraints:^(MASConstraintMaker *make) {
