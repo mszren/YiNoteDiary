@@ -29,34 +29,36 @@
 @implementation EGOQuickPhoto
 @synthesize URL=_URL, caption=_caption, image=_image, size=_size, failed=_failed;
 
-- (id)initWithImageURL:(NSURL*)aURL name:(NSString*)aName image:(UIImage*)aImage {
+- (id)initWithImageURL:(NSURL*)aURL name:(NSString*)aName time:(NSString *)aTime adress:(NSString *)aAdress image:(UIImage*)aImage {
 	if (self = [super init]) {
 		_URL = [aURL retain];
 		_caption = [aName retain];
 		_image = [aImage retain];
-		
+        _captionTime = [aTime retain];
+        _captionAdress = [aAdress retain];
 	}
 	
 	return self;
 }
 
-- (id)initWithImageURL:(NSURL*)aURL name:(NSString*)aName {
-	return [self initWithImageURL:aURL name:aName image:nil];
+- (id)initWithImageURL:(NSURL*)aURL name:(NSString*)aName time:(NSString *)aTime adress:(NSString *)aAdress{
+	return [self initWithImageURL:aURL name:aName time:aTime adress:aAdress image:nil];
 }
 
 - (id)initWithImageURL:(NSURL*)aURL {
-	return [self initWithImageURL:aURL name:nil image:nil];
+	return [self initWithImageURL:aURL name:nil time:nil adress:nil image:nil];
 }
 
 - (id)initWithImage:(UIImage*)aImage {
-	return [self initWithImageURL:nil name:nil image:aImage];
+	return [self initWithImageURL:nil name:nil time:nil adress:nil image:aImage];
 }
 
 - (void)dealloc {
 	[_URL release], _URL=nil;
 	[_image release], _image=nil;
 	[_caption release], _caption=nil;
-	
+    [_captionTime release],_captionTime=nil;
+    [_captionAdress release],_captionAdress=nil;
 	[super dealloc];
 }
 

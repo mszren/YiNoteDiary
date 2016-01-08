@@ -16,10 +16,11 @@
 #import "BaseNavigation.h"
 #import "CusAnnotationView.h"
 #import "OtherTrailView.h"
+#import "MWPhotoBrowser.h"
 
 #define kCalloutViewMargin          -8
 
-@interface OtherTrailController () <MAMapViewDelegate>
+@interface OtherTrailController () <MAMapViewDelegate,MWPhotoBrowserDelegate>
 @property (nonatomic, strong) NSMutableArray *overlaysAboveRoads;
 @property (nonatomic, strong) NSMutableArray *overlaysAboveLabels;
 @property (nonatomic, strong) NSMutableArray *annotations;
@@ -32,6 +33,10 @@
     MACoordinateRegion _region;//中心点坐标
     UIBarButtonItem* _rightButton;
     OtherTrailView *_otherTrailView;
+    
+    NSMutableArray *_imgArry;
+    NSMutableArray *_photos;
+    MWPhotoBrowser *_browser;
 }
 
 - (void)viewDidLoad{
@@ -90,6 +95,13 @@
     _otherTrailView = [[OtherTrailView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, 180)];
     [_otherTrailView setName:@"木子李" andContent:@"当前拍摄了10张照片" andImage:[UIImage imageNamed:@"pic_bg"]];
     [self.view addSubview:_otherTrailView];
+    
+    _imgArry = [[NSMutableArray alloc]initWithCapacity:0];
+    for (NSInteger i = 0; i < 20; i++) {
+        [_imgArry addObject:[UIImage imageNamed:@"pic_bg"]];
+    }
+    
+    _photos = [[NSMutableArray alloc]initWithCapacity:0];
 }
 
 
@@ -240,6 +252,48 @@
     return CGSizeMake(nudgeLeft ?: nudgeRight, nudgeTop ?: nudgeBottom);
 }
 
+#pragma mark - MWPhotoBrowserDelegate
+
+- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
+    return _photos.count;
+}
+
+
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    return YES;
+}
+
+- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
+    if (index < _photos.count)
+        return [_photos objectAtIndex:index];
+    return nil;
+}
+
+//打开MWPhotoBrowser
+- (void)openPhotoBrower:(NSInteger)selectRow{
+    
+    [_photos removeAllObjects];
+    
+    [_imgArry enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        MWPhoto *photo = [MWPhoto photoWithImage:obj];
+        photo.caption = @"行走在美丽的江南水乡行走在美丽的江南水乡行走在美丽的江南水乡";
+        [_photos addObject:photo];
+    }];
+    
+    _browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+    _browser.displayActionButton = YES;
+    _browser.displayNavArrows = YES;
+    _browser.displaySelectionButtons = NO;
+    _browser.alwaysShowControls = NO;
+    _browser.zoomPhotosToFill = YES;
+    _browser.enableGrid = YES;
+    _browser.startOnGrid = YES;
+    _browser.enableSwipeToDismiss = NO;
+    _browser.autoPlayOnAppear = YES;
+    [_browser setCurrentPhotoIndex:selectRow];
+    [self.navigationController pushViewController:_browser animated:YES];
+}
+
 #pragma mark -- UIBarButtonItem Action
 - (void)onRightItem:(UIBarButtonItem *)sender{
     [_otherTrailView setHidden:NO];
@@ -247,6 +301,7 @@
 
 - (void)onAnnotationViewTap:(UITapGestureRecognizer *)sender{
     
+    [self openPhotoBrower:0];
 }
 
 - (void)onTap{

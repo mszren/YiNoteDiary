@@ -84,6 +84,7 @@ alpha:(a)]
 #define TabBarHeigh 44
 #define TabBarWidth 240
 #define statusHeight 20
+#define TabBarHeight 49
 #define NavigationBarHeight 64
 
 //发布

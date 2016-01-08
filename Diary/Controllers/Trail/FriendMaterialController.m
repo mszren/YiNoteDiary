@@ -11,6 +11,7 @@
 #import "CheckoutMessageView.h"
 #import "ChatToolController.h"
 #import "PersonChatSetController.h"
+#import "MyTrailController.h"
 
 @interface FriendMaterialController () <CheckoutMessageViewDelegate>
 
@@ -32,6 +33,8 @@
     _rightButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ic_more@3x"] style:UIBarButtonItemStylePlain target:self action:@selector(onRightItem:)];
     self.navigationItem.rightBarButtonItem = _rightButton;
     self.scrollView.contentSize = CGSizeMake(Screen_Width, self.messageBtn.frame.size.height + self.messageBtn.frame.origin.y + 10);
+    
+    [_otherQueueView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap:)]];
     
     [_addFriendBtn addTarget:self action:@selector(onBtn:) forControlEvents:UIControlEventTouchUpInside];
     [_messageBtn addTarget:self action:@selector(onBtn:) forControlEvents:UIControlEventTouchUpInside];
@@ -68,7 +71,22 @@
     }
 }
 
- 
+#pragma mark -- UITapGestureRecognizer Action
+- (void)onTap:(UITapGestureRecognizer *)sender{
+    switch (sender.view.tag) {
+        case 104:{
+            MyTrailController *myTrailVc = [MyTrailController new];
+            myTrailVc.hidesBottomBarWhenPushed = YES;
+            myTrailVc.isShowMember = YES;
+            [self.navigationController pushViewController:myTrailVc animated:YES];
+        }
+            
+            break;
+            
+        default:
+            break;
+    }
+}
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];

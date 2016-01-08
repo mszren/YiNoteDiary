@@ -34,7 +34,7 @@
 
     _tableView = [[UITableView alloc]
                   initWithFrame:CGRectMake(0, 0, Screen_Width,
-                                           Screen_height  )
+                                           Screen_height - NavigationBarHeight - statusHeight )
                   style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -170,7 +170,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [[BaseNavigation sharedInstance] setIndexGreenNavigationBar:self andTitle:@"附近景点"];
+    [[BaseNavigation sharedInstance] setIndexGreenNavigationBar:self andTitle:@"消息"];
 }
 
 @end

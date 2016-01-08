@@ -65,6 +65,10 @@
 // Return nil to display no caption
 - (NSString *)caption;
 
+- (NSString *)captionTime;
+
+- (NSString *)captionAdress;
+
 // Cancel any background loading of image data
 - (void)cancelAnyLoading;
 

@@ -182,7 +182,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-//    self.navigationController.navigationBarHidden = YES;
+    self.navigationController.navigationBarHidden = YES;
     UIView *superView = self.view;
     
     [_returnBtn mas_makeConstraints:^(MASConstraintMaker *make) {

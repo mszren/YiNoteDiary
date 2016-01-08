@@ -15,8 +15,10 @@
 #import "UIImage+Utils.h"
 #import "category.h"
 #import "EGOImageView.h"
+#import "DBCameraViewController.h"
+#import "DBCameraContainerViewController.h"
 
-@interface IdentifyController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,BaseNavigationDelegate>
+@interface IdentifyController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,BaseNavigationDelegate,DBCameraViewControllerDelegate>
 @property (nonatomic,strong) EGOImageView *featureImg;
 @property (nonatomic, assign) CGFloat lastOffsetY;
 @property (strong, nonatomic) NSLayoutConstraint *headHCons;
@@ -28,6 +30,7 @@
     UITableView* _tableView;
     CGFloat _navalpha;
     UIBarButtonItem *_nextBtn;
+     DBCameraViewController *_cameraController;
 }
 
 
@@ -40,7 +43,7 @@
 
     _tableView = [[UITableView alloc]
                   initWithFrame:CGRectMake(0, -NavigationBarHeight, Screen_Width,
-                                           Screen_height + NavigationBarHeight)
+                                           Screen_height )
                   style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -54,6 +57,17 @@
     _tableView.tableHeaderView = _featureImg;
     
     [self.view addSubview:_tableView];
+    
+    _cameraController = [DBCameraViewController initWithDelegate:self];
+    [_cameraController setForceQuadCrop:YES];
+    
+    DBCameraContainerViewController *container = [[DBCameraContainerViewController alloc] initWithDelegate:self];
+    [container setCameraViewController:_cameraController];
+    [container setFullScreenMode];
+    
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:container];
+    [nav setNavigationBarHidden:YES];
+    [self presentViewController:nav animated:YES completion:nil];
     
 }
 
@@ -152,6 +166,18 @@
     IdentifyDetailController *detailVc = [IdentifyDetailController new];
     detailVc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:detailVc animated:YES];
+}
+
+- (void)camera:(id)cameraViewController didFinishWithImage:(UIImage *)image withMetadata:(NSDictionary *)metadata{
+    NSData * data = UIImageJPEGRepresentation(image, 0.08f);
+    UIImage * temp = [[UIImage alloc] initWithData:data];
+    [_featureImg setImage:temp];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)dismissCamera:(id)cameraViewController{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [cameraViewController restoreFullScreenMode];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

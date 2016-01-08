@@ -6,7 +6,7 @@ target 'Diary' do
     pod 'CTPersistance'
     pod 'Masonry'
     pod 'Toast'
-    pod 'MWPhotoBrowser'
+    pod 'DACircularProgress', '~> 2.3.1'
     pod 'MBProgressHUD', '~> 0.9.1'
     pod 'Aspects'
     pod 'AMap3DMap', '~> 3.2.1'  #3D地图SDK

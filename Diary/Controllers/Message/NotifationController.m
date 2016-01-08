@@ -8,16 +8,18 @@
 
 #import "NotifationController.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
-#import "SystemNotifationCell.h"
+#import "DHSwipableCell.h"
 #import "BaseNavigation.h"
 
-@interface NotifationController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource>
+ static NSString* const dHSwipableCellid = @"dHSwipableCellid";
+@interface NotifationController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,DHSwipableCellDelegate>
 
 @end
 
 @implementation NotifationController{
     
     UITableView* _tableView;
+    NSIndexPath * _lastSelectCell;
 }
 
 - (void)viewDidLoad {
@@ -29,16 +31,88 @@
     
     _tableView = [[UITableView alloc]
                   initWithFrame:CGRectMake(0, 0, Screen_Width,
-                                           Screen_height  )
+                                           Screen_height - NavigationBarHeight )
                   style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.emptyDataSetSource = self;
     _tableView.emptyDataSetDelegate = self;
+    _tableView.showsVerticalScrollIndicator = NO;
+    [_tableView registerClass:[DHSwipableCell class] forCellReuseIdentifier:dHSwipableCellid];
     [self.view addSubview:_tableView];
 }
 
+#pragma mark - protocol
+- (NSInteger)numberOfItemsInCell:(DHSwipableCell *)cell
+{
+
+    return 2;
+}
+
+- (id)swipableCell:(DHSwipableCell *)cell contentForItemAtIndex:(NSInteger)index
+{
+    switch (index) {
+        case 0:
+            return @"消息免打扰";
+            break;
+            
+        default:
+            return @"删除";
+            break;
+    }
+  
+}
+
+- (UIColor *)swipableCell:(DHSwipableCell *)cell colorForItemAtIndex:(NSInteger)index
+{
+    switch (index) {
+        case 0:
+            
+            return COLOR_GRAY_DEFAULT_180;
+            break;
+            
+        default:
+            
+            return [UIColor redColor];
+            break;
+    }
+}
+
+- (CGFloat)swipableCell:(DHSwipableCell *)cell widthForItemAtIndex:(NSInteger)index
+{
+    switch (index) {
+        case 0:
+            return 120;
+            break;
+            
+        default:
+            return 80;
+            break;
+    }
+    
+}
+
+- (void)swipableCell:(DHSwipableCell *)cell didClickOnItemAtIndex:(NSInteger)index
+{
+ 
+}
+
+- (void)didBeginEditingCell:(DHSwipableCell *)cell
+{
+    if (_lastSelectCell != cell.indexPath) {
+        DHSwipableCell *lastCell = [_tableView cellForRowAtIndexPath:_lastSelectCell];
+        [lastCell close];
+    }
+    _lastSelectCell = cell.indexPath;
+}
+
+- (void)didEndEditingCell:(DHSwipableCell *)cell
+{
+    
+}
+
+#pragma mark - table view protocol
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
@@ -52,19 +126,23 @@
     return 80.5;
 }
 
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    static NSString* systemNotifationCellid = @"systemNotifationCellid";
-    SysytemNotifationCell * systemNotifationCell = [tableView dequeueReusableCellWithIdentifier:systemNotifationCellid];
-    if (!systemNotifationCell) {
-        systemNotifationCell =
-        [[SysytemNotifationCell alloc] initWithStyle:UITableViewCellStyleDefault
-                          reuseIdentifier:systemNotifationCellid];
-        systemNotifationCell.backgroundColor = BGViewColor;
-        systemNotifationCell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }
+    DHSwipableCell * dHSwipableCell = [tableView dequeueReusableCellWithIdentifier:dHSwipableCellid forIndexPath:indexPath];
+    dHSwipableCell.delegate = self;
+    dHSwipableCell.indexPath = indexPath;
     
-    return systemNotifationCell;
+    return dHSwipableCell;
 }
 
 #pragma mark DZNEmptyDataSetDelegate,DZNEmptyDataSetSource

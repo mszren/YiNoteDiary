@@ -46,12 +46,14 @@
 }
 
 - (void)initView{
+    
     self.view.backgroundColor = BGViewColor;
     self.edgesForExtendedLayout = UIRectEdgeNone;
     _rightButton = [[UIBarButtonItem alloc] initWithTitle:@"开始" style:UIBarButtonItemStylePlain target:self action:@selector(onRightItem:)];
     self.navigationItem.rightBarButtonItem = _rightButton;
     
     RecordView *recordView = [[RecordView alloc]initWithFrame:CGRectMake(0, Screen_height - 56 - NavigationBarHeight, Screen_Width, 56)];
+    recordView.memberBtn.hidden = !_isShowMember;
     recordView.viewController = self;
     [self.view addSubview:recordView];
     
@@ -277,6 +279,8 @@
     [_imgArry enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         MWPhoto *photo = [MWPhoto photoWithImage:obj];
         photo.caption = @"行走在美丽的江南水乡行走在美丽的江南水乡行走在美丽的江南水乡";
+        photo.captionAdress = @"上海东方明珠";
+        photo.captionTime = @"2015-06-08 09:30";
         [_photos addObject:photo];
     }];
     
@@ -288,6 +292,7 @@
     _browser.zoomPhotosToFill = YES;
     _browser.enableGrid = YES;
     _browser.startOnGrid = YES;
+    
     _browser.enableSwipeToDismiss = NO;
     _browser.autoPlayOnAppear = YES;
     [_browser setCurrentPhotoIndex:selectRow];

@@ -89,7 +89,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "UMengSocial/Umeng_SDK_Social_iOS_ARM64_4.4/UMSocial_Sdk_4.4/zh-Hans.lproj"
   install_resource "UzysAssetsPickerController+CacheSelect/UzysAssetsPickerController/Library/UzysAssetsPickerController.xib"
   install_resource "UzysAssetsPickerController+CacheSelect/UzysAssetsPickerController/Library/UzysAssetPickerController.bundle"
-  install_resource "${BUILT_PRODUCTS_DIR}/MWPhotoBrowser.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "AMap3DMap/MAMapKit.framework/Versions/3.2.1.94eef6d.752/Resources/AMap.bundle"
@@ -123,7 +122,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "UMengSocial/Umeng_SDK_Social_iOS_ARM64_4.4/UMSocial_Sdk_4.4/zh-Hans.lproj"
   install_resource "UzysAssetsPickerController+CacheSelect/UzysAssetsPickerController/Library/UzysAssetsPickerController.xib"
   install_resource "UzysAssetsPickerController+CacheSelect/UzysAssetsPickerController/Library/UzysAssetPickerController.bundle"
-  install_resource "${BUILT_PRODUCTS_DIR}/MWPhotoBrowser.bundle"
 fi
 
 mkdir -p "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

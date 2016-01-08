@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface PublishController : UIViewController
+@property (nonatomic, assign)NSInteger selectType;
 
 @end

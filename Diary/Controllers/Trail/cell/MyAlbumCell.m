@@ -49,7 +49,7 @@
         
         for (NSInteger i = 0 ; i < 2; i++) {
             for (NSInteger j = 0; j < 3; j ++) {
-                EGOImageView *img = [[EGOImageView alloc]initWithPlaceholderImage:[UIImage imageNamed:@"pic_bg"]];
+                EGOImageView *img = [[EGOImageView alloc]initWithPlaceholderImage:[UIImage imageNamed:@"img_saisai_hdzt2"]];
                 [self addSubview:img];
                 [img mas_makeConstraints:^(MASConstraintMaker *make) {
                     make.left.mas_equalTo(_greenLabel.mas_right).offset(13 + (IMG_Width + 10)*j);

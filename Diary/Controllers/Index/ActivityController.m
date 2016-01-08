@@ -29,7 +29,7 @@
     
     _tableView = [[UITableView alloc]
                   initWithFrame:CGRectMake(0, 0, Screen_Width,
-                                           Screen_height  )
+                                           Screen_height - TabBarHeight - NavigationBarHeight)
                   style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;

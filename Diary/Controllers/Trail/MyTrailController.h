@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MyTrailController : UIViewController
+@property (nonatomic,assign) BOOL isShowMember;
 
 @end

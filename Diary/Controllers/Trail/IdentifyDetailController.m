@@ -17,6 +17,7 @@
 #import "category.h"
 #import "EGOImageView.h"
 #import "PictureSaveController.h"
+#import "MyTrailController.h"
 
 @interface IdentifyDetailController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,IdentifyEditViewDelegate,BaseNavigationDelegate>
 @property (strong, nonatomic) NSLayoutConstraint *headHCons;
@@ -42,7 +43,7 @@
      
     _tableView = [[UITableView alloc]
                   initWithFrame:CGRectMake(0, -NavigationBarHeight, Screen_Width,
-                                           Screen_height + NavigationBarHeight)
+                                           Screen_height - 40)
                   style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -140,10 +141,10 @@
 #pragma mark -- BaseNavigationDelegate
 - (void)baseNavigationDelegateOnRightItemAction{
 
-    PictureSaveController *pictureSaveVc = [PictureSaveController new];
-    pictureSaveVc.hidesBottomBarWhenPushed = YES;
-    pictureSaveVc.saveTitleStr = @"把我的照片分享到";
-    [self.navigationController pushViewController:pictureSaveVc animated:YES];
+    MyTrailController *myTrailVc = [MyTrailController new];
+    myTrailVc.hidesBottomBarWhenPushed = YES;
+    myTrailVc.isShowMember = NO;
+    [self.navigationController pushViewController:myTrailVc animated:YES];
 }
 
 - (void)onTap:(UITapGestureRecognizer *)sender{

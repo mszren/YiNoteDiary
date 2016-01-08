@@ -92,11 +92,16 @@
     UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     [alertVc addAction:[UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
+        _publishVc = [PublishController new];
+        _publishVc.hidesBottomBarWhenPushed = YES;
+        _publishVc.selectType = 0;
+        [self.navigationController pushViewController:_publishVc animated:YES];
     }]];
     [alertVc addAction:[UIAlertAction actionWithTitle:@"从手机相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
         _publishVc = [PublishController new];
         _publishVc.hidesBottomBarWhenPushed = YES;
+        _publishVc.selectType = 1;
         [self.navigationController pushViewController:_publishVc animated:YES];
     }]];
     [alertVc addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {

@@ -18,10 +18,12 @@
 #import "BaseNavigation.h"
 #import "CusAnnotationView.h"
 #import "MyTrailController.h"
+#import "DBCameraViewController.h"
+#import "DBCameraContainerViewController.h"
 
 #define kCalloutViewMargin          -8
 
-@interface TrailController () <MAMapViewDelegate>
+@interface TrailController () <MAMapViewDelegate,DBCameraViewControllerDelegate>
 @property (nonatomic, strong) NSMutableArray *overlaysAboveRoads;
 @property (nonatomic, strong) NSMutableArray *overlaysAboveLabels;
 @property (nonatomic, strong) NSMutableArray *annotations;
@@ -32,6 +34,7 @@
     
     MAMapView *_mapView;
     MACoordinateRegion _region;//中心点坐标
+    DBCameraViewController *_cameraController;
 }
 
 - (void)viewDidLoad{
@@ -181,6 +184,17 @@
     [_mapView addOverlays:self.overlaysAboveRoads level:MAOverlayLevelAboveRoads];
 }
 
+- (void)camera:(id)cameraViewController didFinishWithImage:(UIImage *)image withMetadata:(NSDictionary *)metadata{
+    NSData * data = UIImageJPEGRepresentation(image, 0.08f);
+    UIImage * temp = [[UIImage alloc] initWithData:data];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)dismissCamera:(id)cameraViewController{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [cameraViewController restoreFullScreenMode];
+}
+
 #pragma mark - MAMapViewDelegate
 
 - (MAOverlayView *)mapView:(MAMapView *)mapView viewForOverlay:(id <MAOverlay>)overlay
@@ -291,7 +305,19 @@
         }
             
             break;
-        case 101:
+        case 101:{
+            
+            _cameraController = [DBCameraViewController initWithDelegate:self];
+            [_cameraController setForceQuadCrop:YES];
+            
+            DBCameraContainerViewController *container = [[DBCameraContainerViewController alloc] initWithDelegate:self];
+            [container setCameraViewController:_cameraController];
+            [container setFullScreenMode];
+            
+            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:container];
+            [nav setNavigationBarHidden:YES];
+            [self presentViewController:nav animated:YES completion:nil];
+        }
             
             break;
         case 102:{

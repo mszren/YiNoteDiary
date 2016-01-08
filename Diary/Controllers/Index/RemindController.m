@@ -12,6 +12,7 @@
 #import "WonderfulCell.h"
 #import "AlbumHeadCell.h"
 #import "AlbumEnjoyCell.h"
+#import "indexRecentDetailController.h"
 
 @interface RemindController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource>
 
@@ -31,7 +32,7 @@
     
     _tableView = [[UITableView alloc]
                   initWithFrame:CGRectMake(0, 0, Screen_Width,
-                                           Screen_height  )
+                                           Screen_height - TabBarHeight - NavigationBarHeight )
                   style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -143,6 +144,15 @@
             break;
     }
     
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (indexPath.row > 1) {
+        indexRecentDetailController *detailVc = [indexRecentDetailController new];
+        detailVc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:detailVc animated:YES];
+    }
 }
 
 #pragma mark DZNEmptyDataSetDelegate,DZNEmptyDataSetSource

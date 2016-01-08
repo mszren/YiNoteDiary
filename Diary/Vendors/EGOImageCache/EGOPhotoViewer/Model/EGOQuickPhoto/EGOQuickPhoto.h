@@ -32,14 +32,16 @@
 @private
 	NSURL *_URL;
 	NSString *_caption;
+    NSString *_captionTime;
+    NSString *_captionAdress;
 	CGSize _size;
 	UIImage *_image;
 	
 	BOOL _failed;
 }
 
-- (id)initWithImageURL:(NSURL*)aURL name:(NSString*)aName image:(UIImage*)aImage;
-- (id)initWithImageURL:(NSURL*)aURL name:(NSString*)aName;
+- (id)initWithImageURL:(NSURL*)aURL name:(NSString*)aName time:(NSString *)aTime adress:(NSString *)aAdress image:(UIImage*)aImage;
+- (id)initWithImageURL:(NSURL*)aURL name:(NSString*)aName time:(NSString *)aTime adress:(NSString *)aAdress;
 - (id)initWithImageURL:(NSURL*)aURL;
 - (id)initWithImage:(UIImage*)aImage;
 

@@ -13,6 +13,7 @@
 #import "MyDiaryFirstCell.h"
 #import "MyDiaryCell.h"
 #import "UITableView+FDTemplateLayoutCell.h"
+#import "EditDiaryController.h"
 
 static NSString * const  myDiaryFirstCellIdentidier = @"MyDiaryFirstCellIdentidier";
 static NSString * const  myDiaryCellIdentifier = @"MyDiaryCellIdentifier";
@@ -36,7 +37,7 @@ static NSString * const  myDiaryCellIdentifier = @"MyDiaryCellIdentifier";
     _rightButton = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(onRightItem:)];
     self.navigationItem.rightBarButtonItem = _rightButton;
     
-    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, Screen_height) style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, Screen_height - NavigationBarHeight) style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -115,6 +116,15 @@ static NSString * const  myDiaryCellIdentifier = @"MyDiaryCellIdentifier";
             
             return [_tableView fd_heightForCellWithIdentifier:myDiaryCellIdentifier configuration:nil];
             break;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    if (indexPath.row > 0) {
+        EditDiaryController *editDiaryVc = [EditDiaryController new];
+        editDiaryVc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:editDiaryVc animated:YES];
     }
 }
 

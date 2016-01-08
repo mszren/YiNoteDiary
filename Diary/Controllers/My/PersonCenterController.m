@@ -14,12 +14,21 @@
 #import "ProvinceController.h"
 #import "CodeController.h"
 #import "BaseNavigation.h"
+#import "UzysAssetsPickerController.h"
+#import <Photos/Photos.h>
+#import "DBCameraViewController.h"
 
-@interface PersonCenterController ()
+@interface PersonCenterController () <UzysAssetsPickerControllerDelegate,DBCameraViewControllerDelegate>
 
 @end
 
-@implementation PersonCenterController
+@implementation PersonCenterController{
+    
+    UzysAssetsPickerController *_picker;
+    UIImage *_selectImg;
+    NSMutableArray *_selectArry;
+    DBCameraViewController *_cameraController;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,6 +37,7 @@
 
 - (void)initView{
    
+    _selectArry = [[NSMutableArray alloc]initWithCapacity:0];
     self.scrollView.contentSize = CGSizeMake(Screen_Width, self.outBtn.frame.size.height + self.outBtn.frame.origin.y + 10);
     
     self.faceView.userInteractionEnabled = YES;
@@ -120,16 +130,73 @@
     
     UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     [alertVc addAction:[UIAlertAction actionWithTitle:@"拍照上传" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
+       
+        _cameraController =
+        [DBCameraViewController initWithDelegate:self];
+        [_cameraController setUseCameraSegue:NO];
+        UINavigationController *nav = [[UINavigationController alloc]
+                                       initWithRootViewController:_cameraController];
+        [nav setNavigationBarHidden:YES];
+        [self presentViewController:nav animated:YES completion:nil];
+
     }]];
     [alertVc addAction:[UIAlertAction actionWithTitle:@"图库上传" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
  
+        _picker = [[UzysAssetsPickerController alloc] init];
+        _picker.maximumNumberOfSelectionVideo = 0;
+        _picker.maximumNumberOfSelectionPhoto = 1;
+        _picker.delegate = self;
+        _picker.selectedAssetArray = _selectArry;
+        
+        [self presentViewController:_picker
+                           animated:YES
+                         completion:^{
+                             
+                         }];
         
     }]];
     [alertVc addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
     }]];
     [self presentViewController:alertVc animated:YES completion:nil];
+}
+
+#pragma mark - UzysAssetsPickerControllerDelegate methods
+- (void)uzysAssetsPickerController:(UzysAssetsPickerController*)picker didFinishPickingAssets:(NSArray*)assets
+{
+    
+    if ([[assets[0] valueForProperty:@"ALAssetPropertyType"] isEqualToString:@"ALAssetTypePhoto"]) //Photo
+    {
+        ALAsset *asset = assets[0];
+        _selectImg = [UIImage imageWithCGImage:asset.defaultRepresentation.fullScreenImage];
+        _faceImg.image = _selectImg;
+        [_selectArry removeAllObjects];
+        [_selectArry addObject:asset];
+    }
+}
+
+- (void)uzysAssetsPickerControllerDidExceedMaximumNumberOfSelection:(UzysAssetsPickerController*)picker
+{
+    
+    UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:nil message:NSLocalizedStringFromTable(@"已经超出上传图片数量！", @"UzysAssetsPickerController", nil) preferredStyle:UIAlertControllerStyleAlert];
+    [alertVc addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }]];
+    [self presentViewController:alertVc animated:YES completion:nil];
+    
+}
+
+- (void)camera:(id)cameraViewController didFinishWithImage:(UIImage *)image withMetadata:(NSDictionary *)metadata{
+    NSData * data = UIImageJPEGRepresentation(image, 0.08f);
+    UIImage * temp = [[UIImage alloc] initWithData:data];
+    _selectImg = temp;
+    _faceImg.image = _selectImg;
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)dismissCamera:(id)cameraViewController{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [cameraViewController restoreFullScreenMode];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

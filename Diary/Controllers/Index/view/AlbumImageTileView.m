@@ -41,6 +41,20 @@
     [self addGestureRecognizer:_tap];
 }
 
+- (void)setViewImage:(UIImage *)image{
+    img = [[UIImageView alloc] initWithImage:image];
+    img.frame=CGRectMake(0, 0, PublishImageTileWidth, PublishImageTileHeight);
+    img.userInteractionEnabled = YES;
+    _tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
+    
+    UIImageView *delImg=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ic_delete"]];
+    delImg.center=CGPointMake(img.frame.origin.x+img.frame.size.width, img.frame.origin.y);
+    [img addSubview:delImg];
+    [self addSubview:img];
+    
+    [self addGestureRecognizer:_tap];
+}
+
 - (void)tapAction:(id) sender{
     if ([self.delegate respondsToSelector:@selector(removeImage:)]) {
         [self.delegate removeImage:_asset];

@@ -14,8 +14,9 @@
 #import "BaseNavigation.h"
 #import "BaseNavigation.h"
 #import "SelectAdressController.h"
+#import "DBCameraViewController.h"
 
-@interface PublishController () <PublishAlbumTopViewDelegate,UITextViewDelegate,UzysAssetsPickerControllerDelegate>
+@interface PublishController () <PublishAlbumTopViewDelegate,UITextViewDelegate,UzysAssetsPickerControllerDelegate,DBCameraViewControllerDelegate>
 @property (nonatomic,strong)UITextView *contentText;
 @property (nonatomic,strong)UILabel *coverLabel;
 @property (nonatomic,strong)PublishAlbumTopView *publishAlbumTopView;
@@ -25,9 +26,13 @@
 @property (nonatomic,strong) EGOImageView *tapImg;
 @property (nonatomic,strong)UzysAssetsPickerController* picker;
 
+
 @end
 
-@implementation PublishController
+@implementation PublishController{
+    
+      DBCameraViewController *_cameraController;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -42,7 +47,39 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     UIBarButtonItem * rightButton = [[UIBarButtonItem alloc]initWithTitle:@"发布" style:UIBarButtonItemStylePlain target:self action:@selector(onPublishBtn:)];
     self.navigationItem.rightBarButtonItem = rightButton;
+    
+    if (_selectType == 0) {
+        _cameraController =
+        [DBCameraViewController initWithDelegate:self];
+        [_cameraController setUseCameraSegue:NO];
+        UINavigationController *nav = [[UINavigationController alloc]
+                                       initWithRootViewController:_cameraController];
+        [nav setNavigationBarHidden:YES];
+        [self presentViewController:nav animated:YES completion:nil];
+    }else{
+        
+        [self showUzyPickerVc];
+    }
 
+}
+
+- (void)showUzyPickerVc{
+    
+    _picker = [[UzysAssetsPickerController alloc] init];
+    _picker.maximumNumberOfSelectionVideo = 0;
+    _picker.maximumNumberOfSelectionPhoto = 4;
+    _picker.delegate = self;
+    if (_publishAlbumTopView.dataList.count > 0) {
+        if (![[_publishAlbumTopView.dataList objectAtIndex:0] isKindOfClass:[UIImage class]]) {
+            _picker.selectedAssetArray = _publishAlbumTopView.dataList;
+        }
+    }
+    
+    [self presentViewController:_picker
+                       animated:YES
+                     completion:^{
+                         
+                     }];
 }
 
 #pragma mark -- UIBarButtonItem
@@ -54,27 +91,7 @@
 - (void)showPickImgs:(NSMutableArray*)dataList
 {
     
-#if 0
-    UzysAppearanceConfig *appearanceConfig = [[UzysAppearanceConfig alloc] init];
-    appearanceConfig.finishSelectionButtonColor = BGViewGreen;
-    appearanceConfig.assetsGroupSelectedImageName = @"checker.png";
-    appearanceConfig.cellSpacing = 1.0f;
-    appearanceConfig.assetsCountInALine = 4;
-    [UzysAssetsPickerController defaultAssetsLibrary];
-    [UzysAssetsPickerController setUpAppearanceConfig:appearanceConfig];
-#endif
-
-    _picker = [[UzysAssetsPickerController alloc] init];
-    _picker.maximumNumberOfSelectionVideo = 0;
-    _picker.maximumNumberOfSelectionPhoto = 4;
-    _picker.delegate = self;
-    _picker.selectedAssetArray = _publishAlbumTopView.dataList;
-    
-    [self presentViewController:_picker
-                       animated:YES
-                     completion:^{
-                         
-                     }];
+    [self showUzyPickerVc];
 }
 
 #pragma mark - UzysAssetsPickerControllerDelegate methods
@@ -84,8 +101,6 @@
     if ([[assets[0] valueForProperty:@"ALAssetPropertyType"] isEqualToString:@"ALAssetTypePhoto"]) //Photo
     {
         [_publishAlbumTopView addImgUrls:assets];
-        
-        
     }
 }
 
@@ -98,6 +113,18 @@
     }]];
     [self presentViewController:alertVc animated:YES completion:nil];
  
+}
+
+- (void)camera:(id)cameraViewController didFinishWithImage:(UIImage *)image withMetadata:(NSDictionary *)metadata{
+    NSData * data = UIImageJPEGRepresentation(image, 0.08f);
+    UIImage * temp = [[UIImage alloc] initWithData:data];
+     [_publishAlbumTopView addImgUrls:@[temp]];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)dismissCamera:(id)cameraViewController{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [cameraViewController restoreFullScreenMode];
 }
 
 #pragma mark-- UITextFieldDelegate
@@ -133,8 +160,9 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:nil];
     [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
+    [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:nil];
     UIView *superView = self.view;
     
     [_contentText mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -251,6 +279,7 @@
     }
     return _tapImg;
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

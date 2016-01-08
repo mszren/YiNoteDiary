@@ -98,8 +98,12 @@
             
             AlbumImageTileView* tile = [[AlbumImageTileView alloc] initWithFrame:CGRectMake(width, 20, PublishImageTileWidth, PublishImageTileHeight)];
             tile.delegate = self;
-            ALAsset* asset = (ALAsset*)[_dataList objectAtIndex:i];
-            [tile setViewData:asset];
+           if ([[_dataList objectAtIndex:0] isKindOfClass:[UIImage class]]) {
+               [tile setViewImage:[_dataList objectAtIndex:0]];
+           }else{
+               ALAsset* asset = (ALAsset*)[_dataList objectAtIndex:i];
+               [tile setViewData:asset];
+           }
             [_scrollView addSubview:tile];
        }else if( i == num -1 && (_dataList.count < _imageMaxCount)){
            

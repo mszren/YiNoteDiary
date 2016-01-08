@@ -145,6 +145,9 @@
         picker.mediaTypes = mediaTypes;
     }
     self.picker = picker;
+    if (_openCamer) {
+
+    }
 }
 - (void)setupLayout
 {

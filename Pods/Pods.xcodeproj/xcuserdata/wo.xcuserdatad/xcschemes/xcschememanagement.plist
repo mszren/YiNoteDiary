@@ -49,16 +49,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>MWPhotoBrowser-MWPhotoBrowser.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>MWPhotoBrowser.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Masonry.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -92,6 +82,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0459E02558EDC32D279191A2C93AD449</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>09FA060F1A0492FB25232F489AC4E573</key>
 		<dict>
 			<key>primary</key>
@@ -102,7 +97,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3416F4505213B218ADF040A8CD3F6733</key>
+		<key>209B95F17701C87ED409DD520FE9447E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -117,22 +112,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5813251FEA21E4AEE97385709F1912DE</key>
+		<key>6D7035E9D7E715296A280695E65FA4BC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>736E57AD5AEFAAF68D47AE4E8FCB8F68</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>743390E67F5DE69544591B1AEE8160DF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>889EF506D183B057DF53AC6B7DE24ACB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -157,17 +142,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DE3B07ED7FF04F506B0C5E00F4973589</key>
+		<key>F393BABB7E6F2B2E9C9AD7C6E11D021D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E2FE87384A67337831E53490EEA8BF11</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E5A740C00BCBD81DA1E534CFEB800F21</key>
+		<key>F441E88D369B63C9B8FD7CE3D964898C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
