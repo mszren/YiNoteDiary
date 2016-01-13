@@ -51,6 +51,7 @@ DEPENDENCIES:
   - DBCamera
   - DZNEmptyDataSet
   - EaseMobSDK
+  - GPUImage
   - JSONModel
   - Masonry
   - MBProgressHUD (~> 0.9.1)

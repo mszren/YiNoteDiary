@@ -38,7 +38,7 @@
 
 @end
 
-@interface MWPhotoBrowser : UIViewController <UIScrollViewDelegate, UIActionSheetDelegate>
+@interface MWPhotoBrowser : UIViewController <UIScrollViewDelegate, UIActionSheetDelegate,MWCaptionViewDelegate>
 
 @property (nonatomic, weak) IBOutlet id<MWPhotoBrowserDelegate> delegate;
 @property (nonatomic) BOOL zoomPhotosToFill;
@@ -57,6 +57,7 @@
 // Icon should be located in the app's main bundle
 @property (nonatomic, strong) NSString *customImageSelectedIconName;
 @property (nonatomic, strong) NSString *customImageSelectedSmallIconName;
+@property (nonatomic, assign)int height;
 
 // Init
 - (id)initWithPhotos:(NSArray *)photosArray;

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface IdentifyDetailController : UIViewController
+@property (nonatomic, strong)UIImage *featureImg;
 
 @end

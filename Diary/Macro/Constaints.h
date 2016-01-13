@@ -21,6 +21,8 @@ alpha:(a)]
 
 #define Toast_Hide_TIME 1
 
+#define IOS7 (［[UIDevice currentDevice].systemVersion doubleValue] >= 7.0]
+
 //高德开发Key
 #define ApiKey @"2faa79d859dfef7fb1f8f754679077c9"
 

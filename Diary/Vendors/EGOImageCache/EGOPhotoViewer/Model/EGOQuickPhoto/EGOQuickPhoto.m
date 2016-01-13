@@ -29,28 +29,29 @@
 @implementation EGOQuickPhoto
 @synthesize URL=_URL, caption=_caption, image=_image, size=_size, failed=_failed;
 
-- (id)initWithImageURL:(NSURL*)aURL name:(NSString*)aName time:(NSString *)aTime adress:(NSString *)aAdress image:(UIImage*)aImage {
+- (id)initWithImageURL:(NSURL*)aURL name:(NSString*)aName time:(NSString *)aTime adress:(NSString *)aAdress  action:(BOOL)aAction image:(UIImage*)aImage {
 	if (self = [super init]) {
 		_URL = [aURL retain];
 		_caption = [aName retain];
 		_image = [aImage retain];
         _captionTime = [aTime retain];
         _captionAdress = [aAdress retain];
+        _isUserInterAction = aAction;
 	}
 	
 	return self;
 }
 
-- (id)initWithImageURL:(NSURL*)aURL name:(NSString*)aName time:(NSString *)aTime adress:(NSString *)aAdress{
-	return [self initWithImageURL:aURL name:aName time:aTime adress:aAdress image:nil];
+- (id)initWithImageURL:(NSURL*)aURL name:(NSString*)aName time:(NSString *)aTime adress:(NSString *)aAdress action:(BOOL)aAction{
+	return [self initWithImageURL:aURL name:aName time:aTime adress:aAdress action:aAction image:nil];
 }
 
 - (id)initWithImageURL:(NSURL*)aURL {
-	return [self initWithImageURL:aURL name:nil time:nil adress:nil image:nil];
+	return [self initWithImageURL:aURL name:nil time:nil adress:nil action:nil image:nil];
 }
 
 - (id)initWithImage:(UIImage*)aImage {
-	return [self initWithImageURL:nil name:nil time:nil adress:nil image:aImage];
+	return [self initWithImageURL:nil name:nil time:nil adress:nil action:nil image:aImage];
 }
 
 - (void)dealloc {

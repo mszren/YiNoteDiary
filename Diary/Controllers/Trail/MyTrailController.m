@@ -278,9 +278,10 @@
     
     [_imgArry enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         MWPhoto *photo = [MWPhoto photoWithImage:obj];
-        photo.caption = @"行走在美丽的江南水乡行走在美丽的江南水乡行走在美丽的江南水乡";
+        photo.caption = @"把你想说的话写下来吧...";
         photo.captionAdress = @"上海东方明珠";
         photo.captionTime = @"2015-06-08 09:30";
+        photo.isUserInterAction = YES;
         [_photos addObject:photo];
     }];
     
@@ -288,13 +289,12 @@
     _browser.displayActionButton = YES;
     _browser.displayNavArrows = YES;
     _browser.displaySelectionButtons = NO;
-    _browser.alwaysShowControls = NO;
     _browser.zoomPhotosToFill = YES;
     _browser.enableGrid = YES;
     _browser.startOnGrid = YES;
-    
     _browser.enableSwipeToDismiss = NO;
     _browser.autoPlayOnAppear = YES;
+    _browser.alwaysShowControls = YES;
     [_browser setCurrentPhotoIndex:selectRow];
     [self.navigationController pushViewController:_browser animated:YES];
 }

@@ -14,11 +14,15 @@
 #import "SegmentView.h"
 #import "ContentView.h"
 #import "BaseNavigation.h"
+#import "DBCameraViewController.h"
+#import "DBCameraContainerViewController.h"
+#import "UzysAssetsPickerController.h"
 
-@interface IndexController() <SegmentDelegate>
+@interface IndexController() <SegmentDelegate,DBCameraViewControllerDelegate,UzysAssetsPickerControllerDelegate>
 @property (nonatomic, assign) int currentIndex;
 @property (nonatomic, strong) SegmentView *barView;
 @property (nonatomic, strong) ContentView *contentView;
+@property (nonatomic,strong)UzysAssetsPickerController* picker;
 
 @end
 
@@ -27,6 +31,7 @@
     UITableView* _tableView;
     UIBarButtonItem* _rightButton;
     PublishController *_publishVc;
+    DBCameraViewController *_cameraController;
     
 }
 
@@ -86,23 +91,78 @@
     [self changeRightItem:_currentIndex];
 }
 
+#pragma mark - DBCameraViewControllerDelegate
+
+- (void)camera:(id)cameraViewController didFinishWithImage:(UIImage *)image withMetadata:(NSDictionary *)metadata{
+    NSData * data = UIImageJPEGRepresentation(image, 0.08f);
+    UIImage * temp = [[UIImage alloc] initWithData:data];
+    PublishController *publishVc = [PublishController new];
+    publishVc.hidesBottomBarWhenPushed = YES;
+    publishVc.assets = [[NSMutableArray alloc]initWithCapacity:0];
+    [publishVc.assets addObject:temp];
+    [self.navigationController pushViewController:publishVc animated:YES];
+    [self.presentedViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)dismissCamera:(id)cameraViewController{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [cameraViewController restoreFullScreenMode];
+}
+
+#pragma mark - UzysAssetsPickerControllerDelegate methods
+- (void)uzysAssetsPickerController:(UzysAssetsPickerController*)picker didFinishPickingAssets:(NSArray*)assets
+{
+    
+    if ([[assets[0] valueForProperty:@"ALAssetPropertyType"] isEqualToString:@"ALAssetTypePhoto"]) //Photo
+    {
+        
+        PublishController *publishVc = [PublishController new];
+        publishVc.hidesBottomBarWhenPushed = YES;
+        publishVc.assets = [[NSMutableArray alloc]initWithArray:assets];
+        [self.navigationController pushViewController:publishVc animated:YES];
+    }
+    [self.presentedViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)uzysAssetsPickerControllerDidExceedMaximumNumberOfSelection:(UzysAssetsPickerController*)picker
+{
+    
+    UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:nil message:NSLocalizedStringFromTable(@"已经超出上传图片数量！", @"UzysAssetsPickerController", nil) preferredStyle:UIAlertControllerStyleAlert];
+    [alertVc addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }]];
+    [self presentViewController:alertVc animated:YES completion:nil];
+    
+}
+
 
 #pragma mark -- UIBarButtonItem Action
 - (void)onRightItem:(UIBarButtonItem *)sender{
     UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     [alertVc addAction:[UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
-        _publishVc = [PublishController new];
-        _publishVc.hidesBottomBarWhenPushed = YES;
-        _publishVc.selectType = 0;
-        [self.navigationController pushViewController:_publishVc animated:YES];
+        _cameraController = [DBCameraViewController initWithDelegate:self];
+        [_cameraController setForceQuadCrop:YES];
+        
+        DBCameraContainerViewController *container = [[DBCameraContainerViewController alloc] initWithDelegate:self];
+        [container setCameraViewController:_cameraController];
+        [container setFullScreenMode];
+        
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:container];
+        [nav setNavigationBarHidden:YES];
+        [self presentViewController:nav animated:YES completion:nil];
     }]];
     [alertVc addAction:[UIAlertAction actionWithTitle:@"从手机相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
-        _publishVc = [PublishController new];
-        _publishVc.hidesBottomBarWhenPushed = YES;
-        _publishVc.selectType = 1;
-        [self.navigationController pushViewController:_publishVc animated:YES];
+        _picker = [[UzysAssetsPickerController alloc] init];
+        _picker.maximumNumberOfSelectionVideo = 0;
+        _picker.maximumNumberOfSelectionPhoto = 4;
+        _picker.delegate = self;
+        [self presentViewController:_picker
+                           animated:YES
+                         completion:^{
+                             
+                         }];
     }]];
     [alertVc addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         

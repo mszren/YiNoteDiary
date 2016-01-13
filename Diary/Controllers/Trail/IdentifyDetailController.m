@@ -21,7 +21,7 @@
 
 @interface IdentifyDetailController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,IdentifyEditViewDelegate,BaseNavigationDelegate>
 @property (strong, nonatomic) NSLayoutConstraint *headHCons;
-@property (nonatomic,strong) EGOImageView *featureImg;
+@property (nonatomic,strong) EGOImageView *featureImgView;
 
 @end
 
@@ -52,9 +52,9 @@
     _tableView.emptyDataSetDelegate = self;
     _tableView.showsVerticalScrollIndicator = NO;
     
-    _featureImg = [[EGOImageView alloc]initWithPlaceholderImage:[UIImage imageNamed: @"pic_bg"]];
-    _featureImg.frame = CGRectMake(0, 0, Screen_Width, CoolNavHeight);
-    _tableView.tableHeaderView = _featureImg;
+    _featureImgView = [[EGOImageView alloc]initWithPlaceholderImage:_featureImg];
+    _featureImgView.frame = CGRectMake(0, 0, Screen_Width, CoolNavHeight);
+    _tableView.tableHeaderView = _featureImgView;
     [self.view addSubview:_tableView];
 
 }

@@ -511,6 +511,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
         NSUInteger index = page.index;
 		page.frame = [self frameForPageAtIndex:index];
         if (page.captionView) {
+            page.captionView.delegate = self;
             page.captionView.frame = [self frameForCaptionView:page.captionView atIndex:index];
         }
         if (page.selectedButton) {
@@ -813,6 +814,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
             MWCaptionView *captionView = [self captionViewForPhotoAtIndex:index];
             if (captionView) {
                 captionView.frame = [self frameForCaptionView:captionView atIndex:index];
+                captionView.delegate = self;
                 [_pagingScrollView addSubview:captionView];
                 page.captionView = captionView;
             }
@@ -969,6 +971,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 - (CGRect)frameForPagingScrollView {
     CGRect frame = self.view.bounds;// [[UIScreen mainScreen] bounds];
     frame.origin.x -= PADDING;
+    frame.origin.y += -_height;
     frame.size.width += (2 * PADDING);
     return CGRectIntegral(frame);
 }
@@ -1001,14 +1004,14 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     CGFloat height = 44;
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone &&
         UIInterfaceOrientationIsLandscape(orientation)) height = 32;
-	return CGRectIntegral(CGRectMake(0, self.view.bounds.size.height - height, self.view.bounds.size.width, height));
+	return CGRectIntegral(CGRectMake(0, self.view.bounds.size.height - height + _height, self.view.bounds.size.width, height));
 }
 
 - (CGRect)frameForCaptionView:(MWCaptionView *)captionView atIndex:(NSUInteger)index {
     CGRect pageFrame = [self frameForPageAtIndex:index];
     CGSize captionSize = [captionView sizeThatFits:CGSizeMake(pageFrame.size.width, 0)];
     CGRect captionFrame = CGRectMake(pageFrame.origin.x,
-                                     pageFrame.size.height - captionSize.height - (_toolbar.superview?_toolbar.frame.size.height:0),
+                                     pageFrame.size.height - captionSize.height - (_toolbar.superview?_toolbar.frame.size.height:0) + _height,
                                      pageFrame.size.width,
                                      captionSize.height);
     return CGRectIntegral(captionFrame);
@@ -1023,7 +1026,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
         yOffset = navBar.frame.origin.y + navBar.frame.size.height;
     }
     CGRect selectedButtonFrame = CGRectMake(pageFrame.origin.x + pageFrame.size.width - selectedButton.frame.size.width - padding,
-                                            padding + yOffset,
+                                            padding + yOffset + _height,
                                             selectedButton.frame.size.width,
                                             selectedButton.frame.size.height);
     return CGRectIntegral(selectedButtonFrame);
@@ -1032,9 +1035,25 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 - (CGRect)frameForPlayButton:(UIButton *)playButton atIndex:(NSUInteger)index {
     CGRect pageFrame = [self frameForPageAtIndex:index];
     return CGRectMake(floorf(CGRectGetMidX(pageFrame) - playButton.frame.size.width / 2),
-                      floorf(CGRectGetMidY(pageFrame) - playButton.frame.size.height / 2),
+                      floorf(CGRectGetMidY(pageFrame) - playButton.frame.size.height / 2) + _height,
                       playButton.frame.size.width,
                       playButton.frame.size.height);
+}
+
+#pragma mark - MWCaptionViewDelegate
+
+- (void)mwCaptionViewDelegateKeYboardHeight:(int)keyboardHeight andIndex:(NSUInteger)index{
+    self.height = keyboardHeight;
+    if (self.height > 0)
+        _pagingScrollView.scrollEnabled = NO;
+    else
+        _pagingScrollView.scrollEnabled = YES;
+    
+    CGRect pagingScrollViewFrame = [self frameForPagingScrollView];
+    [UIView animateWithDuration:0.3 animations:^{
+        
+        _pagingScrollView.frame = pagingScrollViewFrame;
+    }];
 }
 
 #pragma mark - UIScrollView Delegate
@@ -1057,7 +1076,6 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 	if (_currentPageIndex != previousCurrentPage) {
         [self didStartViewingPageAtIndex:index];
     }
-	
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
@@ -1375,12 +1393,15 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 - (void)setControlsHidden:(BOOL)hidden animated:(BOOL)animated permanent:(BOOL)permanent {
     
     // Force visible
-    if (![self numberOfPhotos] || _gridController || _alwaysShowControls)
+    if (![self numberOfPhotos] || _gridController || _alwaysShowControls){
+        
         hidden = NO;
-    
-    // Cancel any timers
-    [self cancelControlHiding];
-    
+        
+        // Cancel any timers
+        [self cancelControlHiding];
+        return;
+    }
+
     // Animations & positions
     CGFloat animatonOffset = 20;
     CGFloat animationDuration = (animated ? 0.35 : 0);

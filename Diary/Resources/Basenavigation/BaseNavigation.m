@@ -8,6 +8,7 @@
 
 #import "BaseNavigation.h"
 #import "UIImage+Utils.h"
+#import "IdentifyController.h"
 
 @implementation BaseNavigation
 
@@ -71,8 +72,7 @@
         UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithTitle:rightItemTitleStr style:UIBarButtonItemStyleDone target:self action:@selector(rightItemAction:)];
         controller.navigationItem.rightBarButtonItem = rightItem;
     }
-    
-    
+
     UIBarButtonItem* leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic_return"]
                                                                  style:UIBarButtonItemStyleDone
                                                                 target:self

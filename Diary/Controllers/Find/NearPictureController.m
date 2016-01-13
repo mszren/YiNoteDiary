@@ -116,7 +116,8 @@
     }];
     
     _browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
-    _browser.displayActionButton = NO;
+    _browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+    _browser.displayActionButton = YES;
     _browser.displayNavArrows = YES;
     _browser.displaySelectionButtons = NO;
     _browser.alwaysShowControls = NO;

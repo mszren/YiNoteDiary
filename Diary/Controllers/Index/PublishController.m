@@ -14,9 +14,8 @@
 #import "BaseNavigation.h"
 #import "BaseNavigation.h"
 #import "SelectAdressController.h"
-#import "DBCameraViewController.h"
 
-@interface PublishController () <PublishAlbumTopViewDelegate,UITextViewDelegate,UzysAssetsPickerControllerDelegate,DBCameraViewControllerDelegate>
+@interface PublishController () <PublishAlbumTopViewDelegate,UITextViewDelegate,UzysAssetsPickerControllerDelegate>
 @property (nonatomic,strong)UITextView *contentText;
 @property (nonatomic,strong)UILabel *coverLabel;
 @property (nonatomic,strong)PublishAlbumTopView *publishAlbumTopView;
@@ -26,13 +25,9 @@
 @property (nonatomic,strong) EGOImageView *tapImg;
 @property (nonatomic,strong)UzysAssetsPickerController* picker;
 
-
 @end
 
-@implementation PublishController{
-    
-      DBCameraViewController *_cameraController;
-}
+@implementation PublishController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -47,32 +42,25 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     UIBarButtonItem * rightButton = [[UIBarButtonItem alloc]initWithTitle:@"发布" style:UIBarButtonItemStylePlain target:self action:@selector(onPublishBtn:)];
     self.navigationItem.rightBarButtonItem = rightButton;
-    
-    if (_selectType == 0) {
-        _cameraController =
-        [DBCameraViewController initWithDelegate:self];
-        [_cameraController setUseCameraSegue:NO];
-        UINavigationController *nav = [[UINavigationController alloc]
-                                       initWithRootViewController:_cameraController];
-        [nav setNavigationBarHidden:YES];
-        [self presentViewController:nav animated:YES completion:nil];
-    }else{
-        
-        [self showUzyPickerVc];
-    }
 
 }
 
-- (void)showUzyPickerVc{
+#pragma mark -- UIBarButtonItem
+- (void)onPublishBtn:(UIBarButtonItem *)sender{
+    
+
+}
+
+#pragma mark PublishAlbumTopViewDelegate
+- (void)showPickImgs:(NSMutableArray*)dataList
+{
     
     _picker = [[UzysAssetsPickerController alloc] init];
     _picker.maximumNumberOfSelectionVideo = 0;
     _picker.maximumNumberOfSelectionPhoto = 4;
     _picker.delegate = self;
-    if (_publishAlbumTopView.dataList.count > 0) {
-        if (![[_publishAlbumTopView.dataList objectAtIndex:0] isKindOfClass:[UIImage class]]) {
-            _picker.selectedAssetArray = _publishAlbumTopView.dataList;
-        }
+    if (![_publishAlbumTopView.dataList[0] isKindOfClass:[UIImage class]]) {
+        _picker.selectedAssetArray = _publishAlbumTopView.dataList;
     }
     
     [self presentViewController:_picker
@@ -80,18 +68,6 @@
                      completion:^{
                          
                      }];
-}
-
-#pragma mark -- UIBarButtonItem
-- (void)onPublishBtn:(UIBarButtonItem *)sender{
-    
-}
-
-#pragma mark PublishAlbumTopViewDelegate
-- (void)showPickImgs:(NSMutableArray*)dataList
-{
-    
-    [self showUzyPickerVc];
 }
 
 #pragma mark - UzysAssetsPickerControllerDelegate methods
@@ -113,18 +89,6 @@
     }]];
     [self presentViewController:alertVc animated:YES completion:nil];
  
-}
-
-- (void)camera:(id)cameraViewController didFinishWithImage:(UIImage *)image withMetadata:(NSDictionary *)metadata{
-    NSData * data = UIImageJPEGRepresentation(image, 0.08f);
-    UIImage * temp = [[UIImage alloc] initWithData:data];
-     [_publishAlbumTopView addImgUrls:@[temp]];
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)dismissCamera:(id)cameraViewController{
-    [self dismissViewControllerAnimated:YES completion:nil];
-    [cameraViewController restoreFullScreenMode];
 }
 
 #pragma mark-- UITextFieldDelegate
@@ -238,6 +202,7 @@
         [_publishAlbumTopView setViewDefault];
         _publishAlbumTopView.delegate = self;
         _publishAlbumTopView.imageMaxCount = 4;
+        [_publishAlbumTopView addImgUrls:_assets];
     }
     return _publishAlbumTopView;
 }

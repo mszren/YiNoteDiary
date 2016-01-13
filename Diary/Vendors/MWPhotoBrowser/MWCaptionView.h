@@ -9,8 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "MWPhotoProtocol.h"
 
-@interface MWCaptionView : UIToolbar
+@protocol MWCaptionViewDelegate <NSObject>
 
+- (void)mwCaptionViewDelegateKeYboardHeight:(int)keyboardHeight andIndex:(NSUInteger)index;;
+
+@end
+
+@interface MWCaptionView : UIToolbar
+@property (nonatomic,weak)id<MWCaptionViewDelegate>delegate;
+@property (nonatomic,assign)NSUInteger index;
 // Init
 - (id)initWithPhoto:(id<MWPhoto>)photo;
 

@@ -36,12 +36,12 @@
     NSString *_captionAdress;
 	CGSize _size;
 	UIImage *_image;
-	
+    BOOL _isUserInterAction;
 	BOOL _failed;
 }
 
-- (id)initWithImageURL:(NSURL*)aURL name:(NSString*)aName time:(NSString *)aTime adress:(NSString *)aAdress image:(UIImage*)aImage;
-- (id)initWithImageURL:(NSURL*)aURL name:(NSString*)aName time:(NSString *)aTime adress:(NSString *)aAdress;
+- (id)initWithImageURL:(NSURL*)aURL name:(NSString*)aName time:(NSString *)aTime adress:(NSString *)aAdress action:(BOOL)aAction image:(UIImage*)aImage;
+- (id)initWithImageURL:(NSURL*)aURL name:(NSString*)aName time:(NSString *)aTime adress:(NSString *)aAdress action:(BOOL)aAction;
 - (id)initWithImageURL:(NSURL*)aURL;
 - (id)initWithImage:(UIImage*)aImage;
 

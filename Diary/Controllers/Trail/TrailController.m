@@ -13,13 +13,13 @@
 #import "EGOImageView.h"
 #import "Masonry.h"
 #import "QueueView.h"
-#import "IdentifyController.h"
 #import "UIImage+ImageEffects.h"
 #import "BaseNavigation.h"
 #import "CusAnnotationView.h"
 #import "MyTrailController.h"
 #import "DBCameraViewController.h"
 #import "DBCameraContainerViewController.h"
+#import "IdentifyController.h"
 
 #define kCalloutViewMargin          -8
 
@@ -35,6 +35,7 @@
     MAMapView *_mapView;
     MACoordinateRegion _region;//中心点坐标
     DBCameraViewController *_cameraController;
+    UIImage *_cameraImg;
 }
 
 - (void)viewDidLoad{
@@ -184,10 +185,17 @@
     [_mapView addOverlays:self.overlaysAboveRoads level:MAOverlayLevelAboveRoads];
 }
 
+#pragma mark - DBCameraViewControllerDelegate
+
 - (void)camera:(id)cameraViewController didFinishWithImage:(UIImage *)image withMetadata:(NSDictionary *)metadata{
     NSData * data = UIImageJPEGRepresentation(image, 0.08f);
     UIImage * temp = [[UIImage alloc] initWithData:data];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    _cameraImg = temp;
+    IdentifyController *identifyVc = [IdentifyController new];
+    identifyVc.hidesBottomBarWhenPushed = YES;
+    identifyVc.cameraImg = _cameraImg;
+    [self.navigationController pushViewController:identifyVc animated:YES];
+    [self.presentedViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)dismissCamera:(id)cameraViewController{
@@ -327,9 +335,18 @@
             break;
             
         default:{
-            IdentifyController *identifyVc = [IdentifyController new];
-            identifyVc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:identifyVc animated:YES];
+
+            
+            _cameraController = [DBCameraViewController initWithDelegate:self];
+            [_cameraController setForceQuadCrop:YES];
+            
+            DBCameraContainerViewController *container = [[DBCameraContainerViewController alloc] initWithDelegate:self];
+            [container setCameraViewController:_cameraController];
+            [container setFullScreenMode];
+            
+            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:container];
+            [nav setNavigationBarHidden:YES];
+            [self presentViewController:nav animated:YES completion:nil];
         }
             break;
     }

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface IdentifyController : UIViewController
+@property (nonatomic,strong) UIImage *cameraImg;
 
 @end

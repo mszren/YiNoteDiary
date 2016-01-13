@@ -15,11 +15,10 @@
 #import "UIImage+Utils.h"
 #import "category.h"
 #import "EGOImageView.h"
-#import "DBCameraViewController.h"
-#import "DBCameraContainerViewController.h"
+#import "TrailController.h"
 
-@interface IdentifyController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,BaseNavigationDelegate,DBCameraViewControllerDelegate>
-@property (nonatomic,strong) EGOImageView *featureImg;
+@interface IdentifyController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,BaseNavigationDelegate>
+@property (nonatomic,strong) EGOImageView *featureImgView;
 @property (nonatomic, assign) CGFloat lastOffsetY;
 @property (strong, nonatomic) NSLayoutConstraint *headHCons;
 
@@ -29,8 +28,7 @@
     
     UITableView* _tableView;
     CGFloat _navalpha;
-    UIBarButtonItem *_nextBtn;
-     DBCameraViewController *_cameraController;
+    UIBarButtonItem *_leftItem;
 }
 
 
@@ -41,6 +39,12 @@
 
 - (void)initView{
 
+    _leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic_return"]
+                                                                 style:UIBarButtonItemStyleDone
+                                                                target:self
+                                                                action:@selector(leftItemAction:)];
+    self.navigationItem.leftBarButtonItem = _leftItem;
+    
     _tableView = [[UITableView alloc]
                   initWithFrame:CGRectMake(0, -NavigationBarHeight, Screen_Width,
                                            Screen_height )
@@ -52,27 +56,16 @@
     _tableView.emptyDataSetDelegate = self;
     _tableView.showsVerticalScrollIndicator = NO;
 
-    _featureImg = [[EGOImageView alloc]initWithPlaceholderImage:[UIImage imageNamed: @"pic_bg"]];
-    _featureImg.frame = CGRectMake(0, 0, Screen_Width, CoolNavHeight);
-    _tableView.tableHeaderView = _featureImg;
+    _featureImgView = [[EGOImageView alloc]initWithPlaceholderImage:_cameraImg];
+    _featureImgView.frame = CGRectMake(0, 0, Screen_Width, CoolNavHeight);
+    _tableView.tableHeaderView = _featureImgView;
     
     [self.view addSubview:_tableView];
-    
-    _cameraController = [DBCameraViewController initWithDelegate:self];
-    [_cameraController setForceQuadCrop:YES];
-    
-    DBCameraContainerViewController *container = [[DBCameraContainerViewController alloc] initWithDelegate:self];
-    [container setCameraViewController:_cameraController];
-    [container setFullScreenMode];
-    
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:container];
-    [nav setNavigationBarHidden:YES];
-    [self presentViewController:nav animated:YES completion:nil];
     
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
+    return 1; 
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -134,6 +127,7 @@
     if (indexPath.row != 0) {
         IdentifyDetailController *detailVc = [IdentifyDetailController new];
         detailVc.hidesBottomBarWhenPushed = YES;
+        detailVc.featureImg = _cameraImg;
         [self.navigationController pushViewController:detailVc animated:YES];
     }
 }
@@ -161,32 +155,31 @@
     return [UIImage imageNamed:@"ic_tywnr"];
 }
 
-#pragma mark -- BaseNavigationDelegate
+#pragma mark - BaseNavigationDelegate
 - (void)baseNavigationDelegateOnRightItemAction{
     IdentifyDetailController *detailVc = [IdentifyDetailController new];
     detailVc.hidesBottomBarWhenPushed = YES;
+    detailVc.featureImg = _cameraImg;
     [self.navigationController pushViewController:detailVc animated:YES];
 }
 
-- (void)camera:(id)cameraViewController didFinishWithImage:(UIImage *)image withMetadata:(NSDictionary *)metadata{
-    NSData * data = UIImageJPEGRepresentation(image, 0.08f);
-    UIImage * temp = [[UIImage alloc] initWithData:data];
-    [_featureImg setImage:temp];
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)dismissCamera:(id)cameraViewController{
-    [self dismissViewControllerAnimated:YES completion:nil];
-    [cameraViewController restoreFullScreenMode];
+#pragma mark - UIBarButtonItem Action
+- (void)leftItemAction:(UIBarButtonItem *)sender{
+//    TrailController *trailVc = [TrailController new];
+//    trailVc.hidesBottomBarWhenPushed = NO;
+//    [self.navigationController popToViewController:trailVc animated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
     [[BaseNavigation sharedInstance] setCleanNavigationBar:self andRightItemTitle:@"下一步" withDelegate:self];
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 @end

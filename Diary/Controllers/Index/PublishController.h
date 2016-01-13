@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface PublishController : UIViewController
-@property (nonatomic, assign)NSInteger selectType;
-
+@property (nonatomic, strong)NSMutableArray *assets;
 @end
