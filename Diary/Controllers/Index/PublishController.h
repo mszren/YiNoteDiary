@@ -10,4 +10,6 @@
 
 @interface PublishController : UIViewController
 @property (nonatomic, strong)NSMutableArray *assets;
+@property (nonatomic, strong)NSString *assetName;
+
 @end

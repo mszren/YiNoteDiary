@@ -69,6 +69,7 @@
         case 100:{
             
             FriendMaterialController *friendVc = [FriendMaterialController new];
+            friendVc.navigationController.navigationBarHidden = NO;
             friendVc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:friendVc animated:YES];
         }
@@ -78,6 +79,7 @@
         default:{
             
             PersonCenterController *personVc = [PersonCenterController new];
+            personVc.navigationController.navigationBarHidden = NO;
             personVc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:personVc animated:YES];
         }

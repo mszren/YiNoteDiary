@@ -176,8 +176,6 @@
         make.left.mas_equalTo(superView.mas_left).offset(Kmargin);
     }];
     
-
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated{

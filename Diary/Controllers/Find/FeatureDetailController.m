@@ -15,7 +15,7 @@
 #import "FeatureCommentCell.h"
 #import "BaseNavigation.h"
 #import "UIImage+Utils.h"
-#import "category.h"
+#import "UIColor+NavigationBar.h"
 #import "EGOImageView.h"
 
 @interface FeatureDetailController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,BaseNavigationDelegate>
@@ -105,7 +105,7 @@
 {
     CGFloat offsetY = scrollView.contentOffset.y;
     
-    [category changeNacigationBarStatus:offsetY andController:self];
+    [UIColor changeNacigationBarStatus:offsetY andController:self];
 }
 
 #pragma mark DZNEmptyDataSetDelegate,DZNEmptyDataSetSource

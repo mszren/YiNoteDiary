@@ -21,5 +21,4 @@
 @property(nonatomic, assign) id<AlbumImageTileViewDelegate> delegate;
 - (void) setViewData:(ALAsset *) asset;
 
-- (void)setViewImage:(UIImage *)image;
 @end

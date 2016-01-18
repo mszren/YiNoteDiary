@@ -17,6 +17,7 @@
 #import "DBCameraViewController.h"
 #import "DBCameraContainerViewController.h"
 #import "UzysAssetsPickerController.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 
 @interface IndexController() <SegmentDelegate,DBCameraViewControllerDelegate,UzysAssetsPickerControllerDelegate>
 @property (nonatomic, assign) int currentIndex;
@@ -94,12 +95,10 @@
 #pragma mark - DBCameraViewControllerDelegate
 
 - (void)camera:(id)cameraViewController didFinishWithImage:(UIImage *)image withMetadata:(NSDictionary *)metadata{
-    NSData * data = UIImageJPEGRepresentation(image, 0.08f);
-    UIImage * temp = [[UIImage alloc] initWithData:data];
+    
     PublishController *publishVc = [PublishController new];
     publishVc.hidesBottomBarWhenPushed = YES;
-    publishVc.assets = [[NSMutableArray alloc]initWithCapacity:0];
-    [publishVc.assets addObject:temp];
+    publishVc.assetName = metadata[@"DBCameraAssetURL"];
     [self.navigationController pushViewController:publishVc animated:YES];
     [self.presentedViewController dismissViewControllerAnimated:YES completion:nil];
 }
@@ -115,7 +114,7 @@
     
     if ([[assets[0] valueForProperty:@"ALAssetPropertyType"] isEqualToString:@"ALAssetTypePhoto"]) //Photo
     {
-        
+
         PublishController *publishVc = [PublishController new];
         publishVc.hidesBottomBarWhenPushed = YES;
         publishVc.assets = [[NSMutableArray alloc]initWithArray:assets];
@@ -126,15 +125,8 @@
 
 - (void)uzysAssetsPickerControllerDidExceedMaximumNumberOfSelection:(UzysAssetsPickerController*)picker
 {
-    
-    UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:nil message:NSLocalizedStringFromTable(@"已经超出上传图片数量！", @"UzysAssetsPickerController", nil) preferredStyle:UIAlertControllerStyleAlert];
-    [alertVc addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
-    }]];
-    [self presentViewController:alertVc animated:YES completion:nil];
-    
+    [ToastManager showToast:@"已经超出上传图片数量！" containerView:_picker.view withTime:Toast_Hide_TIME];
 }
-
 
 #pragma mark -- UIBarButtonItem Action
 - (void)onRightItem:(UIBarButtonItem *)sender{
@@ -156,7 +148,7 @@
         
         _picker = [[UzysAssetsPickerController alloc] init];
         _picker.maximumNumberOfSelectionVideo = 0;
-        _picker.maximumNumberOfSelectionPhoto = 4;
+        _picker.maximumNumberOfSelectionPhoto = 8;
         _picker.delegate = self;
         [self presentViewController:_picker
                            animated:YES

@@ -49,8 +49,8 @@
             make.size.mas_equalTo(CGSizeMake(200, 40));
         }];
         _nameLabel.text = @"任晋宇";
-        _nameLabel.textColor = COLOR_GRAY_DEFAULT_133;
-        _nameLabel.font = FONT_SIZE_13;
+        _nameLabel.textColor = COLOR_GRAY_DEFAULT_47;
+        _nameLabel.font = FONT_SIZE_17;
         
         _timeLabel = [UILabel new];
         [self addSubview:_timeLabel];
@@ -61,8 +61,8 @@
             make.height.mas_equalTo(@40);
         }];
         _timeLabel.text = @"15分钟前";
-        _timeLabel.font = FONT_SIZE_11;
-        _timeLabel.textColor = COLOR_GRAY_DEFAULT_153;
+        _timeLabel.font = FONT_SIZE_13;
+        _timeLabel.textColor = COLOR_GRAY_DEFAULT_180;
         _timeLabel.textAlignment = NSTextAlignmentRight;
         
         _grayLabel = [UILabel new];

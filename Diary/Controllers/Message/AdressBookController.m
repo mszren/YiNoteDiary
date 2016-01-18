@@ -12,6 +12,10 @@
 #import "AddFriendController.h"
 #import "BaseNavigation.h"
 #import "ChatToolController.h"
+#import "SPKitExample.h"
+#import "SPUtil.h"
+#import "AppDelegate.h"
+#import "SPContactManager.h"
 
 @interface AdressBookController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,UISearchBarDelegate>
 
@@ -86,15 +90,20 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    ChatToolController *chatVc = [ChatToolController new];
-    chatVc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:chatVc animated:YES];
+//    ChatToolController *chatVc = [ChatToolController new];
+//    chatVc.hidesBottomBarWhenPushed = YES;
+//    [self.navigationController pushViewController:chatVc animated:YES];
+    
+    NSString *personId = @"uid1";
+    YWPerson *person = [[YWPerson alloc] initWithPersonId:personId];
+    [[SPKitExample sharedInstance] exampleOpenConversationViewControllerWithPerson:person fromNavigationController:self.navigationController];
+    
 }
 
 #pragma mark DZNEmptyDataSetDelegate,DZNEmptyDataSetSource
 -(NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView{
     
-    NSString *text = @"没有活动哦!";
+    NSString *text = @"没有联系人哦!";
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:15],
                                  NSForegroundColorAttributeName: [UIColor greenColor]};
     return [[NSAttributedString alloc] initWithString:text attributes:attributes];

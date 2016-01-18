@@ -14,7 +14,7 @@
 #import "IdentifyEditView.h"
 #import "BaseNavigation.h"
 #import "UIImage+Utils.h"
-#import "category.h"
+#import "UIColor+NavigationBar.h"
 #import "EGOImageView.h"
 #import "PictureSaveController.h"
 #import "MyTrailController.h"
@@ -114,7 +114,7 @@
 {
     CGFloat offsetY = scrollView.contentOffset.y;
     
-    [category changeNacigationBarStatus:offsetY andController:self];
+    [UIColor changeNacigationBarStatus:offsetY andController:self];
 }
 
 #pragma mark DZNEmptyDataSetDelegate,DZNEmptyDataSetSource

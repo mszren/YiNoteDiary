@@ -130,7 +130,7 @@
         NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
         [paragraphStyle setLineSpacing:5];
         [attriButedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, length)];
-        [attriButedString  addAttribute:NSFontAttributeName value:FONT_SIZE_13 range:NSMakeRange(0, length)];
+        [attriButedString  addAttribute:NSFontAttributeName value:FONT_SIZE_17 range:NSMakeRange(0, length)];
         [attriButedString addAttribute:NSForegroundColorAttributeName value:COLOR_GRAY_DEFAULT_47 range:NSMakeRange(0, length)];
         [attriButedString addAttribute:NSForegroundColorAttributeName value:[UIColor greenColor] range:[commentString rangeOfString:@"327_破钟"]];
         _commentLabel.attributedText = attriButedString;
@@ -143,8 +143,8 @@
         
         _timeLabel = [UILabel new];
         _timeLabel.text = @"15分钟前";
-        _timeLabel.font = FONT_SIZE_11;
-        _timeLabel.textColor = COLOR_GRAY_DEFAULT_153;
+        _timeLabel.font = FONT_SIZE_13;
+        _timeLabel.textColor = COLOR_GRAY_DEFAULT_180;
         _timeLabel.textAlignment = NSTextAlignmentRight;
     }
     return _timeLabel;

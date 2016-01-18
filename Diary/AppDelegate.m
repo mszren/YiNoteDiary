@@ -10,12 +10,12 @@
 #import "LoginController.h"
 #import "LocationManager.h"
 #import "LoginBusinessManager.h"
-
 #import "UMSocial.h"
 #import "UMSocialSinaHandler.h"
 #import "UMSocialWechatHandler.h"
 #import "UMSocialQQHandler.h"
 #import "UMSocialConfig.h"
+#import "SPKitExample.h"
 
 @interface AppDelegate ()
 
@@ -30,6 +30,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     
+    // YWSDK快速接入接口，程序启动后调用这个接口
+    [[SPKitExample sharedInstance] callThisInDidFinishLaunching];
 
     [UMSocialData setAppKey:@"558b6e7b67e58e833c006f6d"];
     

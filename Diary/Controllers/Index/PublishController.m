@@ -16,6 +16,7 @@
 #import "SelectAdressController.h"
 
 @interface PublishController () <PublishAlbumTopViewDelegate,UITextViewDelegate,UzysAssetsPickerControllerDelegate>
+@property (nonatomic,strong)UIScrollView *scrollView;
 @property (nonatomic,strong)UITextView *contentText;
 @property (nonatomic,strong)UILabel *coverLabel;
 @property (nonatomic,strong)PublishAlbumTopView *publishAlbumTopView;
@@ -31,43 +32,42 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view addSubview:self.contentText];
-    [self.view addSubview:self.publishAlbumTopView];
-    [self.view addSubview:self.addressView];
     [self initView];
 }
 
 - (void)initView{
-    self.view.backgroundColor = BGViewGray;
+   
+    [self.view addSubview:self.scrollView];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     UIBarButtonItem * rightButton = [[UIBarButtonItem alloc]initWithTitle:@"发布" style:UIBarButtonItemStylePlain target:self action:@selector(onPublishBtn:)];
     self.navigationItem.rightBarButtonItem = rightButton;
 
 }
 
-#pragma mark -- UIBarButtonItem
-- (void)onPublishBtn:(UIBarButtonItem *)sender{
-    
-
-}
-
-#pragma mark PublishAlbumTopViewDelegate
+#pragma mark - PublishAlbumTopViewDelegate
 - (void)showPickImgs:(NSMutableArray*)dataList
 {
     
     _picker = [[UzysAssetsPickerController alloc] init];
     _picker.maximumNumberOfSelectionVideo = 0;
-    _picker.maximumNumberOfSelectionPhoto = 4;
+    _picker.maximumNumberOfSelectionPhoto = 8;
     _picker.delegate = self;
-    if (![_publishAlbumTopView.dataList[0] isKindOfClass:[UIImage class]]) {
-        _picker.selectedAssetArray = _publishAlbumTopView.dataList;
-    }
-    
+    NSLog(@"dalist : %@",dataList);
+    _picker.selectedAssetArray = dataList;
     [self presentViewController:_picker
                        animated:YES
                      completion:^{
                          
                      }];
+}
+
+- (void)updateFrame{
+    
+    CGRect frame = _addressView.frame;
+    frame.origin.y = _publishAlbumTopView.frame.origin.y + _publishAlbumTopView.frame.size.height + 10;
+    _addressView.frame = frame;
+    
+    _scrollView.contentSize = CGSizeMake(Screen_Width, _addressView.frame.size.height + _addressView.frame.origin.y);
 }
 
 #pragma mark - UzysAssetsPickerControllerDelegate methods
@@ -83,12 +83,7 @@
 - (void)uzysAssetsPickerControllerDidExceedMaximumNumberOfSelection:(UzysAssetsPickerController*)picker
 {
     
-    UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:nil message:NSLocalizedStringFromTable(@"已经超出上传图片数量！", @"UzysAssetsPickerController", nil) preferredStyle:UIAlertControllerStyleAlert];
-    [alertVc addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
-    }]];
-    [self presentViewController:alertVc animated:YES completion:nil];
- 
+    [ToastManager showToast:@"已经超出上传图片数量！" containerView:_picker.view withTime:Toast_Hide_TIME];
 }
 
 #pragma mark-- UITextFieldDelegate
@@ -115,6 +110,12 @@
     return YES;
 }
 
+#pragma mark - UIBarButtonItem
+- (void)onPublishBtn:(UIBarButtonItem *)sender{
+    
+    
+}
+
 #pragma mark -- UITapGestureRecognizer
 - (void)onTap:(UITapGestureRecognizer *)sender{
     
@@ -129,9 +130,13 @@
     [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:nil];
     UIView *superView = self.view;
     
+    [_scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.width.height.mas_equalTo(superView);
+    }];
+    
     [_contentText mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(superView.mas_left);
-        make.top.mas_equalTo(superView.mas_top);
+        make.left.mas_equalTo(_scrollView.mas_left);
+        make.top.mas_equalTo(_scrollView.mas_top);
         make.width.mas_equalTo(@(Screen_Width));
         make.height.mas_equalTo(@(150));
     }];
@@ -144,14 +149,14 @@
     }];
     
     [_publishAlbumTopView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(superView.mas_left);
+        make.left.mas_equalTo(_scrollView.mas_left);
         make.top.mas_equalTo(_contentText.mas_bottom);
         make.width.mas_equalTo(Screen_Width);
-        make.height.mas_equalTo(@(48 + PublishImageTileHeight));
+        make.height.mas_equalTo(@(40 + PublishImageTileHeight));
     }];
     
     [_addressView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(superView.mas_left);
+        make.left.mas_equalTo(_scrollView.mas_left);
         make.top.mas_equalTo(_publishAlbumTopView.mas_bottom).offset(10);
         make.width.mas_equalTo(@(Screen_Width));
         make.height.mas_equalTo(@40);
@@ -177,6 +182,17 @@
     }];
 }
 
+- (UIScrollView *)scrollView{
+    if (!_scrollView) {
+        _scrollView = [UIScrollView new];
+        _scrollView.backgroundColor = BGViewGray;
+        [_scrollView addSubview:self.contentText];
+        [_scrollView addSubview:self.publishAlbumTopView];
+        [_scrollView addSubview:self.addressView];
+    }
+    return _scrollView;
+}
+
 - (UITextView *)contentText{
     if (_contentText == nil) {
         _contentText = [UITextView new];
@@ -199,10 +215,24 @@
 - (PublishAlbumTopView *)publishAlbumTopView{
     if (_publishAlbumTopView == nil) {
         _publishAlbumTopView = [[PublishAlbumTopView alloc] init];
-        [_publishAlbumTopView setViewDefault];
         _publishAlbumTopView.delegate = self;
-        _publishAlbumTopView.imageMaxCount = 4;
-        [_publishAlbumTopView addImgUrls:_assets];
+        _publishAlbumTopView.imageMaxCount = 8;
+        if (self.assetName != nil) {
+            
+            ALAssetsLibrary *lib = [[ALAssetsLibrary alloc]init];
+            [lib assetForURL:[NSURL URLWithString:self.assetName] resultBlock:^(ALAsset *asset) {
+                
+                [_publishAlbumTopView addImgUrls:@[asset]];
+                
+            } failureBlock:^(NSError *error) {
+                
+            }];
+        }else{
+            
+             [_publishAlbumTopView addImgUrls:_assets];
+        }
+
+       
     }
     return _publishAlbumTopView;
 }
