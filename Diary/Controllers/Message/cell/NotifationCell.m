@@ -59,6 +59,8 @@
         }];
         grayLabel.backgroundColor = COLOR_GRAY_DEFAULT_180;
     }
+    self.backgroundColor = BGViewColor;
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
     return self;
 }
 

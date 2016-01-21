@@ -14,27 +14,31 @@
 #import "AdressBookController.h"
 #import "NotifationController.h"
 #import "BaseNavigation.h"
-#import "ChatToolController.h"
+#import "SPKitExample.h"
+#import <WXOUIModule/YWConversationListViewController.h>
+#import <WXOUIModule/IYWUIService.h>
+#import <WXOpenIMSDKFMWK/IYWConversationService.h>
 
-@interface MessageController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource>
+static NSString* const dHSwipableCellid = @"dHSwipableCellid";
+@interface MessageController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,NewsCellDelegate>
 
 @end
 
 @implementation MessageController{
     
     UITableView* _tableView;
+    NSIndexPath * _lastSelectCell;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initView];
 }
 
 - (void)initView{
-
+    
     _tableView = [[UITableView alloc]
                   initWithFrame:CGRectMake(0, 0, Screen_Width,
-                                           Screen_height - NavigationBarHeight - statusHeight )
+                                           Screen_height - NavigationBarHeight - TabBarHeight )
                   style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -42,7 +46,65 @@
     _tableView.emptyDataSetSource = self;
     _tableView.backgroundColor = BGViewGray;
     _tableView.emptyDataSetDelegate = self;
-    [self.view addSubview:_tableView];
+     _tableView.showsVerticalScrollIndicator = NO;
+    id<IYWConversationService> conversationService = [[SPKitExample sharedInstance].ywIMKit.IMCore getConversationService];
+    [conversationService asyncFetchAllConversationsWithCompletionBlock:^(NSArray *aConversationsArray) {
+        
+        self.conversationArry = [NSMutableArray arrayWithArray:aConversationsArray];
+        [self.view addSubview:_tableView];
+    }];
+    
+}
+
+#pragma mark - protocol
+- (NSInteger)numberOfItemsInCell:(NewsCell *)cell
+{
+    return 1;
+}
+
+- (id)swipableCell:(NewsCell *)cell contentForItemAtIndex:(NSInteger)index
+{
+   return @"删除";
+}
+
+- (UIColor *)swipableCell:(NewsCell *)cell colorForItemAtIndex:(NSInteger)index
+{
+    return [UIColor redColor];
+
+}
+
+- (CGFloat)swipableCell:(NewsCell *)cell widthForItemAtIndex:(NSInteger)index
+{
+   return 80;
+}
+
+- (void)swipableCell:(NewsCell *)cell didClickOnItemAtIndex:(NSInteger)index
+{
+    //删除单个会话
+    YWConversation *conversation = _conversationArry[cell.indexPath.row - 2];
+    id<IYWConversationService> conversationService = [[SPKitExample sharedInstance].ywIMKit.IMCore getConversationService];
+    if ([conversationService removeConversationByConversationId:conversation.conversationId error:nil]) {
+           [_conversationArry removeObjectAtIndex:cell.indexPath.row - 2];
+        [_tableView reloadData];
+           [ToastManager showToast:@"删除成功！" containerView:_tableView withTime:Toast_Hide_TIME];
+    }else
+    
+          [ToastManager showToast:@"删除失败！" containerView:_tableView withTime:Toast_Hide_TIME];
+    
+}
+
+- (void)didBeginEditingCell:(NewsCell *)cell
+{
+    if (_lastSelectCell != cell.indexPath) {
+        NewsCell *lastCell = [_tableView cellForRowAtIndexPath:_lastSelectCell];
+        [lastCell close];
+    }
+    _lastSelectCell = cell.indexPath;
+}
+
+- (void)didEndEditingCell:(NewsCell *)cell
+{
+    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -51,7 +113,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return 4;
+    return 2 + _conversationArry.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -108,16 +170,21 @@
             break;
             
         default:{
-            
             static NSString* newsCellid = @"newsCellid";
             NewsCell * newsCell = [tableView dequeueReusableCellWithIdentifier:newsCellid];
             if (!newsCell) {
                 newsCell =
                 [[NewsCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                      reuseIdentifier:newsCellid];
+                                  reuseIdentifier:newsCellid];
                 newsCell.backgroundColor = BGViewColor;
                 newsCell.selectionStyle = UITableViewCellSelectionStyleNone;
+               
             }
+            newsCell.delegate = self;
+            newsCell.indexPath = indexPath;
+           
+            
+            [newsCell bindConversation:_conversationArry[indexPath.row - 2]];
             
             return newsCell;
         }
@@ -144,10 +211,18 @@
             break;
             
         default:{
-            
-            ChatToolController *chatVc = [ChatToolController new];
-            chatVc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:chatVc animated:YES];
+            if ([_conversationArry[indexPath.row -2] isKindOfClass:[YWP2PConversation class]]) {
+                YWP2PConversation *conversation = _conversationArry[indexPath.row - 2];
+                [[SPKitExample sharedInstance] exampleOpenConversationViewControllerWithPerson:conversation.person fromNavigationController:self.navigationController];
+            }else if ([_conversationArry[indexPath.row - 2] isKindOfClass:[YWTribeConversation class]]){
+                
+                YWTribeConversation *targetConversation = _conversationArry[indexPath.row - 2];
+                [[SPKitExample sharedInstance] exampleOpenConversationViewControllerWithTribe:targetConversation.tribe fromNavigationController:self.navigationController];
+            }else{
+                
+                return;
+            }
+
         }
             break;
     }
@@ -171,6 +246,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [[BaseNavigation sharedInstance] setIndexGreenNavigationBar:self andTitle:@"消息"];
+    [self initView];
 }
 
 @end

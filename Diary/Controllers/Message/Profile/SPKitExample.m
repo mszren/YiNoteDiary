@@ -7,6 +7,7 @@
 //
 
 #import "SPKitExample.h"
+#import "MessageController.h"
 
 #import <WXOpenIMSDKFMWK/YWFMWK.h>
 #import <WXOUIModule/YWUIFMWK.h>
@@ -17,7 +18,6 @@
 #import "SPBubbleViewModelCustomize.h"
 
 #import "SPInputViewPluginGreeting.h"
-#import "SPInputViewPluginCallingCard.h"
 
 #import <WXOUIModule/YWIndicator.h>
 #import <objc/runtime.h>
@@ -32,7 +32,6 @@
 #import "SPTribeConversationViewController.h"
 #endif
 
-#warning IF YOU NEED CUSTOMER SERVICE USER TRACK, REMOVE THE COMMENT '//' TO IMPORT THE FRAMEWORK
 /// 如果需要客服跟踪用户操作轨迹的功能，你可以取消以下行的注释，引入YWExtensionForCustomerServiceFMWK.framework
 //#import <YWExtensionForCustomerServiceFMWK/YWExtensionForCustomerServiceFMWK.h>
 
@@ -43,6 +42,8 @@
 #import "SPGreetingBubbleChatView.h"
 
 #import <UMOpenIMSDKFMWK/UMOpenIM.h>
+
+#import "LoginBusinessManager.h"
 
 
 @interface SPKitExample () <UIActionSheetDelegate>
@@ -67,20 +68,20 @@
 - (UIWindow *)rootWindow
 {
     UIWindow *result = nil;
-    
+
     do {
         if ([self.appDelegate respondsToSelector:@selector(window)]) {
-            result = [self.appDelegate window];
+    result = [self.appDelegate window];
         }
-        
+
         if (result) {
             break;
         }
     } while (NO);
-    
-    
+
+
     NSAssert(result, @"如果在您的App中出现这个断言失败，您需要检查- [SPKitExample rootWindow]中的实现，是否符合您的App结构");
-    
+
     return result;
     
 }
@@ -93,6 +94,7 @@
     
     return result;
 }
+
 
 #pragma mark - private methods
 
@@ -123,13 +125,13 @@
         
         // 自定义全局导航栏
 //        [self exampleCustomGlobleNavigationBar];
-        NSString *aGetUserID = [NSString stringWithFormat:@"visitor%d", 123];
-        [self exampleLoginWithUserID:aGetUserID password:@"taobao1234" successBlock:^{
+        NSString *aGetUserID = @"2439398156@qq.com";
+        [self exampleLoginWithUserID:aGetUserID password:@"sbb111" successBlock:^{
             
             __weak typeof(self) weakSelf = self;
             //应用登陆成功后，登录IMSDK
             [[SPKitExample sharedInstance] callThisAfterISVAccountLoginSuccessWithYWLoginId:aGetUserID
-                                                                                   passWord:@"taobao1234"
+                                                                                   passWord:@"sbb111"
                                                                             preloginedBlock:^{
                                                                                 [[SPUtil sharedInstance] setWaitingIndicatorShown:NO withKey:weakSelf.description];
                                                                 ;
@@ -255,8 +257,7 @@
     NSError *error = nil;
     
     /// 同步初始化IM SDK， 异步方法可以参考asyncInitWithAppKey
-#warning TODO: CHANGE TO YOUR AppKey
-    [UMOpenIM syncInitWithAppKey:@"23015524" withUmengAppKey:@"5424dc93fd98c58ec20289da" getError:&error];
+    [UMOpenIM syncInitWithAppKey:@"23300020" withUmengAppKey:@"569e00b367e58e9444000201" getError:&error];
     
     if (error.code != 0 && error.code != YWSdkInitErrorCodeAlreadyInited) {
         /// 初始化失败
@@ -329,9 +330,8 @@
  */
 - (BOOL)exampleIsPreLogined
 {
-#warning TODO: NEED TO CHANGE TO YOUR JUDGE METHOD
-    /// 这个是Demo中判断是否已经进入IM主页面的方法，你需要修改成你自己的方法
-    return self.rootNavigationController.viewControllers.count > 0;
+
+    return [[LoginBusinessManager sharedInstance] isLogin];
 }
 
 /**
@@ -418,10 +418,10 @@
  */
 - (YWConversationListViewController *)exampleMakeConversationListControllerWithSelectItemBlock:(YWConversationsListDidSelectItemBlock)aSelectItemBlock
 {
-    YWConversationListViewController *result = [self.ywIMKit makeConversationListViewController];
+//    YWConversationListViewController *result = [self.ywIMKit makeConversationListViewController];
     
     //需要更多自定义的时候，可以用下面方法来初始化。
-    //YWConversationListViewController *result = [YWConversationListViewController makeControllerWithIMKit:self.ywIMKit];
+    YWConversationListViewController *result = [YWConversationListViewController makeControllerWithIMKit:self.ywIMKit];
     
     [result setDidSelectItemBlock:aSelectItemBlock];
     
@@ -515,7 +515,6 @@
 - (void)exampleOpenConversationViewControllerWithPerson:(YWPerson *)aPerson fromNavigationController:(UINavigationController *)aNavigationController
 {
     YWConversation *conversation = [YWP2PConversation fetchConversationByPerson:aPerson creatIfNotExist:YES baseContext:self.ywIMKit.IMCore];
-
     [self exampleOpenConversationViewControllerWithConversation:conversation fromNavigationController:aNavigationController];
 }
 
@@ -525,7 +524,6 @@
 - (void)exampleOpenConversationViewControllerWithTribe:(YWTribe *)aTribe fromNavigationController:(UINavigationController *)aNavigationController
 {
     YWConversation *conversation = [YWTribeConversation fetchConversationByTribe:aTribe createIfNotExist:YES baseContext:self.ywIMKit.IMCore];
-    
     [self exampleOpenConversationViewControllerWithConversation:conversation fromNavigationController:aNavigationController];
 }
 
@@ -651,8 +649,8 @@
     [aConversationController.messageInputView addPlugin:plugin];
 
 
-    SPInputViewPluginCallingCard *pluginCallingCard = [[SPInputViewPluginCallingCard alloc] init];
-    [aConversationController.messageInputView addPlugin:pluginCallingCard];
+//    SPInputViewPluginCallingCard *pluginCallingCard = [[SPInputViewPluginCallingCard alloc] init];
+//    [aConversationController.messageInputView addPlugin:pluginCallingCard];
 }
 
 /**

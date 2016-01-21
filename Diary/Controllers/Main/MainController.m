@@ -12,7 +12,9 @@
 #import "TrailController.h"
 #import "MessageController.h"
 #import "MyController.h"
-
+#import "SPKitExample.h"
+#import <WXOUIModule/YWConversationListViewController.h>
+#import <WXOUIModule/IYWUIService.h>
 
 @interface MainController ()
    @property (nonatomic,copy) UINavigationController *indexNavController;
@@ -122,6 +124,7 @@ shouldSelectViewController:(UIViewController *)viewController {
     if (_messageNavController==nil) {
         MessageController *messageController=[[MessageController alloc] init];
         _messageNavController=[[UINavigationController alloc] initWithRootViewController:messageController];
+        
     }
     return _messageNavController;
 }

@@ -9,9 +9,9 @@
 #import "FriendMaterialController.h"
 #import "BaseNavigation.h"
 #import "CheckoutMessageView.h"
-#import "ChatToolController.h"
 #import "PersonChatSetController.h"
 #import "MyTrailController.h"
+#import "SPKitExample.h"
 
 @interface FriendMaterialController () <CheckoutMessageViewDelegate>
 
@@ -62,10 +62,9 @@
             break;
             
         default:{
-            
-            ChatToolController *chatToolVc = [ChatToolController new];
-            chatToolVc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:chatToolVc animated:YES];
+            YWPerson *person = [[YWPerson alloc] initWithPersonId:@"uid1"];
+            [[SPKitExample sharedInstance] exampleOpenConversationViewControllerWithPerson:person fromNavigationController:self.navigationController];
+ 
         }
             break;
     }

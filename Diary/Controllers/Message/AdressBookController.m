@@ -11,7 +11,6 @@
 #import "FriendCell.h"
 #import "AddFriendController.h"
 #import "BaseNavigation.h"
-#import "ChatToolController.h"
 #import "SPKitExample.h"
 #import "SPUtil.h"
 #import "AppDelegate.h"
@@ -90,12 +89,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    ChatToolController *chatVc = [ChatToolController new];
-//    chatVc.hidesBottomBarWhenPushed = YES;
-//    [self.navigationController pushViewController:chatVc animated:YES];
     
-    NSString *personId = @"uid1";
-    YWPerson *person = [[YWPerson alloc] initWithPersonId:personId];
+    NSString *personId = [NSString stringWithFormat:@"%@%ld",@"uid",(long)indexPath.row];
+    YWPerson *person = [[YWPerson alloc] initWithPersonId:personId appKey:@"23300020"];
     [[SPKitExample sharedInstance] exampleOpenConversationViewControllerWithPerson:person fromNavigationController:self.navigationController];
     
 }
@@ -142,7 +138,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-     [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:@"好友列表"];
+     [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:@"联系人"];
 }
 
 #pragma mark -- UIBarButtonItem Action

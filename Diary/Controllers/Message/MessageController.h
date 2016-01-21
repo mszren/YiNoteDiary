@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <WXOUIModule/YWConversationViewController.h>
 
-@interface MessageController : UIViewController
+
+@interface MessageController : YWConversationViewController
+@property (nonatomic, strong)NSMutableArray *conversationArry;
 
 @end

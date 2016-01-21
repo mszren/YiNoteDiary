@@ -244,7 +244,13 @@
  */
 - (YWPerson *)exampleFetchEServicePersonWithPersonId:(NSString *)aPersonId groupId:(NSString *)aGroupId;
 
+
+ // 当IMSDK需要弹出提示时，会调用此回调
+- (void)exampleSetNotificationBlock;
+
 @end
+
+
 
 
 #pragma mark - 其他

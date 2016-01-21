@@ -17,8 +17,14 @@
 #import "UzysAssetsPickerController.h"
 #import <Photos/Photos.h>
 #import "DBCameraViewController.h"
+#import "SPKitExample.h"
 
-@interface PersonCenterController () <UzysAssetsPickerControllerDelegate,DBCameraViewControllerDelegate>
+typedef enum : NSUInteger {
+    kActionSheetTagLogout,
+    kActionSheetTagEnvironment,
+} kActionSheetTag;
+
+@interface PersonCenterController () <UzysAssetsPickerControllerDelegate,DBCameraViewControllerDelegate,UIActionSheetDelegate>
 
 @end
 
@@ -63,7 +69,20 @@
     UITapGestureRecognizer *codeTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onTap:)];
     [self.codeView addGestureRecognizer:codeTap];
     
-    
+    [self.outBtn addTarget:self action:@selector(onBtn) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)onBtn{
+    UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:@"退出后您将收不到新消息，是否确认退出?" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"退出当前帐号" otherButtonTitles:nil];
+    [as setTag:kActionSheetTagLogout];
+    [as showInView:self.tabBarController.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (actionSheet.tag == kActionSheetTagLogout) {
+        
+        [[SPKitExample sharedInstance] callThisBeforeISVAccountLogout];
+    }
 }
 
 #pragma mark -- UITapGestureRecognizer

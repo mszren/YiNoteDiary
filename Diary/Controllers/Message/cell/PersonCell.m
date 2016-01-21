@@ -59,6 +59,8 @@
         }];
         grayLabel.backgroundColor = BGViewGray;
     }
+    self.backgroundColor = BGViewColor;
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
     return self;
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

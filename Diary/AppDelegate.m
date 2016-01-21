@@ -16,6 +16,7 @@
 #import "UMSocialQQHandler.h"
 #import "UMSocialConfig.h"
 #import "SPKitExample.h"
+#import "SPUtil.h"
 
 @interface AppDelegate ()
 
@@ -30,10 +31,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     
-    // YWSDK快速接入接口，程序启动后调用这个接口
-    [[SPKitExample sharedInstance] callThisInDidFinishLaunching];
 
-    [UMSocialData setAppKey:@"558b6e7b67e58e833c006f6d"];
+
+    [UMSocialData setAppKey:@"569e00b367e58e9444000201"];
     
     [UMSocialSinaHandler
      openSSOWithRedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
@@ -56,6 +56,30 @@
     [[AMapSearchServices sharedServices]setApiKey:ApiKey];
     LocationManager *locationManager=[LocationManager shareInstance];
     [locationManager startLocation];
+    
+    
+    // YWSDK快速接入接口，程序启动后调用这个接口
+    [[SPKitExample sharedInstance] callThisInDidFinishLaunching];
+    
+    /// 向APNS注册PUSH服务，需要区分iOS SDK版本和iOS版本。
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 80000
+    if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)])
+    {
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge|UIUserNotificationTypeAlert|UIUserNotificationTypeSound) categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+        
+    } else
+#endif
+    {
+        /// 去除warning
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+         (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+#pragma clang diagnostic pop
+    }
+    
+    
 //    if ([self checkIsExistUser]) {
         [self loadHomeController];
 //    } else {
@@ -63,6 +87,16 @@
 //    }
     return YES;
 }
+
+/// iOS8下申请DeviceToken
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 80000
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings
+{
+    if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerForRemoteNotifications)]) {
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+    }
+}
+#endif
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -100,6 +134,12 @@
     return result;
 }
 
+//获取到deviceToken
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    [self exampleSetDeviceToken:deviceToken];
+}
+    
+
 - (void)loadLoginController {
     LoginController *controller = [[LoginController alloc] init];
     UINavigationController *loginNav =
@@ -119,6 +159,16 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = self.mainController;
     [self.window makeKeyAndVisible];
+}
+
+/**
+ *  设置DeviceToken
+ */
+- (void)exampleSetDeviceToken:(NSData *)aDeviceToken
+{
+    [[SPUtil sharedInstance] showNotificationInViewController:self.window.rootViewController title:@"设置DeviceToken" subtitle:aDeviceToken.description type:SPMessageNotificationTypeMessage];
+    
+    [[[YWAPI sharedInstance] getGlobalPushService] setDeviceToken:aDeviceToken];
 }
 
 
