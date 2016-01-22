@@ -178,9 +178,6 @@
 		D7666DDF1C3A23F80084614F /* OtherTrailView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7666DDE1C3A23F80084614F /* OtherTrailView.m */; };
 		D767682D1C22445E00FCF4D2 /* ScanController.m in Sources */ = {isa = PBXBuildFile; fileRef = D767682C1C22445E00FCF4D2 /* ScanController.m */; };
 		D76768301C22461D00FCF4D2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D767682E1C2245B100FCF4D2 /* AVFoundation.framework */; };
-		D76768421C2247C300FCF4D2 /* .qrcode_scan_bg_Green@2x~imageoptim.png in Resources */ = {isa = PBXBuildFile; fileRef = D76768321C2247C300FCF4D2 /* .qrcode_scan_bg_Green@2x~imageoptim.png */; };
-		D76768431C2247C300FCF4D2 /* .qrcode_scan_bg_Green_iphone5@2x~imageoptim.png in Resources */ = {isa = PBXBuildFile; fileRef = D76768331C2247C300FCF4D2 /* .qrcode_scan_bg_Green_iphone5@2x~imageoptim.png */; };
-		D76768441C2247C300FCF4D2 /* .qrcode_scan_light_green@2x~imageoptim.png in Resources */ = {isa = PBXBuildFile; fileRef = D76768341C2247C300FCF4D2 /* .qrcode_scan_light_green@2x~imageoptim.png */; };
 		D76768451C2247C300FCF4D2 /* qrcode_scan_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D76768351C2247C300FCF4D2 /* qrcode_scan_bar@2x.png */; };
 		D76768461C2247C300FCF4D2 /* qrcode_scan_bg_Green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D76768361C2247C300FCF4D2 /* qrcode_scan_bg_Green@2x.png */; };
 		D76768471C2247C300FCF4D2 /* qrcode_scan_bg_Green_iphone5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D76768371C2247C300FCF4D2 /* qrcode_scan_bg_Green_iphone5@2x.png */; };
@@ -899,9 +896,6 @@
 		D767682B1C22445E00FCF4D2 /* ScanController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScanController.h; path = Controllers/Message/ScanController.h; sourceTree = "<group>"; };
 		D767682C1C22445E00FCF4D2 /* ScanController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScanController.m; path = Controllers/Message/ScanController.m; sourceTree = "<group>"; };
 		D767682E1C2245B100FCF4D2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		D76768321C2247C300FCF4D2 /* .qrcode_scan_bg_Green@2x~imageoptim.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ".qrcode_scan_bg_Green@2x~imageoptim.png"; sourceTree = "<group>"; };
-		D76768331C2247C300FCF4D2 /* .qrcode_scan_bg_Green_iphone5@2x~imageoptim.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ".qrcode_scan_bg_Green_iphone5@2x~imageoptim.png"; sourceTree = "<group>"; };
-		D76768341C2247C300FCF4D2 /* .qrcode_scan_light_green@2x~imageoptim.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ".qrcode_scan_light_green@2x~imageoptim.png"; sourceTree = "<group>"; };
 		D76768351C2247C300FCF4D2 /* qrcode_scan_bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qrcode_scan_bar@2x.png"; sourceTree = "<group>"; };
 		D76768361C2247C300FCF4D2 /* qrcode_scan_bg_Green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qrcode_scan_bg_Green@2x.png"; sourceTree = "<group>"; };
 		D76768371C2247C300FCF4D2 /* qrcode_scan_bg_Green_iphone5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qrcode_scan_bg_Green_iphone5@2x.png"; sourceTree = "<group>"; };
@@ -2285,9 +2279,6 @@
 		D76768311C2247C300FCF4D2 /* ZbarImage */ = {
 			isa = PBXGroup;
 			children = (
-				D76768321C2247C300FCF4D2 /* .qrcode_scan_bg_Green@2x~imageoptim.png */,
-				D76768331C2247C300FCF4D2 /* .qrcode_scan_bg_Green_iphone5@2x~imageoptim.png */,
-				D76768341C2247C300FCF4D2 /* .qrcode_scan_light_green@2x~imageoptim.png */,
 				D76768351C2247C300FCF4D2 /* qrcode_scan_bar@2x.png */,
 				D76768361C2247C300FCF4D2 /* qrcode_scan_bg_Green@2x.png */,
 				D76768371C2247C300FCF4D2 /* qrcode_scan_bg_Green_iphone5@2x.png */,
@@ -3148,7 +3139,6 @@
 				D7F29BE11C25346D00358C1B /* 074.png in Resources */,
 				D731F60F1C3F9C1200F42D17 /* UIBarButtonItemArrowRight@3x.png in Resources */,
 				D74353991C0C3D0E004B89FE /* PersonCenterController.xib in Resources */,
-				D76768421C2247C300FCF4D2 /* .qrcode_scan_bg_Green@2x~imageoptim.png in Resources */,
 				D7F29BAD1C25346D00358C1B /* 048.png in Resources */,
 				D7F29BEE1C25346D00358C1B /* 080@2x.png in Resources */,
 				D7F29B941C25346D00358C1B /* 035@2x.png in Resources */,
@@ -3256,7 +3246,6 @@
 				D7F29B891C25346D00358C1B /* 030.png in Resources */,
 				D76AB8F11C07FD99002B14C0 /* img_saisai_hdzt2.png in Resources */,
 				D7F29B661C25346D00358C1B /* 012@2x.png in Resources */,
-				D76768441C2247C300FCF4D2 /* .qrcode_scan_light_green@2x~imageoptim.png in Resources */,
 				D7F29C101C2534DC00358C1B /* inactive_page_image.png in Resources */,
 				D76768491C2247C300FCF4D2 /* qrcode_scan_btn_flash_nor@2x.png in Resources */,
 				D731F6091C3F9C1200F42D17 /* PlayButtonOverlayLargeTap@3x.png in Resources */,
@@ -3465,7 +3454,6 @@
 				D7F29B741C25346D00358C1B /* 019@2x.png in Resources */,
 				D757660D1C16DA56005FDD93 /* arrowTexture.png in Resources */,
 				D76768481C2247C300FCF4D2 /* qrcode_scan_btn_flash_down@2x.png in Resources */,
-				D76768431C2247C300FCF4D2 /* .qrcode_scan_bg_Green_iphone5@2x~imageoptim.png in Resources */,
 				D7F29BC91C25346D00358C1B /* 062.png in Resources */,
 				D76AB8EB1C07FD99002B14C0 /* ic_peoplenearby@3x.png in Resources */,
 				D731F5FF1C3F9C1200F42D17 /* ImageSelectedSmallOff@2x.png in Resources */,
@@ -3763,6 +3751,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yi Yin (R79742M7J4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -3785,6 +3774,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "bf1acc13-b072-4f4f-b434-077de29035f7";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -3807,6 +3797,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yi Yin (R79742M7J4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -3822,6 +3813,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "bf1acc13-b072-4f4f-b434-077de29035f7";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -3833,7 +3825,7 @@
 			baseConfigurationReference = 575F6957D257E48BC9F99DBE /* Pods-Diary.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yi Yin (R79742M7J4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3850,7 +3842,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.1bj.Diary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "89b89a5d-3df8-4efd-a7db-475e0c4cd7b7";
+				PROVISIONING_PROFILE = "bf1acc13-b072-4f4f-b434-077de29035f7";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -3860,7 +3852,7 @@
 			baseConfigurationReference = 054052362DEA8161644F4838 /* Pods-Diary.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yi Yin (R79742M7J4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3877,7 +3869,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.1bj.Diary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "89b89a5d-3df8-4efd-a7db-475e0c4cd7b7";
+				PROVISIONING_PROFILE = "bf1acc13-b072-4f4f-b434-077de29035f7";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

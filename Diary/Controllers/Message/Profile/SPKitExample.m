@@ -45,6 +45,8 @@
 
 #import "LoginBusinessManager.h"
 
+#import "FriendMaterialController.h"
+
 
 @interface SPKitExample () <UIActionSheetDelegate>
 
@@ -122,47 +124,47 @@
     if ([self exampleInit]) {
         // 在IMSDK截获到Push通知并需要您处理Push时，IMSDK会自动调用此回调
         [self exampleHandleAPNSPush];
-        
+
         // 自定义全局导航栏
 //        [self exampleCustomGlobleNavigationBar];
-        NSString *aGetUserID = @"2439398156@qq.com";
-        [self exampleLoginWithUserID:aGetUserID password:@"sbb111" successBlock:^{
-            
-            __weak typeof(self) weakSelf = self;
+        NSString *aGetUserID         = @"mszren";
+        [self exampleLoginWithUserID:aGetUserID password:@"123456" successBlock:^{
+
+        __weak typeof(self) weakSelf = self;
             //应用登陆成功后，登录IMSDK
             [[SPKitExample sharedInstance] callThisAfterISVAccountLoginSuccessWithYWLoginId:aGetUserID
-                                                                                   passWord:@"sbb111"
+                                                                                   passWord:@"123456"
                                                                             preloginedBlock:^{
                                                                                 [[SPUtil sharedInstance] setWaitingIndicatorShown:NO withKey:weakSelf.description];
                                                                 ;
                                                                             } successBlock:^{
-                                                                                
+
                                                                                 //  到这里已经完成SDK接入并登录成功，你可以通过exampleMakeConversationListControllerWithSelectItemBlock获得会话列表
                                                                                 [[SPUtil sharedInstance] setWaitingIndicatorShown:NO withKey:weakSelf.description];
-                                                      
+
 #if DEBUG
                                                                                 // 自定义轨迹参数均为透传
                                                                                 //                                                                        [YWExtensionServiceFromProtocol(IYWExtensionForCustomerService) updateExtraInfoWithExtraUI:@"透传内容" andExtraParam:@"透传内容"];
 #endif
                                                                             } failedBlock:^(NSError *aError) {
                                                                                 [[SPUtil sharedInstance] setWaitingIndicatorShown:NO withKey:weakSelf.description];
-                                                                                
+
                                                                                 if (aError.code == YWLoginErrorCodePasswordError || aError.code == YWLoginErrorCodePasswordInvalid || aError.code == YWLoginErrorCodeUserNotExsit) {
-                                                                                    
+
                                                                                     dispatch_async(dispatch_get_main_queue(), ^{
-                                                                                        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"登录失败" message:@"可以使用游客登录。\n（如在调试，请确认AppKey、帐号、密码是否正确" delegate:self cancelButtonTitle:@"重试" otherButtonTitles:nil];
+        UIAlertView *av              = [[UIAlertView alloc] initWithTitle:@"登录失败" message:@"可以使用游客登录。\n（如在调试，请确认AppKey、帐号、密码是否正确" delegate:self cancelButtonTitle:@"重试" otherButtonTitles:nil];
                                                                                         [av show];;
                                                                                     });
                                                                                 }
-                                                                                
+
                                                                             }];
         } failedBlock:^(NSError *aError) {
-            
+
         }];
-        
+
     } else {
         /// 初始化失败，需要提示用户
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"错误" message:@"SDK初始化失败, 请检查网络后重试" delegate:self cancelButtonTitle:@"重试" otherButtonTitles:nil];
+        UIAlertView *av              = [[UIAlertView alloc] initWithTitle:@"错误" message:@"SDK初始化失败, 请检查网络后重试" delegate:self cancelButtonTitle:@"重试" otherButtonTitles:nil];
         [av show];
     }
 }
@@ -908,7 +910,10 @@
         }
         else {
             /// 您可以打开该用户的profile页面
-            [[SPUtil sharedInstance] showNotificationInViewController:aParentController title:@"打开profile" subtitle:aPerson.description type:SPMessageNotificationTypeMessage];
+//            [[SPUtil sharedInstance] showNotificationInViewController:aParentController title:@"打开profile" subtitle:aPerson.description type:SPMessageNotificationTypeMessage];
+            FriendMaterialController *friendMaterialVc = [FriendMaterialController new];
+            friendMaterialVc.hidesBottomBarWhenPushed = YES;
+            [aParentController.navigationController pushViewController:friendMaterialVc animated:YES];
         }
     }];
 }

@@ -80,6 +80,7 @@ __SPContactsOfDevelopers, \
     [self.contactIDs addObject:person.personId];
     return [self saveContactIDs];
 }
+
 - (BOOL)removeContact:(YWPerson *)person {
     if (!person.personId) {
         return NO;

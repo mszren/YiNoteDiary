@@ -335,7 +335,16 @@ enum {
     if ([conversation isKindOfClass:[YWP2PConversation class]]) {
         YWP2PConversation *personConversation = conversation;
         _nameLabel.text = personConversation.person.personId;
-    
+        __block UIImage *avatar = nil;
+        //  SPUtil中包含的功能都是Demo中需要的辅助代码，在你的真实APP中一般都需要替换为你真实的实现。
+        [[SPUtil sharedInstance] syncGetCachedProfileIfExists:personConversation.person completion:^(BOOL aIsSuccess, YWPerson *aPerson, NSString *aDisplayName, UIImage *aAvatarImage) {
+            avatar = aAvatarImage;
+        }];
+        
+        if (!avatar) {
+            avatar = [UIImage imageNamed:@"demo_head_120"];
+        }
+        _faceImg.image = avatar;
     
     }
 }

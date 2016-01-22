@@ -32,7 +32,6 @@
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     
 
-
     [UMSocialData setAppKey:@"569e00b367e58e9444000201"];
     
     [UMSocialSinaHandler
@@ -87,6 +86,7 @@
 //    }
     return YES;
 }
+
 
 /// iOS8下申请DeviceToken
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 80000

@@ -54,11 +54,11 @@ static NSString *reuseIdentifier = @"spContactProfileCell";
     
     [self.view addSubview:_tableView];
     
-    self.navigationController.navigationBarHidden = YES;
+       self.navigationController.navigationBarHidden = YES;
     if ([self respondsToSelector:@selector(wantsFullScreenLayout)]) {
         [self wantsFullScreenLayout];
     } else if([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
-        self.edgesForExtendedLayout = UIRectEdgeAll;
+       self.edgesForExtendedLayout                   = UIRectEdgeAll;
     }
 }
 
@@ -112,7 +112,7 @@ static NSString *reuseIdentifier = @"spContactProfileCell";
     switch (indexPath.section) {
         case 0:
         {
-            cell.contentView.backgroundColor = [UIColor colorWithRed:18.f/255.f green:171.f/255.f blue:235.f/255.f alpha:0.9];
+            cell.contentView.backgroundColor = BGViewGreen;
             
             CGFloat windowWidth = [UIScreen mainScreen].bounds.size.width;
             CGFloat imageWidth = 66.f;
@@ -126,6 +126,7 @@ static NSString *reuseIdentifier = @"spContactProfileCell";
             UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0,135.f + imageWidth/2 , windowWidth, 20.f)];
             label.backgroundColor = [UIColor clearColor];
             label.textAlignment = NSTextAlignmentCenter;
+            label.textColor = BGViewColor;
             [cell.contentView addSubview:label];
             
             __block NSString *displayName = nil;
