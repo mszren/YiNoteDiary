@@ -12,7 +12,7 @@
 #import "BaseNavigation.h"
 
  static NSString* const dHSwipableCellid = @"dHSwipableCellid";
-@interface NotifationController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,DHSwipableCellDelegate>
+@interface NotifationController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource>
 
 @end
 
@@ -43,74 +43,74 @@
     [self.view addSubview:_tableView];
 }
 
-#pragma mark - protocol
-- (NSInteger)numberOfItemsInCell:(DHSwipableCell *)cell
-{
-
-    return 2;
-}
-
-- (id)swipableCell:(DHSwipableCell *)cell contentForItemAtIndex:(NSInteger)index
-{
-    switch (index) {
-        case 0:
-            return @"消息免打扰";
-            break;
-            
-        default:
-            return @"删除";
-            break;
-    }
-  
-}
-
-- (UIColor *)swipableCell:(DHSwipableCell *)cell colorForItemAtIndex:(NSInteger)index
-{
-    switch (index) {
-        case 0:
-            
-            return COLOR_GRAY_DEFAULT_180;
-            break;
-            
-        default:
-            
-            return [UIColor redColor];
-            break;
-    }
-}
-
-- (CGFloat)swipableCell:(DHSwipableCell *)cell widthForItemAtIndex:(NSInteger)index
-{
-    switch (index) {
-        case 0:
-            return 120;
-            break;
-            
-        default:
-            return 80;
-            break;
-    }
-    
-}
-
-- (void)swipableCell:(DHSwipableCell *)cell didClickOnItemAtIndex:(NSInteger)index
-{
- 
-}
-
-- (void)didBeginEditingCell:(DHSwipableCell *)cell
-{
-    if (_lastSelectCell != cell.indexPath) {
-        DHSwipableCell *lastCell = [_tableView cellForRowAtIndexPath:_lastSelectCell];
-        [lastCell close];
-    }
-    _lastSelectCell = cell.indexPath;
-}
-
-- (void)didEndEditingCell:(DHSwipableCell *)cell
-{
-    
-}
+//#pragma mark - protocol
+//- (NSInteger)numberOfItemsInCell:(DHSwipableCell *)cell
+//{
+//
+//    return 2;
+//}
+//
+//- (id)swipableCell:(DHSwipableCell *)cell contentForItemAtIndex:(NSInteger)index
+//{
+//    switch (index) {
+//        case 0:
+//            return @"消息免打扰";
+//            break;
+//            
+//        default:
+//            return @"删除";
+//            break;
+//    }
+//  
+//}
+//
+//- (UIColor *)swipableCell:(DHSwipableCell *)cell colorForItemAtIndex:(NSInteger)index
+//{
+//    switch (index) {
+//        case 0:
+//            
+//            return COLOR_GRAY_DEFAULT_180;
+//            break;
+//            
+//        default:
+//            
+//            return [UIColor redColor];
+//            break;
+//    }
+//}
+//
+//- (CGFloat)swipableCell:(DHSwipableCell *)cell widthForItemAtIndex:(NSInteger)index
+//{
+//    switch (index) {
+//        case 0:
+//            return 120;
+//            break;
+//            
+//        default:
+//            return 80;
+//            break;
+//    }
+//    
+//}
+//
+//- (void)swipableCell:(DHSwipableCell *)cell didClickOnItemAtIndex:(NSInteger)index
+//{
+// 
+//}
+//
+//- (void)didBeginEditingCell:(DHSwipableCell *)cell
+//{
+//    if (_lastSelectCell != cell.indexPath) {
+//        DHSwipableCell *lastCell = [_tableView cellForRowAtIndexPath:_lastSelectCell];
+//        [lastCell close];
+//    }
+//    _lastSelectCell = cell.indexPath;
+//}
+//
+//- (void)didEndEditingCell:(DHSwipableCell *)cell
+//{
+//    
+//}
 
 #pragma mark - table view protocol
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -139,10 +139,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     DHSwipableCell * dHSwipableCell = [tableView dequeueReusableCellWithIdentifier:dHSwipableCellid forIndexPath:indexPath];
-    dHSwipableCell.delegate = self;
-    dHSwipableCell.indexPath = indexPath;
     
     return dHSwipableCell;
+}
+
+- (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewRowAction *deleteBtn = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"删除" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {	}];
+    deleteBtn.backgroundColor = [UIColor redColor];
+    UITableViewRowAction *unDisturbBtn = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"消息免打扰" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {	}];
+    return @[deleteBtn, unDisturbBtn];
 }
 
 #pragma mark DZNEmptyDataSetDelegate,DZNEmptyDataSetSource

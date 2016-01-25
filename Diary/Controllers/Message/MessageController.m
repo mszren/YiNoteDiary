@@ -19,8 +19,7 @@
 #import <WXOUIModule/IYWUIService.h>
 #import <WXOpenIMSDKFMWK/IYWConversationService.h>
 
-static NSString* const dHSwipableCellid = @"dHSwipableCellid";
-@interface MessageController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,NewsCellDelegate>
+@interface MessageController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource>
 
 @end
 
@@ -46,64 +45,13 @@ static NSString* const dHSwipableCellid = @"dHSwipableCellid";
     _tableView.emptyDataSetSource = self;
     _tableView.backgroundColor = BGViewGray;
     _tableView.emptyDataSetDelegate = self;
-     _tableView.showsVerticalScrollIndicator = NO;
+    _tableView.showsVerticalScrollIndicator = NO;
     id<IYWConversationService> conversationService = [[SPKitExample sharedInstance].ywIMKit.IMCore getConversationService];
     [conversationService asyncFetchAllConversationsWithCompletionBlock:^(NSArray *aConversationsArray) {
         
         self.conversationArry = [NSMutableArray arrayWithArray:aConversationsArray];
         [self.view addSubview:_tableView];
     }];
-    
-}
-
-#pragma mark - protocol
-- (NSInteger)numberOfItemsInCell:(NewsCell *)cell
-{
-    return 1;
-}
-
-- (id)swipableCell:(NewsCell *)cell contentForItemAtIndex:(NSInteger)index
-{
-   return @"删除";
-}
-
-- (UIColor *)swipableCell:(NewsCell *)cell colorForItemAtIndex:(NSInteger)index
-{
-    return [UIColor redColor];
-
-}
-
-- (CGFloat)swipableCell:(NewsCell *)cell widthForItemAtIndex:(NSInteger)index
-{
-   return 80;
-}
-
-- (void)swipableCell:(NewsCell *)cell didClickOnItemAtIndex:(NSInteger)index
-{
-    //删除单个会话
-    YWConversation *conversation = _conversationArry[cell.indexPath.row - 2];
-    id<IYWConversationService> conversationService = [[SPKitExample sharedInstance].ywIMKit.IMCore getConversationService];
-    if ([conversationService removeConversationByConversationId:conversation.conversationId error:nil]) {
-           [_conversationArry removeObjectAtIndex:cell.indexPath.row - 2];
-        [_tableView reloadData];
-           [ToastManager showToast:@"删除成功！" containerView:_tableView withTime:Toast_Hide_TIME];
-    }else
-    
-          [ToastManager showToast:@"删除失败！" containerView:_tableView withTime:Toast_Hide_TIME];
-    
-}
-
-- (void)didBeginEditingCell:(NewsCell *)cell
-{
-    if (_lastSelectCell != cell.indexPath) {
-        NewsCell *lastCell = [_tableView cellForRowAtIndexPath:_lastSelectCell];
-        [lastCell close];
-    }
-    _lastSelectCell = cell.indexPath;
-}
-
-- (void)didEndEditingCell:(NewsCell *)cell
-{
     
 }
 
@@ -180,16 +128,43 @@ static NSString* const dHSwipableCellid = @"dHSwipableCellid";
                 newsCell.selectionStyle = UITableViewCellSelectionStyleNone;
                
             }
-            newsCell.delegate = self;
-            newsCell.indexPath = indexPath;
            
-            
             [newsCell bindConversation:_conversationArry[indexPath.row - 2]];
-            
             return newsCell;
         }
             break;
     }
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row > 1) {
+        return YES;
+    }
+    return NO;
+}
+
+//协议中定义的方法，用于返回确认删除的标题
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"删除";
+}
+
+//协议中的方法，在真的删除或插入时被调用
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    //删除单个会话
+    YWConversation *conversation = _conversationArry[indexPath.row - 2];
+    id<IYWConversationService> conversationService = [[SPKitExample sharedInstance].ywIMKit.IMCore getConversationService];
+    if ([conversationService removeConversationByConversationId:conversation.conversationId error:nil]) {
+        [_conversationArry removeObjectAtIndex:indexPath.row - 2];
+        [_tableView reloadData];
+        [ToastManager showToast:@"删除成功！" containerView:_tableView withTime:Toast_Hide_TIME];
+    }else
+        
+        [ToastManager showToast:@"删除失败！" containerView:_tableView withTime:Toast_Hide_TIME];
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

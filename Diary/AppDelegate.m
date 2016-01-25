@@ -77,7 +77,7 @@
          (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
 #pragma clang diagnostic pop
     }
-    
+  
     
 //    if ([self checkIsExistUser]) {
         [self loadHomeController];
@@ -125,6 +125,11 @@
     return [UMSocialSnsService handleOpenURL:url];
 }
 
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
+    
+ 
+}
+
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     BOOL result = [UMSocialSnsService handleOpenURL:url];
@@ -136,6 +141,7 @@
 
 //获取到deviceToken
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    NSLog(@"测试token :%@",deviceToken);
     [self exampleSetDeviceToken:deviceToken];
 }
     
@@ -170,6 +176,9 @@
     
     [[[YWAPI sharedInstance] getGlobalPushService] setDeviceToken:aDeviceToken];
 }
+
+
+
 
 
 @end
