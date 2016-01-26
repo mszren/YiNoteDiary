@@ -14,10 +14,10 @@
     DBCameraViewController *_cameraController;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame andDelegate:(id<RecordViewDelegate>)delegate{
     self = [super initWithFrame:frame];
     if (self) {
-        
+        self.delegate = delegate;
         [self initView];
     }
     self.backgroundColor = BGViewColor;
@@ -73,6 +73,8 @@
             break;
             
         default:
+            
+            [self.delegate recordViewDelegateFinishTrail];
             break;
     }
 }

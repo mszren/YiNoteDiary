@@ -175,7 +175,7 @@
     }];
     
     [_recommendBottomLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(superView.mas_left);
+        make.left.mas_equalTo(superView.mas_left).offset(20);
         make.top.mas_equalTo(_recommentContentLabel.mas_bottom).offset(20);
         make.right.mas_equalTo(superView.mas_right).offset(-20);
         make.height.mas_equalTo(@0.5);
@@ -369,7 +369,7 @@
 - (UILabel *)greenLabel{
     if (_greenLabel == nil) {
         _greenLabel = [UILabel new];
-        _greenLabel.backgroundColor = [UIColor greenColor];
+        _greenLabel.backgroundColor = BGViewGreen;
     }
     return _greenLabel;
 }
@@ -402,7 +402,7 @@
         _recommendBtn.layer.cornerRadius = 15;
         _recommendBtn.clipsToBounds = YES;
         _recommendBtn.layer.shouldRasterize = YES;
-        _recommendBtn.backgroundColor = [UIColor greenColor];
+        _recommendBtn.backgroundColor = BGViewGreen;
     }
     return _recommendBtn;
 }
@@ -410,7 +410,7 @@
 - (UILabel *)leftRecommendLabel{
     if (_leftRecommendLabel == nil) {
         _leftRecommendLabel = [UILabel new];
-        _leftRecommendLabel.backgroundColor = [UIColor greenColor];
+        _leftRecommendLabel.backgroundColor = BGViewGreen;
     }
     return _leftRecommendLabel;
 }
@@ -418,7 +418,7 @@
 - (UILabel *)rightRecommendLabel{
     if (_rightRecommendLabel == nil) {
         _rightRecommendLabel = [UILabel new];
-        _rightRecommendLabel.backgroundColor = [UIColor greenColor];
+        _rightRecommendLabel.backgroundColor = BGViewGreen;
     }
     return _rightRecommendLabel;
 }
@@ -437,7 +437,7 @@
 - (UILabel *)recommendBottomLabel{
     if (_recommendBottomLabel == nil) {
         _recommendBottomLabel = [UILabel new];
-        _recommendBottomLabel.backgroundColor = [UIColor greenColor];
+        _recommendBottomLabel.backgroundColor = BGViewGreen;
     }
     return _recommendBottomLabel;
 }
@@ -445,7 +445,7 @@
 - (UILabel *)introduceGreenLabel{
     if (_introduceGreenLabel == nil) {
         _introduceGreenLabel = [UILabel new];
-        _introduceGreenLabel.backgroundColor = [UIColor greenColor];
+        _introduceGreenLabel.backgroundColor = BGViewGreen;
     }
     return _introduceGreenLabel;
 }
@@ -482,7 +482,7 @@
 - (UILabel *)referGreenLabel{
     if (_referGreenLabel == nil) {
         _referGreenLabel = [UILabel new];
-        _referGreenLabel.backgroundColor = [UIColor greenColor];
+        _referGreenLabel.backgroundColor = BGViewGreen;
     }
     return _referGreenLabel;
 }
@@ -519,7 +519,7 @@
 - (UILabel *)timeGreenLabel{
     if (_timeGreenLabel == nil) {
         _timeGreenLabel = [UILabel new];
-        _timeGreenLabel.backgroundColor = [UIColor greenColor];
+        _timeGreenLabel.backgroundColor = BGViewGreen;
     }
     return _timeGreenLabel;
 }
@@ -556,7 +556,7 @@
 - (UILabel *)priceGreenLabel{
     if (_priceGreenLabel == nil) {
         _priceGreenLabel = [UILabel new];
-        _priceGreenLabel.backgroundColor = [UIColor greenColor];
+        _priceGreenLabel.backgroundColor = BGViewGreen;
     }
     return _priceGreenLabel;
 }
@@ -593,7 +593,7 @@
 - (UILabel *)urlGreenLabel{
     if (_urlGreenLabel == nil) {
         _urlGreenLabel = [UILabel new];
-        _urlGreenLabel.backgroundColor = [UIColor greenColor];
+        _urlGreenLabel.backgroundColor = BGViewGreen;
     }
     return _urlGreenLabel;
 }
@@ -612,7 +612,7 @@
     if (_urlContentLabel == nil) {
         _urlContentLabel = [UILabel new];
         _urlContentLabel.font = FONT_SIZE_13;
-        _urlContentLabel.textColor = [UIColor orangeColor];
+        _urlContentLabel.textColor = BGViewLightGreen;
         _urlContentLabel.text = @"http://www.baidu.com";
         _urlContentLabel.numberOfLines = 0;
         _urlContentLabel.userInteractionEnabled = YES;
@@ -625,7 +625,7 @@
 - (UILabel *)orangeLabel{
     if (_orangeLabel == nil) {
         _orangeLabel = [UILabel new];
-        _orangeLabel.backgroundColor = [UIColor orangeColor];
+        _orangeLabel.backgroundColor = COLOR_Orange_230;
     }
     return _orangeLabel;
 }
@@ -634,12 +634,12 @@
     if (_lasteCommentBtn == nil) {
         _lasteCommentBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_lasteCommentBtn setTitleColor:BGViewColor forState:UIControlStateNormal];
-        [_lasteCommentBtn setTitle:@"推荐理由" forState:UIControlStateNormal];
+        [_lasteCommentBtn setTitle:@"最新点评" forState:UIControlStateNormal];
         _lasteCommentBtn.titleLabel.font = FONT_SIZE_17;
         _lasteCommentBtn.layer.cornerRadius = 15;
         _lasteCommentBtn.clipsToBounds = YES;
         _lasteCommentBtn.layer.shouldRasterize = YES;
-        _lasteCommentBtn.backgroundColor = [UIColor orangeColor];
+        _lasteCommentBtn.backgroundColor = COLOR_Orange_230;
     }
     return _lasteCommentBtn;
 }
@@ -647,7 +647,7 @@
 - (UILabel *)leftNewLabel{
     if (_leftNewLabel == nil) {
         _leftNewLabel = [UILabel new];
-        _leftNewLabel.backgroundColor = [UIColor orangeColor];
+        _leftNewLabel.backgroundColor = COLOR_Orange_230;
     }
     return _leftNewLabel;
 }
@@ -655,7 +655,7 @@
 - (UILabel *)rightNewLabel{
     if (_rightNewLabel == nil) {
         _rightNewLabel = [UILabel new];
-        _rightNewLabel.backgroundColor = [UIColor orangeColor];
+        _rightNewLabel.backgroundColor = COLOR_Orange_230;
     }
     return _rightNewLabel;
 }

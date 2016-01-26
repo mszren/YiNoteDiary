@@ -28,16 +28,16 @@
         [_featureImg mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.mas_left).offset(13);
             make.top.mas_equalTo(self.mas_top).offset(13);
-            make.width.height.mas_equalTo(@60);
+            make.width.height.mas_equalTo(@65);
         }];
-        _featureImg.layer.cornerRadius = 4;
+        _featureImg.layer.cornerRadius = 10;
         _featureImg.clipsToBounds = YES;
         _featureImg.layer.shouldRasterize = YES;
         
         _featureLabel = [UILabel new];
         [self addSubview:_featureLabel];
         [_featureLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(_featureImg.mas_right).offset(13);
+            make.left.mas_equalTo(_featureImg.mas_right).offset(15);
             make.top.mas_equalTo(_featureImg.mas_top);
             make.width.mas_equalTo(@150);
             make.height.mas_equalTo(@20);
@@ -59,8 +59,8 @@
         NSRange range = [string rangeOfString:@"景区"];
         NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc]initWithString:string];
         [attributeString addAttribute:NSFontAttributeName value:FONT_SIZE_13 range:NSMakeRange(0, length)];
-          [attributeString addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:[string rangeOfString:@"景区"]];
-        [attributeString addAttribute:NSForegroundColorAttributeName value:COLOR_GRAY_DEFAULT_133 range:NSMakeRange(0, range.location)];
+          [attributeString addAttribute:NSForegroundColorAttributeName value:COLOR_GRAY_DEFAULT_133 range:[string rangeOfString:@"景区"]];
+        [attributeString addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, range.location)];
         _styleLabel.attributedText = attributeString;
         
         _priceLabel = [UILabel new];

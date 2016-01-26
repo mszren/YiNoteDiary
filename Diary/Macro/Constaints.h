@@ -38,6 +38,7 @@ alpha:(a)]
 #define BGViewGreen RGBCOLOR(135, 213, 27)
 #define BGViewAGreen RGBACOLOR(135, 213, 27，0)
 #define BGViewLightGreen RGBCOLOR(34, 139, 34)
+#define COLOR_Orange_230 RGBACOLOR(230, 231, 33, 1)
 #define COLOR_GRAY_DEFAULT_185 RGBACOLOR(185, 185, 185, 1)
 #define COLOR_GRAY_DEFAULT_30 RGBACOLOR(30, 30, 30, 1)
 

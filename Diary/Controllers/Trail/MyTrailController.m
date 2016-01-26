@@ -22,7 +22,7 @@
 
 #define kCalloutViewMargin          -8
 
-@interface MyTrailController () <MAMapViewDelegate,MWPhotoBrowserDelegate>
+@interface MyTrailController () <MAMapViewDelegate,MWPhotoBrowserDelegate,RecordViewDelegate>
 @property (nonatomic, strong) NSMutableArray *overlaysAboveRoads;
 @property (nonatomic, strong) NSMutableArray *overlaysAboveLabels;
 @property (nonatomic, strong) NSMutableArray *annotations;
@@ -52,7 +52,7 @@
     _rightButton = [[UIBarButtonItem alloc] initWithTitle:@"开始" style:UIBarButtonItemStylePlain target:self action:@selector(onRightItem:)];
     self.navigationItem.rightBarButtonItem = _rightButton;
     
-    RecordView *recordView = [[RecordView alloc]initWithFrame:CGRectMake(0, Screen_height - 56 - NavigationBarHeight, Screen_Width, 56)];
+    RecordView *recordView = [[RecordView alloc]initWithFrame:CGRectMake(0, Screen_height - 56 - NavigationBarHeight, Screen_Width, 56) andDelegate:self];
     recordView.memberBtn.hidden = !_isShowMember;
     recordView.viewController = self;
     [self.view addSubview:recordView];
@@ -271,6 +271,30 @@
     return nil;
 }
 
+#pragma mark -- RecordViewDelegate
+- (void)recordViewDelegateFinishTrail{
+    
+    UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    [alertVc addAction:[UIAlertAction actionWithTitle:@"生成专辑" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        MyAlbumController *myAlbumVc = [MyAlbumController new];
+        myAlbumVc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:myAlbumVc animated:YES];
+    }]];
+    [alertVc addAction:[UIAlertAction actionWithTitle:@"保存足迹" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        PictureSaveController *saveVc = [PictureSaveController new];
+        saveVc.hidesBottomBarWhenPushed = YES;
+        saveVc.saveTitleStr = @"把我的轨迹分享到";
+        self.navigationController.navigationBarHidden = YES;
+        [self.navigationController pushViewController:saveVc animated:YES];
+        
+    }]];
+    [alertVc addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }]];
+    [self presentViewController:alertVc animated:YES completion:nil];
+}
+
 //打开MWPhotoBrowser
 - (void)openPhotoBrower:(NSInteger)selectRow{
     
@@ -301,26 +325,7 @@
 
 #pragma mark -- UIBarButtonItem Action
 - (void)onRightItem:(UIBarButtonItem *)sender{
-    UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    [alertVc addAction:[UIAlertAction actionWithTitle:@"生成专辑" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
-        MyAlbumController *myAlbumVc = [MyAlbumController new];
-        myAlbumVc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:myAlbumVc animated:YES];
-    }]];
-    [alertVc addAction:[UIAlertAction actionWithTitle:@"保存足迹" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        PictureSaveController *saveVc = [PictureSaveController new];
-        saveVc.hidesBottomBarWhenPushed = YES;
-        saveVc.saveTitleStr = @"把我的轨迹分享到";
-        self.navigationController.navigationBarHidden = YES;
-        [self.navigationController pushViewController:saveVc animated:YES];
 
-    }]];
-    [alertVc addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        
-    }]];
-    [self presentViewController:alertVc animated:YES completion:nil];
-    
 }
 
 - (void)onAnnotationViewTap:(UITapGestureRecognizer *)sender{
