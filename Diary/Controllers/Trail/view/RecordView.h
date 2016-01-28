@@ -12,6 +12,8 @@
 
 @protocol RecordViewDelegate <NSObject>
 
+- (void)recordViewDelegateReturnPhoto:(UIImage *)image;
+
 - (void)recordViewDelegateFinishTrail;
 
 @end

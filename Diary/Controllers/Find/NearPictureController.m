@@ -11,6 +11,7 @@
 #import "AZXCollectionViewPubuLayout.h"
 #import "NearPictureCell.h"
 #import "MWPhotoBrowser.h"
+#import "MyAlbumController.h"
 
 @interface NearPictureController () <UICollectionViewDataSource,AZXCollectionViewPubuLayoutDelegate,UICollectionViewDelegate,MWPhotoBrowserDelegate>
 
@@ -104,6 +105,19 @@
     return nil;
 }
 
+/**
+ *  点击查看专辑按钮
+ *
+ *  @param photoBrowser
+ *  @param index        当前照片位置 （+1）
+ */
+- (void)photoBrowser:(MWPhotoBrowser *)photoBrowser actionButtonPressedForPhotoAtIndex:(NSUInteger)index{
+   
+    MyAlbumController *myAlbumVc = [MyAlbumController new];
+    myAlbumVc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:myAlbumVc animated:YES];
+}
+
 //打开MWPhotoBrowser
 - (void)openPhotoBrower:(NSInteger)selectRow{
     
@@ -116,7 +130,6 @@
     }];
     
     _browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
-    _browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
     _browser.displayActionButton = YES;
     _browser.displayNavArrows = YES;
     _browser.displaySelectionButtons = NO;
@@ -126,6 +139,7 @@
     _browser.startOnGrid = YES;
     _browser.enableSwipeToDismiss = NO;
     _browser.autoPlayOnAppear = YES;
+    _browser.isShowAlbumBtn = YES;
     [_browser setCurrentPhotoIndex:selectRow];
     [self.navigationController pushViewController:_browser animated:YES];
 }

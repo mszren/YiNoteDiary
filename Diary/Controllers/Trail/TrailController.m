@@ -21,73 +21,302 @@
 #import "DBCameraContainerViewController.h"
 #import "IdentifyController.h"
 
+#import "POIAnnotation.h"
+#import "CommonUtility.h"
+#import "TravleMapLine.h"
+#import "TravelMapPointAnnotation.h"
+#import "MWPhotoBrowser.h"
+#import "NSDate_TimeZone.h"
+
 #define kCalloutViewMargin          -8
 
-@interface TrailController () <MAMapViewDelegate,DBCameraViewControllerDelegate>
-@property (nonatomic, strong) NSMutableArray *overlaysAboveRoads;
-@property (nonatomic, strong) NSMutableArray *overlaysAboveLabels;
-@property (nonatomic, strong) NSMutableArray *annotations;
+@interface TrailController () <MAMapViewDelegate,DBCameraViewControllerDelegate,MWPhotoBrowserDelegate>
+
+@property(nonatomic, strong) NSMutableArray *dataList;
+@property(nonatomic, strong) MAMapView *mapView;
 
 @end
 
 @implementation TrailController{
     
-    MAMapView *_mapView;
     MACoordinateRegion _region;//中心点坐标
     DBCameraViewController *_cameraController;
     UIImage *_cameraImg;
+    
+    CLLocation * _currentLocation;
+    TravelEntity * _selectedTravelEntity;
 }
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    [self initView];
+    [self initMapView];
+    [self initLine];
+    [self initAnnotation];
+    [self creatSelectImg];
 }
 
-- (void)initView{
-    
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-    _mapView = [[MAMapView alloc]initWithFrame:self.view.bounds];
-    _mapView.delegate = self;
-    [self.view addSubview:_mapView];
-    
-    _mapView.showsCompass = NO;//指南针
-    _mapView.showsScale = NO;//比例尺
-    _mapView.layer.shouldRasterize = YES;
-//    [_mapView setZoomLevel:13 animated:YES];
-    
+#pragma mark - DBCameraViewControllerDelegate
 
-    [self initOverlays];
-    [self creatSelectImg];
+- (void)camera:(id)cameraViewController didFinishWithImage:(UIImage *)image withMetadata:(NSDictionary *)metadata{
+    NSData * data = UIImageJPEGRepresentation(image, 0.08f);
+    UIImage * temp = [[UIImage alloc] initWithData:data];
+    _cameraImg = temp;
+    IdentifyController *identifyVc = [IdentifyController new];
+    identifyVc.hidesBottomBarWhenPushed = YES;
+    identifyVc.cameraImg = _cameraImg;
+    [self.navigationController pushViewController:identifyVc animated:YES];
+    [self.presentedViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)dismissCamera:(id)cameraViewController{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [cameraViewController restoreFullScreenMode];
+}
+
+#pragma mark -
+#pragma mark MWPhotoBrowserDelegate
+- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser{
+    return  _selectedTravelEntity.imageList.count;
     
-    //初始中心点
-    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(39.832136, 116.42095);
-    MACoordinateSpan span = MACoordinateSpanMake(0.1, 0.1);
-    _region = MACoordinateRegionMake(coordinate, span);
-    [_mapView setRegion:_region];
+}
+- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index{
+    PhotoEntity * model = [_selectedTravelEntity.imageList objectAtIndex:index];
+    MWPhoto * mwPhoto = [[MWPhoto alloc] initWithImage:[[UIImage alloc] initWithContentsOfFile:[[TravelImageCacheManage shareInstance] loadImgPath:model.photoImgPath]]];
     
-    self.annotations = [NSMutableArray array];
+    return mwPhoto;
+}
+
+
+#pragma mark - MAMapViewDelegate
+- (void)mapView:(MAMapView *)mapView regionDidChangeAnimated:(BOOL)animated{
     
-    CLLocationCoordinate2D coordinates[8] = {
-        {39.793765, 116.294653},
-        {39.831741, 116.294653},
-        {39.832136, 116.42095},
-        {39.832136, 116.42095},
-        {39.902136, 116.42095},
-        {39.902136, 116.44095},
-        {39.932136, 116.44095},
-        {39.952136, 116.50095}};
-    
-    for (int i = 0; i < 8; i++)
+}
+
+- (MAOverlayView *)mapView:(MAMapView *)mapView
+            viewForOverlay:(id<MAOverlay>)overlay {
+    if ([overlay isKindOfClass:[TravleMapLine class]]) {
+        TravleMapLine * travleMapLine = (TravleMapLine*)overlay;
+        
+        MAPolylineView *polylineView =
+        [[MAPolylineView alloc] initWithPolyline:travleMapLine];
+        polylineView.lineWidth = 10.f;
+        
+        switch (travleMapLine.index) {
+            case 0:{
+                polylineView.strokeColor = [UIColor redColor];
+                break;
+            }
+            case 1:{
+                polylineView.strokeColor = [UIColor yellowColor];
+                break;
+            }
+            case 2:{
+                polylineView.strokeColor = [UIColor blueColor];
+                break;
+            }
+            default:{
+                polylineView.strokeColor = [UIColor blackColor];
+                break;
+            }
+        }
+        return polylineView;
+    }
+    return nil;
+}
+
+
+- (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id<MAAnnotation>)annotation
+{
+    if ([annotation isKindOfClass:[MAPointAnnotation class]])
     {
-        MAPointAnnotation *annotation = [[MAPointAnnotation alloc] init];
-        annotation.coordinate = coordinates[i];
-        annotation.title      = [NSString stringWithFormat:@"anno: %d", i];
-        [self.annotations addObject:annotation];
+        TravelMapPointAnnotation * temp = (TravelMapPointAnnotation *)annotation;
+        static NSString *customReuseIndetifier = @"customReuseIndetifier";
+        
+        CusAnnotationView *annotationView = (CusAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:customReuseIndetifier];
+        
+        if (annotationView == nil)
+        {
+            annotationView = [[CusAnnotationView alloc] initWithAnnotation:annotation
+                                                           reuseIdentifier:customReuseIndetifier];
+            // must set to NO, so we can show the custom callout view.
+            annotationView.canShowCallout   = NO;
+            annotationView.draggable        = YES;
+            annotationView.calloutOffset    = CGPointMake(0, -5);
+        }
+        
+       annotationView.portrait = [[UIImage alloc] initWithContentsOfFile:[[TravelImageCacheManage shareInstance] loadImgPath:temp.photoEntity.photoImgPath]];
+//        annotationView.portrait         = [UIImage imageNamed:@"pic_bg"];
+//        annotationView.name             = @"17";
+        annotationView.index = temp.index;
+        annotationView.travelEntity = temp.travelEntity;
+        annotationView.photoEntity = temp.photoEntity;
+        
+        return annotationView;
     }
     
-    [_mapView addAnnotations:self.annotations];
-
+    return nil;
 }
+
+- (void)mapView:(MAMapView *)mapView didSelectAnnotationView:(MAAnnotationView *)view
+{
+    if ([view isKindOfClass:[CusAnnotationView class]]) {
+        
+        CusAnnotationView *cusView = (CusAnnotationView *)view;
+        
+        _selectedTravelEntity = cusView.travelEntity;
+        if (_selectedTravelEntity.imageList.count) {
+            MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+            [browser setCurrentPhotoIndex:cusView.index];
+            [self.navigationController pushViewController:browser animated:YES];
+        }
+    }
+}
+
+-(void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation
+updatingLocation:(BOOL)updatingLocation
+{
+    if(updatingLocation)
+    {
+        //取出当前位置的坐标
+        NSLog(@"MAMapView latitude : %f,longitude: %f",userLocation.coordinate.latitude,userLocation.coordinate.longitude);
+    }
+}
+
+#pragma mark -- UITapGestureRecognizer
+- (void)onTap:(UITapGestureRecognizer *)sender{
+    
+    switch (sender.view.tag) {
+        case 100:{
+        
+            
+            [[TravelDataManage shareInstance] updateAllTravelFinish];
+            
+            TravelEntity * aModel = [[TravelEntity alloc] initWithName:@"" logo:@"" travelDesc:@""];
+            aModel.createTime = [NSDate currentTime];
+            aModel.startLatitude = [TravelLocationManage shareInstance].currentCoord.latitude;
+            aModel.startLongitude = [TravelLocationManage shareInstance].currentCoord.longitude;
+            
+            if ([[TravelDataManage shareInstance] insertTravelEnity:aModel]) {
+                TravelEntity * temp = [[TravelDataManage shareInstance] selectTravelEntityByuuid:aModel.uuid];
+                MyTrailController *myTrailVc = [MyTrailController new];
+                myTrailVc.hidesBottomBarWhenPushed = YES;
+                myTrailVc.currentTravelEntity = temp;
+                myTrailVc.mapView = self.mapView;
+                [self.navigationController pushViewController:myTrailVc animated:YES];
+            }
+        }
+            
+            break;
+        case 101:{
+            
+            _cameraController = [DBCameraViewController initWithDelegate:self];
+            [_cameraController setForceQuadCrop:YES];
+            
+            DBCameraContainerViewController *container = [[DBCameraContainerViewController alloc] initWithDelegate:self];
+            [container setCameraViewController:_cameraController];
+            [container setFullScreenMode];
+            
+            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:container];
+            [nav setNavigationBarHidden:YES];
+            [self presentViewController:nav animated:YES completion:nil];
+        }
+            
+            break;
+        case 102:{
+            [[QueueView sharedInstance] showQueueView:@"木子李" andTitle:@"我在行走的路上--跟我一起去欣赏美丽神秘的地方" withViewController:self];
+        }
+            
+            break;
+            
+        default:{
+
+            
+            _cameraController = [DBCameraViewController initWithDelegate:self];
+            [_cameraController setForceQuadCrop:YES];
+            
+            DBCameraContainerViewController *container = [[DBCameraContainerViewController alloc] initWithDelegate:self];
+            [container setCameraViewController:_cameraController];
+            [container setFullScreenMode];
+            
+            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:container];
+            [nav setNavigationBarHidden:YES];
+            [self presentViewController:nav animated:YES completion:nil];
+        }
+            break;
+    }
+}
+
+#pragma mark - Initialization
+
+- (void)initMapView
+{
+    _mapView = [[MAMapView alloc] initWithFrame:CGRectMake(0,  0, Screen_Width, Screen_height-TabBarHeight)];
+    self.mapView.delegate = self;
+    self.mapView.backgroundColor = [UIColor clearColor];
+    self.mapView.showsUserLocation = NO;
+    self.mapView.userTrackingMode = MAUserTrackingModeFollowWithHeading;
+    self.mapView.customizeUserLocationAccuracyCircleRepresentation = YES;//自定义定位经度圈样式
+    
+    /**
+     *  开启后台定位
+     */
+    self.mapView.pausesLocationUpdatesAutomatically = NO;
+    self.mapView.allowsBackgroundLocationUpdates = YES;//iOS9以上系统必须配置
+    
+    [self.mapView setZoomLevel:18.0 animated:YES];
+    [self.view addSubview:self.mapView];
+}
+
+- (void)initLine{
+    
+    
+    for (int i =0; i < _dataList.count; i++) {
+        TravelEntity * aTravelEntity = [_dataList objectAtIndex:i];
+        
+        CLLocationCoordinate2D *coordinates = (CLLocationCoordinate2D*)malloc(aTravelEntity.travelRouteList.count * sizeof(CLLocationCoordinate2D));
+        
+        for (int j =0; j<aTravelEntity.travelRouteList.count; j++) {
+            LocationEntity * locationEntity = [aTravelEntity.travelRouteList objectAtIndex:j];
+            
+            coordinates[j].longitude = locationEntity.longitude;
+            coordinates[j].latitude  = locationEntity.latitude;
+        }
+        
+        TravleMapLine *polyline = [TravleMapLine polylineWithCoordinates:coordinates count:aTravelEntity.travelRouteList.count];
+        polyline.travelEntity =aTravelEntity;
+        polyline.index = i;
+        
+        [self.mapView addOverlay:polyline];
+        
+        free(coordinates);
+        coordinates = NULL;
+    }
+}
+
+- (void)initAnnotation{
+    for (int i =0; i < _dataList.count; i++) {
+        TravelEntity * travelEntity = [_dataList objectAtIndex:i];
+        
+        for (int j =0; j<travelEntity.imageList.count; j++) {
+            PhotoEntity * photoEntity = [travelEntity.imageList objectAtIndex:j];
+            
+            TravelMapPointAnnotation *pointAnnotation = [[TravelMapPointAnnotation alloc] init];
+            pointAnnotation.coordinate = CLLocationCoordinate2DMake(photoEntity.latitude, photoEntity.longitude);
+            
+            pointAnnotation.title = photoEntity.photoImgPath;
+            pointAnnotation.subtitle = travelEntity.travelID;
+            
+            pointAnnotation.travelEntity = travelEntity;
+            pointAnnotation.index = j;
+            pointAnnotation.photoEntity = photoEntity;
+            [self.mapView addAnnotation:pointAnnotation];
+        }
+    }
+    
+    self.mapView.showsUserLocation = YES;
+}
+
+
 
 - (void)creatSelectImg{
     
@@ -137,229 +366,12 @@
     [recognitImg addGestureRecognizer:recognitTap];
 }
 
-#pragma mark - Initialization
-- (void)initOverlays
-{
-    self.overlaysAboveLabels = [NSMutableArray array];
-    self.overlaysAboveRoads = [NSMutableArray array];
-    
-    /* Arrow Polyline.  构造折线数据对象 */
-    CLLocationCoordinate2D ArrowPolylineCoords[8];
-    ArrowPolylineCoords[0].latitude = 39.793765;
-    ArrowPolylineCoords[0].longitude = 116.294653;
-    
-    ArrowPolylineCoords[1].latitude = 39.831741;
-    ArrowPolylineCoords[1].longitude = 116.294653;
-    
-    ArrowPolylineCoords[2].latitude = 39.832136;
-    ArrowPolylineCoords[2].longitude = 116.34095;
-    
-    ArrowPolylineCoords[3].latitude = 39.832136;
-    ArrowPolylineCoords[3].longitude = 116.42095;
-    
-    ArrowPolylineCoords[4].latitude = 39.902136;
-    ArrowPolylineCoords[4].longitude = 116.42095;
-    
-    ArrowPolylineCoords[5].latitude = 39.902136;
-    ArrowPolylineCoords[5].longitude = 116.44095;
-    
-    ArrowPolylineCoords[6].latitude = 39.932136;
-    ArrowPolylineCoords[6].longitude = 116.44095;
-    
-    ArrowPolylineCoords[7].latitude = 39.952136;
-    ArrowPolylineCoords[7].longitude = 116.50095;
-    
-    for (NSInteger i = 0; i < 8; i++) {
-        MACircle *circle = [MACircle circleWithCenterCoordinate:CLLocationCoordinate2DMake(ArrowPolylineCoords[i].latitude, ArrowPolylineCoords[i].longitude) radius:500];
-        [self.overlaysAboveRoads addObject:circle];
-    }
-    
-    //构造折线对象
-    MAPolyline *arrowPolyline = [MAPolyline polylineWithCoordinates:ArrowPolylineCoords count:8];
-    
-    for (NSInteger i = 0; i < 8; i++) {
-        [self.overlaysAboveLabels insertObject:arrowPolyline atIndex:i];
-    }
-    
-    [_mapView addOverlays:self.overlaysAboveLabels];
-    [_mapView addOverlays:self.overlaysAboveRoads level:MAOverlayLevelAboveRoads];
-}
-
-#pragma mark - DBCameraViewControllerDelegate
-
-- (void)camera:(id)cameraViewController didFinishWithImage:(UIImage *)image withMetadata:(NSDictionary *)metadata{
-    NSData * data = UIImageJPEGRepresentation(image, 0.08f);
-    UIImage * temp = [[UIImage alloc] initWithData:data];
-    _cameraImg = temp;
-    IdentifyController *identifyVc = [IdentifyController new];
-    identifyVc.hidesBottomBarWhenPushed = YES;
-    identifyVc.cameraImg = _cameraImg;
-    [self.navigationController pushViewController:identifyVc animated:YES];
-    [self.presentedViewController dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)dismissCamera:(id)cameraViewController{
-    [self dismissViewControllerAnimated:YES completion:nil];
-    [cameraViewController restoreFullScreenMode];
-}
-
-#pragma mark - MAMapViewDelegate
-
-- (MAOverlayView *)mapView:(MAMapView *)mapView viewForOverlay:(id <MAOverlay>)overlay
-{
-    if ([overlay isKindOfClass:[MACircle class]])
-    {
-        MACircleView *circleView = [[MACircleView alloc] initWithCircle:overlay];
-        
-        circleView.lineWidth    = 5.f;
-        circleView.strokeColor  = [UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:0.8];
-        circleView.fillColor    = [UIColor colorWithRed:1.0 green:0.8 blue:0.0 alpha:0.8];
-        circleView.lineDash     = YES;
-        
-        return circleView;
-    }
-    else if ([overlay isKindOfClass:[MAPolyline class]])
-    {
-        MAPolylineView *polylineView = [[MAPolylineView alloc] initWithPolyline:overlay];
-        polylineView.lineWidth    = 8.f;
-        [polylineView loadStrokeTextureImage:[UIImage imageNamed:@"arrowTexture"]];
-        //        polylineView.strokeColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.6];
-        //        polylineView.lineJoinType = kMALineJoinRound;//连接类型
-        //        polylineView.lineCapType = kMALineCapArrow;//端点类型
-        
-        return polylineView;
-    }
-    
-    return nil;
-}
-
-#pragma mark - MAMapViewDelegate
-
-- (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id<MAAnnotation>)annotation
-{
-    if ([annotation isKindOfClass:[MAPointAnnotation class]])
-    {
-        static NSString *customReuseIndetifier = @"customReuseIndetifier";
-        
-        CusAnnotationView *annotationView = (CusAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:customReuseIndetifier];
-        
-        if (annotationView == nil)
-        {
-            annotationView = [[CusAnnotationView alloc] initWithAnnotation:annotation
-                                                           reuseIdentifier:customReuseIndetifier];
-        }
-        
-        // must set to NO, so we can show the custom callout view.
-        annotationView.canShowCallout   = YES;
-        annotationView.draggable        = YES;
-        annotationView.calloutOffset    = CGPointMake(0, -5);
-        [annotationView.portraitImageView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onAnnotationViewTap:)]];
-        
-        annotationView.portrait         = [UIImage imageNamed:@"pic_bg"];
-        annotationView.name             = @"17";
-        
-        return annotationView;
-    }
-    
-    return nil;
-}
-
-#pragma mark - Action Handle
-
-- (void)mapView:(MAMapView *)mapView didSelectAnnotationView:(MAAnnotationView *)view
-{
-    /* Adjust the map center in order to show the callout view completely. */
-    if ([view isKindOfClass:[CusAnnotationView class]]) {
-        CusAnnotationView *cusView = (CusAnnotationView *)view;
-        CGRect frame = [cusView convertRect:cusView.calloutView.frame toView:_mapView];
-        
-        frame = UIEdgeInsetsInsetRect(frame, UIEdgeInsetsMake(kCalloutViewMargin, kCalloutViewMargin, kCalloutViewMargin, kCalloutViewMargin));
-        
-        if (!CGRectContainsRect(_mapView.frame, frame))
-        {
-            /* Calculate the offset to make the callout view show up. */
-            CGSize offset = [self offsetToContainRect:frame inRect:_mapView.frame];
-            
-            CGPoint screenAnchor = [_mapView getMapStatus].screenAnchor;
-            CGPoint theCenter = CGPointMake(_mapView.bounds.size.width * screenAnchor.x, _mapView.bounds.size.height * screenAnchor.y);
-            theCenter = CGPointMake(theCenter.x - offset.width, theCenter.y - offset.height);
-            
-            CLLocationCoordinate2D coordinate = [_mapView convertPoint:theCenter toCoordinateFromView:_mapView];
-            
-            [_mapView setCenterCoordinate:coordinate animated:YES];
-        }
-        
-    }
-}
-
-#pragma mark - Utility
-- (CGSize)offsetToContainRect:(CGRect)innerRect inRect:(CGRect)outerRect
-{
-    CGFloat nudgeRight = fmaxf(0, CGRectGetMinX(outerRect) - (CGRectGetMinX(innerRect)));
-    CGFloat nudgeLeft = fminf(0, CGRectGetMaxX(outerRect) - (CGRectGetMaxX(innerRect)));
-    CGFloat nudgeTop = fmaxf(0, CGRectGetMinY(outerRect) - (CGRectGetMinY(innerRect)));
-    CGFloat nudgeBottom = fminf(0, CGRectGetMaxY(outerRect) - (CGRectGetMaxY(innerRect)));
-    return CGSizeMake(nudgeLeft ?: nudgeRight, nudgeTop ?: nudgeBottom);
-}
-
-#pragma mark -- UITapGestureRecognizer
-- (void)onTap:(UITapGestureRecognizer *)sender{
-    switch (sender.view.tag) {
-        case 100:{
-            
-            MyTrailController *myTrailVc = [MyTrailController new];
-            myTrailVc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:myTrailVc animated:YES];
-        }
-            
-            break;
-        case 101:{
-            
-            _cameraController = [DBCameraViewController initWithDelegate:self];
-            [_cameraController setForceQuadCrop:YES];
-            
-            DBCameraContainerViewController *container = [[DBCameraContainerViewController alloc] initWithDelegate:self];
-            [container setCameraViewController:_cameraController];
-            [container setFullScreenMode];
-            
-            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:container];
-            [nav setNavigationBarHidden:YES];
-            [self presentViewController:nav animated:YES completion:nil];
-        }
-            
-            break;
-        case 102:{
-            [[QueueView sharedInstance] showQueueView:@"木子李" andTitle:@"我在行走的路上--跟我一起去欣赏美丽神秘的地方" withViewController:self];
-        }
-            
-            break;
-            
-        default:{
-
-            
-            _cameraController = [DBCameraViewController initWithDelegate:self];
-            [_cameraController setForceQuadCrop:YES];
-            
-            DBCameraContainerViewController *container = [[DBCameraContainerViewController alloc] initWithDelegate:self];
-            [container setCameraViewController:_cameraController];
-            [container setFullScreenMode];
-            
-            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:container];
-            [nav setNavigationBarHidden:YES];
-            [self presentViewController:nav animated:YES completion:nil];
-        }
-            break;
-    }
-}
-
-- (void)onAnnotationViewTap:(UITapGestureRecognizer *)sender{
-    
-}
-
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
+    
     [[BaseNavigation sharedInstance] setIndexGreenNavigationBar:self andTitle:@"我的轨迹"];
+    [_dataList removeAllObjects];
+    _dataList = [[TravelDataManage shareInstance] loadTravelListData];
 }
-
 @end

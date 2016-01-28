@@ -77,7 +77,7 @@
          (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
 #pragma clang diagnostic pop
     }
-  
+    
     
 //    if ([self checkIsExistUser]) {
         [self loadHomeController];

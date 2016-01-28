@@ -351,6 +351,7 @@
     if (_likeBtn == nil) {
         _likeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_likeBtn setTitle:@"喜欢" forState:UIControlStateNormal];
+        [_likeBtn setImage:[UIImage imageNamed:@"ic_love@3x"] forState:UIControlStateNormal];
         _likeBtn.layer.borderWidth = 0.8;
         _likeBtn.layer.cornerRadius = 8;
         CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
@@ -378,6 +379,7 @@
     if (_commentBtn == nil) {
         _commentBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_commentBtn setTitle:@"点评" forState:UIControlStateNormal];
+        [_commentBtn setImage:[UIImage imageNamed:@"ic_comment@3x"] forState:UIControlStateNormal];
         _commentBtn.layer.borderWidth = 0.8;
         _commentBtn.layer.cornerRadius = 8;
         CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();

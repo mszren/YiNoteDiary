@@ -27,6 +27,7 @@
 - (void)camera:(id)cameraViewController didFinishWithImage:(UIImage *)image withMetadata:(NSDictionary *)metadata{
     NSData * data = UIImageJPEGRepresentation(image, 0.08f);
     UIImage * temp = [[UIImage alloc] initWithData:data];
+    [self.delegate recordViewDelegateReturnPhoto:temp];
     [self.viewController dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -47,14 +48,6 @@
             
             break;
         case 101:{
-            
-//            _cameraController =
-//            [DBCameraViewController initWithDelegate:self];
-//            [_cameraController setUseCameraSegue:NO];
-//            UINavigationController *nav = [[UINavigationController alloc]
-//                                           initWithRootViewController:_cameraController];
-//            [nav setNavigationBarHidden:YES];
-//            [self.viewController presentViewController:nav animated:YES completion:nil];
             
  
             _cameraController = [DBCameraViewController initWithDelegate:self];

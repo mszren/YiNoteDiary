@@ -23,6 +23,15 @@ alpha:(a)]
 
 #define IOS7 (［[UIDevice currentDevice].systemVersion doubleValue] >= 7.0]
 
+// dir file name
+#define Img_Dir_Name @"ImgDirName"
+
+#define FILEHOMENAME                                                           \
+[@"File_cache" stringByAppendingFormat:@"/User_%ld", (long)1]
+
+// DBname
+#define DBNAME @"Diary.db" //数据库名
+
 //高德开发Key
 #define ApiKey @"2faa79d859dfef7fb1f8f754679077c9"
 

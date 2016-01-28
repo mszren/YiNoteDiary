@@ -17,4 +17,11 @@
 @property (nonatomic, strong) UIImage *portrait;
 @property (nonatomic, strong) UIView *calloutView;
 
+@property (nonatomic, strong) NSString * travelId;
+
+@property(nonatomic,strong)TravelEntity * travelEntity;
+@property(nonatomic,strong)PhotoEntity * photoEntity;
+
+@property(nonatomic,assign)NSUInteger index;
+
 @end

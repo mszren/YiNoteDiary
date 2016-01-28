@@ -72,6 +72,8 @@
     BOOL _viewHasAppearedInitially;
     CGPoint _currentGridContentOffset;
     
+    //Button
+    UIButton *_showAlbumBtn;
 }
 
 // Properties

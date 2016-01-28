@@ -29,6 +29,11 @@ PODS:
     - GPUImage (~> 0.1)
   - DZNEmptyDataSet (1.7.2)
   - EaseMobSDK (2.1.9)
+  - FMDB (2.6):
+    - FMDB/standard (= 2.6)
+  - FMDB/SQLCipher (2.6):
+    - SQLCipher
+  - FMDB/standard (2.6)
   - GPUImage (0.1.7)
   - JSONModel (1.1.2)
   - Masonry (0.6.3)
@@ -36,6 +41,11 @@ PODS:
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
+  - SQLCipher (3.1.0):
+    - SQLCipher/standard (= 3.1.0)
+  - SQLCipher/common (3.1.0)
+  - SQLCipher/standard (3.1.0):
+    - SQLCipher/common
   - Toast (3.0)
   - UITableView+FDTemplateLayoutCell (1.4.beta)
   - UMengSocial (4.4)
@@ -51,6 +61,8 @@ DEPENDENCIES:
   - DBCamera
   - DZNEmptyDataSet
   - EaseMobSDK
+  - FMDB
+  - FMDB/SQLCipher
   - GPUImage
   - JSONModel
   - Masonry
@@ -71,11 +83,13 @@ SPEC CHECKSUMS:
   DBCamera: 7a4343a541e1264610f9f33176552b93170a843e
   DZNEmptyDataSet: 0ec00bfc230d7450997b60c127afdd0b9f24f3b6
   EaseMobSDK: cc8415cb99a65debf4711fa2c9c349fd5c843299
+  FMDB: c1968bab3ab0aed38f66cb778ae1e7fa9a652b6e
   GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
   JSONModel: 216584d0311b053ff714f1d6cb700dbf890847bc
   Masonry: ff105a956abcd19a618b2028b121cb638d7a8e2f
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
+  SQLCipher: 4684434d5791db86512cd7e02172aefba575849e
   Toast: 32c59229abfcf41850162b83bb9259dc84372473
   UITableView+FDTemplateLayoutCell: 9d20bf0518f3c01e42ae614243b97f1161063d27
   UMengSocial: aba7296602310385114d82c255539a7bef3b7ab0

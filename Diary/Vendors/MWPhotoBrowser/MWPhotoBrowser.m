@@ -81,6 +81,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     _thumbPhotos = [[NSMutableArray alloc] init];
     _currentGridContentOffset = CGPointMake(0, CGFLOAT_MAX);
     _didSavePreviousStateOfNavBar = NO;
+    _isShowAlbumBtn = NO;
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     // Listen for MWPhoto notifications
@@ -305,6 +306,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     _previousButton = nil;
     _nextButton = nil;
     _progressHUD = nil;
+    _showAlbumBtn = nil;
     [super viewDidUnload];
 }
 
@@ -369,6 +371,23 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     if (_currentPageIndex != _pageIndexBeforeRotation) {
         [self jumpToPageAtIndex:_pageIndexBeforeRotation animated:NO];
     }
+    
+    if (_isShowAlbumBtn) {
+        _showAlbumBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.navigationController.navigationBar addSubview:_showAlbumBtn];
+        _showAlbumBtn.frame = CGRectMake(Screen_Width - 95, 7, 80, 30);
+        [_showAlbumBtn setTitle:@"查看专辑" forState:UIControlStateNormal];
+        [_showAlbumBtn setTitleColor:BGViewColor forState:UIControlStateNormal];
+        _showAlbumBtn.titleLabel.font = FONT_SIZE_14;
+        _showAlbumBtn.layer.borderWidth = 0.8;
+        _showAlbumBtn.layer.cornerRadius = 10;
+        CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+        CGColorRef borderColorRef = CGColorCreate(colorSpace, (CGFloat[]){ 1, 1, 1, 1 });
+        CGColorSpaceRelease(colorSpace);
+        _showAlbumBtn.layer.borderColor = borderColorRef;
+        CGColorRelease(borderColorRef);
+        [_showAlbumBtn addTarget:self action:@selector(onShowAblumBtn:) forControlEvents:UIControlEventTouchUpInside];
+    }
 
 }
 
@@ -406,6 +425,8 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
         [self restorePreviousNavBarAppearance:animated];
         
     }
+    
+    [_showAlbumBtn removeFromSuperview];
     
     // Controls
     [self.navigationController.navigationBar.layer removeAllAnimations]; // Stop all animations on nav bar
@@ -1627,6 +1648,10 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 
     }
     
+}
+
+- (void)onShowAblumBtn:(UIButton *)sender{
+    [self.delegate  photoBrowser:self actionButtonPressedForPhotoAtIndex:_currentPageIndex];
 }
 
 #pragma mark - Action Progress

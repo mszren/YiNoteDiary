@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
+#import <MAMapKit/MAMapKit.h>
 
 @interface MyTrailController : UIViewController
 @property (nonatomic,assign) BOOL isShowMember;
+
+@property(nonatomic,strong) TravelEntity * currentTravelEntity;
+
+@property(nonatomic,strong) MAMapView *mapView;
 
 @end
