@@ -80,7 +80,7 @@ static LocationManager *locationManager;
         }
     }
     
-        NSLog(@"long=%f,latitude=%f",_currentCoord.longitude,_currentCoord.latitude);
+//        NSLog(@"long=%f,latitude=%f",_currentCoord.longitude,_currentCoord.latitude);
 }
 
 

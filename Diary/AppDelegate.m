@@ -56,6 +56,11 @@
     LocationManager *locationManager=[LocationManager shareInstance];
     [locationManager startLocation];
     
+//    if ([self checkIsExistUser]) {
+        [self loadHomeController];
+//    } else {
+//        [self loadLoginController];
+//    }
     
     // YWSDK快速接入接口，程序启动后调用这个接口
     [[SPKitExample sharedInstance] callThisInDidFinishLaunching];
@@ -77,13 +82,6 @@
          (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
 #pragma clang diagnostic pop
     }
-    
-    
-//    if ([self checkIsExistUser]) {
-        [self loadHomeController];
-//    } else {
-//        [self loadLoginController];
-//    }
     return YES;
 }
 

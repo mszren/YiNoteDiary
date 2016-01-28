@@ -90,11 +90,11 @@
 
 - (UINavigationController *)rootNavigationController
 {
-    UINavigationController *result = [self.rootWindow.rootViewController isKindOfClass:[UINavigationController class]] ? (UINavigationController *)self.rootWindow.rootViewController : nil;
+    UIViewController *result = [self.rootWindow.rootViewController isKindOfClass:[UIViewController class]] ? (UIViewController *)self.rootWindow.rootViewController : nil;
     
     NSAssert(result, @"如果在您的App中出现这个断言失败，您需要检查- [SPKitExample rootNavigationController]中的实现，是否符合您的App结构");
     
-    return result;
+    return result.navigationController;
 }
 
 

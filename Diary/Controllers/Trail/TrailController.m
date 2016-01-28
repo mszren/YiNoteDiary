@@ -255,14 +255,9 @@ updatingLocation:(BOOL)updatingLocation
     self.mapView.backgroundColor = [UIColor clearColor];
     self.mapView.showsUserLocation = NO;
     self.mapView.userTrackingMode = MAUserTrackingModeFollowWithHeading;
-    self.mapView.customizeUserLocationAccuracyCircleRepresentation = YES;//自定义定位经度圈样式
-    
-    /**
-     *  开启后台定位
-     */
-    self.mapView.pausesLocationUpdatesAutomatically = NO;
-    self.mapView.allowsBackgroundLocationUpdates = YES;//iOS9以上系统必须配置
-    
+    //自定义定位经度圈样式
+    self.mapView.customizeUserLocationAccuracyCircleRepresentation = YES;
+
     [self.mapView setZoomLevel:18.0 animated:YES];
     [self.view addSubview:self.mapView];
 }
