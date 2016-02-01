@@ -25,10 +25,12 @@
 }
 
 - (void)camera:(id)cameraViewController didFinishWithImage:(UIImage *)image withMetadata:(NSDictionary *)metadata{
-    NSData * data = UIImageJPEGRepresentation(image, 0.08f);
-    UIImage * temp = [[UIImage alloc] initWithData:data];
-    [self.delegate recordViewDelegateReturnPhoto:temp];
-    [self.viewController dismissViewControllerAnimated:YES completion:nil];
+
+    [self.viewController.parentViewController dismissViewControllerAnimated:YES completion:^{
+        NSData * data = UIImageJPEGRepresentation(image, 0.08f);
+        UIImage * temp = [[UIImage alloc] initWithData:data];
+        [self.delegate recordViewDelegateReturnPhoto:temp];
+    }];
 }
 
 - (void)dismissCamera:(id)cameraViewController{

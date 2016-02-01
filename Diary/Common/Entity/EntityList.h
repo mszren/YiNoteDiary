@@ -27,9 +27,10 @@ typedef enum : NSUInteger {
 #define kTravelNameKeyDesc @"travelDesc"
 #define kTravelNameKeyStatus @"status"
 #define kTravelNameKeyCreateTime @"createTime"
+
+
 #define kTravelNameKeyStartLatitude @"startLatitude"
 #define kTravelNameKeyStartLongitude @"startLongitude"
-
 #define kTravelNameKeyRoute @"kTravelDataKeyRoute"
 #define kTravelNameKeyViewSpot @"kTravelDataKeyViewSpot"
 

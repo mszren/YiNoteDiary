@@ -18,6 +18,7 @@
 #pragma mark -
 #pragma mark Initialization and teardown
 - (id)init {
+    
   return [self initWithTableName:@"location" ClassName:@"LocationEntity"];
 }
 
@@ -34,7 +35,7 @@
 
 - (NSMutableArray *)selectListByTravelEntity:(TravelEntity *)entity {
     NSString *newSql =
-    [NSString stringWithFormat:@"Select * from %@ where %@ ='%@'  order by %@ desc ",
+    [NSString stringWithFormat:@"Select * from %@ where %@ = %@  order by %@ desc ",
      self.tableName,kLocationNameKeyTravelID,entity.travelID,kLocationNameKeyCreateTime];
     NSMutableArray *resultArr = [self query:newSql];
     return resultArr;

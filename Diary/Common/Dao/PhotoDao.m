@@ -17,6 +17,7 @@
 #pragma mark -
 #pragma mark Initialization and teardown
 - (id)init {
+    
   return [self initWithTableName:@"photo" ClassName:@"PhotoEntity"];
 }
 

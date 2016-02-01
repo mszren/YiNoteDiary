@@ -32,13 +32,16 @@ static TravelDataManage *travelDataManage;
     travelDao = [[TravelDao alloc] init];
     locationDao = [[LocationDao alloc] init];
       
-      distinguishDao = [[DistinguishDao alloc] init];
+    distinguishDao = [[DistinguishDao alloc] init];
   }
   return self;
 }
 
-
-//travel
+/**
+ *  travel
+ *
+ *  @return 
+ */
 - (BOOL)updateAllTravelFinish{
     return [travelDao updateAllTravelFinish];
 }
@@ -52,7 +55,6 @@ static TravelDataManage *travelDataManage;
     for (TravelEntity * travelEntity  in resultList) {
         [travelEntity.imageList removeAllObjects];
         [travelEntity.imageList addObjectsFromArray:[photoDao selectListByTravelEntity:travelEntity]];
-        
         [travelEntity.travelRouteList removeAllObjects];
         [travelEntity.travelRouteList addObjectsFromArray:[locationDao selectListByTravelEntity:travelEntity]];
     }
@@ -69,6 +71,7 @@ static TravelDataManage *travelDataManage;
     [restult.travelRouteList addObjectsFromArray:[locationDao selectListByTravelEntity:restult]];
     return restult;
 }
+
 - (TravelEntity *)selectTravelEntityById:(NSString *) travelId{
     TravelEntity * restult= [travelDao selectModelByID:travelId];
     
@@ -84,7 +87,13 @@ static TravelDataManage *travelDataManage;
     return [travelDao updateTravelFinish:travelId];
 }
 
-//location
+/**
+ *  location
+ *
+ *  @param aLocationEntiry
+ *
+ *  @return
+ */
 - (BOOL)insertLocationEnity:(LocationEntity *)aLocationEntiry {
   return [locationDao insertWithModel:aLocationEntiry];
 }
@@ -93,15 +102,28 @@ static TravelDataManage *travelDataManage;
   return [locationDao selectListByTravelEntity:aTravelEntity];
 }
 
+/**
+ *  photo
+ *
+ *  @param photoEntity
+ *
+ *  @return
+ */
 - (BOOL)insertPhotoEnity:(PhotoEntity *)photoEntity {
   return [photoDao insertWithModel:photoEntity];
 }
 
-//- (NSMutableArray *)loadPhotoListData:(ViewSpotEntity *)viewSpotEntity {
-//  return [photoDao selectListByViewSpotEntity:viewSpotEntity];
-//}
+- (NSMutableArray *)loadPhotoListData:(TravelEntity *)aTravelEntity {
+  return [photoDao selectListByTravelEntity:aTravelEntity];
+}
 
-//Distinguish
+/**
+ *  Distinguish
+ *
+ *  @param BOOL
+ *
+ *  @return
+ */
 - (BOOL)insertDistinguish:(DistinguishEntity *)distinguishEntity{
     return [distinguishDao insertWithModel:distinguishEntity];
 }

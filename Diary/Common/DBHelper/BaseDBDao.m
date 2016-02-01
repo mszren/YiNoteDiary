@@ -27,6 +27,14 @@
     self.tableName = aTableName;
     self.className = aClassName;
       
+      //建表
+      NSString *sql = @"create table if not exists travel(travelID integer primary key autoincrement,uuid,travelName,travelLogo,travelDesc,status,createTime,startLatitude,startLongitude);""create table if not exists photo(photoID integer primary key autoincrement,travelID,photoDesc,photoURL,latitude,longitude,createTime);""CREATE TABLE location(ID integer primary key autoincrement,travelID,latitude,longitude,createTime);";
+      if (![db executeStatements:sql]) {
+          NSLog(@"建表失败:%@",db.lastErrorMessage);
+      }else{
+          NSLog(@"建表成功");
+      }
+      
   }
   return self;
 }

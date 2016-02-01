@@ -23,6 +23,5 @@ target 'Diary' do
     pod 'GPUImage'
     pod 'DBCamera'
     pod 'FMDB'
-    pod 'FMDB/SQLCipher'
 end
 

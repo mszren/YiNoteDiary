@@ -27,6 +27,8 @@
 #import "TravelMapPointAnnotation.h"
 #import "MWPhotoBrowser.h"
 #import "NSDate_TimeZone.h"
+#import "LocationManager.h"
+#import "CustomAnnotationView.h"
 
 #define kCalloutViewMargin          -8
 
@@ -50,8 +52,6 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     [self initMapView];
-    [self initLine];
-    [self initAnnotation];
     [self creatSelectImg];
 }
 
@@ -89,7 +89,6 @@
 
 #pragma mark - MAMapViewDelegate
 - (void)mapView:(MAMapView *)mapView regionDidChangeAnimated:(BOOL)animated{
-    
 }
 
 - (MAOverlayView *)mapView:(MAMapView *)mapView
@@ -130,7 +129,7 @@
     if ([annotation isKindOfClass:[MAPointAnnotation class]])
     {
         TravelMapPointAnnotation * temp = (TravelMapPointAnnotation *)annotation;
-        static NSString *customReuseIndetifier = @"customReuseIndetifier";
+        static NSString *customReuseIndetifier = @"trailVcCustomReuseIndetifier";
         
         CusAnnotationView *annotationView = (CusAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:customReuseIndetifier];
         
@@ -145,31 +144,16 @@
         }
         
        annotationView.portrait = [[UIImage alloc] initWithContentsOfFile:[[TravelImageCacheManage shareInstance] loadImgPath:temp.photoEntity.photoImgPath]];
-//        annotationView.portrait         = [UIImage imageNamed:@"pic_bg"];
-//        annotationView.name             = @"17";
         annotationView.index = temp.index;
+        annotationView.name =  [NSString stringWithFormat:@"%lu",(unsigned long)temp.index];
         annotationView.travelEntity = temp.travelEntity;
         annotationView.photoEntity = temp.photoEntity;
+        [annotationView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onAnnotationViewTap:)]];
         
         return annotationView;
     }
     
     return nil;
-}
-
-- (void)mapView:(MAMapView *)mapView didSelectAnnotationView:(MAAnnotationView *)view
-{
-    if ([view isKindOfClass:[CusAnnotationView class]]) {
-        
-        CusAnnotationView *cusView = (CusAnnotationView *)view;
-        
-        _selectedTravelEntity = cusView.travelEntity;
-        if (_selectedTravelEntity.imageList.count) {
-            MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
-            [browser setCurrentPhotoIndex:cusView.index];
-            [self.navigationController pushViewController:browser animated:YES];
-        }
-    }
 }
 
 -(void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation
@@ -178,7 +162,7 @@ updatingLocation:(BOOL)updatingLocation
     if(updatingLocation)
     {
         //取出当前位置的坐标
-        NSLog(@"MAMapView latitude : %f,longitude: %f",userLocation.coordinate.latitude,userLocation.coordinate.longitude);
+//        NSLog(@"MAMapView latitude : %f,longitude: %f",userLocation.coordinate.latitude,userLocation.coordinate.longitude);
     }
 }
 
@@ -187,21 +171,19 @@ updatingLocation:(BOOL)updatingLocation
     
     switch (sender.view.tag) {
         case 100:{
-        
-            
+    
             [[TravelDataManage shareInstance] updateAllTravelFinish];
             
-            TravelEntity * aModel = [[TravelEntity alloc] initWithName:@"" logo:@"" travelDesc:@""];
+            TravelEntity * aModel = [[TravelEntity alloc] initWithName:@"北京" logo:@"北京" travelDesc:@"北京__故宫"];
             aModel.createTime = [NSDate currentTime];
-            aModel.startLatitude = [TravelLocationManage shareInstance].currentCoord.latitude;
-            aModel.startLongitude = [TravelLocationManage shareInstance].currentCoord.longitude;
+            aModel.startLatitude = [LocationManager shareInstance].currentCoord.latitude;
+            aModel.startLongitude = [LocationManager shareInstance].currentCoord.longitude;
             
             if ([[TravelDataManage shareInstance] insertTravelEnity:aModel]) {
                 TravelEntity * temp = [[TravelDataManage shareInstance] selectTravelEntityByuuid:aModel.uuid];
                 MyTrailController *myTrailVc = [MyTrailController new];
                 myTrailVc.hidesBottomBarWhenPushed = YES;
                 myTrailVc.currentTravelEntity = temp;
-                myTrailVc.mapView = self.mapView;
                 [self.navigationController pushViewController:myTrailVc animated:YES];
             }
         }
@@ -230,7 +212,6 @@ updatingLocation:(BOOL)updatingLocation
             
         default:{
 
-            
             _cameraController = [DBCameraViewController initWithDelegate:self];
             [_cameraController setForceQuadCrop:YES];
             
@@ -243,6 +224,21 @@ updatingLocation:(BOOL)updatingLocation
             [self presentViewController:nav animated:YES completion:nil];
         }
             break;
+    }
+}
+
+#pragma mark - UITapGestureRecognizer
+- (void)onAnnotationViewTap:(UITapGestureRecognizer *)sender{
+    if ([sender.view isKindOfClass:[CusAnnotationView class]]) {
+        
+        CusAnnotationView *cusView = (CusAnnotationView *)sender.view;
+        
+        _selectedTravelEntity = cusView.travelEntity;
+        if (_selectedTravelEntity.imageList.count) {
+            MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+            [browser setCurrentPhotoIndex:cusView.index];
+            [self.navigationController pushViewController:browser animated:YES];
+        }
     }
 }
 
@@ -289,6 +285,7 @@ updatingLocation:(BOOL)updatingLocation
 }
 
 - (void)initAnnotation{
+    
     for (int i =0; i < _dataList.count; i++) {
         TravelEntity * travelEntity = [_dataList objectAtIndex:i];
         
@@ -364,9 +361,13 @@ updatingLocation:(BOOL)updatingLocation
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
+    NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    NSLog(@"path %@",path);
     
     [[BaseNavigation sharedInstance] setIndexGreenNavigationBar:self andTitle:@"我的轨迹"];
     [_dataList removeAllObjects];
     _dataList = [[TravelDataManage shareInstance] loadTravelListData];
+    [self initLine];
+    [self initAnnotation];
 }
 @end

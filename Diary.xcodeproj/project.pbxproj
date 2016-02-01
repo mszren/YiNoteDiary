@@ -357,6 +357,7 @@
 		D7C3E1F01C084DD9009CE15D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C3E1EF1C084DD9009CE15D /* Security.framework */; };
 		D7C3E1F21C084DF1009CE15D /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C3E1F11C084DF1009CE15D /* libc++.tbd */; };
 		D7C3E1F51C0855FF009CE15D /* FeatureListController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7C3E1F41C0855FF009CE15D /* FeatureListController.m */; };
+		D7C5FF971C5F3B65005EC915 /* CustomAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7C5FF961C5F3B65005EC915 /* CustomAnnotationView.m */; };
 		D7CF04DF1C4CAE5D005BFEE0 /* SecurityGuardSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7CF04D61C4CAE5D005BFEE0 /* SecurityGuardSDK.framework */; };
 		D7CF04E01C4CAE5D005BFEE0 /* UMOpenIMSDKFMWK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7CF04D71C4CAE5D005BFEE0 /* UMOpenIMSDKFMWK.framework */; };
 		D7CF04E11C4CAE5D005BFEE0 /* UTDID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7CF04D81C4CAE5D005BFEE0 /* UTDID.framework */; };
@@ -1192,6 +1193,8 @@
 		D7C3E1F11C084DF1009CE15D /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		D7C3E1F31C0855FF009CE15D /* FeatureListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeatureListController.h; path = Controllers/Find/FeatureListController.h; sourceTree = "<group>"; };
 		D7C3E1F41C0855FF009CE15D /* FeatureListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeatureListController.m; path = Controllers/Find/FeatureListController.m; sourceTree = "<group>"; };
+		D7C5FF951C5F3B65005EC915 /* CustomAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotationView.h; sourceTree = "<group>"; };
+		D7C5FF961C5F3B65005EC915 /* CustomAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotationView.m; sourceTree = "<group>"; };
 		D7CF04D61C4CAE5D005BFEE0 /* SecurityGuardSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SecurityGuardSDK.framework; sourceTree = "<group>"; };
 		D7CF04D71C4CAE5D005BFEE0 /* UMOpenIMSDKFMWK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMOpenIMSDKFMWK.framework; sourceTree = "<group>"; };
 		D7CF04D81C4CAE5D005BFEE0 /* UTDID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UTDID.framework; sourceTree = "<group>"; };
@@ -1530,6 +1533,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D76CB4CA1C215D66007ED8FA /* libsqlite3.tbd in Frameworks */,
+				D7C3E1E21C084D81009CE15D /* CoreGraphics.framework in Frameworks */,
 				D77B31BD1C45FD9100C34591 /* AssetsLibrary.framework in Frameworks */,
 				D76768301C22461D00FCF4D2 /* AVFoundation.framework in Frameworks */,
 				D7F29C2E1C2538A300358C1B /* AudioToolbox.framework in Frameworks */,
@@ -1548,7 +1553,6 @@
 				D7CF04E11C4CAE5D005BFEE0 /* UTDID.framework in Frameworks */,
 				D7CF04DF1C4CAE5D005BFEE0 /* SecurityGuardSDK.framework in Frameworks */,
 				D76CB4CC1C215D9B007ED8FA /* libstdc++.tbd in Frameworks */,
-				D76CB4CA1C215D66007ED8FA /* libsqlite3.tbd in Frameworks */,
 				D7CF04E51C4CAE5D005BFEE0 /* WXOUIModule.framework in Frameworks */,
 				D76CB4C81C215D41007ED8FA /* libiconv.tbd in Frameworks */,
 				D7CF04E31C4CAE5D005BFEE0 /* WXOpenIMSDKFMWK.framework in Frameworks */,
@@ -1559,7 +1563,6 @@
 				D7C3E1E81C084DA2009CE15D /* CoreTelephony.framework in Frameworks */,
 				D7C3E1E61C084D91009CE15D /* OpenGLES.framework in Frameworks */,
 				D7C3E1E41C084D88009CE15D /* QuartzCore.framework in Frameworks */,
-				D7C3E1E21C084D81009CE15D /* CoreGraphics.framework in Frameworks */,
 				D7C3E1E01C084D76009CE15D /* Foundation.framework in Frameworks */,
 				B21AD0BB699BEECA6DA473E1 /* libPods-Diary.a in Frameworks */,
 			);
@@ -2304,6 +2307,8 @@
 		D743532E1C0BD98E004B89FE /* view */ = {
 			isa = PBXGroup;
 			children = (
+				D7C5FF951C5F3B65005EC915 /* CustomAnnotationView.h */,
+				D7C5FF961C5F3B65005EC915 /* CustomAnnotationView.m */,
 				D743532F1C0BD98E004B89FE /* IdentifyEditView.h */,
 				D74353301C0BD98E004B89FE /* IdentifyEditView.m */,
 				D74353311C0BD98E004B89FE /* QueueView.h */,
@@ -3385,6 +3390,11 @@
 					84C072EE1BE0C46100822E4B = {
 						CreatedOnToolsVersion = 7.0.1;
 						DevelopmentTeam = 972SEJPPZB;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -3900,6 +3910,7 @@
 				841B2F1E1BE83DF8008C2974 /* LDCachedObject.m in Sources */,
 				D76AB91D1C07FE3F002B14C0 /* LandscapeTableView.m in Sources */,
 				8420C9E31BE9CDB500F09EB2 /* MessageController.m in Sources */,
+				D7C5FF971C5F3B65005EC915 /* CustomAnnotationView.m in Sources */,
 				D731F5F21C3F9C1200F42D17 /* MWTapDetectingImageView.m in Sources */,
 				D74353A41C0C3D0E004B89FE /* SignController.m in Sources */,
 				D743532D1C0BD4AF004B89FE /* IdentifyHeadCell.m in Sources */,

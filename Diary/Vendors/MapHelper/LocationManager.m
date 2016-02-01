@@ -38,16 +38,16 @@ static LocationManager *locationManager;
         _locationManager.delegate = self;
         // 3. 定位精度
         [_locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
-        [_locationManager setPausesLocationUpdatesAutomatically:NO];
+//        [_locationManager setPausesLocationUpdatesAutomatically:NO];
         
         if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8) {
-            //[_locationManager requestWhenInUseAuthorization];//?只在前台开启定位
-            [_locationManager requestAlwaysAuthorization];//?在后台也可定位
+            [_locationManager requestWhenInUseAuthorization];//?只在前台开启定位
+//            [_locationManager requestAlwaysAuthorization];//?在后台也可定位
         }
         // 5.iOS9新特性：将允许出现这种场景：同一app中多个location manager：一些只能在前台定位，另一些可在后台定位（并可随时禁止其后台定位）。
-        if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9) {
-            _locationManager.allowsBackgroundLocationUpdates = YES;
-        }
+//        if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9) {
+//            _locationManager.allowsBackgroundLocationUpdates = YES;
+//        }
 
     }
     return self;
@@ -80,7 +80,7 @@ static LocationManager *locationManager;
         }
     }
     
-//        NSLog(@"long=%f,latitude=%f",_currentCoord.longitude,_currentCoord.latitude);
+        NSLog(@"long=%f,latitude=%f",_currentCoord.longitude,_currentCoord.latitude);
 }
 
 

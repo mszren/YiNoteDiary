@@ -1,19 +1,19 @@
 //
-//  CusAnnotationView.h
-//  Diary
+//  CustomAnnotationView.h
+//  CustomAnnotationDemo
 //
-//  Created by 我 on 15/12/8.
-//  Copyright © 2015年 Owen. All rights reserved.
+//  Created by songjian on 13-3-11.
+//  Copyright (c) 2013年 songjian. All rights reserved.
 //
 
 #import <MAMapKit/MAMapKit.h>
 
-@interface CusAnnotationView : MAAnnotationView
-@property (nonatomic,strong) UIView *backGroundView;
-@property (nonatomic, strong) UIImageView *portraitImageView;
-@property (nonatomic,strong) UIButton * countBtn;
+@interface CustomAnnotationView : MAAnnotationView
+
 @property (nonatomic, copy) NSString *name;
+
 @property (nonatomic, strong) UIImage *portrait;
+
 @property (nonatomic, strong) UIView *calloutView;
 
 @property (nonatomic, strong) NSString * travelId;

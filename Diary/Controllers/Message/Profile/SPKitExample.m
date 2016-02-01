@@ -493,7 +493,7 @@
         [conversationController setViewWillAppearBlock:^(BOOL aAnimated) {
             [weakController.navigationController setNavigationBarHidden:NO animated:aAnimated];
         }];
-        
+        conversationController.hidesBottomBarWhenPushed = YES;
         [aNavigationController pushViewController:conversationController animated:YES];
         
         /// 添加自定义插件

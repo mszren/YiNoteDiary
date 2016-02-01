@@ -21,11 +21,16 @@
   return self;
 }
 
-- (void)createTable:(NSDictionary *)dic{
-    //建表
+/**
+ *  建表
+ *
+ *  @param tableName 表名
+ *  @param dic       字典,(通过字典获取表字段)
+ */
+- (void)createTable:(NSString *)tableName Dictionary:(NSDictionary *)dic{
     
     NSMutableString *sql =
-    [[NSMutableString alloc] initWithFormat:@"create table if not exists travel(ID integer primary key autoincrement,"];
+    [[NSMutableString alloc] initWithFormat:@"create table if not exists %@(ID integer primary key autoincrement,",tableName];
 
     NSArray *keys = [dic allKeys];
     for (NSString *str in keys) {
@@ -40,8 +45,6 @@
     }else{
         
     }
-    
-
 }
 
 - (id)fetchDataWithAdapter:(id<AdapterProtocol>)adapter {
@@ -85,7 +88,10 @@
     return;
   }
     
-    [self createTable:aDic];
+    /**
+     *  建表
+     */
+    [self createTable:tableName Dictionary:aDic];
     
   NSMutableString *sql =
       [[NSMutableString alloc] initWithFormat:@"INSERT INTO %@(", tableName];

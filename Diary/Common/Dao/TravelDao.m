@@ -19,6 +19,7 @@
 #pragma mark -
 #pragma mark Initialization and teardown
 - (id)init {
+
   return [self initWithTableName:@"travel" ClassName:@"TravelEntity"];
 }
 

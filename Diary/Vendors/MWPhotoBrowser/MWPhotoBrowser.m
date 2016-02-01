@@ -411,6 +411,11 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 
 - (void)viewWillDisappear:(BOOL)animated {
     
+    if (_controlVisibilityTimer) {
+        [_controlVisibilityTimer invalidate];
+        _controlVisibilityTimer = nil;
+    }
+    
     // Detect if rotation occurs while we're presenting a modal
     _pageIndexBeforeRotation = _currentPageIndex;
     
@@ -437,6 +442,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     if (!_leaveStatusBarAlone && UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         [[UIApplication sharedApplication] setStatusBarStyle:_previousStatusBarStyle animated:animated];
     }
+    
     
 	// Super
 	[super viewWillDisappear:animated];

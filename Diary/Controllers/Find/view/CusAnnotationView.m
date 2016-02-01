@@ -43,13 +43,11 @@
 
 #pragma mark - Override
 
-- (NSString *)name
-{
+- (NSString *)name{
     return self.countBtn.titleLabel.text;
 }
 
-- (void)setName:(NSString *)name
-{
+- (void)setName:(NSString *)name{
     [self.countBtn setTitle:name forState:UIControlStateNormal];
 }
 
@@ -70,52 +68,51 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
-    if (self.selected == selected)
-    {
-        return;
-    }
-    
-    if (selected)
-    {
-        if (self.calloutView == nil)
-        {
-            /* Construct custom callout. */
-            self.calloutView = [[CustomCalloutView alloc] initWithFrame:CGRectMake(0, 0, kCalloutWidth, kCalloutHeight)];
-            self.calloutView.center = CGPointMake(CGRectGetWidth(self.bounds) / 2.f + self.calloutOffset.x,
-                                                  -CGRectGetHeight(self.calloutView.bounds) / 2.f + self.calloutOffset.y);
-            
-            UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-            btn.frame = CGRectMake(10, 10, 40, 40);
-            [btn setTitle:@"Test" forState:UIControlStateNormal];
-            [btn setBackgroundColor:[UIColor whiteColor]];
-            [btn setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
-            [btn addTarget:self action:@selector(btnAction) forControlEvents:UIControlEventTouchUpInside];
-            
-            [self.calloutView addSubview:btn];
-            
-            UILabel *name = [[UILabel alloc] initWithFrame:CGRectMake(60, 10, 100, 30)];
-            name.backgroundColor = [UIColor clearColor];
-            name.textColor = [UIColor whiteColor];
-            name.text = @"Hello Amap!";
-            [self.calloutView addSubview:name];
-           
-        }
-        
-        [self addSubview:self.calloutView];
-    }
-    else
-    {
-        [self.calloutView removeFromSuperview];
-    }
-    
-    [super setSelected:selected animated:animated];
+    //    if (self.selected == selected)
+    //    {
+    //        return;
+    //    }
+    //
+    //    if (selected)
+    //    {
+    //        if (self.calloutView == nil)
+    //        {
+    //            /* Construct custom callout. */
+    //            self.calloutView = [[CustomCalloutView alloc] initWithFrame:CGRectMake(0, 0, kCalloutWidth, kCalloutHeight)];
+    //            self.calloutView.center = CGPointMake(CGRectGetWidth(self.bounds) / 2.f + self.calloutOffset.x,
+    //                                                  -CGRectGetHeight(self.calloutView.bounds) / 2.f + self.calloutOffset.y);
+    //
+    //            UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    //            btn.frame = CGRectMake(10, 10, 40, 40);
+    //            [btn setTitle:@"Test" forState:UIControlStateNormal];
+    //            [btn setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+    //            [btn setBackgroundColor:[UIColor whiteColor]];
+    //            [btn addTarget:self action:@selector(btnAction) forControlEvents:UIControlEventTouchUpInside];
+    //
+    //            [self.calloutView addSubview:btn];
+    //
+    //            UILabel *name = [[UILabel alloc] initWithFrame:CGRectMake(60, 10, 100, 30)];
+    //            name.backgroundColor = [UIColor clearColor];
+    //            name.textColor = [UIColor whiteColor];
+    //            name.text = @"Hello Amap!";
+    //            [self.calloutView addSubview:name];
+    //        }
+    //
+    //        [self addSubview:self.calloutView];
+    //    }
+    //    else
+    //    {
+    //        [self.calloutView removeFromSuperview];
+    //    }
+    //
+    //    [super setSelected:selected animated:animated];
 }
 
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event
 {
     BOOL inside = [super pointInside:point withEvent:event];
-    /* Points that lie outside the receiver’s bounds are never reported as hits, 
-     even if they actually lie within one of the receiver’s subviews. 
+    /* Points that lie outside the receiver’s bounds are never reported as hits,
+     even if they actually lie within one of the receiver’s subviews.
      This can occur if the current view’s clipsToBounds property is set to NO and the affected subview extends beyond the view’s bounds.
      */
     if (!inside && self.selected)
@@ -143,7 +140,6 @@
         /* Create portrait image view and add to view hierarchy. */
         self.backGroundView = [UIView new];
         [self addSubview:self.backGroundView];
-        self.backGroundView.userInteractionEnabled = YES;
         [self.backGroundView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.centerX.mas_equalTo(self);
             make.size.mas_equalTo(CGSizeMake(KBackgroundViewWidth, KBackgroundViewHeight));
@@ -153,7 +149,6 @@
         self.backGroundView.clipsToBounds = YES;
 
         self.portraitImageView = [UIImageView new];
-        self.portraitImageView.userInteractionEnabled = YES;
         [self.backGroundView addSubview:self.portraitImageView];
         [self.portraitImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.centerY.mas_equalTo(self.backGroundView);

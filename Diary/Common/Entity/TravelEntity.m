@@ -33,10 +33,10 @@
     _travelLogo = aLogo;
     _travelDesc = aDesc;
 
-
   }
   return self;
 }
+
 - (id)initWithDictionary:(NSDictionary *)dic {
   self = [self init];
   if (self) {

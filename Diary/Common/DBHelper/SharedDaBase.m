@@ -29,7 +29,7 @@ static SharedDaBase* sharedDaBase;
     self = [super init];
     if (self) {
         BOOL d = [self initDatabase];
-        NSLog(@"%d", d);
+        NSLog(@"数据库初始化 : %d", d);
     }
     return self;
 }
@@ -39,30 +39,31 @@ static SharedDaBase* sharedDaBase;
 - (BOOL)initDatabase
 {
     BOOL success;
-    NSError* error;
+//    NSError* error;
     NSFileManager* fm = [NSFileManager defaultManager];
     NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString* documentsDirectory = [paths objectAtIndex:0];
     NSString* writableDBPath = [documentsDirectory stringByAppendingPathComponent:DBNAME];
 
     success = [fm fileExistsAtPath:writableDBPath];
-    if (!success) {
-        NSString* defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:DBNAME];
-        success = [fm copyItemAtPath:defaultDBPath toPath:writableDBPath error:&error];
-        if (!success) {
-            NSLog(@"%@", [error localizedDescription]);
-        }
-    }
-    if (success) {
+//    if (!success) {
+//        NSString* defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:DBNAME];
+//        success = [fm copyItemAtPath:defaultDBPath toPath:writableDBPath error:&error];
+//        if (!success) {
+//            NSLog(@"%@", [error localizedDescription]);
+//        }
+//    }
+//    if (success) {
         self.db = [FMDatabase databaseWithPath:writableDBPath];
         if ([db open]) {
             [db setShouldCacheStatements:YES];
+            NSLog(@"success to open database.");
         }
         else {
             NSLog(@"Failed to open database.");
             success = NO;
         }
-    }
+//    }
     return success;
 }
 - (void)closeDatabase

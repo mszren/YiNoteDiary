@@ -25,6 +25,7 @@
 #import "TravleMapLine.h"
 #import "TravelMapPointAnnotation.h"
 #import "NSDate_TimeZone.h"
+#import "CustomAnnotationView.h"
 
 #define kCalloutViewMargin          -8
 
@@ -41,18 +42,10 @@
     
     NSMutableArray * _pointList;
     NSMutableArray * _photoList;
-    
-    /**
-     *  是否开始记录
-     */
-    BOOL _updateLocation;
 }
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    [self initMapView];
-    [self initLine];
-    [self initAnnotation];
     [self initView];
 }
 
@@ -62,7 +55,7 @@
     NSLog(@"path %@",path);
     self.view.backgroundColor = BGViewColor;
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    _rightButton = [[UIBarButtonItem alloc] initWithTitle:@"开始" style:UIBarButtonItemStylePlain target:self action:@selector(onRightItem:)];
+    _rightButton = [[UIBarButtonItem alloc] initWithTitle:@"结束游记" style:UIBarButtonItemStylePlain target:self action:@selector(onRightItem:)];
     self.navigationItem.rightBarButtonItem = _rightButton;
     
     _pointList = [[NSMutableArray alloc] initWithCapacity:0];
@@ -70,8 +63,6 @@
     
     [_pointList addObjectsFromArray:_currentTravelEntity.travelRouteList];
     [_photoList addObjectsFromArray:_currentTravelEntity.imageList];
-    
-    _updateLocation = NO;
     
     RecordView *recordView = [[RecordView alloc]initWithFrame:CGRectMake(0, Screen_height - 56 - NavigationBarHeight, Screen_Width, 56) andDelegate:self];
     recordView.memberBtn.hidden = !_isShowMember;
@@ -151,14 +142,12 @@
     return nil;
 }
 
-#pragma mark - MAMapViewDelegate
-
 - (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id<MAAnnotation>)annotation
 {
     if ([annotation isKindOfClass:[MAPointAnnotation class]])
     {
         TravelMapPointAnnotation * temp = (TravelMapPointAnnotation *)annotation;
-        static NSString *customReuseIndetifier = @"customReuseIndetifier";
+        static NSString *customReuseIndetifier = @"myTrailVcCustomReuseIndetifier";
         
         CusAnnotationView *annotationView = (CusAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:customReuseIndetifier];
         
@@ -173,9 +162,11 @@
         }
         
         annotationView.portrait = [[UIImage alloc] initWithContentsOfFile:[[TravelImageCacheManage shareInstance] loadSmallImgPath:temp.photoEntity.photoImgPath]];
+        annotationView.name =  [NSString stringWithFormat:@"%lu",(unsigned long)temp.index];
         annotationView.travelEntity = temp.travelEntity;
         annotationView.photoEntity = temp.photoEntity;
         annotationView.index = temp.index;
+        [annotationView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onAnnotationViewTap:)]];
         
         return annotationView;
     }
@@ -183,24 +174,10 @@
     return nil;
 }
 
-- (void)mapView:(MAMapView *)mapView didSelectAnnotationView:(MAAnnotationView *)view
-{
-    /* Adjust the map center in order to show the callout view completely. */
-    if ([view isKindOfClass:[CusAnnotationView class]]) {
-        
-        CusAnnotationView *cusView = (CusAnnotationView *)view;
-        
-        MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
-        [browser setCurrentPhotoIndex:cusView.index];
-        [self.navigationController pushViewController:browser animated:YES];
-        
-    }
-}
-
 -(void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation
 updatingLocation:(BOOL)updatingLocation
 {
-    if(updatingLocation && _updateLocation)
+    if(updatingLocation)
     {
         CLLocation *orig= userLocation.location;
         CLLocation* dist= _currentLocation.location;
@@ -240,10 +217,6 @@ updatingLocation:(BOOL)updatingLocation
 #pragma mark -- RecordViewDelegate
 - (void)recordViewDelegateFinishTrail{
     
-    
-    _updateLocation = NO;
-    _rightButton.enabled = YES;
-    
     UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     [alertVc addAction:[UIAlertAction actionWithTitle:@"生成专辑" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
@@ -275,8 +248,10 @@ updatingLocation:(BOOL)updatingLocation
     
     
     PhotoEntity * aModel = [[PhotoEntity alloc] initWithTravelID:_currentTravelEntity.travelID latitude:_currentLocation.coordinate.latitude longitude:_currentLocation.coordinate.longitude];
-    aModel.createTime = [NSDate currentTime];
+    aModel.createTime = [NSDate currentTime];      
     aModel.photoImgPath = urlPath;
+    aModel.latitude = _currentLocation.coordinate.latitude;
+    aModel.longitude = _currentLocation.coordinate.longitude;
     
     [[TravelDataManage shareInstance] insertPhotoEnity:aModel];
     
@@ -297,15 +272,30 @@ updatingLocation:(BOOL)updatingLocation
 #pragma mark -- UIBarButtonItem Action
 - (void)onRightItem:(UIBarButtonItem *)sender{
    
-    [ToastManager showToast:@"开始轨迹记录！" containerView:self.view withTime:Toast_Hide_TIME];
-    _updateLocation = YES;
-    _rightButton.enabled = NO;
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - UITapGestureRecognizer
+- (void)onAnnotationViewTap:(UITapGestureRecognizer *)sender{
+    /* Adjust the map center in order to show the callout view completely. */
+    if ([sender.view isKindOfClass:[CusAnnotationView class]]) {
+        
+        CusAnnotationView *cusView = (CusAnnotationView *)sender.view;
+        
+        MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+        [browser setCurrentPhotoIndex:cusView.index];
+        [self.navigationController pushViewController:browser animated:YES];
+        
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
     [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:@"我的轨迹"];
+    [self initMapView];
+    [self initLine];
+    [self initAnnotation];
 }
 
 @end
