@@ -51,7 +51,7 @@
 
 static const CGFloat kPadding = 4.f;
 static const CGFloat kLabelFontSize = 16.f;
-static const CGFloat kDetailsLabelFontSize = 12.f;
+static const CGFloat kDetailsLabelFontSize = 17.f;
 
 
 @interface MBProgressHUD () {
@@ -171,7 +171,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 		self.labelText = nil;
 		self.detailsLabelText = nil;
 		self.opacity = 0.8f;
-		self.color = nil;
+		self.color = [UIColor colorWithRed:(135) / 255.0 green:(213) / 255.0 blue:(27) / 255.0 alpha:1];
 		self.labelFont = [UIFont boldSystemFontOfSize:kLabelFontSize];
 		self.labelColor = [UIColor whiteColor];
 		self.detailsLabelFont = [UIFont boldSystemFontOfSize:kDetailsLabelFontSize];

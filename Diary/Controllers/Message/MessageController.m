@@ -15,17 +15,14 @@
 #import "NotifationController.h"
 #import "BaseNavigation.h"
 #import "SPKitExample.h"
-#import <WXOUIModule/YWConversationListViewController.h>
-#import <WXOUIModule/IYWUIService.h>
-#import <WXOpenIMSDKFMWK/IYWConversationService.h>
 
-@interface MessageController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource>
+@interface MessageController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,EGOTableViewDelegate>
 
 @end
 
 @implementation MessageController{
     
-    UITableView* _tableView;
+    EGOTableView* _tableView;
     NSIndexPath * _lastSelectCell;
 }
 
@@ -35,15 +32,18 @@
 
 - (void)initView{
     
-    _tableView = [[UITableView alloc]
+    _tableView = [[EGOTableView alloc]
                   initWithFrame:CGRectMake(0, 0, Screen_Width,
                                            Screen_height - NavigationBarHeight - TabBarHeight )
                   style:UITableViewStylePlain];
-    _tableView.delegate = self;
+    _tableView.backgroundColor = BGViewColor;
+    _tableView.backgroundView = nil;
     _tableView.dataSource = self;
+    _tableView.delegate = self;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _tableView.pullingDelegate = self;
+    _tableView.autoScrollToNextPage = NO;
     _tableView.emptyDataSetSource = self;
-    _tableView.backgroundColor = BGViewGray;
     _tableView.emptyDataSetDelegate = self;
     _tableView.showsVerticalScrollIndicator = NO;
     id<IYWConversationService> conversationService = [[SPKitExample sharedInstance].ywIMKit.IMCore getConversationService];
@@ -53,6 +53,30 @@
         [self.view addSubview:_tableView];
     }];
     
+}
+
+#pragma mark -- EGOTableViewDelegate
+- (void)pullingTableViewDidStartRefreshing:(EGOTableHeaderView*)tableView
+{
+    
+    
+}
+
+- (void)pullingTableViewDidStartLoading:(EGOTableView*)tableView
+{
+    
+}
+
+- (NSDate*)pullingTableViewRefreshingFinishedDate
+{
+    
+    return [NSDate date];
+}
+
+- (NSDate*)pullingTableViewLoadingFinishedDate
+{
+    
+    return [NSDate date];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -216,6 +240,20 @@
 -(UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView{
     
     return [UIImage imageNamed:@"ic_tywnr"];
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView*)scrollView
+{
+    
+    [_tableView tableViewDidScroll:scrollView];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView*)scrollView willDecelerate:(BOOL)decelerate
+{
+    
+    [_tableView tableViewDidEndDragging:scrollView];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

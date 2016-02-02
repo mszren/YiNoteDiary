@@ -98,7 +98,7 @@
         annotationView.canShowCallout   = YES;
         annotationView.draggable        = YES;
         annotationView.calloutOffset    = CGPointMake(0, -5);
-        [annotationView.portraitImageView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onTap:)]];
+        [annotationView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onTap:)]];
         
         annotationView.portrait         = [UIImage imageNamed:@"pic_bg"];
         annotationView.name             = @"17";

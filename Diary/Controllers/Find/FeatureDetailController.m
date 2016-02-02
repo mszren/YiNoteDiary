@@ -18,8 +18,8 @@
 #import "UIColor+NavigationBar.h"
 #import "EGOImageView.h"
 
-@interface FeatureDetailController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,BaseNavigationDelegate>
-@property (nonatomic,strong)UITableView *tableView;
+@interface FeatureDetailController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,BaseNavigationDelegate,EGOTableViewDelegate>
+@property (nonatomic,strong)EGOTableView *tableView;
 @property (nonatomic,strong) EGOImageView *featureImg;
 
 @end
@@ -33,16 +33,20 @@
 
 - (void)initView{
     
-    _tableView = [[UITableView alloc]
+    _tableView = [[EGOTableView alloc]
                   initWithFrame:CGRectMake(0, -NavigationBarHeight, Screen_Width,
                                            Screen_height)
                   style:UITableViewStylePlain];
-    _tableView.delegate = self;
+    _tableView.backgroundView = nil;
     _tableView.dataSource = self;
+    _tableView.delegate = self;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _tableView.pullingDelegate = self;
+    _tableView.autoScrollToNextPage = NO;
     _tableView.emptyDataSetSource = self;
     _tableView.emptyDataSetDelegate = self;
     _tableView.showsVerticalScrollIndicator = NO;
+    
     [_tableView setBackgroundColor:AllTableViewColor];
     
     [_tableView registerClass:[FeatureDetailHeadCell class] forCellReuseIdentifier:FeatureDetailHeadCellIdentifier];
@@ -53,6 +57,30 @@
     _featureImg.frame = CGRectMake(0, 0, Screen_Width, CoolNavHeight);
     _tableView.tableHeaderView = _featureImg;
     [self.view addSubview:_tableView];
+}
+
+#pragma mark -- EGOTableViewDelegate
+- (void)pullingTableViewDidStartRefreshing:(EGOTableHeaderView*)tableView
+{
+    
+    
+}
+
+- (void)pullingTableViewDidStartLoading:(EGOTableView*)tableView
+{
+    
+}
+
+- (NSDate*)pullingTableViewRefreshingFinishedDate
+{
+    
+    return [NSDate date];
+}
+
+- (NSDate*)pullingTableViewLoadingFinishedDate
+{
+    
+    return [NSDate date];
 }
 
 #pragma mark -- UITableViewDelegate
@@ -103,9 +131,18 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    CGFloat offsetY = scrollView.contentOffset.y;
     
+    [_tableView tableViewDidScroll:scrollView];
+    
+    CGFloat offsetY = scrollView.contentOffset.y;
     [UIColor changeNacigationBarStatus:offsetY andController:self];
+    
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView*)scrollView willDecelerate:(BOOL)decelerate
+{
+    
+    [_tableView tableViewDidEndDragging:scrollView];
 }
 
 #pragma mark DZNEmptyDataSetDelegate,DZNEmptyDataSetSource

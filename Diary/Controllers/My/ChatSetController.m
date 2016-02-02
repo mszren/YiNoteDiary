@@ -8,6 +8,7 @@
 
 #import "ChatSetController.h"
 #import "BaseNavigation.h"
+#import "SPKitExample.h"
 
 @interface ChatSetController ()
 
@@ -31,7 +32,20 @@
     UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:@"所有聊天记录将会被删除，包括文字、语音、图片。确认删除？" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     [alertVc addAction:[UIAlertAction actionWithTitle:@"清除所有聊记录" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
  
+        id<IYWConversationService> conversationService = [[SPKitExample sharedInstance].ywIMKit.IMCore getConversationService];
+        [conversationService asyncFetchAllConversationsWithCompletionBlock:^(NSArray *aConversationsArray) {
+            
+             [aConversationsArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                 YWConversation * conversation = obj;
+                 
+                 [conversationService removeConversationByConversationId:conversation.conversationId error:nil];
+                 [conversation removeAllLocalMessages];
+ 
+             }];
+            [ToastManager showToast:@"清楚聊天记录成功" containerView:self.cleanView withTime:Toast_Hide_TIME];
+        }];
         
+ 
     }]];
     [alertVc addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         

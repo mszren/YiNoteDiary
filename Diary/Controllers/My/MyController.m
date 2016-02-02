@@ -90,8 +90,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = YES;
-    
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
     UIView *superView = self.view;
     
     [_scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -250,7 +249,7 @@
         make.width.height.mas_equalTo(@12);
     }];
     
-
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated{

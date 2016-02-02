@@ -17,12 +17,12 @@
 #import "UITableView+FDTemplateLayoutCell.h"
 #import "BaseNavigation.h"
 
-@interface indexRecentDetailController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,SegmentBarViewDelegate,CommentViewDelegate>
+@interface indexRecentDetailController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,SegmentBarViewDelegate,CommentViewDelegate,EGOTableViewDelegate>
 
 @end
 
 @implementation indexRecentDetailController{
-    UITableView *_tableView;
+    EGOTableView *_tableView;
     SegmentBarView* _barView;
     IndexDetailHeadView *_detailHeadView;
     IndexCommentView *_commentView;
@@ -42,14 +42,17 @@
     _barView.clickDelegate = self;
     [_barView setBackgroundColor:[UIColor whiteColor]];
     
-    _tableView = [[UITableView alloc]
+    _tableView = [[EGOTableView alloc]
                   initWithFrame:CGRectMake(0, 0, Screen_Width,
                                            Screen_height - 40.5 - NavigationBarHeight )
                   style:UITableViewStylePlain];
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
-    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.backgroundColor = BGViewColor;
+    _tableView.backgroundView = nil;
+    _tableView.dataSource = self;
+    _tableView.delegate = self;
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _tableView.pullingDelegate = self;
+    _tableView.autoScrollToNextPage = NO;
     _tableView.emptyDataSetSource = self;
     _tableView.emptyDataSetDelegate = self;
     _tableView.showsVerticalScrollIndicator = NO;
@@ -70,6 +73,29 @@
     [_tableView reloadData];
 }
 
+#pragma mark -- EGOTableViewDelegate
+- (void)pullingTableViewDidStartRefreshing:(EGOTableHeaderView*)tableView
+{
+    
+    
+}
+
+- (void)pullingTableViewDidStartLoading:(EGOTableView*)tableView
+{
+    
+}
+
+- (NSDate*)pullingTableViewRefreshingFinishedDate
+{
+    
+    return [NSDate date];
+}
+
+- (NSDate*)pullingTableViewLoadingFinishedDate
+{
+    
+    return [NSDate date];
+}
 
 #pragma mark -- UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -192,6 +218,20 @@ estimatedHeightForHeaderInSection:(NSInteger)section
 -(UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView{
     
     return [UIImage imageNamed:@"ic_tywnr"];
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView*)scrollView
+{
+    
+    [_tableView tableViewDidScroll:scrollView];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView*)scrollView willDecelerate:(BOOL)decelerate
+{
+    
+    [_tableView tableViewDidEndDragging:scrollView];
 }
 
 #pragma mark -- CommentViewDelegate

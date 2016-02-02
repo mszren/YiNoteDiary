@@ -38,6 +38,23 @@ alpha:(a)]
 //录音文件存储地址
 #define LVRecordFielName @"lvRecord.caf"
 
+// language
+#define Refresh_More @"加载更多"
+#define Refresh_NOData @"没有数据"
+#define Refresh_Therefresh @"下拉刷新"
+#define Refresh_Refreshing @"正在刷新"
+#define Refresh_Loading @"正在拼命加载"
+#define Refresh_Release_refresh @"释放刷新"
+#define Refresh_Release_load_more @"释放加载更多"
+#define Refresh_Pull_up_loading_more @"上拉加载更多"
+#define Refresh_No_oh @"没有了哦"
+#define Refresh_Today @"今天"
+#define Refresh_Yesterday @"昨天"
+#define Refresh_The_day_before_yesterday @"前天"
+#define Refresh_Last_update @"最后更新"
+#define Refresh_Drag_can_refresh @"下拉可以刷新..."
+#define Refresh_Undo_can_refresh @"松开即可刷新..."
+
 #define NavBarBgColor RGBCOLOR(135, 213, 27)
 #define TabBarColor RGBCOLOR(239, 239, 239)
 

@@ -12,8 +12,9 @@
 #import "PersonChatSetController.h"
 #import "MyTrailController.h"
 #import "SPKitExample.h"
+#import "MWPhotoBrowser.h"
 
-@interface FriendMaterialController () <CheckoutMessageViewDelegate>
+@interface FriendMaterialController () <CheckoutMessageViewDelegate,MWPhotoBrowserDelegate>
 
 @end
 
@@ -33,7 +34,8 @@
     _rightButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ic_more@3x"] style:UIBarButtonItemStylePlain target:self action:@selector(onRightItem:)];
     self.navigationItem.rightBarButtonItem = _rightButton;
     self.scrollView.contentSize = CGSizeMake(Screen_Width, self.messageBtn.frame.size.height + self.messageBtn.frame.origin.y + 10);
-    
+    _faceImg.userInteractionEnabled = YES;
+    [_faceImg addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap:)]];
     [_otherQueueView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap:)]];
     
     [_addFriendBtn addTarget:self action:@selector(onBtn:) forControlEvents:UIControlEventTouchUpInside];
@@ -43,6 +45,18 @@
 #pragma mark -- CheckoutMessageViewDelegate
 - (void)CheckoutMessageView:(NSString *)message{
     
+}
+
+#pragma mark MWPhotoBrowserDelegate
+- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser{
+    return  1;
+    
+}
+- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index{
+   
+    MWPhoto *mwPhoto = [[MWPhoto alloc] initWithImage:self.faceImg.image];
+    
+    return mwPhoto;
 }
 
 #pragma mark -- UIBarButtonItem Action
@@ -73,6 +87,7 @@
 #pragma mark -- UITapGestureRecognizer Action
 - (void)onTap:(UITapGestureRecognizer *)sender{
     switch (sender.view.tag) {
+            
         case 104:{
             MyTrailController *myTrailVc = [MyTrailController new];
             myTrailVc.hidesBottomBarWhenPushed = YES;
@@ -80,6 +95,14 @@
             [self.navigationController pushViewController:myTrailVc animated:YES];
         }
             
+            break;
+            
+        case 300:{
+            
+            MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+            [browser setCurrentPhotoIndex:1];
+            [self.navigationController pushViewController:browser animated:YES];
+        }
             break;
             
         default:

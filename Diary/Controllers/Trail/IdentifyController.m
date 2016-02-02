@@ -17,7 +17,7 @@
 #import "EGOImageView.h"
 #import "TrailController.h"
 
-@interface IdentifyController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,BaseNavigationDelegate>
+@interface IdentifyController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,BaseNavigationDelegate,EGOTableViewDelegate>
 @property (nonatomic,strong) EGOImageView *featureImgView;
 @property (nonatomic, assign) CGFloat lastOffsetY;
 @property (strong, nonatomic) NSLayoutConstraint *headHCons;
@@ -26,7 +26,7 @@
 
 @implementation IdentifyController{
     
-    UITableView* _tableView;
+    EGOTableView* _tableView;
     CGFloat _navalpha;
     UIBarButtonItem *_leftItem;
 }
@@ -45,23 +45,51 @@
                                                                 action:@selector(leftItemAction:)];
     self.navigationItem.leftBarButtonItem = _leftItem;
     
-    _tableView = [[UITableView alloc]
+    _tableView = [[EGOTableView alloc]
                   initWithFrame:CGRectMake(0, -NavigationBarHeight, Screen_Width,
                                            Screen_height )
                   style:UITableViewStylePlain];
-    _tableView.delegate = self;
+    _tableView.backgroundColor = BGViewColor;
+    _tableView.backgroundView = nil;
     _tableView.dataSource = self;
+    _tableView.delegate = self;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _tableView.pullingDelegate = self;
+    _tableView.autoScrollToNextPage = NO;
     _tableView.emptyDataSetSource = self;
     _tableView.emptyDataSetDelegate = self;
     _tableView.showsVerticalScrollIndicator = NO;
+    [self.view addSubview:_tableView];
 
     _featureImgView = [[EGOImageView alloc]initWithPlaceholderImage:_cameraImg];
     _featureImgView.frame = CGRectMake(0, 0, Screen_Width, CoolNavHeight);
     _tableView.tableHeaderView = _featureImgView;
+
     
-    [self.view addSubview:_tableView];
+}
+
+#pragma mark -- EGOTableViewDelegate
+- (void)pullingTableViewDidStartRefreshing:(EGOTableHeaderView*)tableView
+{
     
+    
+}
+
+- (void)pullingTableViewDidStartLoading:(EGOTableView*)tableView
+{
+    
+}
+
+- (NSDate*)pullingTableViewRefreshingFinishedDate
+{
+    
+    return [NSDate date];
+}
+
+- (NSDate*)pullingTableViewLoadingFinishedDate
+{
+    
+    return [NSDate date];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -134,9 +162,16 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    CGFloat offsetY = scrollView.contentOffset.y;
+    [_tableView tableViewDidScroll:scrollView];
     
+    CGFloat offsetY = scrollView.contentOffset.y;
     [UIColor changeNacigationBarStatus:offsetY andController:self];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView*)scrollView willDecelerate:(BOOL)decelerate
+{
+    
+    [_tableView tableViewDidEndDragging:scrollView];
 }
 
 #pragma mark DZNEmptyDataSetDelegate,DZNEmptyDataSetSource

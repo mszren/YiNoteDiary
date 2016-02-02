@@ -62,26 +62,6 @@
 //        [self loadLoginController];
 //    }
     
-    // YWSDK快速接入接口，程序启动后调用这个接口
-    [[SPKitExample sharedInstance] callThisInDidFinishLaunching];
-    
-    /// 向APNS注册PUSH服务，需要区分iOS SDK版本和iOS版本。
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 80000
-    if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)])
-    {
-        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge|UIUserNotificationTypeAlert|UIUserNotificationTypeSound) categories:nil];
-        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-        
-    } else
-#endif
-    {
-        /// 去除warning
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
-         (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
-#pragma clang diagnostic pop
-    }
     return YES;
 }
 
@@ -163,6 +143,8 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = self.mainController;
     [self.window makeKeyAndVisible];
+    
+    [self exampleSetUMopenApi];
 }
 
 /**
@@ -175,8 +157,32 @@
     [[[YWAPI sharedInstance] getGlobalPushService] setDeviceToken:aDeviceToken];
 }
 
-
-
+/**
+ *  友盟即时通讯初始化
+ */
+- (void)exampleSetUMopenApi{
+    
+    // YWSDK快速接入接口，程序启动后调用这个接口
+    [[SPKitExample sharedInstance] callThisInDidFinishLaunching];
+    
+    /// 向APNS注册PUSH服务，需要区分iOS SDK版本和iOS版本。
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 80000
+    if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)])
+    {
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge|UIUserNotificationTypeAlert|UIUserNotificationTypeSound) categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+        
+    } else
+#endif
+    {
+        /// 去除warning
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+         (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+#pragma clang diagnostic pop
+    }
+}
 
 
 @end

@@ -16,13 +16,13 @@
 #import "AppDelegate.h"
 #import "SPContactManager.h"
 
-@interface AdressBookController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,UISearchBarDelegate>
+@interface AdressBookController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,UISearchBarDelegate,EGOTableViewDelegate>
 
 @end
 
 @implementation AdressBookController{
     
-    UITableView* _tableView;
+    EGOTableView* _tableView;
     UIBarButtonItem* _rightButton;
     UISearchBar* _searchBar;
 }
@@ -37,15 +37,20 @@
     _rightButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ic_more@3x"] style:UIBarButtonItemStylePlain target:self action:@selector(onRightItem:)];
     self.navigationItem.rightBarButtonItem = _rightButton;
     
-    _tableView = [[UITableView alloc]
+    _tableView = [[EGOTableView alloc]
                   initWithFrame:CGRectMake(0, 0, Screen_Width,
                                            Screen_height - NavigationBarHeight )
                   style:UITableViewStylePlain];
-    _tableView.delegate = self;
+    _tableView.backgroundColor = BGViewColor;
+    _tableView.backgroundView = nil;
     _tableView.dataSource = self;
+    _tableView.delegate = self;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _tableView.pullingDelegate = self;
+    _tableView.autoScrollToNextPage = NO;
     _tableView.emptyDataSetSource = self;
     _tableView.emptyDataSetDelegate = self;
+    _tableView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:_tableView];
     
     _searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, SearchBarHeight)];
@@ -58,6 +63,30 @@
     [_searchBar.layer setBorderColor:TableSeparatorColor.CGColor];
     
     _tableView.tableHeaderView = _searchBar; //把搜索框放在表头
+}
+
+#pragma mark -- EGOTableViewDelegate
+- (void)pullingTableViewDidStartRefreshing:(EGOTableHeaderView*)tableView
+{
+    
+    
+}
+
+- (void)pullingTableViewDidStartLoading:(EGOTableView*)tableView
+{
+    
+}
+
+- (NSDate*)pullingTableViewRefreshingFinishedDate
+{
+    
+    return [NSDate date];
+}
+
+- (NSDate*)pullingTableViewLoadingFinishedDate
+{
+    
+    return [NSDate date];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -109,6 +138,20 @@
 -(UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView{
     
     return [UIImage imageNamed:@"ic_tywnr"];
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView*)scrollView
+{
+    
+    [_tableView tableViewDidScroll:scrollView];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView*)scrollView willDecelerate:(BOOL)decelerate
+{
+    
+    [_tableView tableViewDidEndDragging:scrollView];
 }
 
 //UISearchBarDelegate协议中定义的方法，当开始编辑时（搜索框成为第一响应者时）被调用。

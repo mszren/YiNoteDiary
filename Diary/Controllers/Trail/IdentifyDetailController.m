@@ -19,7 +19,7 @@
 #import "PictureSaveController.h"
 #import "MyTrailController.h"
 
-@interface IdentifyDetailController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,IdentifyEditViewDelegate,BaseNavigationDelegate>
+@interface IdentifyDetailController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,IdentifyEditViewDelegate,BaseNavigationDelegate,EGOTableViewDelegate>
 @property (strong, nonatomic) NSLayoutConstraint *headHCons;
 @property (nonatomic,strong) EGOImageView *featureImgView;
 
@@ -27,7 +27,7 @@
 
 @implementation IdentifyDetailController{
     
-    UITableView* _tableView;
+    EGOTableView* _tableView;
     UIView *_textView;
     UILabel *_textLabel;
 }
@@ -41,21 +41,25 @@
 - (void)initView{
     
      
-    _tableView = [[UITableView alloc]
+    _tableView = [[EGOTableView alloc]
                   initWithFrame:CGRectMake(0, -NavigationBarHeight, Screen_Width,
                                            Screen_height - 40)
                   style:UITableViewStylePlain];
-    _tableView.delegate = self;
+    _tableView.backgroundColor = BGViewColor;
+    _tableView.backgroundView = nil;
     _tableView.dataSource = self;
+    _tableView.delegate = self;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _tableView.pullingDelegate = self;
+    _tableView.autoScrollToNextPage = NO;
     _tableView.emptyDataSetSource = self;
     _tableView.emptyDataSetDelegate = self;
     _tableView.showsVerticalScrollIndicator = NO;
+    [self.view addSubview:_tableView];
     
     _featureImgView = [[EGOImageView alloc]initWithPlaceholderImage:_featureImg];
     _featureImgView.frame = CGRectMake(0, 0, Screen_Width, CoolNavHeight);
     _tableView.tableHeaderView = _featureImgView;
-    [self.view addSubview:_tableView];
 
 }
 
@@ -78,6 +82,30 @@
     UITapGestureRecognizer *textTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onTap:)];
     [_textLabel addGestureRecognizer:textTap];
     [_textView addSubview:_textLabel];
+}
+
+#pragma mark -- EGOTableViewDelegate
+- (void)pullingTableViewDidStartRefreshing:(EGOTableHeaderView*)tableView
+{
+    
+    
+}
+
+- (void)pullingTableViewDidStartLoading:(EGOTableView*)tableView
+{
+    
+}
+
+- (NSDate*)pullingTableViewRefreshingFinishedDate
+{
+    
+    return [NSDate date];
+}
+
+- (NSDate*)pullingTableViewLoadingFinishedDate
+{
+    
+    return [NSDate date];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -112,9 +140,16 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    CGFloat offsetY = scrollView.contentOffset.y;
+    [_tableView tableViewDidScroll:scrollView];
     
+    CGFloat offsetY = scrollView.contentOffset.y;
     [UIColor changeNacigationBarStatus:offsetY andController:self];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView*)scrollView willDecelerate:(BOOL)decelerate
+{
+    
+    [_tableView tableViewDidEndDragging:scrollView];
 }
 
 #pragma mark DZNEmptyDataSetDelegate,DZNEmptyDataSetSource

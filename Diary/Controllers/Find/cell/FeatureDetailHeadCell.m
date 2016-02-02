@@ -125,7 +125,7 @@
     
     [_commentCountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(_featureLabel);
-        make.top.mas_equalTo(_featureLabel.mas_bottom).offset(10);
+        make.top.mas_equalTo(_featureLabel.mas_bottom).offset(23);
         make.width.mas_equalTo(@120);
         make.height.mas_equalTo(@15);
     }];
@@ -323,6 +323,34 @@
         make.height.mas_equalTo(@0.5);
     }];
     
+    //星星图片
+    float starCount = 4.5;
+    NSInteger fullStarcount = (NSInteger)starCount;
+    NSInteger halfStarcount = 0;
+    
+    if (starCount > fullStarcount)
+        halfStarcount = 1;
+
+    for (NSInteger i = 0; i < 5; i++) {
+        UIImageView* starImage = [[UIImageView alloc] init];
+        [self.contentView addSubview:starImage];
+        [starImage mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(_featureLabel).offset(i*12);
+            make.top.mas_equalTo(_featureLabel.mas_bottom).offset(8);
+            make.width.height.mas_equalTo(@10);
+        }];
+        
+        if (i < fullStarcount && fullStarcount != 0) {
+            starImage.image = [UIImage imageNamed:@"ic_star"];
+        }
+        else if (i == fullStarcount && halfStarcount != 0) {
+            starImage.image = [UIImage imageNamed:@"ic_star1"];
+        }
+        else {
+            starImage.image = [UIImage imageNamed:@"ic_star1"];
+        }
+        
+    }
 }
 
 #pragma mark - Getters

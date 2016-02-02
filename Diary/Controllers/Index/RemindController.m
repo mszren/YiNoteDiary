@@ -14,13 +14,13 @@
 #import "AlbumEnjoyCell.h"
 #import "indexRecentDetailController.h"
 
-@interface RemindController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource>
+@interface RemindController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,EGOTableViewDelegate>
 
 @end
 
 @implementation RemindController{
     
-    UITableView* _tableView;
+    EGOTableView* _tableView;
 }
 
 - (void)viewDidLoad {
@@ -30,15 +30,20 @@
 
 - (void)initView{
     
-    _tableView = [[UITableView alloc]
+    _tableView = [[EGOTableView alloc]
                   initWithFrame:CGRectMake(0, 0, Screen_Width,
                                            Screen_height - TabBarHeight - NavigationBarHeight )
                   style:UITableViewStylePlain];
-    _tableView.delegate = self;
+    _tableView.backgroundColor = BGViewColor;
+    _tableView.backgroundView = nil;
     _tableView.dataSource = self;
+    _tableView.delegate = self;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _tableView.pullingDelegate = self;
+    _tableView.autoScrollToNextPage = NO;
     _tableView.emptyDataSetSource = self;
     _tableView.emptyDataSetDelegate = self;
+    _tableView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:_tableView];
 }
 
@@ -168,6 +173,20 @@
 -(UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView{
     
     return [UIImage imageNamed:@"ic_tywnr"];
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView*)scrollView
+{
+    
+    [_tableView tableViewDidScroll:scrollView];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView*)scrollView willDecelerate:(BOOL)decelerate
+{
+    
+    [_tableView tableViewDidEndDragging:scrollView];
 }
 
 - (void)didReceiveMemoryWarning {

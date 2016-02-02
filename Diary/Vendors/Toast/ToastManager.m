@@ -32,6 +32,7 @@
     HUD.labelText = @""; //if we want to show detailsLabelText ,mast give a value for labelText
     HUD.detailsLabelText = toastText;
     
+    
     if (!isProgressIndicator)
     {
         //disable user interaction, so user can click behind this hud

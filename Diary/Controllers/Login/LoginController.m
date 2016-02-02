@@ -77,6 +77,7 @@ LDAPIManagerParamSourceDelegate,BusinessManagerCallBackDelegate>
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
     [[BaseNavigation sharedInstance] setLoginNavigationBar:self];
     UIView *superView = self.view;
     

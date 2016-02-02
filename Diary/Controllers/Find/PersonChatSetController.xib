@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9058" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9048"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PersonChatSetController">
@@ -25,7 +26,6 @@
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="ErH-VA-SPQ">
                             <rect key="frame" x="20" y="13" width="60" height="60"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="60" id="YW8-KX-EzR"/>
                                 <constraint firstAttribute="height" constant="60" id="bJw-KT-u05"/>
@@ -40,7 +40,6 @@
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="傻不拉几~丝" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hof-q3-Re4">
                             <rect key="frame" x="100" y="23" width="306" height="20"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="4d6-w9-mPN"/>
                             </constraints>
@@ -49,7 +48,6 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="Hof-q3-Re4" secondAttribute="trailing" constant="20" id="7iP-JE-TnE"/>
@@ -68,7 +66,6 @@
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="2ho-b5-79d">
                     <rect key="frame" x="394" y="37" width="12" height="12"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="12" id="QXY-PF-fx4"/>
                         <constraint firstAttribute="width" constant="12" id="lLX-yv-TSw"/>
@@ -79,7 +76,6 @@
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="聊天置顶" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nxy-4z-Rj7">
                             <rect key="frame" x="20" y="0.0" width="150" height="60"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="150" id="fwO-mX-ZtK"/>
                             </constraints>
@@ -89,14 +85,12 @@
                         </label>
                         <switch opaque="NO" tag="200" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l9t-vL-zwL">
                             <rect key="frame" x="355" y="14" width="53" height="31"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="51" id="424-Ce-HRa"/>
                                 <constraint firstAttribute="height" constant="31" id="Gln-tV-sum"/>
                             </constraints>
                         </switch>
                     </subviews>
-                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="l9t-vL-zwL" secondAttribute="trailing" constant="20" id="2R6-gh-D9p"/>
@@ -112,7 +106,6 @@
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="消息提醒" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Q9-Fa-dNA">
                             <rect key="frame" x="20" y="0.0" width="150" height="60"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="150" id="8e2-O5-D8F"/>
                             </constraints>
@@ -122,14 +115,12 @@
                         </label>
                         <switch opaque="NO" tag="201" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z1D-pJ-af9">
                             <rect key="frame" x="355" y="14" width="53" height="31"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="31" id="Wit-hA-FsX"/>
                                 <constraint firstAttribute="width" constant="51" id="ZAg-lS-dmE"/>
                             </constraints>
                         </switch>
                     </subviews>
-                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="Z1D-pJ-af9" secondAttribute="trailing" constant="20" id="I0X-gS-s3r"/>
@@ -145,7 +136,6 @@
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="清除聊天记录" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GeH-dC-2dk">
                             <rect key="frame" x="20" y="0.0" width="150" height="60"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="150" id="gI1-7A-mBG"/>
                             </constraints>
@@ -155,14 +145,12 @@
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="i3I-CG-iaf">
                             <rect key="frame" x="394" y="24" width="12" height="12"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="12" id="qC3-4L-FKa"/>
                                 <constraint firstAttribute="height" constant="12" id="v1y-jP-ht0"/>
                             </constraints>
                         </imageView>
                     </subviews>
-                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="GeH-dC-2dk" firstAttribute="height" secondItem="WIx-uP-YOI" secondAttribute="height" id="J8s-IR-WWZ"/>
@@ -178,7 +166,6 @@
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="举报" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qjx-9w-bhJ">
                             <rect key="frame" x="20" y="0.0" width="150" height="60"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="150" id="c61-OO-uJ4"/>
                             </constraints>
@@ -188,14 +175,12 @@
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="6hc-EG-QTP">
                             <rect key="frame" x="394" y="24" width="12" height="12"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="12" id="BHb-kg-UDz"/>
                                 <constraint firstAttribute="height" constant="12" id="p85-my-zab"/>
                             </constraints>
                         </imageView>
                     </subviews>
-                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="9d6-Dv-jTd"/>
@@ -207,7 +192,6 @@
                     </constraints>
                 </view>
             </subviews>
-            <animations/>
             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
             <constraints>
                 <constraint firstItem="hky-n1-Yhd" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="2Pg-Y5-BGB"/>

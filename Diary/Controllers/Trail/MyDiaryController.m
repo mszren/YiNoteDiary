@@ -17,14 +17,14 @@
 
 static NSString * const  myDiaryFirstCellIdentidier = @"MyDiaryFirstCellIdentidier";
 static NSString * const  myDiaryCellIdentifier = @"MyDiaryCellIdentifier";
-@interface MyDiaryController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource>
+@interface MyDiaryController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,EGOTableViewDelegate>
 
 @end
 
 @implementation MyDiaryController{
     
     UIBarButtonItem* _rightButton;
-    UITableView *_tableView;
+    EGOTableView *_tableView;
 }
 
 - (void)viewDidLoad {
@@ -37,10 +37,14 @@ static NSString * const  myDiaryCellIdentifier = @"MyDiaryCellIdentifier";
     _rightButton = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(onRightItem:)];
     self.navigationItem.rightBarButtonItem = _rightButton;
     
-    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, Screen_height - NavigationBarHeight) style:UITableViewStylePlain];
-    _tableView.delegate = self;
+    _tableView = [[EGOTableView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, Screen_height - NavigationBarHeight) style:UITableViewStylePlain];
+    _tableView.backgroundColor = BGViewColor;
+    _tableView.backgroundView = nil;
     _tableView.dataSource = self;
+    _tableView.delegate = self;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _tableView.pullingDelegate = self;
+    _tableView.autoScrollToNextPage = NO;
     _tableView.emptyDataSetSource = self;
     _tableView.emptyDataSetDelegate = self;
     _tableView.showsVerticalScrollIndicator = NO;
@@ -49,6 +53,30 @@ static NSString * const  myDiaryCellIdentifier = @"MyDiaryCellIdentifier";
     [_tableView registerClass:[MyDiaryFirstCell class] forCellReuseIdentifier:myDiaryFirstCellIdentidier];
     
     [_tableView registerClass:[MyDiaryCell class] forCellReuseIdentifier:myDiaryCellIdentifier];
+}
+
+#pragma mark -- EGOTableViewDelegate
+- (void)pullingTableViewDidStartRefreshing:(EGOTableHeaderView*)tableView
+{
+    
+    
+}
+
+- (void)pullingTableViewDidStartLoading:(EGOTableView*)tableView
+{
+    
+}
+
+- (NSDate*)pullingTableViewRefreshingFinishedDate
+{
+    
+    return [NSDate date];
+}
+
+- (NSDate*)pullingTableViewLoadingFinishedDate
+{
+    
+    return [NSDate date];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -141,6 +169,20 @@ static NSString * const  myDiaryCellIdentifier = @"MyDiaryCellIdentifier";
 -(UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView{
     
     return [UIImage imageNamed:@"ic_tywnr"];
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView*)scrollView
+{
+    
+    [_tableView tableViewDidScroll:scrollView];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView*)scrollView willDecelerate:(BOOL)decelerate
+{
+    
+    [_tableView tableViewDidEndDragging:scrollView];
 }
 
 - (void)onRightItem:(UIBarButtonItem *)sender{

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9058" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9048"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChatSetController">
@@ -21,7 +22,6 @@
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="听筒模式" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAh-VM-ZPP">
                             <rect key="frame" x="13" y="0.0" width="150" height="60"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="150" id="mhH-b7-lYn"/>
                             </constraints>
@@ -31,14 +31,12 @@
                         </label>
                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cq5-b3-fBe">
                             <rect key="frame" x="309" y="15" width="51" height="31"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="31" id="Dgj-qY-rvB"/>
                                 <constraint firstAttribute="width" constant="49" id="eLl-J0-Fxy"/>
                             </constraints>
                         </switch>
                     </subviews>
-                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="3Y4-AK-plt"/>
@@ -54,7 +52,6 @@
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="清除所有聊天记录" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qVy-rW-X1i">
                             <rect key="frame" x="13" y="0.0" width="136" height="60"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="136" id="LoZ-l9-4hg"/>
                             </constraints>
@@ -64,14 +61,12 @@
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="u67-Ap-c4G">
                             <rect key="frame" x="346" y="24" width="12" height="12"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="12" id="1LR-CT-UBc"/>
                                 <constraint firstAttribute="height" constant="12" id="bRB-YE-bbw"/>
                             </constraints>
                         </imageView>
                     </subviews>
-                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="u67-Ap-c4G" secondAttribute="trailing" constant="13" id="Dh0-3y-Pwe"/>
@@ -83,7 +78,6 @@
                     </constraints>
                 </view>
             </subviews>
-            <animations/>
             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
             <constraints>
                 <constraint firstItem="NaL-iH-1Cs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3Z7-MN-KdV"/>
