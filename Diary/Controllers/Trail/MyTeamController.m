@@ -11,12 +11,14 @@
 #import "TrailSetController.h"
 #import "AOTag.h"
 #import "OtherTrailController.h"
+#import "LocationManager.h"
 
 #define tagMargin           13
 #define tagKW              (Screen_Width - 5*13 - 32)/4
 @interface MyTeamController () <AOTagDelegate>
 @property (nonatomic, strong) AOTagList *tag;
 @property (nonatomic, strong) NSMutableArray *randomTag;
+@property(nonatomic, strong) NSMutableArray *dataList;
 
 @end
 
@@ -48,6 +50,8 @@
     
     [self.tag setDelegate:self];
     [self.view addSubview:self.tag];
+    
+    _dataList = [[TravelDataManage shareInstance] loadTravelListData];
 }
 
 - (void)resetRandomTagsName
@@ -82,9 +86,22 @@
 }
 
 - (void)tagDidSelectTag:(AOTag *)tag{
-    OtherTrailController *otherTrailVc = [OtherTrailController new];
-    otherTrailVc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:otherTrailVc animated:YES];
+
+    
+    [[TravelDataManage shareInstance] updateAllTravelFinish];
+    
+    TravelEntity * aModel = [[TravelEntity alloc] initWithName:@"北京" logo:@"北京" travelDesc:@"北京__故宫"];
+    aModel.createTime = [NSDate currentTime];
+    aModel.startLatitude = [LocationManager shareInstance].currentCoord.latitude;
+    aModel.startLongitude = [LocationManager shareInstance].currentCoord.longitude;
+    
+    if ([[TravelDataManage shareInstance] insertTravelEnity:aModel]) {
+        TravelEntity * temp = [[TravelDataManage shareInstance] selectTravelEntityByuuid:aModel.uuid];
+        OtherTrailController *otherTrailVc = [OtherTrailController new];
+        otherTrailVc.hidesBottomBarWhenPushed = YES;
+        otherTrailVc.currentTravelEntity = temp;
+        [self.navigationController pushViewController:otherTrailVc animated:YES];
+    }
 }
 
 - (NSUInteger)getRandomTagIndex

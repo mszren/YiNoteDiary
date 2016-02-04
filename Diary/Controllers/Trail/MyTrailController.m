@@ -184,7 +184,7 @@ updatingLocation:(BOOL)updatingLocation
         
         
         CLLocationDistance kilometers=[orig distanceFromLocation:dist]/1000;
-        NSLog(@"距离:%f==latitude=%f==longitude=%f",kilometers,userLocation.coordinate.latitude,userLocation.coordinate.longitude);
+//        NSLog(@"距离:%f==latitude=%f==longitude=%f",kilometers,userLocation.coordinate.latitude,userLocation.coordinate.longitude);
         
         LocationEntity * locationEntity = [[LocationEntity alloc] initWithTravelID:_currentTravelEntity.travelID latitude:userLocation.coordinate.latitude longitude:userLocation.coordinate.longitude];
         locationEntity.createTime = [NSDate currentTime];

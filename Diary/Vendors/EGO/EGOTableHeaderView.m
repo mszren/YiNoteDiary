@@ -10,7 +10,7 @@
 #import "EGOTableHeaderView.h"
 
 #define kPROffsetY 60.f
-#define kPRMargin 5.f
+#define kPRMargin 15.f
 #define kPRLabelHeight 20.f
 #define kPRLabelWidth 100.f
 #define kPRArrowWidth 38.f
@@ -90,7 +90,8 @@
         stateFrame = CGRectMake(0, y, size.width, kPRLabelHeight);
         
         x = kPRMargin;
-        y = size.height - margin - kPRArrowHeight;
+//        y = size.height - margin - kPRArrowHeight;
+        y-= (kPRArrowHeight - kPRLabelHeight)/2;
         arrowFrame = CGRectMake(4*x, y, kPRArrowWidth, kPRArrowHeight);
         
         UIImage *arrow = [UIImage imageNamed:@"blueArrow.png"];
@@ -104,6 +105,7 @@
         
         x = kPRMargin;
         y = margin;
+        y-= (kPRArrowHeight - kPRLabelHeight)/2;
         arrowFrame = CGRectMake(4*x, y, kPRArrowWidth, kPRArrowHeight);
         
         UIImage *arrow = [UIImage imageNamed:@"blueArrow.png"];

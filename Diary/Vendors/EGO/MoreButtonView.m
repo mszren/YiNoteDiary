@@ -104,7 +104,8 @@
         stateFrame = CGRectMake(0, y, size.width, kPRLabelHeight);
         
         x = kPRMargin;
-        y = size.height - margin - kPRArrowHeight;
+        //        y = size.height - margin - kPRArrowHeight;
+        y-= (kPRArrowHeight - kPRLabelHeight)/2;
         arrowFrame = CGRectMake(4*x, y, kPRArrowWidth, kPRArrowHeight);
         
         UIImage *arrow = [UIImage imageNamed:@"blueArrow.png"];
