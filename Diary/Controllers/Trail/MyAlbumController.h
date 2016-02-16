@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MyAlbumController : UIViewController
+@interface MyAlbumController : UIViewController <MessageRoutable>
 
 @end

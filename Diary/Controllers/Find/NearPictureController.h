@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 static NSString * const NearPictureCellIdentifier = @"nearPictureCellIdentifier";
-@interface NearPictureController : UIViewController
+@interface NearPictureController : UIViewController <MessageRoutable>
 
 @end

@@ -7,11 +7,6 @@
 //
 
 #import "SetController.h"
-#import "SafeController.h"
-#import "SecretController.h"
-#import "RemindSetController.h"
-#import "ChatSetController.h"
-#import "InforController.h"
 #import "BaseNavigation.h"
 
 @interface SetController ()
@@ -19,6 +14,7 @@
 @end
 
 @implementation SetController
+@synthesize messageListner;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -53,33 +49,29 @@
     switch (sender.view.tag) {
         case 100:{
             
-            SafeController *safeVc = [SafeController new];
-            safeVc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:safeVc animated:YES];
+            NSDictionary * dic = @{ACTION_Controller_Name : self};
+            [self RouteMessage:ACTION_SHOW_MY_SAFE withContext:dic];
         }
             
             break;
         case 101:{
             
-            SecretController *secretSetVc = [SecretController new];
-            secretSetVc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:secretSetVc animated:YES];
+            NSDictionary * dic = @{ACTION_Controller_Name : self};
+            [self RouteMessage:ACTION_SHOW_MY_SECRET withContext:dic];
         }
             
             break;
         case 102:{
             
-            RemindSetController *remindVc = [RemindSetController new];
-            remindVc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:remindVc animated:YES];
+            NSDictionary * dic = @{ACTION_Controller_Name : self};
+            [self RouteMessage:ACTION_SHOW_MY_REMIND withContext:dic];
         }
             
             break;
         case 103:{
             
-            ChatSetController *chatSetVc = [ChatSetController new];
-            chatSetVc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:chatSetVc animated:YES];
+            NSDictionary * dic = @{ACTION_Controller_Name : self};
+            [self RouteMessage:ACTION_SHOW_MY_CAHTSET withContext:dic];
         }
             
             break;
@@ -92,9 +84,8 @@
             
         default:
         {
-            InfoController *infoVc = [InfoController new];
-            infoVc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:infoVc animated:YES];
+            NSDictionary * dic = @{ACTION_Controller_Name : self};
+            [self RouteMessage:ACTION_SHOW_MY_INFO withContext:dic];
         }
             break;
     }
@@ -123,14 +114,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+IMPLEMENT_MESSAGE_ROUTABLE
 
 @end

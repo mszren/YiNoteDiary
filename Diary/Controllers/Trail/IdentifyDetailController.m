@@ -18,10 +18,12 @@
 #import "EGOImageView.h"
 #import "PictureSaveController.h"
 #import "MyTrailController.h"
+#import "LocationManager.h"
 
 @interface IdentifyDetailController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,IdentifyEditViewDelegate,BaseNavigationDelegate,EGOTableViewDelegate>
 @property (strong, nonatomic) NSLayoutConstraint *headHCons;
 @property (nonatomic,strong) EGOImageView *featureImgView;
+@property(nonatomic, strong) NSMutableArray *dataList;
 
 @end
 
@@ -31,6 +33,7 @@
     UIView *_textView;
     UILabel *_textLabel;
 }
+@synthesize messageListner;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -60,7 +63,8 @@
     _featureImgView = [[EGOImageView alloc]initWithPlaceholderImage:_featureImg];
     _featureImgView.frame = CGRectMake(0, 0, Screen_Width, CoolNavHeight);
     _tableView.tableHeaderView = _featureImgView;
-
+    
+    _dataList = [[TravelDataManage shareInstance] loadTravelListData];
 }
 
 - (void)creatTextView{
@@ -176,10 +180,19 @@
 #pragma mark -- BaseNavigationDelegate
 - (void)baseNavigationDelegateOnRightItemAction{
 
-    MyTrailController *myTrailVc = [MyTrailController new];
-    myTrailVc.hidesBottomBarWhenPushed = YES;
-    myTrailVc.isShowMember = NO;
-    [self.navigationController pushViewController:myTrailVc animated:YES];
+    [[TravelDataManage shareInstance] updateAllTravelFinish];
+    
+    TravelEntity * aModel = [[TravelEntity alloc] initWithName:@"北京" logo:@"北京" travelDesc:@"北京__故宫"];
+    aModel.createTime = [NSDate currentTime];
+    aModel.startLatitude = [LocationManager shareInstance].currentCoord.latitude;
+    aModel.startLongitude = [LocationManager shareInstance].currentCoord.longitude;
+    
+    NSNumber *boolNumber = [NSNumber numberWithBool:NO];
+    if ([[TravelDataManage shareInstance] insertTravelEnity:aModel]) {
+        TravelEntity * temp = [[TravelDataManage shareInstance] selectTravelEntityByuuid:aModel.uuid];
+        NSDictionary *dic = @{ACTION_Controller_Name : self,ACTION_Controller_Data : @{CurrentTravelEntity : temp, IsShowMember : boolNumber }};
+        [self RouteMessage:ACTION_SHOW_MYTRAIL withContext:dic];
+    }
 }
 
 - (void)onTap:(UITapGestureRecognizer *)sender{
@@ -189,7 +202,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = NO;
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     [[BaseNavigation sharedInstance] setCleanNavigationBar:self andRightItemTitle:@"完成" withDelegate:self];
     
     UIView *superView = self.view;
@@ -213,6 +226,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+IMPLEMENT_MESSAGE_ROUTABLE
 
 @end

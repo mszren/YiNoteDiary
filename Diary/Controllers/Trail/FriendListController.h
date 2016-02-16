@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FriendListController : UIViewController
-@property (nonatomic, strong) NSString *title;
+@interface FriendListController : UIViewController <MessageRoutable>
+@property (nonatomic, copy) NSString *title;
 
 @end

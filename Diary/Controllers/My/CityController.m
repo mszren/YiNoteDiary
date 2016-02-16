@@ -20,8 +20,8 @@
     
     UITableView* _tableView;
     CityPickerProvince *_cityPicker;
-    
 }
+@synthesize messageListner;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -85,7 +85,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+IMPLEMENT_MESSAGE_ROUTABLE
 
 
 @end

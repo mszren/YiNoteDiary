@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PublishController : UIViewController
+@interface PublishController : UIViewController <MessageRoutable>
 @property (nonatomic, strong)NSMutableArray *assets;
 @property (nonatomic, strong)NSString *assetName;
 

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ScanController : UIViewController
+@interface ScanController : UIViewController <MessageRoutable>
 
 @end

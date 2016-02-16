@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FeatureListController : UIViewController
+@interface FeatureListController : UIViewController <MessageRoutable>
 
 @end

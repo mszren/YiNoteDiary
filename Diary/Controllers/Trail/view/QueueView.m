@@ -12,6 +12,7 @@
 #import "NearPersonController.h"
 
 @implementation QueueView
+@synthesize messageListner;
 
 + (instancetype)sharedInstance{
     static id sharedInstance;
@@ -23,8 +24,8 @@
 }
 
 
-- (void)showQueueView:(NSString *)name andTitle:(NSString *)title withViewController:(UIViewController *)viewController{
-    self.baseViewController = viewController;
+- (void)showQueueView:(NSString *)name andTitle:(NSString *)title {
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     self.window.opaque = NO;
@@ -144,18 +145,14 @@
     [alertVc addAction:[UIAlertAction actionWithTitle:@"附近的人" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
         [self clean];
-        NearPersonController *nearPersonVc = [NearPersonController new];
-        nearPersonVc.hidesBottomBarWhenPushed = YES;
-        [self.baseViewController.navigationController pushViewController:nearPersonVc animated:YES];
+        NSDictionary * dic = @{ACTION_Controller_Name : self.messageListner};
+        [self RouteMessage:ACTION_SHOW_NEAR_PERSON withContext:dic];
     }]];
     [alertVc addAction:[UIAlertAction actionWithTitle:@"我的好友" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
  
         [self clean];
-        FriendListController *friendVc = [FriendListController new];
-        friendVc.hidesBottomBarWhenPushed = YES;
-        friendVc.title = @"好友列表";
-        [self.baseViewController.navigationController pushViewController:friendVc animated:YES];
-        
+        NSDictionary *dic = @{ACTION_Controller_Name : self.messageListner ,ACTION_Controller_Data : @"好友列表"};
+        [self RouteMessage:ACTION_SHOW_NEAR_PERSONLIST withContext:dic];
     }]];
     [alertVc addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
@@ -182,30 +179,21 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         
         _backGroundView.layer.shouldRasterize = YES;
-        [UIView animateWithDuration:0.2 animations:^{
+        [UIView animateWithDuration:0.1 animations:^{
             
-            _backGroundView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1);
-            
+            _backGroundView.alpha = 0;
+            _backGroundView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.4, 0.4);
+            self.window.alpha = 0;
         } completion:^(BOOL finished) {
             
-            [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-                _backGroundView.alpha = 0;
-                _backGroundView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.4, 0.4);
-                self.window.alpha = 0;
-            } completion:^(BOOL finished2) {
-                
-                [[[[UIApplication sharedApplication] delegate] window] makeKeyWindow];
-                [self.window removeFromSuperview];
-                [self.backGroundView removeFromSuperview];
-                self.viewController = nil;
-                self.window = nil;
-                
-                
-            }];
-            
+            [[[[UIApplication sharedApplication] delegate] window] makeKeyWindow];
+             [self.window removeFromSuperview];
+             [self.backGroundView removeFromSuperview];
+             self.viewController = nil;
+             self.window = nil;
         }];
-        
     });
 }
+IMPLEMENT_MESSAGE_ROUTABLE
 
 @end

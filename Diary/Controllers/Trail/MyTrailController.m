@@ -43,6 +43,7 @@
     NSMutableArray * _pointList;
     NSMutableArray * _photoList;
 }
+@synthesize messageListner;
 
 - (void)viewDidLoad{
     [super viewDidLoad];
@@ -64,12 +65,6 @@
     [_pointList addObjectsFromArray:_currentTravelEntity.travelRouteList];
     [_photoList addObjectsFromArray:_currentTravelEntity.imageList];
     
-    RecordView *recordView = [[RecordView alloc]initWithFrame:CGRectMake(0, Screen_height - 56 - NavigationBarHeight, Screen_Width, 56) andDelegate:self];
-    recordView.memberBtn.hidden = !_isShowMember;
-    recordView.viewController = self;
-    [self.view addSubview:recordView];
-    
-
 }
 
 - (void)initMapView
@@ -81,6 +76,12 @@
     [self.mapView setZoomLevel:18.1 animated:YES];
     [self.mapView setUserTrackingMode: MAUserTrackingModeFollowWithHeading animated:YES]; //地图跟着位置移动
     [self.view addSubview:self.mapView];
+    
+    RecordView *recordView = [[RecordView alloc]initWithFrame:CGRectMake(0, Screen_height - 56 - NavigationBarHeight, Screen_Width, 56) andDelegate:self];
+    recordView.memberBtn.hidden = !_isShowMember;
+    recordView.messageListner = self;
+    recordView.viewController = self;
+    [self.view addSubview:recordView];
 }
 
 
@@ -220,20 +221,15 @@ updatingLocation:(BOOL)updatingLocation
     UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     [alertVc addAction:[UIAlertAction actionWithTitle:@"生成专辑" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
-        MyAlbumController *myAlbumVc = [MyAlbumController new];
-        myAlbumVc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:myAlbumVc animated:YES];
+        NSDictionary *dic = @{ACTION_Controller_Name : self};
+        [self RouteMessage:ACTION_SHOW_MYALBUM withContext:dic];
     }]];
     [alertVc addAction:[UIAlertAction actionWithTitle:@"保存足迹" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
         [[TravelDataManage shareInstance] updateTravelFinish:_currentTravelEntity.travelID];
         
-        PictureSaveController *saveVc = [PictureSaveController new];
-        saveVc.hidesBottomBarWhenPushed = YES;
-        saveVc.saveTitleStr = @"把我的轨迹分享到";
-        self.navigationController.navigationBarHidden = YES;
-        [self.navigationController pushViewController:saveVc animated:YES];
-        
+        NSDictionary *dic = @{ACTION_Controller_Name : self ,ACTION_Controller_Data : @"把我的轨迹分享到"};
+        [self RouteMessage:ACTION_SHOW_PICTURESAVE withContext:dic];
     }]];
     [alertVc addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
@@ -297,5 +293,7 @@ updatingLocation:(BOOL)updatingLocation
     [self initLine];
     [self initAnnotation];
 }
+
+IMPLEMENT_MESSAGE_ROUTABLE
 
 @end

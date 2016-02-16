@@ -10,7 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <MAMapKit/MAMapKit.h>
 
-@interface OtherTrailController : UIViewController
+@interface OtherTrailController : UIViewController <MessageRoutable>
 @property(nonatomic,strong) TravelEntity * currentTravelEntity;
 @property(nonatomic,strong) MAMapView *mapView;
 

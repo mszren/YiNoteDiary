@@ -10,7 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <MAMapKit/MAMapKit.h>
 
-@interface MyTrailController : UIViewController
+@interface MyTrailController : UIViewController <MessageRoutable>
 @property (nonatomic,assign) BOOL isShowMember;
 
 @property(nonatomic,strong) TravelEntity * currentTravelEntity;

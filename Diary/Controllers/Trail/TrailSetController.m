@@ -8,13 +8,13 @@
 
 #import "TrailSetController.h"
 #import "BaseNavigation.h"
-#import "LocationBlackController.h"
 
 @interface TrailSetController ()
 
 @end
 
 @implementation TrailSetController
+@synthesize messageListner;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,9 +29,8 @@
 
 #pragma mark -- UITapGestureRecognizer
 - (void)onTap:(UITapGestureRecognizer *)sender{
-    LocationBlackController *locationBlackVc = [LocationBlackController new];
-    locationBlackVc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:locationBlackVc animated:YES];
+    NSDictionary *dic = @{ACTION_Controller_Name : self};
+    [self RouteMessage:ACTION_SHOW_LOCATIONBLACK withContext:dic];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -44,6 +43,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+IMPLEMENT_MESSAGE_ROUTABLE
 
 @end

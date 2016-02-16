@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PersonCenterController : UIViewController
+@interface PersonCenterController : UIViewController <MessageRoutable>
 @property (weak, nonatomic) IBOutlet UIImageView *faceImg;
 @property (weak, nonatomic) IBOutlet UIView *nichengView;
  

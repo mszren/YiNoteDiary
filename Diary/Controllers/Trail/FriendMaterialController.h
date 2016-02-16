@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FriendMaterialController : UIViewController
+@interface FriendMaterialController : UIViewController <MessageRoutable>
 @property (weak, nonatomic) IBOutlet UIImageView *faceImg;
 @property (weak, nonatomic) IBOutlet UIView *adressView;
 @property (weak, nonatomic) IBOutlet UIView *qianmingView;

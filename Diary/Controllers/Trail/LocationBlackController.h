@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LocationBlackController : UIViewController
+@interface LocationBlackController : UIViewController <MessageRoutable>
 
 @end

@@ -15,6 +15,7 @@
 #import "SPKitExample.h"
 #import <WXOUIModule/YWConversationListViewController.h>
 #import <WXOUIModule/IYWUIService.h>
+#import "ActionHandler.h"
 
 @interface MainController ()
    @property (nonatomic,copy) UINavigationController *indexNavController;
@@ -22,12 +23,15 @@
    @property (nonatomic,copy)  UINavigationController *trailNavController;
    @property (nonatomic,copy) UINavigationController *messageNavController;
    @property (nonatomic,copy)  UINavigationController *myNavController;
+   @property (nonatomic,copy)  ActionHandler *actionHandler;
 @end
 
 @implementation MainController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+     _actionHandler = [[ActionHandler alloc] init];
     self.viewControllers=@[self.indexNavController,self.findNavController,self.trailNavController,self.messageNavController,self.myNavController];
     [self initView];
 }
@@ -90,6 +94,13 @@ shouldSelectViewController:(UIViewController *)viewController {
     return YES;
 }
 
+#pragma mark RoutedMessages
+- (void)RouteMessage:(NSString*)message withContext:(id)context
+{
+    
+    [_actionHandler excuteAction:message context:context];
+}
+
 #pragma mark -
 #pragma mark getters and setters
 
@@ -97,6 +108,7 @@ shouldSelectViewController:(UIViewController *)viewController {
     if (_indexNavController==nil) {
         
         IndexController *indexController=[[IndexController alloc] init];
+        indexController.messageListner = self;
         _indexNavController=[[UINavigationController alloc] initWithRootViewController:indexController];
     }
     return _indexNavController;
@@ -106,6 +118,7 @@ shouldSelectViewController:(UIViewController *)viewController {
     if (_findNavController==nil) {
         
         FindController *findController=[[FindController alloc] init];
+        findController.messageListner = self;
         _findNavController=[[UINavigationController alloc] initWithRootViewController:findController];
     }
     return _findNavController;
@@ -115,6 +128,7 @@ shouldSelectViewController:(UIViewController *)viewController {
     if (_trailNavController==nil) {
         
         TrailController *trailController=[[TrailController alloc] init];
+        trailController.messageListner = self;
         _trailNavController=[[UINavigationController alloc] initWithRootViewController:trailController];
     }
     return _trailNavController;
@@ -123,6 +137,7 @@ shouldSelectViewController:(UIViewController *)viewController {
 -(UINavigationController*)messageNavController{
     if (_messageNavController==nil) {
         MessageController *messageController=[[MessageController alloc] init];
+        messageController.messageListner = self;
         _messageNavController=[[UINavigationController alloc] initWithRootViewController:messageController];
         
     }
@@ -132,6 +147,7 @@ shouldSelectViewController:(UIViewController *)viewController {
 -(UINavigationController*)myNavController{
     if (_myNavController==nil) {
         MyController *myController=[[MyController alloc] init];
+        myController.messageListner = self;
         _myNavController=[[UINavigationController alloc] initWithRootViewController:myController];
     }
     return _myNavController;

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EditController : UIViewController
+@interface EditController : UIViewController <MessageRoutable>
 @property (weak, nonatomic) IBOutlet UITextField *editText;
 @property (weak, nonatomic) IBOutlet UIButton *cleanBtn;
 - (IBAction)onCleanBtn:(UIButton *)sender;

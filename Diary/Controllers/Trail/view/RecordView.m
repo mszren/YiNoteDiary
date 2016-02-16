@@ -13,6 +13,7 @@
 @implementation RecordView {
     DBCameraViewController *_cameraController;
 }
+@synthesize messageListner;
 
 - (instancetype)initWithFrame:(CGRect)frame andDelegate:(id<RecordViewDelegate>)delegate{
     self = [super initWithFrame:frame];
@@ -43,9 +44,8 @@
     switch (sender.tag) {
         case 100:{
             
-            MyTeamController *teamVc = [MyTeamController new];
-            teamVc.hidesBottomBarWhenPushed = YES;
-            [self.viewController.navigationController pushViewController:teamVc animated:YES];
+            NSDictionary *dic = @{ACTION_Controller_Name : self.messageListner};
+            [self RouteMessage:ACTION_SHOW_MYTEAM withContext:dic];
         }
             
             break;
@@ -107,7 +107,7 @@
 - (UILabel *)grayLabel{
     if (!_grayLabel) {
         _grayLabel = [UILabel new];
-        _grayLabel.backgroundColor = BGViewGray;
+        _grayLabel.backgroundColor = COLOR_GRAY_DEFAULT_180;
     }
     return _grayLabel;
 }
@@ -145,5 +145,6 @@
     }
     return _finishBtn;
 }
+IMPLEMENT_MESSAGE_ROUTABLE
 
 @end

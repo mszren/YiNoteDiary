@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NearFeatureController : UIViewController
+@interface NearFeatureController : UIViewController <MessageRoutable>
 
 @end

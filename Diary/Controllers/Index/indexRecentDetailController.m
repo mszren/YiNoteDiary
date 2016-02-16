@@ -27,6 +27,7 @@
     IndexDetailHeadView *_detailHeadView;
     IndexCommentView *_commentView;
 }
+@synthesize messageListner;
 
 - (void)viewDidLoad {
     [super viewDidLoad];

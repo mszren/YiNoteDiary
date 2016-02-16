@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IdentifyDetailController : UIViewController
+@interface IdentifyDetailController : UIViewController <MessageRoutable>
 @property (nonatomic, strong)UIImage *featureImg;
 
 @end

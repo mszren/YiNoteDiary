@@ -7,12 +7,6 @@
 //
 
 #import "PersonCenterController.h"
-#import "EditController.h"
-#import "SignController.h"
-#import "SexSelectController.h"
-#import "AgeController.h"
-#import "ProvinceController.h"
-#import "CodeController.h"
 #import "BaseNavigation.h"
 #import "UzysAssetsPickerController.h"
 #import <Photos/Photos.h>
@@ -35,6 +29,7 @@ typedef enum : NSUInteger {
     NSMutableArray *_selectArry;
     DBCameraViewController *_cameraController;
 }
+@synthesize messageListner;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -91,49 +86,43 @@ typedef enum : NSUInteger {
     switch (sender.view.tag) {
         case 100:{
             
-            EditController *editVc = [EditController new];
-            editVc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:editVc animated:YES];
+            NSDictionary *dic = @{ACTION_Controller_Name : self};
+            [self RouteMessage:ACTION_SHOW_MY_EDIT withContext:dic];
         }
             
             break;
         case 101:{
             
-            SignController *signVc = [SignController new];
-            signVc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:signVc animated:YES];
+            NSDictionary *dic = @{ACTION_Controller_Name : self};
+            [self RouteMessage:ACTION_SHOW_MY_SIGN withContext:dic];
         }
             
             break;
         case 102:{
             
-            SexSelectController *sexVc = [SexSelectController new];
-            sexVc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:sexVc animated:YES];
+            NSDictionary *dic = @{ACTION_Controller_Name : self};
+            [self RouteMessage:ACTION_SHOW_MY_SEX withContext:dic];
         }
             
             break;
         case 103:{
             
-            AgeController *ageVc = [AgeController new];
-            ageVc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:ageVc animated:YES];
+            NSDictionary *dic = @{ACTION_Controller_Name : self};
+            [self RouteMessage:ACTION_SHOW_MY_AGE withContext:dic];
         }
             
             break;
         case 104:{
             
-            ProvinceController *provinceVc = [ProvinceController new];
-            provinceVc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:provinceVc animated:YES];
+            NSDictionary *dic = @{ACTION_Controller_Name : self};
+            [self RouteMessage:ACTION_SHOW_MY_PROVINCE withContext:dic];
         }
             
             break;
         case 105:{
             
-            CodeController *codeVc = [CodeController new];
-            codeVc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:codeVc animated:YES];
+            NSDictionary *dic = @{ACTION_Controller_Name : self};
+            [self RouteMessage:ACTION_SHOW_MY_CODE withContext:dic];
         }
             
             break;
@@ -229,14 +218,6 @@ typedef enum : NSUInteger {
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+IMPLEMENT_MESSAGE_ROUTABLE
 
 @end

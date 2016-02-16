@@ -18,7 +18,7 @@
 
 @end
 
-@interface RecordView : UIView <DBCameraViewControllerDelegate>
+@interface RecordView : UIView <DBCameraViewControllerDelegate,MessageRoutable>
 @property (nonatomic, weak)id<RecordViewDelegate>delegate;
 @property (nonatomic, strong)UIViewController *viewController;
 @property (nonatomic, strong)UIButton *memberBtn;

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RemindSetController : UIViewController
+@interface RemindSetController : UIViewController <MessageRoutable>
 @property (weak, nonatomic) IBOutlet UISwitch *messageSwich;
 @property (weak, nonatomic) IBOutlet UISwitch *soundSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *shakeSwitch;

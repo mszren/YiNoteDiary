@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RevordPasswordController : UIViewController
+@interface RevordPasswordController : UIViewController <MessageRoutable>
 
 @end

@@ -9,7 +9,6 @@
 #import "RegisterSecondController.h"
 #import "Masonry.h"
 #import "Utils.h"
-#import "RegisterThirdController.h"
 #import "BaseNavigation.h"
 #import "CheckOutView.h"
 #import "RemindView.h"
@@ -21,6 +20,7 @@
 @end
 
 @implementation RegisterSecondController
+@synthesize messageListner;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,8 +31,8 @@
 #pragma mark -- CheckOutViewDelegate
 - (void)certainJump{
     
-    RegisterThirdController *thirdVc = [RegisterThirdController new];
-    [self.navigationController pushViewController:thirdVc animated:YES];
+    NSDictionary *dic= @{ACTION_Controller_Name : self};
+    [self RouteMessage:ACTION_SHOW_REGISTER_3 withContext:dic];
 }
 
 #pragma mark -- UIBarButtonItem Acyion
@@ -112,7 +112,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+IMPLEMENT_MESSAGE_ROUTABLE
 
 
 @end

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TrailSetController : UIViewController
+@interface TrailSetController : UIViewController <MessageRoutable>
 @property (weak, nonatomic) IBOutlet UISwitch *inviteSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *messageSwitch;
 

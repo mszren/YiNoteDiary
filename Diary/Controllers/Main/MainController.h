@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainController : UITabBarController<UITabBarControllerDelegate>
+@interface MainController : UITabBarController<UITabBarControllerDelegate,MessageRoutable>
 
 
 @end

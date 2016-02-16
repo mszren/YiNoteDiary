@@ -20,6 +20,7 @@
     
     EGOTableView* _tableView;
 }
+@synthesize messageListner;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -100,9 +101,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    FeatureDetailController *detailVc = [FeatureDetailController new];
-    detailVc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:detailVc animated:YES];
+    
+    NSDictionary *dic = @{ACTION_Controller_Name : self};
+    [self RouteMessage:ACTION_SHOW_NEAR_FEARTURE_DETAIL withContext:dic];
 }
 
 #pragma mark DZNEmptyDataSetDelegate,DZNEmptyDataSetSource
@@ -144,6 +145,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+IMPLEMENT_MESSAGE_ROUTABLE
 
 @end

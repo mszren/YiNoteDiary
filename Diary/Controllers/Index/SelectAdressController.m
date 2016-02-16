@@ -21,6 +21,7 @@
     NSInteger _selectIndex;
     
 }
+@synthesize messageListner;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -71,5 +72,7 @@
 
     _selectIndex = indexPath.row;
 }
+
+IMPLEMENT_MESSAGE_ROUTABLE
 
 @end

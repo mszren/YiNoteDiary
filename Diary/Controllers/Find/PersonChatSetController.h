@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PersonChatSetController : UIViewController
+@interface PersonChatSetController : UIViewController <MessageRoutable>
 @property (weak, nonatomic) IBOutlet UIImageView *faceImg;
 @property (weak, nonatomic) IBOutlet UIView *faceView;
 @property (weak, nonatomic) IBOutlet UISwitch *chatSwitchBtn;

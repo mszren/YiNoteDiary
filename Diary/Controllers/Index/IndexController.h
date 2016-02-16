@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IndexController : UIViewController
+@interface IndexController : UIViewController <MessageRoutable>
 
 
 @end

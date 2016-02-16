@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ChatSetController : UIViewController
+@interface ChatSetController : UIViewController <MessageRoutable>
 @property (weak, nonatomic) IBOutlet UISwitch *telephoneSwitch;
 @property (weak, nonatomic) IBOutlet UIView *cleanView;
 

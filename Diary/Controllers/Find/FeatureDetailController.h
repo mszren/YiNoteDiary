@@ -11,6 +11,6 @@
 
 static NSString * const FeatureDetailHeadCellIdentifier = @"FeatureDetailHeadCellIdentifier";
 static NSString * const FeatureCommentCellIdentifier = @"FeatureCommentCellIdentifier";
-@interface FeatureDetailController : UIViewController
+@interface FeatureDetailController : UIViewController <MessageRoutable>
 
 @end

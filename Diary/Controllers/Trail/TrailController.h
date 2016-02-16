@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TrailController : UIViewController
+@interface TrailController : UIViewController <MessageRoutable>
 
 @end

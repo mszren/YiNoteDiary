@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IdentifyController : UIViewController
+@interface IdentifyController : UIViewController <MessageRoutable>
 @property (nonatomic,strong) UIImage *cameraImg;
 
 @end

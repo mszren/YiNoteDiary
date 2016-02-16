@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RegisterSecondController : UIViewController
+@interface RegisterSecondController : UIViewController <MessageRoutable>
 
 @end

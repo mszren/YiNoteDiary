@@ -14,6 +14,7 @@
 @end
 
 @implementation SecretController
+@synthesize messageListner;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,6 +35,6 @@
     [super viewWillAppear:animated];
      [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:@"隐私"];
 }
-
+IMPLEMENT_MESSAGE_ROUTABLE
 
 @end

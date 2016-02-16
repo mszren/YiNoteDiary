@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SetController : UIViewController
+@interface SetController : UIViewController <MessageRoutable>
 @property (weak, nonatomic) IBOutlet UIView *safeView;
 @property (weak, nonatomic) IBOutlet UIView *secretView;
 @property (weak, nonatomic) IBOutlet UIView *remindView;

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProvinceController : UIViewController
+@interface ProvinceController : UIViewController <MessageRoutable>
 
 
 

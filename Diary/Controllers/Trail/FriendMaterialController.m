@@ -9,8 +9,6 @@
 #import "FriendMaterialController.h"
 #import "BaseNavigation.h"
 #import "CheckoutMessageView.h"
-#import "PersonChatSetController.h"
-#import "MyTrailController.h"
 #import "SPKitExample.h"
 #import "MWPhotoBrowser.h"
 #import "LocationManager.h"
@@ -24,6 +22,7 @@
     
     UIBarButtonItem* _rightButton;
 }
+@synthesize messageListner;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -66,9 +65,8 @@
 #pragma mark -- UIBarButtonItem Action
 - (void)onRightItem:(UIBarButtonItem *)sender{
     
-    PersonChatSetController *chatVc = [PersonChatSetController new];
-    chatVc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:chatVc animated:YES];
+    NSDictionary *dic = @{ACTION_Controller_Name : self};
+    [self RouteMessage:ACTION_SHOW_CHAT_SET withContext:dic];
 }
 
 - (void)onBtn:(UIButton *)sender{
@@ -102,11 +100,9 @@
             
             if ([[TravelDataManage shareInstance] insertTravelEnity:aModel]) {
                 TravelEntity * temp = [[TravelDataManage shareInstance] selectTravelEntityByuuid:aModel.uuid];
-                MyTrailController *myTrailVc = [MyTrailController new];
-                myTrailVc.hidesBottomBarWhenPushed = YES;
-                myTrailVc.currentTravelEntity = temp;
-                myTrailVc.isShowMember = YES;
-                [self.navigationController pushViewController:myTrailVc animated:YES];
+                NSDictionary *dic = @{ACTION_Controller_Name : self,ACTION_Controller_Data : @{CurrentTravelEntity : temp, IsShowMember : @YES }};
+                [self RouteMessage:ACTION_SHOW_MYTRAIL withContext:dic];
+                
             }
         }
             
@@ -136,4 +132,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+IMPLEMENT_MESSAGE_ROUTABLE
 @end

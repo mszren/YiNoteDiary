@@ -151,6 +151,8 @@
 		D74353A31C0C3D0E004B89FE /* SexSelectController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D74353951C0C3D0E004B89FE /* SexSelectController.xib */; };
 		D74353A41C0C3D0E004B89FE /* SignController.m in Sources */ = {isa = PBXBuildFile; fileRef = D74353971C0C3D0E004B89FE /* SignController.m */; };
 		D74353A81C0C3D2D004B89FE /* MyController.m in Sources */ = {isa = PBXBuildFile; fileRef = D74353A61C0C3D2D004B89FE /* MyController.m */; };
+		D74AA8CE1C70250F00F47402 /* ActionHandlerBase.m in Sources */ = {isa = PBXBuildFile; fileRef = D74AA8CD1C70250F00F47402 /* ActionHandlerBase.m */; };
+		D74AA8D11C7025C600F47402 /* ActionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D74AA8D01C7025C600F47402 /* ActionHandler.m */; };
 		D74D31761C1800EA00AC7DA4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D74D31751C1800EA00AC7DA4 /* CoreData.framework */; };
 		D75398791C1FB4E50023A62C /* SelectAdressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D75398771C1FB4E50023A62C /* SelectAdressCell.m */; };
 		D753987D1C1FB66F0023A62C /* SelectAdressController.m in Sources */ = {isa = PBXBuildFile; fileRef = D753987C1C1FB66F0023A62C /* SelectAdressController.m */; };
@@ -726,6 +728,12 @@
 		D74353971C0C3D0E004B89FE /* SignController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignController.m; path = Controllers/My/SignController.m; sourceTree = "<group>"; };
 		D74353A51C0C3D2D004B89FE /* MyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyController.h; path = Controllers/My/MyController.h; sourceTree = "<group>"; };
 		D74353A61C0C3D2D004B89FE /* MyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyController.m; path = Controllers/My/MyController.m; sourceTree = "<group>"; };
+		D74AA8C91C70236300F47402 /* MessageRoutable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageRoutable.h; sourceTree = "<group>"; };
+		D74AA8CB1C70250F00F47402 /* ActionConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionConfig.h; sourceTree = "<group>"; };
+		D74AA8CC1C70250F00F47402 /* ActionHandlerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionHandlerBase.h; sourceTree = "<group>"; };
+		D74AA8CD1C70250F00F47402 /* ActionHandlerBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionHandlerBase.m; sourceTree = "<group>"; };
+		D74AA8CF1C7025C600F47402 /* ActionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionHandler.h; sourceTree = "<group>"; };
+		D74AA8D01C7025C600F47402 /* ActionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionHandler.m; sourceTree = "<group>"; };
 		D74D31751C1800EA00AC7DA4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D75398761C1FB4E50023A62C /* SelectAdressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectAdressCell.h; sourceTree = "<group>"; };
 		D75398771C1FB4E50023A62C /* SelectAdressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectAdressCell.m; sourceTree = "<group>"; };
@@ -1706,6 +1714,7 @@
 		84C072F11BE0C46100822E4B /* Diary */ = {
 			isa = PBXGroup;
 			children = (
+				D74AA8CA1C70250F00F47402 /* Action */,
 				D7DDFA791C57602B0065FE98 /* LBSModel */,
 				D7DDFA6E1C575ED90065FE98 /* Core */,
 				D7DDF98F1C5755310065FE98 /* Common */,
@@ -2036,6 +2045,18 @@
 			);
 			name = cell;
 			path = Controllers/My/cell;
+			sourceTree = "<group>";
+		};
+		D74AA8CA1C70250F00F47402 /* Action */ = {
+			isa = PBXGroup;
+			children = (
+				D74AA8CB1C70250F00F47402 /* ActionConfig.h */,
+				D74AA8CC1C70250F00F47402 /* ActionHandlerBase.h */,
+				D74AA8CD1C70250F00F47402 /* ActionHandlerBase.m */,
+				D74AA8CF1C7025C600F47402 /* ActionHandler.h */,
+				D74AA8D01C7025C600F47402 /* ActionHandler.m */,
+			);
+			path = Action;
 			sourceTree = "<group>";
 		};
 		D75398901C1FFFCF0023A62C /* view */ = {
@@ -2812,6 +2833,7 @@
 		D7DDFA6E1C575ED90065FE98 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				D74AA8C91C70236300F47402 /* MessageRoutable.h */,
 				D7DDFA781C575F7D0065FE98 /* Debug.h */,
 				D7DDFA761C575EF60065FE98 /* Config */,
 				D7DDFA6F1C575ED90065FE98 /* FileCache */,
@@ -3252,6 +3274,7 @@
 				D76AB91E1C07FE3F002B14C0 /* SegmentBarView.m in Sources */,
 				D7DDFA501C5759100065FE98 /* TravelDBManager.m in Sources */,
 				D7DDFA5D1C5759170065FE98 /* TravelDao.m in Sources */,
+				D74AA8D11C7025C600F47402 /* ActionHandler.m in Sources */,
 				D79B9ABA1C15221400D0FA3E /* ActivityController.m in Sources */,
 				D77574DE1C0E9C3D00D26828 /* ProvinceCell.m in Sources */,
 				D7DDFA751C575ED90065FE98 /* PathHelper.m in Sources */,
@@ -3277,6 +3300,7 @@
 				D7DFE1CC1C3B99FC00D4A6CE /* MyDiaryHeadCell.m in Sources */,
 				841B2F1E1BE83DF8008C2974 /* LDCachedObject.m in Sources */,
 				D76AB91D1C07FE3F002B14C0 /* LandscapeTableView.m in Sources */,
+				D74AA8CE1C70250F00F47402 /* ActionHandlerBase.m in Sources */,
 				8420C9E31BE9CDB500F09EB2 /* MessageController.m in Sources */,
 				D7C5FF971C5F3B65005EC915 /* CustomAnnotationView.m in Sources */,
 				D731F5F21C3F9C1200F42D17 /* MWTapDetectingImageView.m in Sources */,

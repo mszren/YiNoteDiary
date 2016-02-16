@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RemindController : UIViewController
+@interface RemindController : UIViewController <MessageRoutable>
 
 @end

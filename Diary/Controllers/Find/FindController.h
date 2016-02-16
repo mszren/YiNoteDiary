@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FindController : UIViewController
+@interface FindController : UIViewController <MessageRoutable>
 @property (weak, nonatomic) IBOutlet UIView *nearPersonView;
 @property (weak, nonatomic) IBOutlet UILabel *nearPersonLabel;
 @property (weak, nonatomic) IBOutlet UIView *nearFeatureView;

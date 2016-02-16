@@ -9,7 +9,6 @@
 #import "ProvinceController.h"
 #import "ProvinceCell.h"
 #import "CityPickerProvince.h"
-#import "CityController.h"
 #import "BaseNavigation.h"
 
 @interface ProvinceController () <UITableViewDataSource,UITableViewDelegate>
@@ -20,8 +19,9 @@
 @implementation ProvinceController{
     
     UITableView* _tableView;
-    
 }
+@synthesize messageListner;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initView];
@@ -74,11 +74,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    CityController *cityVc = [CityController new];
-    cityVc.selectRow = indexPath.row;
     CityPickerProvince *province = _provinces[indexPath.row];
-    cityVc.titleString = province.name;
-    [self.navigationController pushViewController:cityVc animated:YES];
+    NSDictionary *dic = @{ACTION_Controller_Name : self ,ACTION_Controller_Data : @{SelectRow : @(indexPath.row), TitleString : province.name}};
+    [self RouteMessage:ACTION_SHOW_MY_CITY withContext:dic];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -90,7 +88,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+IMPLEMENT_MESSAGE_ROUTABLE
 
 
 @end

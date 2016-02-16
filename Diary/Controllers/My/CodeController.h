@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CodeController : UIViewController
+@interface CodeController : UIViewController <MessageRoutable>
 
 @end

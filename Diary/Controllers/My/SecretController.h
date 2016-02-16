@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecretController : UIViewController
+@interface SecretController : UIViewController <MessageRoutable>
 @property (weak, nonatomic) IBOutlet UIView *adressBookBlackView;
 @property (weak, nonatomic) IBOutlet UISwitch *hideToAnyoneSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *hideToFriendSwitch;

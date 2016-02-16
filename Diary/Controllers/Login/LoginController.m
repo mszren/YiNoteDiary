@@ -13,9 +13,8 @@
 #import "ErrorReformer.h"
 #import "AppDelegate.h"
 #import "Utils.h"
-#import "RegisterFirstController.h"
-#import "RevordPasswordController.h"
 #import "BaseNavigation.h"
+#import "ActionHandler.h"
 
 @interface LoginController()<UITextFieldDelegate,
 LDAPIManagerParamSourceDelegate,BusinessManagerCallBackDelegate>
@@ -32,10 +31,10 @@ LDAPIManagerParamSourceDelegate,BusinessManagerCallBackDelegate>
 @property(nonatomic, strong) UIImageView *ivWeiChat;
 @property(nonatomic, strong) UIImageView *ivQQ;
 @property(nonatomic, strong) UIImageView *ivWeibo;
+@property (nonatomic,copy)  ActionHandler *actionHandler;
 @end
 
 @implementation LoginController
-
 
 #pragma mark -
 #pragma mark - life cycle
@@ -47,6 +46,7 @@ LDAPIManagerParamSourceDelegate,BusinessManagerCallBackDelegate>
 
 - (void)initView{
     self.view.backgroundColor = BGViewGray;
+    _actionHandler = [[ActionHandler alloc] init];
    
     [self.view addSubview:self.userView];
     [self.view addSubview:self.passwordView];
@@ -56,6 +56,13 @@ LDAPIManagerParamSourceDelegate,BusinessManagerCallBackDelegate>
     [self.view addSubview:self.ivQQ];
     [self.view addSubview:self.ivWeiChat];
     [self.view addSubview:self.ivWeibo];
+}
+
+#pragma mark RoutedMessages
+- (void)RouteMessage:(NSString*)message withContext:(id)context
+{
+    
+    [_actionHandler excuteAction:message context:context];
 }
 
 #pragma mark -- UITextFieldDelegate
@@ -158,13 +165,15 @@ LDAPIManagerParamSourceDelegate,BusinessManagerCallBackDelegate>
 }
 
 - (void)registerBtnAction:(id)sender {
-    RegisterFirstController *controller = [[RegisterFirstController alloc] init];
-    [self.navigationController pushViewController:controller animated:YES];
+ 
+    NSDictionary *dic = @{ACTION_Controller_Name : self};
+    [self RouteMessage:ACTION_SHOW_REGISTER_1 withContext:dic];
 }
 
 - (void)forgetBtnAction:(id)sender {
-    RevordPasswordController *controller = [[RevordPasswordController alloc] init];
-    [self.navigationController pushViewController:controller animated:YES];
+    
+    NSDictionary *dic = @{ACTION_Controller_Name : self};
+    [self RouteMessage:ACTION_SHOW_REVORED withContext:dic];
 }
 
 - (void)loginByQQ:(id)sender {
@@ -328,4 +337,7 @@ LDAPIManagerParamSourceDelegate,BusinessManagerCallBackDelegate>
     }
     return _ivWeiChat;
 }
+
+
+
 @end

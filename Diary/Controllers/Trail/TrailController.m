@@ -48,6 +48,7 @@
     CLLocation * _currentLocation;
     TravelEntity * _selectedTravelEntity;
 }
+@synthesize messageListner;
 
 - (void)viewDidLoad{
     [super viewDidLoad];
@@ -61,10 +62,8 @@
     NSData * data = UIImageJPEGRepresentation(image, 0.08f);
     UIImage * temp = [[UIImage alloc] initWithData:data];
     _cameraImg = temp;
-    IdentifyController *identifyVc = [IdentifyController new];
-    identifyVc.hidesBottomBarWhenPushed = YES;
-    identifyVc.cameraImg = _cameraImg;
-    [self.navigationController pushViewController:identifyVc animated:YES];
+    NSDictionary * dic = @{ACTION_Controller_Name : self,ACTION_Controller_Data : _cameraImg};
+    [self RouteMessage:ACTION_SHOW_IDENTIFY withContext:dic];
     [self.presentedViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -99,6 +98,7 @@
         MAPolylineView *polylineView =
         [[MAPolylineView alloc] initWithPolyline:travleMapLine];
         polylineView.lineWidth = 10.f;
+        polylineView.fillColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:.3];
         
         switch (travleMapLine.index) {
             case 0:{
@@ -162,7 +162,7 @@ updatingLocation:(BOOL)updatingLocation
     if(updatingLocation)
     {
         //取出当前位置的坐标
-//        NSLog(@"MAMapView latitude : %f,longitude: %f",userLocation.coordinate.latitude,userLocation.coordinate.longitude);
+        NSLog(@"MAMapView latitude : %f,longitude: %f",userLocation.coordinate.latitude,userLocation.coordinate.longitude);
     }
 }
 
@@ -181,47 +181,29 @@ updatingLocation:(BOOL)updatingLocation
             
             if ([[TravelDataManage shareInstance] insertTravelEnity:aModel]) {
                 TravelEntity * temp = [[TravelDataManage shareInstance] selectTravelEntityByuuid:aModel.uuid];
-                MyTrailController *myTrailVc = [MyTrailController new];
-                myTrailVc.hidesBottomBarWhenPushed = YES;
-                myTrailVc.currentTravelEntity = temp;
-                [self.navigationController pushViewController:myTrailVc animated:YES];
+                NSDictionary *dic = @{ACTION_Controller_Name : self,ACTION_Controller_Data : @{CurrentTravelEntity : temp, IsShowMember : @NO }};
+                [self RouteMessage:ACTION_SHOW_MYTRAIL withContext:dic];
             }
         }
             
             break;
         case 101:{
             
-            _cameraController = [DBCameraViewController initWithDelegate:self];
-            [_cameraController setForceQuadCrop:YES];
-            
-            DBCameraContainerViewController *container = [[DBCameraContainerViewController alloc] initWithDelegate:self];
-            [container setCameraViewController:_cameraController];
-            [container setFullScreenMode];
-            
-            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:container];
-            [nav setNavigationBarHidden:YES];
-            [self presentViewController:nav animated:YES completion:nil];
+            [self openCamer];
         }
             
             break;
         case 102:{
-            [[QueueView sharedInstance] showQueueView:@"木子李" andTitle:@"我在行走的路上--跟我一起去欣赏美丽神秘的地方" withViewController:self];
+            [[QueueView sharedInstance] showQueueView:@"木子李" andTitle:@"我在行走的路上--跟我一起去欣赏美丽神秘的地方"];
+            [QueueView sharedInstance].messageListner = self;
         }
             
             break;
             
         default:{
+            
+            [self openCamer];
 
-            _cameraController = [DBCameraViewController initWithDelegate:self];
-            [_cameraController setForceQuadCrop:YES];
-            
-            DBCameraContainerViewController *container = [[DBCameraContainerViewController alloc] initWithDelegate:self];
-            [container setCameraViewController:_cameraController];
-            [container setFullScreenMode];
-            
-            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:container];
-            [nav setNavigationBarHidden:YES];
-            [self presentViewController:nav animated:YES completion:nil];
         }
             break;
     }
@@ -243,6 +225,20 @@ updatingLocation:(BOOL)updatingLocation
 }
 
 #pragma mark - Initialization
+
+- (void)openCamer{
+    
+    _cameraController = [DBCameraViewController initWithDelegate:self];
+    [_cameraController setForceQuadCrop:YES];
+    
+    DBCameraContainerViewController *container = [[DBCameraContainerViewController alloc] initWithDelegate:self];
+    [container setCameraViewController:_cameraController];
+    [container setFullScreenMode];
+    
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:container];
+    [nav setNavigationBarHidden:YES];
+    [self presentViewController:nav animated:YES completion:nil];
+}
 
 - (void)initMapView
 {
@@ -370,4 +366,6 @@ updatingLocation:(BOOL)updatingLocation
     [self initLine];
     [self initAnnotation];
 }
+
+IMPLEMENT_MESSAGE_ROUTABLE
 @end

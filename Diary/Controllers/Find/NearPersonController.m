@@ -12,8 +12,6 @@
 #import <AMapSearchKit/AMapSearchServices.h>
 #import "CusAnnotationView.h"
 #import "BaseNavigation.h"
-#import "FriendMaterialController.h"
-#import "FriendListController.h"
 
 #define kCalloutViewMargin          -8
 
@@ -28,6 +26,7 @@
     MACoordinateRegion _region;//中心点坐标
     UIBarButtonItem* _rightButton;
 }
+@synthesize messageListner;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -148,19 +147,16 @@
 
 #pragma mark -- UIBarButtonItem Action
 - (void)onRightItem:(UIBarButtonItem *)sender{
- 
-    FriendListController *friendListVc = [FriendListController new];
-    friendListVc.hidesBottomBarWhenPushed = YES;
-    friendListVc.title = @"折叠列表";
-    [self.navigationController pushViewController:friendListVc animated:YES];
+    
+    NSDictionary *dic = @{ACTION_Controller_Name : self,ACTION_Controller_Data : @"折叠列表"};
+    [self RouteMessage:ACTION_SHOW_NEAR_PERSONLIST withContext:dic];
 }
 
 #pragma mark -- UITapGestureRecognizer
 - (void)onTap:(UITapGestureRecognizer *)sender{
     
-    FriendMaterialController *materialVc = [FriendMaterialController new];
-    materialVc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:materialVc animated:YES];
+    NSDictionary *dic = @{ACTION_Controller_Name : self};
+    [self RouteMessage:ACTION_SHOW_NEAR_PERSONMATERIAL withContext:dic];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -173,6 +169,6 @@
     // Dispose of any resources that can be recreated.
 }
 
- 
+ IMPLEMENT_MESSAGE_ROUTABLE
 
 @end

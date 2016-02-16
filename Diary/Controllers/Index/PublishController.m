@@ -29,6 +29,7 @@
 @end
 
 @implementation PublishController
+@synthesize messageListner;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -119,9 +120,8 @@
 #pragma mark -- UITapGestureRecognizer
 - (void)onTap:(UITapGestureRecognizer *)sender{
     
-    SelectAdressController *addressVc = [SelectAdressController new];
-    addressVc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:addressVc animated:YES];
+    NSDictionary *dic = @{ACTION_Controller_Name : self};
+    [self RouteMessage:ACTION_SHOW_PUBLISH_SELECTADRESS withContext:dic];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -281,6 +281,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+IMPLEMENT_MESSAGE_ROUTABLE
 
 @end

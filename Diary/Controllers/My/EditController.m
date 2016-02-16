@@ -14,6 +14,7 @@
 @end
 
 @implementation EditController
+@synthesize messageListner;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -40,7 +41,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+IMPLEMENT_MESSAGE_ROUTABLE
 
 
 - (IBAction)onCleanBtn:(UIButton *)sender {

@@ -17,6 +17,7 @@
 @end
 
 @implementation FindController
+@synthesize messageListner;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -48,25 +49,23 @@
 - (void)onTap:(UITapGestureRecognizer *)sender{
     switch (sender.view.tag) {
         case 100:{
+        
+            NSDictionary *dic = @{ACTION_Controller_Name : self};
+            [self RouteMessage:ACTION_SHOW_NEAR_PERSON withContext:dic];
             
-            NearPersonController *personVc = [NearPersonController new];
-            personVc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:personVc animated:YES];
         }
             break;
         case 101:{
             
-            NearFeatureController *featureVc = [NearFeatureController new];
-            featureVc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:featureVc animated:YES];
+            NSDictionary *dic = @{ACTION_Controller_Name : self};
+            [self RouteMessage:ACTION_SHOW_NEAR_FEARTURE withContext:dic];
         }
             
             break;
         case 102:{
             
-            NearPictureController *pictureVc = [NearPictureController new];
-            pictureVc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:pictureVc animated:YES];
+            NSDictionary *dic = @{ACTION_Controller_Name : self};
+            [self RouteMessage:ACTION_SHOW_NEAR_PHOTO withContext:dic];
         }
             
             break;
@@ -88,5 +87,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+IMPLEMENT_MESSAGE_ROUTABLE
 @end

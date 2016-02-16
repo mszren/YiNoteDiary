@@ -9,7 +9,6 @@
 #import "RevordPasswordController.h"
 #import "Masonry.h"
 #import "Utils.h"
-#import "RevordPasswordSecondController.h"
 #import "BaseNavigation.h"
 #import "checkOutView.h"
 #import "RemindView.h"
@@ -21,6 +20,7 @@
 @end
 
 @implementation RevordPasswordController
+@synthesize messageListner;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,8 +30,8 @@
 
 - (void)certainJump{
     
-    RevordPasswordSecondController *revordVc = [RevordPasswordSecondController new];
-    [self.navigationController pushViewController:revordVc animated:YES];
+    NSDictionary * dic = @{ACTION_Controller_Name : self};
+    [self RouteMessage:ACTION_SHOW_REVORED_2 withContext:dic];
 }
 
 #pragma mark -- UIBarButtonItem Acyion
@@ -112,5 +112,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+IMPLEMENT_MESSAGE_ROUTABLE
 
 @end

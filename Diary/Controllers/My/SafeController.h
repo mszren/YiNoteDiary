@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SafeController : UIViewController 
+@interface SafeController : UIViewController <MessageRoutable>
 @property (weak, nonatomic) IBOutlet UIView *editView;
 
 @end

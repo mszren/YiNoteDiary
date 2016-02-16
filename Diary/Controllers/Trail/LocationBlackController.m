@@ -23,6 +23,7 @@
 @implementation LocationBlackController{
     UILabel *_remindLabel;
 }
+@synthesize messageListner;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -105,5 +106,6 @@
     [super viewWillAppear:animated];
     [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:@"位置黑名单"];
 }
+IMPLEMENT_MESSAGE_ROUTABLE
 
 @end

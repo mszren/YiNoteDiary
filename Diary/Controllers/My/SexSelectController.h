@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SexSelectController : UIViewController
+@interface SexSelectController : UIViewController <MessageRoutable>
 @property (weak, nonatomic) IBOutlet UIView *manView;
 @property (weak, nonatomic) IBOutlet UIImageView *manImg;
 @property (weak, nonatomic) IBOutlet UIView *womanView;

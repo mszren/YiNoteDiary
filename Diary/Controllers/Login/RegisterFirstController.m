@@ -12,7 +12,6 @@
 #import "EGOImageView.h"
 #import "DaiDodgeKeyboard.h"
 #import "UzysAssetsPickerController.h"
-#import "RegisterSecondController.h"
 #import "BaseNavigation.h"
 
 @interface RegisterFirstController () <UITextFieldDelegate,UzysAssetsPickerControllerDelegate>
@@ -30,6 +29,7 @@
 @end
 
 @implementation RegisterFirstController
+@synthesize messageListner;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -104,8 +104,8 @@
 #pragma mark -- UIBarButtonItem Acyion
 - (void)onRightBtn:(UIBarButtonItem *)sender{
     
-    RegisterSecondController *registerSecondVc = [RegisterSecondController new];
-    [self.navigationController pushViewController:registerSecondVc animated:YES];
+    NSDictionary *dic= @{ACTION_Controller_Name : self};
+    [self RouteMessage:ACTION_SHOW_REGISTER_2 withContext:dic];
 }
 
 - (void)initView{
@@ -289,5 +289,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+IMPLEMENT_MESSAGE_ROUTABLE
 
 @end

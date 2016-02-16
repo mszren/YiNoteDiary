@@ -9,9 +9,6 @@
 #import "MyController.h"
 #import "Masonry.h"
 #import "EGOImageView.h"
-#import "FriendMaterialController.h"
-#import "SetController.h"
-#import "PersonCenterController.h"
 #import "BaseNavigation.h"
 
 @interface MyController ()
@@ -49,6 +46,7 @@
 @end
 
 @implementation MyController
+@synthesize messageListner;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -57,9 +55,9 @@
 
 #pragma mark -- UIButton Action
 - (void)onSetBtn:(UIButton *)sender{
-    SetController *setVc = [SetController new];
-    setVc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:setVc animated:YES];
+    
+    NSDictionary *dic = @{ACTION_Controller_Name : self};
+    [self RouteMessage:ACTION_SHOW_MY_SET withContext:dic];
 }
 
 #pragma mark -- UITapGestureRecognizer
@@ -68,20 +66,16 @@
     switch (sender.view.tag) {
         case 100:{
             
-            FriendMaterialController *friendVc = [FriendMaterialController new];
-            friendVc.navigationController.navigationBarHidden = NO;
-            friendVc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:friendVc animated:YES];
+            NSDictionary * dic = @{ACTION_Controller_Name : self};
+            [self RouteMessage:ACTION_SHOW_NEAR_PERSONMATERIAL withContext:dic];
         }
             
             break;
             
         default:{
             
-            PersonCenterController *personVc = [PersonCenterController new];
-            personVc.navigationController.navigationBarHidden = NO;
-            personVc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:personVc animated:YES];
+            NSDictionary *dic = @{ACTION_Controller_Name : self};
+            [self RouteMessage:ACTION_SHOW_MY_PERSONCENTER withContext:dic];
         }
             break;
     }
@@ -520,6 +514,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+IMPLEMENT_MESSAGE_ROUTABLE
 
 @end

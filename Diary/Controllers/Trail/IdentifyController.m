@@ -30,7 +30,7 @@
     CGFloat _navalpha;
     UIBarButtonItem *_leftItem;
 }
-
+@synthesize messageListner;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -47,7 +47,7 @@
     
     _tableView = [[EGOTableView alloc]
                   initWithFrame:CGRectMake(0, -NavigationBarHeight, Screen_Width,
-                                           Screen_height )
+                                           Screen_height)
                   style:UITableViewStylePlain];
     _tableView.backgroundColor = BGViewColor;
     _tableView.backgroundView = nil;
@@ -65,7 +65,6 @@
     _featureImgView.frame = CGRectMake(0, 0, Screen_Width, CoolNavHeight);
     _tableView.tableHeaderView = _featureImgView;
 
-    
 }
 
 #pragma mark -- EGOTableViewDelegate
@@ -192,17 +191,14 @@
 
 #pragma mark - BaseNavigationDelegate
 - (void)baseNavigationDelegateOnRightItemAction{
-    IdentifyDetailController *detailVc = [IdentifyDetailController new];
-    detailVc.hidesBottomBarWhenPushed = YES;
-    detailVc.featureImg = _cameraImg;
-    [self.navigationController pushViewController:detailVc animated:YES];
+
+    NSDictionary * dic = @{ACTION_Controller_Name : self,ACTION_Controller_Data : _cameraImg};
+    [self RouteMessage:ACTION_SHOW_IDENTIFY_DETAIL withContext:dic];
 }
 
 #pragma mark - UIBarButtonItem Action
 - (void)leftItemAction:(UIBarButtonItem *)sender{
-//    TrailController *trailVc = [TrailController new];
-//    trailVc.hidesBottomBarWhenPushed = NO;
-//    [self.navigationController popToViewController:trailVc animated:YES];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -216,5 +212,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+IMPLEMENT_MESSAGE_ROUTABLE
 
 @end

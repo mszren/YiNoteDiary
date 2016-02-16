@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AdressBookController : UIViewController
+@interface AdressBookController : UIViewController <MessageRoutable>
 
 @end

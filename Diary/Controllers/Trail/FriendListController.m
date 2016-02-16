@@ -9,7 +9,6 @@
 #import "FriendListController.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import "FriendCell.h"
-#import "FriendMaterialController.h"
 #import "BaseNavigation.h"
 
 @interface FriendListController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,EGOTableViewDelegate>
@@ -20,6 +19,7 @@
     
     EGOTableView* _tableView;
 }
+@synthesize messageListner;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -99,9 +99,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    FriendMaterialController *materialVc = [FriendMaterialController new];
-    materialVc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:materialVc animated:YES];
+    NSDictionary * dic = @{ACTION_Controller_Name : self};
+    [self RouteMessage:ACTION_SHOW_NEAR_PERSONMATERIAL withContext:dic];
 }
 
 #pragma mark DZNEmptyDataSetDelegate,DZNEmptyDataSetSource
@@ -143,6 +142,6 @@
     // Dispose of any resources that can be recreated.
 }
 
- 
+ IMPLEMENT_MESSAGE_ROUTABLE
 
 @end

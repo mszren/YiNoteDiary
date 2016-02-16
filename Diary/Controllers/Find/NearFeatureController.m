@@ -28,6 +28,7 @@
     MACoordinateRegion _region;//中心点坐标
     UIBarButtonItem* _rightButton;
 }
+@synthesize messageListner;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -150,16 +151,15 @@
 #pragma mark -- UIBarButtonItem Action
 - (void)onRightItem:(UIBarButtonItem *)sender{
     
-    FeatureListController *listVc = [FeatureListController new];
-    listVc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:listVc animated:YES];
+    NSDictionary *dic = @{ACTION_Controller_Name : self};
+    [self RouteMessage:ACTION_SHOW_NEAR_FEARTURE_LIST withContext:dic];
 }
 
 #pragma mark -- UITapGestureRecognizer
 - (void)onTap:(UITapGestureRecognizer *)sender{
-    FeatureDetailController *featureVc = [FeatureDetailController new];
-    featureVc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:featureVc animated:YES];
+
+    NSDictionary *dic = @{ACTION_Controller_Name : self};
+    [self RouteMessage:ACTION_SHOW_NEAR_FEARTURE_DETAIL withContext:dic];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -171,6 +171,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+IMPLEMENT_MESSAGE_ROUTABLE
 
 @end

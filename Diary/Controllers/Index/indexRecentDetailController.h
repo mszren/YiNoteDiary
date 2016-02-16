@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface indexRecentDetailController : UIViewController
+@interface indexRecentDetailController : UIViewController <MessageRoutable>
 
 @end

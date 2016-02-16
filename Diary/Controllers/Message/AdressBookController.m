@@ -26,6 +26,7 @@
     UIBarButtonItem* _rightButton;
     UISearchBar* _searchBar;
 }
+@synthesize messageListner;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -187,16 +188,15 @@
 #pragma mark -- UIBarButtonItem Action
 - (void)onRightItem:(UIBarButtonItem *)sender{
     
-    AddFriendController *addFriendVc = [AddFriendController new];
-    addFriendVc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:addFriendVc animated:YES];
+    NSDictionary *dic = @{ACTION_Controller_Name : self};
+    [self RouteMessage:ACTION_SHOW_ADDFRIEND withContext:dic];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+IMPLEMENT_MESSAGE_ROUTABLE
  
 
 @end

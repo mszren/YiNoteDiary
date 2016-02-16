@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface InviteController : UIViewController
+@interface InviteController : UIViewController <MessageRoutable>
 @property (weak, nonatomic) IBOutlet UIImageView *faceImg;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;

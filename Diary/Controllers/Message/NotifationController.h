@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NotifationController : UIViewController
+@interface NotifationController : UIViewController <MessageRoutable>
 
 @end

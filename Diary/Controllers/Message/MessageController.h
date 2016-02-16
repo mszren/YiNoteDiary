@@ -10,7 +10,7 @@
 #import <WXOUIModule/YWConversationViewController.h>
 
 
-@interface MessageController : YWConversationViewController
+@interface MessageController : YWConversationViewController <MessageRoutable>
 @property (nonatomic, strong)NSMutableArray *conversationArry;
 
 @end

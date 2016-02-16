@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CityController : UIViewController
+@interface CityController : UIViewController <MessageRoutable>
 @property (nonatomic,strong)NSString *titleString;
 @property (nonatomic,assign)NSInteger selectRow;
 

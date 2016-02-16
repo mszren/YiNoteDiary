@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginController : UIViewController
+@interface LoginController : UIViewController <MessageRoutable>
 
 @end

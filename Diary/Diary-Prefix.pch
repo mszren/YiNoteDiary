@@ -12,6 +12,7 @@
 #import "ToastManager.h"
 #import "Constaints.h"
 #import "CoreConfig.h"
+#import "Action/ActionConfig.h"
 #import <CoreData/CoreData.h>
 #import "Masonry.h"
 #import <WXOpenIMSDKFMWK/YWFMWK.h>
@@ -26,6 +27,7 @@
 #import "TravelImageCacheManage.h"
 #import "BaseDao.h"
 #import "EGOTableView.h"
+#import "MessageRoutable.h"
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 

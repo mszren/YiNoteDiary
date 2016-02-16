@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MyTeamController : UIViewController
+@interface MyTeamController : UIViewController <MessageRoutable>
 
 @end

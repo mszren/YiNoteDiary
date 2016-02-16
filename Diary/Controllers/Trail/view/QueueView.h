@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "EGOImageView.h"
 
-@interface QueueView : NSObject
+@interface QueueView : NSObject <MessageRoutable>
+
+
 @property (nonatomic,strong)UIWindow *window;
 @property (nonatomic,strong)UIViewController * viewController;
 @property (nonatomic,strong)UIView * backGroundView;
@@ -17,9 +19,8 @@
 @property (nonatomic,strong)UILabel *nameLabel;
 @property (nonatomic,strong)UILabel *titleLabel;
 @property (nonatomic,strong)UIButton *inviteBtn;
-@property (nonatomic,strong)UIViewController *baseViewController;
 
 + (instancetype)sharedInstance;
 
-- (void)showQueueView:(NSString *)name andTitle:(NSString *)title withViewController:(UIViewController *)viewController;
+- (void)showQueueView:(NSString *)name andTitle:(NSString *)title ;
 @end

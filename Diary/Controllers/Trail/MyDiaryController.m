@@ -13,7 +13,6 @@
 #import "MyDiaryFirstCell.h"
 #import "MyDiaryCell.h"
 #import "UITableView+FDTemplateLayoutCell.h"
-#import "EditDiaryController.h"
 
 static NSString * const  myDiaryFirstCellIdentidier = @"MyDiaryFirstCellIdentidier";
 static NSString * const  myDiaryCellIdentifier = @"MyDiaryCellIdentifier";
@@ -26,6 +25,7 @@ static NSString * const  myDiaryCellIdentifier = @"MyDiaryCellIdentifier";
     UIBarButtonItem* _rightButton;
     EGOTableView *_tableView;
 }
+@synthesize messageListner;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -150,9 +150,8 @@ static NSString * const  myDiaryCellIdentifier = @"MyDiaryCellIdentifier";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
     if (indexPath.row > 0) {
-        EditDiaryController *editDiaryVc = [EditDiaryController new];
-        editDiaryVc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:editDiaryVc animated:YES];
+        NSDictionary *dic = @{ACTION_Controller_Name : self};
+        [self RouteMessage:ACTION_SHOW_EDITDIARY withContext:dic];
     }
 }
 
@@ -198,6 +197,6 @@ static NSString * const  myDiaryCellIdentifier = @"MyDiaryCellIdentifier";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+IMPLEMENT_MESSAGE_ROUTABLE
 
 @end

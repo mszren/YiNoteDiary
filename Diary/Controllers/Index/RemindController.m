@@ -22,6 +22,7 @@
     
     EGOTableView* _tableView;
 }
+@synthesize messageListner;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -154,9 +155,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (indexPath.row > 1) {
-        indexRecentDetailController *detailVc = [indexRecentDetailController new];
-        detailVc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:detailVc animated:YES];
+        NSDictionary* dic = [NSDictionary
+                             dictionaryWithObjectsAndKeys:self, ACTION_Controller_Name, nil];
+        [self RouteMessage:ACTION_SHOW_INDEXDETAIL withContext:dic];
     }
 }
 
@@ -194,6 +195,6 @@
     // Dispose of any resources that can be recreated.
 }
 
- 
+IMPLEMENT_MESSAGE_ROUTABLE
 
 @end

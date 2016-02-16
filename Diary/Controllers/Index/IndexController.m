@@ -35,6 +35,7 @@
     DBCameraViewController *_cameraController;
     
 }
+@synthesize messageListner;
 
 - (void)viewDidLoad{
     [super viewDidLoad];
@@ -49,12 +50,15 @@
     self.navigationItem.titleView = _barView;
     
     ActivityController *activityVc = [ActivityController new];
+    activityVc.messageListner = self;
     [self addChildViewController:activityVc];
     
     NearController *nearVc = [NearController new];
+    nearVc.messageListner = self;
     [self addChildViewController:nearVc];
     
     RemindController *remindVc = [RemindController new];
+    remindVc.messageListner = self;
     [self addChildViewController:remindVc];
     
     NSArray *controllers = @[activityVc,nearVc,remindVc];
@@ -100,6 +104,7 @@
     publishVc.hidesBottomBarWhenPushed = YES;
     publishVc.assetName = metadata[@"DBCameraAssetURL"];
     [self.navigationController pushViewController:publishVc animated:YES];
+    
     [self.presentedViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -114,11 +119,10 @@
     
     if ([[assets[0] valueForProperty:@"ALAssetPropertyType"] isEqualToString:@"ALAssetTypePhoto"]) //Photo
     {
-
-        PublishController *publishVc = [PublishController new];
-        publishVc.hidesBottomBarWhenPushed = YES;
-        publishVc.assets = [[NSMutableArray alloc]initWithArray:assets];
-        [self.navigationController pushViewController:publishVc animated:YES];
+        
+        NSDictionary* dic = @{ ACTION_Controller_Name : self,
+                               ACTION_Controller_Data : assets };
+        [self RouteMessage:ACTION_SHOW_PUBLISH withContext:dic];
     }
     [self.presentedViewController dismissViewControllerAnimated:YES completion:nil];
 }
@@ -166,5 +170,7 @@
     [super viewWillAppear:animated];
     [[BaseNavigation sharedInstance] setIndexGreenNavigationBar:self andTitle:nil];
 }
+
+IMPLEMENT_MESSAGE_ROUTABLE
 
 @end

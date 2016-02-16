@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AgeController : UIViewController
+@interface AgeController : UIViewController <MessageRoutable>
 @property (weak, nonatomic) IBOutlet UILabel *ageLabel;
 
 @end

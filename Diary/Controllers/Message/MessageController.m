@@ -11,8 +11,6 @@
 #import "NewsCell.h"
 #import "NotifationCell.h"
 #import "PersonCell.h"
-#import "AdressBookController.h"
-#import "NotifationController.h"
 #import "BaseNavigation.h"
 #import "SPKitExample.h"
 
@@ -25,6 +23,7 @@
     EGOTableView* _tableView;
     NSIndexPath * _lastSelectCell;
 }
+@synthesize messageListner;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -195,17 +194,15 @@
     switch (indexPath.row) {
         case 0:{
             
-            NotifationController *notifationVc = [NotifationController new];
-            notifationVc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:notifationVc animated:YES];
+            NSDictionary * dic = @{ACTION_Controller_Name : self};
+            [self RouteMessage:ACTION_SHOW_NOTIFATION withContext:dic];
         }
             
             break;
         case 1:{
             
-            AdressBookController *adressBookVc = [AdressBookController new];
-            adressBookVc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:adressBookVc animated:YES];
+            NSDictionary * dic = @{ACTION_Controller_Name : self};
+            [self RouteMessage:ACTION_SHOW_ADRESSBOOK withContext:dic];
         }
             break;
             
@@ -261,5 +258,6 @@
     [[BaseNavigation sharedInstance] setIndexGreenNavigationBar:self andTitle:@"消息"];
     [self initView];
 }
+IMPLEMENT_MESSAGE_ROUTABLE
 
 @end

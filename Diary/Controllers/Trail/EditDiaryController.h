@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EditDiaryController : UIViewController
+@interface EditDiaryController : UIViewController <MessageRoutable>
 
 @end

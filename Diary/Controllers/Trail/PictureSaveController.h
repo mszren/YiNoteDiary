@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PictureSaveController : UIViewController
+@interface PictureSaveController : UIViewController <MessageRoutable>
 @property (nonatomic, strong)NSString *saveTitleStr;
 
 @end

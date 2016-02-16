@@ -47,6 +47,7 @@
     NSMutableArray * _pointList;
     NSMutableArray * _photoList;
 }
+@synthesize messageListner;
 
 - (void)viewDidLoad{
     [super viewDidLoad];
@@ -240,5 +241,5 @@ updatingLocation:(BOOL)updatingLocation
     self.navigationController.navigationBarHidden = NO;
        [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:@"TA的轨迹"];
 }
-
+IMPLEMENT_MESSAGE_ROUTABLE
 @end

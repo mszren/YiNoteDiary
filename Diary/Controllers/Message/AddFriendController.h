@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddFriendController : UIViewController
+@interface AddFriendController : UIViewController <MessageRoutable>
 @property (weak, nonatomic) IBOutlet UIView *nichengView;
 @property (weak, nonatomic) IBOutlet UIView *scanView;
 @property (weak, nonatomic) IBOutlet UIView *nearPersonView;

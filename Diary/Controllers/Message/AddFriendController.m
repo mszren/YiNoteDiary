@@ -7,7 +7,6 @@
 //
 
 #import "AddFriendController.h"
-#import "NearPersonController.h"
 #import "InviteController.h"
 #import "BaseNavigation.h"
 #import "ScanController.h"
@@ -17,6 +16,7 @@
 @end
 
 @implementation AddFriendController
+@synthesize messageListner;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -48,26 +48,23 @@
             break;
         case 101:{
             
-            ScanController *scanVc= [ScanController new];
-            scanVc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:scanVc animated:YES];
+            NSDictionary *dic = @{ACTION_Controller_Name : self};
+            [self RouteMessage:ACTION_SHOW_SCAN withContext:dic];
         }
             
             break;
         case 102:{
             
-            NearPersonController *nearPersonVc = [NearPersonController new];
-            nearPersonVc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:nearPersonVc animated:YES];
+            NSDictionary *dic = @{ACTION_Controller_Name : self};
+            [self RouteMessage:ACTION_SHOW_NEAR_PERSON withContext:dic];
         }
             
             break;
             
         default:{
             
-            InviteController *inviteVc = [InviteController new];
-            inviteVc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:inviteVc animated:YES];
+            NSDictionary *dic = @{ACTION_Controller_Name : self};
+            [self RouteMessage:ACTION_SHOW_INVITE withContext:dic];
         }
             break;
     }
@@ -82,7 +79,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+IMPLEMENT_MESSAGE_ROUTABLE
 
 
 @end

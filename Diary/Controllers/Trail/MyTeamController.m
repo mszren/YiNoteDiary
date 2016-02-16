@@ -27,6 +27,7 @@
     UIBarButtonItem* _rightButton;
     UIButton *_addBtn;
 }
+@synthesize messageListner;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -97,10 +98,8 @@
     
     if ([[TravelDataManage shareInstance] insertTravelEnity:aModel]) {
         TravelEntity * temp = [[TravelDataManage shareInstance] selectTravelEntityByuuid:aModel.uuid];
-        OtherTrailController *otherTrailVc = [OtherTrailController new];
-        otherTrailVc.hidesBottomBarWhenPushed = YES;
-        otherTrailVc.currentTravelEntity = temp;
-        [self.navigationController pushViewController:otherTrailVc animated:YES];
+        NSDictionary * dic = @{ACTION_Controller_Name : self ,ACTION_Controller_Data : @{CurrentTravelEntity : temp}};
+        [self RouteMessage:ACTION_SHOW_OTHERTRAIL withContext:dic];
     }
 }
 
@@ -111,9 +110,9 @@
 
 #pragma mark -- UIBarButtonItem Action
 - (void)onRightItem:(UIBarButtonItem *)sender{
-    TrailSetController *trailSetVc = [TrailSetController new];
-    trailSetVc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:trailSetVc animated:YES];
+
+    NSDictionary * dic = @{ACTION_Controller_Name : self};
+    [self RouteMessage:ACTION_SHOW_TRAILSET withContext:dic];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -125,5 +124,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+IMPLEMENT_MESSAGE_ROUTABLE
 
 @end

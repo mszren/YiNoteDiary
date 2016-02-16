@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SelectAdressController : UIViewController
+@interface SelectAdressController : UIViewController <MessageRoutable>
 
 @end

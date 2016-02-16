@@ -18,6 +18,7 @@
 @end
 
 @implementation SignController
+@synthesize messageListner;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -128,6 +129,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+IMPLEMENT_MESSAGE_ROUTABLE
 
 @end

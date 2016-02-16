@@ -11,7 +11,6 @@
 #import "EGOImageView.h"
 #import "Masonry.h"
 #import "DaiDodgeKeyboard.h"
-#import "PictureSaveController.h"
 
 @interface EditDiaryController () <UITextViewDelegate>
 @property (nonatomic, strong)EGOImageView *trailImg;
@@ -24,6 +23,7 @@
 @implementation EditDiaryController{
     UIBarButtonItem* _rightButton;
 }
+@synthesize messageListner;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -64,11 +64,8 @@
 #pragma mark -- UIBarButtonItem Action
 - (void)onRightItem:(UIBarButtonItem *)sender{
     
-    PictureSaveController *pictureSaveVc = [PictureSaveController new];
-    pictureSaveVc.hidesBottomBarWhenPushed = YES;
-    pictureSaveVc.saveTitleStr = @"专辑保存中";
-    self.navigationController.navigationBarHidden = YES;
-    [self.navigationController pushViewController:pictureSaveVc animated:YES];
+    NSDictionary *dic = @{ACTION_Controller_Name : self , ACTION_Controller_Data : @"专辑保存中"};
+    [self RouteMessage:ACTION_SHOW_PICTURESAVE withContext:dic];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -157,7 +154,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+IMPLEMENT_MESSAGE_ROUTABLE
 
 
 @end
