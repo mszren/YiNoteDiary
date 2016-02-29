@@ -23,7 +23,6 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        _dataList = [[NSMutableArray alloc] initWithCapacity:0];
         self.backgroundColor = BGViewColor;
         _btn_add = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"btn_publish"]];
         _btn_add.userInteractionEnabled = YES;
@@ -38,14 +37,14 @@
 - (void)tapAction:(id)sender
 {
     if ([self.delegate respondsToSelector:@selector(showPickImgs:)]) {
-        [self.delegate showPickImgs:_dataList];
+        [self.delegate showPickImgs:self.dataList];
     }
 }
 
 - (void)addImgUrls:(NSArray*)array
 {
-    [_dataList removeAllObjects];
-    [_dataList addObjectsFromArray:array];
+    [self.dataList removeAllObjects];
+    [self.dataList addObjectsFromArray:array];
     [self initView];
 }
 
@@ -76,7 +75,7 @@
          width += PublishImageTileWidth + 20;
     }
     
-    if (_dataList.count < _imageMaxCount || _dataList.count == 0) {
+    if (self.dataList.count < _imageMaxCount || self.dataList.count == 0) {
         
         if ((width + PublishImageTileWidth) > Screen_Width) {
             height += PublishImageTileHeight + 20;
@@ -90,17 +89,24 @@
     frame.size.height = height + PublishImageTileHeight + 20;
     self.frame = frame;
     
-    if ([_delegate respondsToSelector:@selector(updateFrame)]) {
+    if ([_delegate respondsToSelector:@selector(updateFrame:)]) {
         
-        [_delegate updateFrame];
+        [_delegate updateFrame:frame.size.height];
     }
+}
+
+- (NSMutableArray *)dataList{
+    if (!_dataList) {
+        _dataList = [[NSMutableArray alloc]initWithCapacity:0];
+    }
+    return _dataList;
 }
 
 #pragma mark -
 #pragma mark AlbumImageTileViewDelegate
 - (void)removeImage:(ALAsset*)asset
 {
-    [_dataList removeObject:asset];
+    [self.dataList removeObject:asset];
     [self initView];
 }
 

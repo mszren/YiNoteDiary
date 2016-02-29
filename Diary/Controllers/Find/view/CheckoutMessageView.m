@@ -18,7 +18,10 @@
         sharedInstance = [[[self class] alloc] init];
     });
     return sharedInstance;
+    
 }
+
+
 
 
 - (void)showCheckoutMessageView:(NSString *)title andRemind:(NSString *)remind andDelegate:(id<CheckoutMessageViewDelegate>)delegate{

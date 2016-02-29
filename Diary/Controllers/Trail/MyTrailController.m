@@ -132,10 +132,12 @@
         
         polylineView.lineWidth = 10.f;
         
-        polylineView.lineJoinType = kCGLineJoinRound;//连接类型
-        polylineView.lineCapType = kCGLineCapRound;//端点类型
+//        polylineView.lineJoinType = kCGLineJoinRound;//连接类型
+//        polylineView.lineCapType = kCGLineCapRound;//端点类型
         
-        polylineView.strokeColor = [UIColor redColor];
+//        polylineView.strokeColor = [UIColor redColor];
+//        polylineView.fillColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:.3];
+        [polylineView loadStrokeTextureImage:[UIImage imageNamed:@"arrowTexture"]];
         
         
         return polylineView;
@@ -268,7 +270,9 @@ updatingLocation:(BOOL)updatingLocation
 #pragma mark -- UIBarButtonItem Action
 - (void)onRightItem:(UIBarButtonItem *)sender{
    
-    [self.navigationController popViewControllerAnimated:YES];
+    if ([[TravelDataManage shareInstance] updateTravelFinish:_currentTravelEntity.travelID]) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 #pragma mark - UITapGestureRecognizer

@@ -477,6 +477,7 @@
 		D7F29C2A1C25352F00358C1B /* ToolViewKeyboardHL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7F29C291C25352F00358C1B /* ToolViewKeyboardHL@2x.png */; };
 		D7F29C2C1C25353400358C1B /* ToolViewKeyboardHL@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7F29C2B1C25353400358C1B /* ToolViewKeyboardHL@3x.png */; };
 		D7F29C2E1C2538A300358C1B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7F29C2D1C2538A300358C1B /* AudioToolbox.framework */; };
+		D7F64C1E1C731B7A00C424EC /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7F64C1C1C731AEC00C424EC /* CoreAudio.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1219,6 +1220,7 @@
 		D7F29C291C25352F00358C1B /* ToolViewKeyboardHL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ToolViewKeyboardHL@2x.png"; sourceTree = "<group>"; };
 		D7F29C2B1C25353400358C1B /* ToolViewKeyboardHL@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ToolViewKeyboardHL@3x.png"; sourceTree = "<group>"; };
 		D7F29C2D1C2538A300358C1B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		D7F64C1C1C731AEC00C424EC /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1226,34 +1228,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D76CB4CA1C215D66007ED8FA /* libsqlite3.tbd in Frameworks */,
-				D7C3E1E21C084D81009CE15D /* CoreGraphics.framework in Frameworks */,
+				D7C3E1F01C084DD9009CE15D /* Security.framework in Frameworks */,
+				D7CF04E11C4CAE5D005BFEE0 /* UTDID.framework in Frameworks */,
+				D7F29C2E1C2538A300358C1B /* AudioToolbox.framework in Frameworks */,
+				D7CF04EB1C4CAF3C005BFEE0 /* MobileCoreServices.framework in Frameworks */,
+				D7CF04ED1C4CAF45005BFEE0 /* ImageIO.framework in Frameworks */,
+				D7F64C1E1C731B7A00C424EC /* CoreAudio.framework in Frameworks */,
 				D77B31BD1C45FD9100C34591 /* AssetsLibrary.framework in Frameworks */,
 				D76768301C22461D00FCF4D2 /* AVFoundation.framework in Frameworks */,
-				D7F29C2E1C2538A300358C1B /* AudioToolbox.framework in Frameworks */,
-				D7CF04ED1C4CAF45005BFEE0 /* ImageIO.framework in Frameworks */,
-				D7CF04EB1C4CAF3C005BFEE0 /* MobileCoreServices.framework in Frameworks */,
 				D7C3E1EE1C084DC2009CE15D /* libstdc++.6.0.9.tbd in Frameworks */,
 				D7C3E1EC1C084DB8009CE15D /* libz.tbd in Frameworks */,
 				D74D31761C1800EA00AC7DA4 /* CoreData.framework in Frameworks */,
+				D7C3E1E81C084DA2009CE15D /* CoreTelephony.framework in Frameworks */,
 				841B2F381BE83EF7008C2974 /* CoreLocation.framework in Frameworks */,
 				D7C3E1EA1C084DAE009CE15D /* SystemConfiguration.framework in Frameworks */,
 				D7CF04E91C4CAED0005BFEE0 /* AddressBook.framework in Frameworks */,
 				D7C3E1DE1C084D6D009CE15D /* UIKit.framework in Frameworks */,
+				D76CB4CA1C215D66007ED8FA /* libsqlite3.tbd in Frameworks */,
+				D7C3E1E21C084D81009CE15D /* CoreGraphics.framework in Frameworks */,
 				D76768941C22829900FCF4D2 /* Photos.framework in Frameworks */,
 				D7CF04E21C4CAE5D005BFEE0 /* UTMini.framework in Frameworks */,
 				D78026691C2BE50800CA6890 /* MediaPlayer.framework in Frameworks */,
-				D7CF04E11C4CAE5D005BFEE0 /* UTDID.framework in Frameworks */,
 				D7CF04DF1C4CAE5D005BFEE0 /* SecurityGuardSDK.framework in Frameworks */,
 				D76CB4CC1C215D9B007ED8FA /* libstdc++.tbd in Frameworks */,
 				D7CF04E51C4CAE5D005BFEE0 /* WXOUIModule.framework in Frameworks */,
 				D76CB4C81C215D41007ED8FA /* libiconv.tbd in Frameworks */,
 				D7CF04E31C4CAE5D005BFEE0 /* WXOpenIMSDKFMWK.framework in Frameworks */,
-				D7C3E1F01C084DD9009CE15D /* Security.framework in Frameworks */,
 				D7AE8E121C1191DA00693FA3 /* MAMapKit.framework in Frameworks */,
 				D7C3E1F21C084DF1009CE15D /* libc++.tbd in Frameworks */,
 				D7CF04E01C4CAE5D005BFEE0 /* UMOpenIMSDKFMWK.framework in Frameworks */,
-				D7C3E1E81C084DA2009CE15D /* CoreTelephony.framework in Frameworks */,
 				D7C3E1E61C084D91009CE15D /* OpenGLES.framework in Frameworks */,
 				D7C3E1E41C084D88009CE15D /* QuartzCore.framework in Frameworks */,
 				D7C3E1E01C084D76009CE15D /* Foundation.framework in Frameworks */,
@@ -1267,6 +1270,7 @@
 		2DAE23E1F9A949483082CAEB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D7F64C1C1C731AEC00C424EC /* CoreAudio.framework */,
 				D7CF04EC1C4CAF45005BFEE0 /* ImageIO.framework */,
 				D7CF04EA1C4CAF3C005BFEE0 /* MobileCoreServices.framework */,
 				D7CF04E81C4CAED0005BFEE0 /* AddressBook.framework */,
@@ -3492,8 +3496,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Yi Yin (R79742M7J4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Anhui Home Network Technology Co., Ltd. (972SEJPPZB)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -3512,10 +3516,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "bf1acc13-b072-4f4f-b434-077de29035f7";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -3538,8 +3541,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Yi Yin (R79742M7J4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Anhui Home Network Technology Co., Ltd. (972SEJPPZB)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -3552,9 +3555,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "bf1acc13-b072-4f4f-b434-077de29035f7";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -3581,9 +3583,8 @@
 				INFOPLIST_FILE = Diary/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.1bj.Diary;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bj.Diary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -3594,7 +3595,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3608,9 +3609,8 @@
 				INFOPLIST_FILE = Diary/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.1bj.Diary;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bj.Diary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

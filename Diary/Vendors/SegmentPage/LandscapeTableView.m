@@ -96,7 +96,7 @@
 
 -(void)selectIndex:(int)index
 {
-    [tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] atScrollPosition:UITableViewScrollPositionNone animated:NO];
+    [tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] atScrollPosition:UITableViewScrollPositionNone animated:YES];
 }
 
 -(void)selectIndex:(int)index withAnimated:(BOOL) animated{

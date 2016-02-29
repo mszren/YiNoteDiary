@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9058" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9048"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddFriendController">
@@ -23,7 +24,6 @@
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_collect.png" translatesAutoresizingMaskIntoConstraints="NO" id="VwF-pd-hea">
                             <rect key="frame" x="13" y="13" width="30" height="30"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="30" id="5hj-LH-iPR"/>
                                 <constraint firstAttribute="height" constant="30" id="70U-vJ-hnB"/>
@@ -31,7 +31,6 @@
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="昵称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ytk-sA-zhS">
                             <rect key="frame" x="56" y="0.0" width="100" height="56"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="100" id="yhd-Tk-A9Q"/>
                             </constraints>
@@ -40,7 +39,6 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="VwF-pd-hea" firstAttribute="leading" secondItem="0dl-fv-ed0" secondAttribute="leading" constant="13" id="5IQ-4e-Q8A"/>
@@ -56,7 +54,6 @@
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_sweep the.png" translatesAutoresizingMaskIntoConstraints="NO" id="9Rv-cl-TP7">
                             <rect key="frame" x="13" y="13" width="30" height="30"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="LNk-re-rY3"/>
                                 <constraint firstAttribute="width" constant="30" id="ko9-Uv-q41"/>
@@ -64,7 +61,6 @@
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="扫一扫" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T5L-Us-A7x">
                             <rect key="frame" x="56" y="0.0" width="120" height="56"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="120" id="CcS-FQ-ioP"/>
                             </constraints>
@@ -73,7 +69,6 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="T5L-Us-A7x" firstAttribute="leading" secondItem="9Rv-cl-TP7" secondAttribute="trailing" constant="13" id="XDE-16-iAL"/>
@@ -89,7 +84,6 @@
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_albums.png" translatesAutoresizingMaskIntoConstraints="NO" id="dvL-nV-FG6">
                             <rect key="frame" x="13" y="13" width="30" height="30"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="30" id="YZF-6i-vtk"/>
                                 <constraint firstAttribute="height" constant="30" id="wwW-Hv-ICB"/>
@@ -97,7 +91,6 @@
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="从附近的人添加" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OfG-YP-Ij9">
                             <rect key="frame" x="56" y="0.0" width="200" height="56"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="200" id="XPE-1h-khX"/>
                             </constraints>
@@ -106,7 +99,6 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="OfG-YP-Ij9" firstAttribute="top" secondItem="Bi4-ln-Yom" secondAttribute="top" id="026-uR-ZDj"/>
@@ -122,7 +114,6 @@
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_locus.png" translatesAutoresizingMaskIntoConstraints="NO" id="bKB-Uq-bEe">
                             <rect key="frame" x="13" y="13" width="30" height="30"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="30" id="m7W-Bf-FGc"/>
                                 <constraint firstAttribute="height" constant="30" id="qCw-3W-z0J"/>
@@ -130,7 +121,6 @@
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="邀请好友" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Df3-sb-bXy">
                             <rect key="frame" x="56" y="0.0" width="120" height="56"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="120" id="uvc-tu-6pm"/>
                             </constraints>
@@ -139,7 +129,6 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="Df3-sb-bXy" firstAttribute="height" secondItem="TEn-QD-Evo" secondAttribute="height" id="AdB-VW-fW2"/>
@@ -151,7 +140,6 @@
                     </constraints>
                 </view>
             </subviews>
-            <animations/>
             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="Bi4-ln-Yom" firstAttribute="top" secondItem="lu9-lH-boN" secondAttribute="bottom" constant="20" id="67X-5L-EPc"/>

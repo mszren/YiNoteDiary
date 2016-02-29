@@ -139,10 +139,14 @@
     
     NSDictionary* dic = (NSDictionary*)context;
     UIViewController* pushController = [dic objectForKey:ACTION_Controller_Name];
-    NSMutableArray* dataDic = [dic objectForKey:ACTION_Controller_Data];
+    id data = [dic objectForKey:ACTION_Controller_Data];
     PublishController* controller = [[PublishController alloc] init];
     controller.messageListner = pushController;
-    controller.assets = dataDic;
+    if ([data isKindOfClass:[NSMutableArray class]]) {
+        controller.assets = data;
+    }else{
+        controller.assetName = data;
+    }
     controller.hidesBottomBarWhenPushed = YES;
     [pushController.navigationController pushViewController:controller
                                                    animated:YES];

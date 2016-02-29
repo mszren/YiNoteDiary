@@ -12,11 +12,11 @@
 #define kButtonSelectSize 20
 #define kButtonTagStart 300
 
-@interface SegmentView()
+@interface SegmentView() <UIScrollViewDelegate>
 /** 每个分段对象 **/
 @property(nonatomic, strong) NSMutableArray *segmentArray;
 /** 底部横线 **/
-@property(nonatomic, strong) UIView *lineView;
+@property(nonatomic, strong) UIScrollView *lineView;
 /** 当前选择的序号 **/
 @property(nonatomic, assign) int currentIndex;
 /** 上一次选择的序号 **/
@@ -37,7 +37,6 @@
     self = [super initWithFrame:frame];
     if (self) {
         int width = frame.size.width/captions.count;
-        
         _currentIndex = 0;
         
         for (int i = 0; i < captions.count; i++) {
@@ -67,7 +66,10 @@
         self.showsHorizontalScrollIndicator = NO;
         
         CGRect rc = [self viewWithTag:_currentIndex + kButtonTagStart].frame;
-        _lineView = [[UIView alloc] initWithFrame:CGRectMake(rc.origin.x - 2, self.frame.size.height - 3, rc.size.width+4, 3)];
+        _lineView = [[UIScrollView alloc] initWithFrame:CGRectMake(rc.origin.x - 2, self.frame.size.height - 3, rc.size.width+4, 3)];
+        _lineView.bounces = NO;
+        _lineView.showsHorizontalScrollIndicator = NO;
+        _lineView.contentSize = CGSizeMake(width, 3);
         _lineView.backgroundColor = BGViewLightGreen;
         [self addSubview:_lineView];
     }
@@ -96,7 +98,9 @@
         lastBtn.titleLabel.font = BOLDFont_SIZE_19;
         
         CGRect lineRC = [self viewWithTag:currentBtn.tag].frame;
-        _lineView.frame = CGRectMake(lineRC.origin.x-3, self.frame.size.height - 3, lineRC.size.width + 4, 3);
+        [UIView animateWithDuration:0.2 animations:^{
+             _lineView.frame = CGRectMake(lineRC.origin.x-3, self.frame.size.height - 3, lineRC.size.width + 4, 3);
+        }];
         if (lineRC.origin.x - self.contentOffset.x > self.frame.size.width * 2 / 3 ) {
             NSInteger index = _currentIndex;
             if (index + 2 < [_segmentArray count]) {

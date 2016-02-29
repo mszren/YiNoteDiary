@@ -125,8 +125,7 @@
         // 在IMSDK截获到Push通知并需要您处理Push时，IMSDK会自动调用此回调
         [self exampleHandleAPNSPush];
 
-        // 自定义全局导航栏
-//        [self exampleCustomGlobleNavigationBar];
+
         NSString *aGetUserID         = @"mszren";
         [self exampleLoginWithUserID:aGetUserID password:@"123456" successBlock:^{
 
@@ -494,6 +493,7 @@
             [weakController.navigationController setNavigationBarHidden:NO animated:aAnimated];
         }];
         conversationController.hidesBottomBarWhenPushed = YES;
+ 
         [aNavigationController pushViewController:conversationController animated:YES];
         
         /// 添加自定义插件

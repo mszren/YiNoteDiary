@@ -38,7 +38,6 @@ static LocationManager *locationManager;
         _locationManager.delegate = self;
         // 3. 定位精度
         [_locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
-//        [_locationManager setPausesLocationUpdatesAutomatically:NO];
         
         if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8) {
             [_locationManager requestWhenInUseAuthorization];//?只在前台开启定位
@@ -48,7 +47,7 @@ static LocationManager *locationManager;
         if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9) {
 //            _locationManager.allowsBackgroundLocationUpdates = YES;
         }
-
+        
     }
     return self;
 }
@@ -80,7 +79,7 @@ static LocationManager *locationManager;
         }
     }
     
-        NSLog(@"long=%f,latitude=%f",_currentCoord.longitude,_currentCoord.latitude);
+//        NSLog(@"long=%f,latitude=%f",_currentCoord.longitude,_currentCoord.latitude);
 }
 
 

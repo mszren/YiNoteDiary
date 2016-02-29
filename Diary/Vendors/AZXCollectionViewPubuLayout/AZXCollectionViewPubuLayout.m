@@ -89,10 +89,10 @@ static CGFloat maxHeightAtAll = 0;
 {
     CGFloat width = (self.collectionView.bounds.size.width - (self.colNumber - 1) * self.colMargin - self.edgeInsets.left - self.edgeInsets.right) / self.colNumber;
     CGFloat height = [self.delegate heightForIndexPath :indexPath];
-    if (height < 60) {
-        height = 60;
-    }else if (height > 200){
-        height = 200;
+    if (height < 80) {
+        height = 80;
+    }else if (height > 160){
+        height = 160;
     }
 //    最短列 - 索引号 + 高度 -> 索引加数值，可以用数组来记录
 //    找到最短列

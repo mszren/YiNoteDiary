@@ -100,10 +100,8 @@
 
 - (void)camera:(id)cameraViewController didFinishWithImage:(UIImage *)image withMetadata:(NSDictionary *)metadata{
     
-    PublishController *publishVc = [PublishController new];
-    publishVc.hidesBottomBarWhenPushed = YES;
-    publishVc.assetName = metadata[@"DBCameraAssetURL"];
-    [self.navigationController pushViewController:publishVc animated:YES];
+    NSDictionary *dic = @{ACTION_Controller_Name : self ,ACTION_Controller_Data :metadata[@"DBCameraAssetURL"]};
+    [self RouteMessage:ACTION_SHOW_PUBLISH withContext:dic];
     
     [self.presentedViewController dismissViewControllerAnimated:YES completion:nil];
 }

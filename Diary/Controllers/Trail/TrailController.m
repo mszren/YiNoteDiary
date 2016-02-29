@@ -16,10 +16,8 @@
 #import "UIImage+ImageEffects.h"
 #import "BaseNavigation.h"
 #import "CusAnnotationView.h"
-#import "MyTrailController.h"
 #import "DBCameraViewController.h"
 #import "DBCameraContainerViewController.h"
-#import "IdentifyController.h"
 
 #import "POIAnnotation.h"
 #import "CommonUtility.h"
@@ -97,8 +95,9 @@
         
         MAPolylineView *polylineView =
         [[MAPolylineView alloc] initWithPolyline:travleMapLine];
-        polylineView.lineWidth = 10.f;
+        polylineView.lineWidth = 8.f;
         polylineView.fillColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:.3];
+        [polylineView loadStrokeTextureImage:[UIImage imageNamed:@"arrowTexture"]];
         
         switch (travleMapLine.index) {
             case 0:{
@@ -162,7 +161,7 @@ updatingLocation:(BOOL)updatingLocation
     if(updatingLocation)
     {
         //取出当前位置的坐标
-        NSLog(@"MAMapView latitude : %f,longitude: %f",userLocation.coordinate.latitude,userLocation.coordinate.longitude);
+//        NSLog(@"MAMapView latitude : %f,longitude: %f",userLocation.coordinate.latitude,userLocation.coordinate.longitude);
     }
 }
 
@@ -270,7 +269,7 @@ updatingLocation:(BOOL)updatingLocation
         }
         
         TravleMapLine *polyline = [TravleMapLine polylineWithCoordinates:coordinates count:aTravelEntity.travelRouteList.count];
-        polyline.travelEntity =aTravelEntity;
+        polyline.travelEntity = aTravelEntity;
         polyline.index = i;
         
         [self.mapView addOverlay:polyline];

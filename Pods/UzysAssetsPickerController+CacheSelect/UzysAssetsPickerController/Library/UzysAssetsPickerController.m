@@ -639,7 +639,6 @@
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ALAsset *deselectedAsset = [self.assets objectAtIndex:indexPath.item];
-    
     [self.selectedAssetArray removeObject:deselectedAsset];
     [self setAssetsCountWithSelectedIndexPaths:collectionView.indexPathsForSelectedItems];
 }
@@ -661,6 +660,7 @@
         UzysAssetsPickerController *picker = (UzysAssetsPickerController *)self;
         
         if([picker.delegate respondsToSelector:@selector(uzysAssetsPickerController:didFinishPickingAssets:)])
+            
             [picker.delegate uzysAssetsPickerController:picker didFinishPickingAssets:assets];
         
         [self dismissViewControllerAnimated:YES completion:^{

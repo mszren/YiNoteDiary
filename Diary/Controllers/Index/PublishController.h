@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UzysAssetsPickerController.h"
 
 @interface PublishController : UIViewController <MessageRoutable>
 @property (nonatomic, strong)NSMutableArray *assets;
 @property (nonatomic, strong)NSString *assetName;
+@property (nonatomic,strong)UzysAssetsPickerController* picker;
 
 @end

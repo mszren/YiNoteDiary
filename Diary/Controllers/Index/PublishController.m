@@ -10,7 +10,6 @@
 #import "Masonry.h"
 #import "PublishAlbumTopView.h"
 #import "EGOImageView.h"
-#import "UzysAssetsPickerController.h"
 #import "BaseNavigation.h"
 #import "BaseNavigation.h"
 #import "SelectAdressController.h"
@@ -24,7 +23,8 @@
 @property (nonatomic,strong)EGOImageView *addressImg;
 @property (nonatomic,strong)UILabel *addressLabel;
 @property (nonatomic,strong) EGOImageView *tapImg;
-@property (nonatomic,strong)UzysAssetsPickerController* picker;
+
+@property (nonatomic,assign)NSInteger updateHeight;
 
 @end
 
@@ -37,8 +37,9 @@
 }
 
 - (void)initView{
-   
+    _updateHeight = PublishImageTileHeight + 40;
     [self.view addSubview:self.scrollView];
+    
     self.edgesForExtendedLayout = UIRectEdgeNone;
     UIBarButtonItem * rightButton = [[UIBarButtonItem alloc]initWithTitle:@"发布" style:UIBarButtonItemStylePlain target:self action:@selector(onPublishBtn:)];
     self.navigationItem.rightBarButtonItem = rightButton;
@@ -48,26 +49,47 @@
 #pragma mark - PublishAlbumTopViewDelegate
 - (void)showPickImgs:(NSMutableArray*)dataList
 {
+    NSLog(@"dalist : %@",dataList);
     
     _picker = [[UzysAssetsPickerController alloc] init];
     _picker.maximumNumberOfSelectionVideo = 0;
     _picker.maximumNumberOfSelectionPhoto = 8;
     _picker.delegate = self;
-    NSLog(@"dalist : %@",dataList);
-    _picker.selectedAssetArray = dataList;
-    [self presentViewController:_picker
-                       animated:YES
-                     completion:^{
-                         
-                     }];
+    if (_assetName) {
+    
+//        ALAssetsLibrary *lib = [[ALAssetsLibrary alloc]init];
+//        [lib assetForURL:[NSURL URLWithString:self.assetName] resultBlock:^(ALAsset *asset) {
+//            
+//            _picker.selectedAssetArray = (NSMutableArray *)@[asset];
+            _assetName = nil;
+            [self presentViewController:_picker
+                               animated:YES
+                             completion:^{
+                                 
+                             }];
+//        } failureBlock:^(NSError *error) {
+//            
+//        }];
+        
+    }else{
+        
+        _picker.selectedAssetArray = dataList;
+        [self presentViewController:_picker
+                           animated:YES
+                         completion:^{
+                             
+                         }];
+    }
+
 }
 
-- (void)updateFrame{
-    
+- (void)updateFrame:(NSInteger)height{
+    _updateHeight = height;
     CGRect frame = _addressView.frame;
     frame.origin.y = _publishAlbumTopView.frame.origin.y + _publishAlbumTopView.frame.size.height + 10;
-    _addressView.frame = frame;
     
+    _addressView.frame = frame;
+  
     _scrollView.contentSize = CGSizeMake(Screen_Width, _addressView.frame.size.height + _addressView.frame.origin.y);
 }
 
@@ -152,7 +174,7 @@
         make.left.mas_equalTo(_scrollView.mas_left);
         make.top.mas_equalTo(_contentText.mas_bottom);
         make.width.mas_equalTo(Screen_Width);
-        make.height.mas_equalTo(@(40 + PublishImageTileHeight));
+        make.height.mas_equalTo(@(_updateHeight));
     }];
     
     [_addressView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -180,6 +202,7 @@
         make.top.mas_equalTo(_addressView.mas_top).offset(14);
         make.width.height.mas_equalTo(@12);
     }];
+    
 }
 
 - (UIScrollView *)scrollView{
@@ -221,9 +244,8 @@
             
             ALAssetsLibrary *lib = [[ALAssetsLibrary alloc]init];
             [lib assetForURL:[NSURL URLWithString:self.assetName] resultBlock:^(ALAsset *asset) {
-                
+
                 [_publishAlbumTopView addImgUrls:@[asset]];
-                
             } failureBlock:^(NSError *error) {
                 
             }];
@@ -231,7 +253,6 @@
             
              [_publishAlbumTopView addImgUrls:_assets];
         }
-
        
     }
     return _publishAlbumTopView;
@@ -275,6 +296,12 @@
     return _tapImg;
 }
 
+- (NSMutableArray *)assets{
+    if (!_assets) {
+        _assets = [[NSMutableArray alloc]initWithCapacity:0];
+    }
+    return _assets;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

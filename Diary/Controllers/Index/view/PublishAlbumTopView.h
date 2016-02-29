@@ -10,12 +10,12 @@
 #import <UIKit/UIKit.h>
 @protocol PublishAlbumTopViewDelegate <NSObject>
 - (void)showPickImgs:(NSMutableArray *) dataList;
-- (void)updateFrame;
+- (void)updateFrame:(NSInteger)height;
 @end
 
 @interface PublishAlbumTopView : UIView
 @property (nonatomic,assign) NSInteger imageMaxCount;
-@property (nonatomic,strong)     NSMutableArray * dataList;
+@property (nonatomic,copy)     NSMutableArray * dataList;
 @property(nonatomic, assign) id<PublishAlbumTopViewDelegate> delegate;
 
 - (void) removeImage:(ALAsset *) asset;
