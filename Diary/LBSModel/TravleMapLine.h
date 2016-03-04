@@ -7,12 +7,14 @@
 //
 
 #import <MAMapKit/MAPolyline.h>
+#import "TravelRecord.h"
 
 @interface TravleMapLine : MAPolyline{
 
 
 }
-@property(nonatomic,strong)TravelEntity * travelEntity;
+@property(nonatomic,strong)TravelRecord *travelRecord;
+//@property(nonatomic,strong)TravelEntity * travelEntity;
 @property(nonatomic,assign)NSUInteger index;
 
 

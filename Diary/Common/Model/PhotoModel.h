@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface PhotoModel : BaseDao
+@interface PhotoModel : DBManager
 @property(nonatomic, strong) NSString *photoID;
 @property(nonatomic, strong) NSString *viewspotID;
 @property(nonatomic, strong) NSString *photoName;

@@ -18,6 +18,9 @@ NSString *const kTravelDataKeyStatus = @"kTravelDataKeyStatus";
 NSString *const kTravelDataKeyCreateTime = @"kTravelDataKeyCreateTime";
 NSString *const kTravelDataKeyRoute = @"kTravelDataKeyRoute";
 NSString *const kTravelDataKeyViewSpot = @"kTravelDataKeyViewSpot";
+NSString *const KTravelDataKeyStartLatitude = @"KTravelDataKeyStartLatitude";
+NSString *const KTravelDataKeyStartLongitude = @"KTravelDataKeyStartLongitude";
+
 
 - (NSDictionary *)adapterData:(NSDictionary *)rawData
                     ByManager:(DataManager *)manager {
@@ -40,10 +43,16 @@ NSString *const kTravelDataKeyViewSpot = @"kTravelDataKeyViewSpot";
                           : @"",
       @"status" : rawData[kTravelDataKeyStatus] != [NSNull null]
                       ? rawData[kTravelDataKeyStatus]
-                      : @"",
+                          : @"",
       @"createTime" : rawData[kTravelDataKeyCreateTime] != [NSNull null]
                           ? rawData[kTravelDataKeyCreateTime]
-                          : @""
+                          : @"",
+      @"startLatitude" : rawData[KTravelDataKeyStartLatitude] != [NSNull null]
+                           ? rawData[KTravelDataKeyStartLatitude]
+                          : @"",
+      @"startLongitude" : rawData[KTravelDataKeyStartLongitude] != [NSNull null]
+                            ? rawData[KTravelDataKeyStartLongitude]
+                           : @""
     };
   }
   return resultData;

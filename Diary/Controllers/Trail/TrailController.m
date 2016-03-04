@@ -28,6 +28,10 @@
 #import "LocationManager.h"
 #import "CustomAnnotationView.h"
 
+#import "PhotoRecord.h"
+#import "TravelRecord.h"
+#import "LocationRecord.h"
+
 #define kCalloutViewMargin          -8
 
 @interface TrailController () <MAMapViewDelegate,DBCameraViewControllerDelegate,MWPhotoBrowserDelegate>
@@ -44,7 +48,8 @@
     UIImage *_cameraImg;
     
     CLLocation * _currentLocation;
-    TravelEntity * _selectedTravelEntity;
+//    TravelEntity * _selectedTravelEntity;
+    TravelRecord * _selectedTravelRecord;
 }
 @synthesize messageListner;
 
@@ -73,11 +78,11 @@
 #pragma mark -
 #pragma mark MWPhotoBrowserDelegate
 - (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser{
-    return  _selectedTravelEntity.imageList.count;
+    return  _selectedTravelRecord.imageList.count;
     
 }
 - (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index{
-    PhotoEntity * model = [_selectedTravelEntity.imageList objectAtIndex:index];
+    PhotoRecord * model = [_selectedTravelRecord.imageList objectAtIndex:index];
     MWPhoto * mwPhoto = [[MWPhoto alloc] initWithImage:[[UIImage alloc] initWithContentsOfFile:[[TravelImageCacheManage shareInstance] loadImgPath:model.photoImgPath]]];
     
     return mwPhoto;
@@ -142,11 +147,11 @@
             annotationView.calloutOffset    = CGPointMake(0, -5);
         }
         
-       annotationView.portrait = [[UIImage alloc] initWithContentsOfFile:[[TravelImageCacheManage shareInstance] loadImgPath:temp.photoEntity.photoImgPath]];
+       annotationView.portrait = [[UIImage alloc] initWithContentsOfFile:[[TravelImageCacheManage shareInstance] loadImgPath:temp.photoRecord.photoImgPath]];
         annotationView.index = temp.index;
         annotationView.name =  [NSString stringWithFormat:@"%lu",(unsigned long)temp.index];
-        annotationView.travelEntity = temp.travelEntity;
-        annotationView.photoEntity = temp.photoEntity;
+        annotationView.travelRecord = temp.travelRecord;
+        annotationView.photoRecord = temp.photoRecord;
         [annotationView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onAnnotationViewTap:)]];
         
         return annotationView;
@@ -171,15 +176,14 @@ updatingLocation:(BOOL)updatingLocation
     switch (sender.view.tag) {
         case 100:{
     
-            [[TravelDataManage shareInstance] updateAllTravelFinish];
             
-            TravelEntity * aModel = [[TravelEntity alloc] initWithName:@"北京" logo:@"北京" travelDesc:@"北京__故宫"];
+            TravelRecord * aModel = [[TravelRecord alloc] initWithName:@"北京" logo:@"北京" travelDesc:@"北京__故宫"];
             aModel.createTime = [NSDate currentTime];
             aModel.startLatitude = [LocationManager shareInstance].currentCoord.latitude;
             aModel.startLongitude = [LocationManager shareInstance].currentCoord.longitude;
             
-            if ([[TravelDataManage shareInstance] insertTravelEnity:aModel]) {
-                TravelEntity * temp = [[TravelDataManage shareInstance] selectTravelEntityByuuid:aModel.uuid];
+            if ([[TrailDataCenter shareInstance] insertTravelRecord:aModel]) {
+                TravelRecord * temp = [[TrailDataCenter shareInstance] selectTravelRecordByuuid:aModel.uuid];
                 NSDictionary *dic = @{ACTION_Controller_Name : self,ACTION_Controller_Data : @{CurrentTravelEntity : temp, IsShowMember : @NO }};
                 [self RouteMessage:ACTION_SHOW_MYTRAIL withContext:dic];
             }
@@ -214,8 +218,8 @@ updatingLocation:(BOOL)updatingLocation
         
         CusAnnotationView *cusView = (CusAnnotationView *)sender.view;
         
-        _selectedTravelEntity = cusView.travelEntity;
-        if (_selectedTravelEntity.imageList.count) {
+        _selectedTravelRecord = cusView.travelRecord;
+        if (_selectedTravelRecord.imageList.count) {
             MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
             [browser setCurrentPhotoIndex:cusView.index];
             [self.navigationController pushViewController:browser animated:YES];
@@ -257,19 +261,21 @@ updatingLocation:(BOOL)updatingLocation
     
     
     for (int i =0; i < _dataList.count; i++) {
-        TravelEntity * aTravelEntity = [_dataList objectAtIndex:i];
+//        TravelEntity * aTravelEntity = [_dataList objectAtIndex:i];
+        TravelRecord *travelRecord = [_dataList objectAtIndex:i];
+
         
-        CLLocationCoordinate2D *coordinates = (CLLocationCoordinate2D*)malloc(aTravelEntity.travelRouteList.count * sizeof(CLLocationCoordinate2D));
+        CLLocationCoordinate2D *coordinates = (CLLocationCoordinate2D*)malloc(travelRecord.travelRouteList.count * sizeof(CLLocationCoordinate2D));
         
-        for (int j =0; j<aTravelEntity.travelRouteList.count; j++) {
-            LocationEntity * locationEntity = [aTravelEntity.travelRouteList objectAtIndex:j];
+        for (int j =0; j<travelRecord.travelRouteList.count; j++) {
+            LocationRecord *locationRecord = [travelRecord.travelRouteList objectAtIndex:j];
             
-            coordinates[j].longitude = locationEntity.longitude;
-            coordinates[j].latitude  = locationEntity.latitude;
+            coordinates[j].longitude = locationRecord.longitude;
+            coordinates[j].latitude  = locationRecord.latitude;
         }
         
-        TravleMapLine *polyline = [TravleMapLine polylineWithCoordinates:coordinates count:aTravelEntity.travelRouteList.count];
-        polyline.travelEntity = aTravelEntity;
+        TravleMapLine *polyline = [TravleMapLine polylineWithCoordinates:coordinates count:travelRecord.travelRouteList.count];
+        polyline.travelRecord = travelRecord;
         polyline.index = i;
         
         [self.mapView addOverlay:polyline];
@@ -282,20 +288,24 @@ updatingLocation:(BOOL)updatingLocation
 - (void)initAnnotation{
     
     for (int i =0; i < _dataList.count; i++) {
-        TravelEntity * travelEntity = [_dataList objectAtIndex:i];
+//        TravelEntity * travelEntity = [_dataList objectAtIndex:i];
         
-        for (int j =0; j<travelEntity.imageList.count; j++) {
-            PhotoEntity * photoEntity = [travelEntity.imageList objectAtIndex:j];
+        TravelRecord *travelRecord = [_dataList objectAtIndex:i];
+        
+        for (int j =0; j<travelRecord.imageList.count; j++) {
+//            PhotoEntity * photoEntity = [travelEntity.imageList objectAtIndex:j];
+            
+            PhotoRecord *photoRecord = [travelRecord.imageList objectAtIndex:j];
             
             TravelMapPointAnnotation *pointAnnotation = [[TravelMapPointAnnotation alloc] init];
-            pointAnnotation.coordinate = CLLocationCoordinate2DMake(photoEntity.latitude, photoEntity.longitude);
+            pointAnnotation.coordinate = CLLocationCoordinate2DMake(photoRecord.latitude, photoRecord.longitude);
             
-            pointAnnotation.title = photoEntity.photoImgPath;
-            pointAnnotation.subtitle = travelEntity.travelID;
+            pointAnnotation.title = photoRecord.photoImgPath;
+            pointAnnotation.subtitle = [NSString stringWithFormat:@"%@",travelRecord.travelID];
             
-            pointAnnotation.travelEntity = travelEntity;
+            pointAnnotation.travelRecord = travelRecord;
             pointAnnotation.index = j;
-            pointAnnotation.photoEntity = photoEntity;
+            pointAnnotation.photoRecord = photoRecord;
             [self.mapView addAnnotation:pointAnnotation];
         }
     }
@@ -361,7 +371,8 @@ updatingLocation:(BOOL)updatingLocation
     
     [[BaseNavigation sharedInstance] setIndexGreenNavigationBar:self andTitle:@"我的轨迹"];
     [_dataList removeAllObjects];
-    _dataList = [[TravelDataManage shareInstance] loadTravelListData];
+//    _dataList = [[TravelDataManage shareInstance] loadTravelListData];
+    _dataList = [[TrailDataCenter shareInstance] loadTravelListData];
     [self initLine];
     [self initAnnotation];
 }

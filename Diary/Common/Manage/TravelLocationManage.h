@@ -8,9 +8,8 @@
 
 #import <CoreLocation/CoreLocation.h>
 
-@interface TravelLocationManage : NSObject {
 
-}
+@interface TravelLocationManage : NSObject
 
 + (instancetype)shareInstance;
 

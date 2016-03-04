@@ -12,9 +12,9 @@
 #import "SPKitExample.h"
 #import "MWPhotoBrowser.h"
 #import "LocationManager.h"
+#import "TravelRecord.h"
 
 @interface FriendMaterialController () <CheckoutMessageViewDelegate,MWPhotoBrowserDelegate>
-@property(nonatomic, strong) NSMutableArray *dataList;
 
 @end
 
@@ -42,7 +42,6 @@
     [_addFriendBtn addTarget:self action:@selector(onBtn:) forControlEvents:UIControlEventTouchUpInside];
     [_messageBtn addTarget:self action:@selector(onBtn:) forControlEvents:UIControlEventTouchUpInside];
     
-    _dataList = [[TravelDataManage shareInstance] loadTravelListData];
 }
 
 #pragma mark -- CheckoutMessageViewDelegate
@@ -91,15 +90,14 @@
     switch (sender.view.tag) {
             
         case 104:{
-            [[TravelDataManage shareInstance] updateAllTravelFinish];
             
-            TravelEntity * aModel = [[TravelEntity alloc] initWithName:@"北京" logo:@"北京" travelDesc:@"北京__故宫"];
+            TravelRecord * aModel = [[TravelRecord alloc] initWithName:@"北京" logo:@"北京" travelDesc:@"北京__故宫"];
             aModel.createTime = [NSDate currentTime];
             aModel.startLatitude = [LocationManager shareInstance].currentCoord.latitude;
             aModel.startLongitude = [LocationManager shareInstance].currentCoord.longitude;
             
-            if ([[TravelDataManage shareInstance] insertTravelEnity:aModel]) {
-                TravelEntity * temp = [[TravelDataManage shareInstance] selectTravelEntityByuuid:aModel.uuid];
+            if ([[TrailDataCenter shareInstance] insertTravelRecord:aModel]) {
+                TravelRecord * temp = [[TrailDataCenter shareInstance] selectTravelRecordByuuid:aModel.uuid];
                 NSDictionary *dic = @{ACTION_Controller_Name : self,ACTION_Controller_Data : @{CurrentTravelEntity : temp, IsShowMember : @YES }};
                 [self RouteMessage:ACTION_SHOW_MYTRAIL withContext:dic];
                 

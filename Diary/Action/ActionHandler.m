@@ -312,7 +312,7 @@
     MyTrailController* controller = [[MyTrailController alloc] init];
     controller.messageListner = pushController;
     controller.hidesBottomBarWhenPushed = YES;
-    controller.currentTravelEntity = dict[CurrentTravelEntity];
+    controller.currentTravelRecord = dict[CurrentTravelEntity];
     controller.isShowMember = [dict[IsShowMember] boolValue];
     [pushController.navigationController pushViewController:controller
                                                    animated:YES];
@@ -367,7 +367,7 @@
     OtherTrailController* controller = [[OtherTrailController alloc] init];
     controller.messageListner = pushController;
     controller.hidesBottomBarWhenPushed = YES;
-    controller.currentTravelEntity = dict[CurrentTravelEntity];
+    controller.currentTravelRecord = dict[CurrentTravelEntity];
     [pushController.navigationController pushViewController:controller
                                                    animated:YES];
 }

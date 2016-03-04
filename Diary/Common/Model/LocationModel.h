@@ -7,9 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BaseDao.h"
 
-@interface LocationModel : BaseDao
+@interface LocationModel : DBManager
 @property(nonatomic, assign) NSInteger locationID;
 @property(nonatomic, strong) NSString *travelID;
 @property(nonatomic, assign) double latitude;

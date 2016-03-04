@@ -6,9 +6,8 @@
 //  Copyright (c) 2015 Owen. All rights reserved.
 //
 
-@interface TravelImageCacheManage : NSObject {
-
-}
+@interface TravelImageCacheManage : NSObject
+#import "EntityList.h"
 
 + (instancetype)shareInstance;
 

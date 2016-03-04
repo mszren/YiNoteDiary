@@ -7,6 +7,8 @@
 //
 
 #import <MAMapKit/MAMapKit.h>
+#import "TravelRecord.h"
+#import "PhotoRecord.h"
 
 @interface CustomAnnotationView : MAAnnotationView
 
@@ -18,8 +20,10 @@
 
 @property (nonatomic, strong) NSString * travelId;
 
-@property(nonatomic,strong)TravelEntity * travelEntity;
-@property(nonatomic,strong)PhotoEntity * photoEntity;
+@property (nonatomic,strong)TravelRecord *travelRecord;
+@property (nonatomic,strong)PhotoRecord *photoRecord;
+//@property(nonatomic,strong)TravelEntity * travelEntity;
+//@property(nonatomic,strong)PhotoEntity * photoEntity;
 
 @property(nonatomic,assign)NSUInteger index;
 

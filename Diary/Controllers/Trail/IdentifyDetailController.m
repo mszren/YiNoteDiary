@@ -19,6 +19,7 @@
 #import "PictureSaveController.h"
 #import "MyTrailController.h"
 #import "LocationManager.h"
+#import "TravelRecord.h"
 
 @interface IdentifyDetailController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,IdentifyEditViewDelegate,BaseNavigationDelegate,EGOTableViewDelegate>
 @property (strong, nonatomic) NSLayoutConstraint *headHCons;
@@ -64,7 +65,7 @@
     _featureImgView.frame = CGRectMake(0, 0, Screen_Width, CoolNavHeight);
     _tableView.tableHeaderView = _featureImgView;
     
-    _dataList = [[TravelDataManage shareInstance] loadTravelListData];
+    _dataList = [[TrailDataCenter shareInstance] loadTravelListData];
 }
 
 - (void)creatTextView{
@@ -180,16 +181,14 @@
 #pragma mark -- BaseNavigationDelegate
 - (void)baseNavigationDelegateOnRightItemAction{
 
-    [[TravelDataManage shareInstance] updateAllTravelFinish];
-    
-    TravelEntity * aModel = [[TravelEntity alloc] initWithName:@"北京" logo:@"北京" travelDesc:@"北京__故宫"];
+    TravelRecord * aModel = [[TravelRecord alloc] initWithName:@"北京" logo:@"北京" travelDesc:@"北京__故宫"];
     aModel.createTime = [NSDate currentTime];
     aModel.startLatitude = [LocationManager shareInstance].currentCoord.latitude;
     aModel.startLongitude = [LocationManager shareInstance].currentCoord.longitude;
     
     NSNumber *boolNumber = [NSNumber numberWithBool:NO];
-    if ([[TravelDataManage shareInstance] insertTravelEnity:aModel]) {
-        TravelEntity * temp = [[TravelDataManage shareInstance] selectTravelEntityByuuid:aModel.uuid];
+    if ([[TrailDataCenter shareInstance] insertTravelRecord:aModel]) {
+        TravelRecord * temp = [[TrailDataCenter shareInstance] selectTravelRecordByuuid:aModel.uuid];
         NSDictionary *dic = @{ACTION_Controller_Name : self,ACTION_Controller_Data : @{CurrentTravelEntity : temp, IsShowMember : boolNumber }};
         [self RouteMessage:ACTION_SHOW_MYTRAIL withContext:dic];
     }

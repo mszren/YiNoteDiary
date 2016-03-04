@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "LocationModel.h"
 
-@interface TravelModel : BaseDao
+@interface TravelModel : DBManager
 @property(nonatomic, copy) NSString *travelID;
 @property(nonatomic, copy) NSString *travelName;
 @property(nonatomic, copy) NSString *travelLogo;

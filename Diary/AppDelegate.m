@@ -111,6 +111,8 @@
  
 }
 
+
+
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     BOOL result = [UMSocialSnsService handleOpenURL:url];

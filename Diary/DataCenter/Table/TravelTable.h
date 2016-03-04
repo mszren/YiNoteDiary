@@ -9,5 +9,4 @@
 #import "CTPersistanceTable.h"
 
 @interface TravelTable : CTPersistanceTable<CTPersistanceTableProtocol>
-@property (nonatomic,assign) Class recordClass;
 @end

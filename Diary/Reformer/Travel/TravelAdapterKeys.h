@@ -16,4 +16,6 @@ extern NSString *const kTravelDataKeyStatus;
 extern NSString *const kTravelDataKeyCreateTime;
 extern NSString *const kTravelDataKeyRoute;
 extern NSString *const kTravelDataKeyViewSpot;
+extern NSString *const KTravelDataKeyStartLatitude;
+extern NSString *const KTravelDataKeyStartLongitude;
 #endif

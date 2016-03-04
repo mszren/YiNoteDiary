@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <MAMapKit/MAMapKit.h>
+#import "TravelRecord.h"
 
 @interface OtherTrailController : UIViewController <MessageRoutable>
-@property(nonatomic,strong) TravelEntity * currentTravelEntity;
+//@property(nonatomic,strong) TravelEntity * currentTravelEntity;
+@property (nonatomic,strong) TravelRecord *currentTravelRecord;
 @property(nonatomic,strong) MAMapView *mapView;
 
 @end

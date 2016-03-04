@@ -7,11 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BaseDao.h"
 
 @class LocationModel;
 
-@interface ViewSpotModel :  BaseDao
+@interface ViewSpotModel :  DBManager
 @property(nonatomic, strong) NSString *viewspotID;
 @property(nonatomic, strong) NSString *travleID;
 @property(nonatomic, strong) NSString *title;

@@ -52,7 +52,7 @@
     [self.tag setDelegate:self];
     [self.view addSubview:self.tag];
     
-    _dataList = [[TravelDataManage shareInstance] loadTravelListData];
+    _dataList = [[TrailDataCenter shareInstance] loadTravelListData];
 }
 
 - (void)resetRandomTagsName
@@ -88,16 +88,14 @@
 
 - (void)tagDidSelectTag:(AOTag *)tag{
 
-    
-    [[TravelDataManage shareInstance] updateAllTravelFinish];
-    
-    TravelEntity * aModel = [[TravelEntity alloc] initWithName:@"北京" logo:@"北京" travelDesc:@"北京__故宫"];
+
+    TravelRecord * aModel = [[TravelRecord alloc] initWithName:@"北京" logo:@"北京" travelDesc:@"北京__故宫"];
     aModel.createTime = [NSDate currentTime];
     aModel.startLatitude = [LocationManager shareInstance].currentCoord.latitude;
     aModel.startLongitude = [LocationManager shareInstance].currentCoord.longitude;
     
-    if ([[TravelDataManage shareInstance] insertTravelEnity:aModel]) {
-        TravelEntity * temp = [[TravelDataManage shareInstance] selectTravelEntityByuuid:aModel.uuid];
+    if ([[TrailDataCenter shareInstance] insertTravelRecord:aModel]) {
+        TravelRecord * temp = [[TrailDataCenter shareInstance] selectTravelRecordByuuid:aModel.uuid];
         NSDictionary * dic = @{ACTION_Controller_Name : self ,ACTION_Controller_Data : @{CurrentTravelEntity : temp}};
         [self RouteMessage:ACTION_SHOW_OTHERTRAIL withContext:dic];
     }

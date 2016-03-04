@@ -41,7 +41,7 @@
     UITabBarItem *item1 = [self.tabBar.items objectAtIndex:0];
     UIImage *item1Image = [UIImage imageNamed:@"tabbar_home_selected"];
     item1Image =
-    [item1Image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    [item1Image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]; 
     item1.selectedImage = item1Image;
     [item1 setImage:[UIImage imageNamed:@"tabbar_home_normal"]];
     item1.title = @"首页";

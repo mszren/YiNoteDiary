@@ -70,7 +70,7 @@
  *
  *  @return
  */
-#define ACTION_SHOW_NEAR_PERSONLIST @"near_photolist"
+#define ACTION_SHOW_NEAR_PERSONLIST @"near_personlist"
 
 /**
  *  发现_附近的人_资料页面

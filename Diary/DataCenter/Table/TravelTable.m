@@ -7,6 +7,7 @@
 //
 
 #import "TravelTable.h"
+#import "TravelRecord.h"
 
 @implementation TravelTable
 
@@ -25,11 +26,20 @@
 {
     return @{
              @"travelID":@"INTEGER PRIMARY KEY AUTOINCREMENT",
-             @"uuid":@"Varchar",
-             @"travelName":@"Varchar",
-             @"travelDesc":@"Varchar",
-             @"travelLogo":@"Varchar"
+             @"uuid":@"TEXT",
+             @"travelName":@"TEXT",
+             @"travelDesc":@"TEXT",
+             @"travelLogo":@"TEXT",
+             @"status":@"INTEGER",
+             @"createTime":@"real",
+             @"startLatitude":@"real",
+             @"startLongitude":@"real"
              };
+}
+
+- (Class)recordClass{
+    
+    return [TravelRecord class];
 }
 
 - (NSString *)primaryKeyName

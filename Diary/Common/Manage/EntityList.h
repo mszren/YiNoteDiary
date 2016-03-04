@@ -6,13 +6,6 @@
 //  Copyright (c) 2015年 Owen. All rights reserved.
 //
 
-#import "PhotoEntity.h"
-#import "TravelEntity.h"
-
-#import "LocationEntity.h"
-#import "DistinguishEntity.h"
-
-
 typedef enum : NSUInteger {
     EDistinguishType,
     ETravleType,

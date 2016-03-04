@@ -8,7 +8,7 @@
 
 #import "DBManager.h"
 #import "FMDatabase.h"
-#import "SharedDaBase.h"
+//#import "SharedDaBase.h"
 #import "FMDatabaseAdditions.h"
 
 @implementation DBManager
@@ -16,35 +16,9 @@
 
 - (id)init {
   if (self = [super init]) {
-    db = [[SharedDaBase sharedDataBase] db];
+//    db = [[SharedDaBase sharedDataBase] db];
   }
   return self;
-}
-
-/**
- *  建表
- *
- *  @param tableName 表名
- *  @param dic       字典,(通过字典获取表字段)
- */
-- (void)createTable:(NSString *)tableName Dictionary:(NSDictionary *)dic{
-    
-    NSMutableString *sql =
-    [[NSMutableString alloc] initWithFormat:@"create table if not exists %@(ID integer primary key autoincrement,",tableName];
-
-    NSArray *keys = [dic allKeys];
-    for (NSString *str in keys) {
-        [sql appendFormat:@"%@,", str];
- 
-    }
-    [sql replaceCharactersInRange:NSMakeRange([sql length] - 1, 1)
-                       withString:@")"];
-
-    if (![db executeUpdate:sql]) {
-        NSLog(@"建表失败:%@",db.lastErrorMessage);
-    }else{
-        
-    }
 }
 
 - (id)fetchDataWithAdapter:(id<AdapterProtocol>)adapter {
@@ -87,12 +61,6 @@
   if ([aDic count] <= 0) {
     return;
   }
-    
-    /**
-     *  建表
-     */
-    [self createTable:tableName Dictionary:aDic];
-    
   NSMutableString *sql =
       [[NSMutableString alloc] initWithFormat:@"INSERT INTO %@(", tableName];
   NSMutableString *para = [[NSMutableString alloc] initWithString:@" VALUES ("];

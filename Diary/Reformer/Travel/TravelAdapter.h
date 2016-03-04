@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "AdapterProtocol.h"
 #import "TravelAdapterKeys.h"
-@interface TravelAdapter : NSObject <AdapterProtocol>
+#import <CTPersistance/CTPersistance.h>
+@interface TravelAdapter : CTPersistanceRecord <AdapterProtocol>
 
 @end
