@@ -11,13 +11,14 @@
 #import "NearCell.h"
 #import "indexRecentDetailController.h"
 
-@interface ActivityController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,EGOTableViewDelegate>
+@interface ActivityController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,EGOTableViewDelegate,NearCellDelegate>
 
 @end
 
 @implementation ActivityController{
     
     EGOTableView* _tableView;
+    CGFloat _height;
 }
 @synthesize messageListner;
 
@@ -43,6 +44,7 @@
     _tableView.emptyDataSetDelegate = self;
     _tableView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:_tableView];
+    
 }
 
 #pragma mark -- EGOTableViewDelegate
@@ -75,11 +77,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return 6;
+    return 12;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 341;
+    return 141 + _height;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -92,7 +94,9 @@
                         reuseIdentifier:nearCellid];
         nearCell.backgroundColor = BGViewGray;
         nearCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        nearCell.delegate = self;
     }
+    [nearCell bindData:indexPath.row];
     
     return nearCell;
     
@@ -131,6 +135,10 @@
 {
     
     [_tableView tableViewDidEndDragging:scrollView];
+}
+
+- (void)cellHeight:(CGFloat)height{
+    _height = height;
 }
 
 - (void)didReceiveMemoryWarning {

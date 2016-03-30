@@ -212,7 +212,6 @@ LDAPIManagerParamSourceDelegate,BusinessManagerCallBackDelegate>
                  @"password" : _txtPassword.text
                  };
     
-
 }
 
 #pragma mark - getters and setters

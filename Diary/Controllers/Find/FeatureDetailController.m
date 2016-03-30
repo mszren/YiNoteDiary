@@ -15,12 +15,14 @@
 #import "FeatureCommentCell.h"
 #import "BaseNavigation.h"
 #import "UIImage+Utils.h"
-#import "UIColor+NavigationBar.h"
 #import "EGOImageView.h"
+#import "NavagationBarView.h"
 
-@interface FeatureDetailController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,BaseNavigationDelegate,EGOTableViewDelegate>
+@interface FeatureDetailController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,BaseNavigationDelegate,EGOTableViewDelegate,NavagationBarViewDelegate>
 @property (nonatomic,strong)EGOTableView *tableView;
 @property (nonatomic,strong) EGOImageView *featureImg;
+@property (nonatomic,strong) UIView *featureView;
+@property (nonatomic,strong) NavagationBarView *barView;
 
 @end
 
@@ -35,7 +37,7 @@
 - (void)initView{
     
     _tableView = [[EGOTableView alloc]
-                  initWithFrame:CGRectMake(0, -NavigationBarHeight, Screen_Width,
+                  initWithFrame:CGRectMake(0, 0, Screen_Width,
                                            Screen_height)
                   style:UITableViewStylePlain];
     _tableView.backgroundView = nil;
@@ -54,10 +56,19 @@
     
     [_tableView registerClass:[FeatureCommentCell class] forCellReuseIdentifier:FeatureCommentCellIdentifier];
     
+    _featureView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, CoolNavHeight)];
+    
     _featureImg = [[EGOImageView alloc]initWithPlaceholderImage:[UIImage imageNamed: @"pic_bg"]];
     _featureImg.frame = CGRectMake(0, 0, Screen_Width, CoolNavHeight);
-    _tableView.tableHeaderView = _featureImg;
+    _featureImg.contentMode = UIViewContentModeScaleAspectFill;
+    _featureImg.clipsToBounds = YES;
+     _tableView.tableHeaderView = _featureView;
+    [_featureView addSubview:_featureImg];
     [self.view addSubview:_tableView];
+    
+    _barView = [[NavagationBarView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, NavigationBarHeight)];
+    _barView.delegate = self;
+    [self.view addSubview:_barView];
 }
 
 #pragma mark -- EGOTableViewDelegate
@@ -133,18 +144,20 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     
-    [_tableView tableViewDidScroll:scrollView];
-    
     CGFloat offsetY = scrollView.contentOffset.y;
-    [UIColor changeNacigationBarStatus:offsetY andController:self];
+    if (offsetY < 0) {
+        
+        CGRect rect = self.featureView.frame;
+        rect.size.height = CoolNavHeight - offsetY;
+        rect.origin.y = offsetY;
+        _featureImg.frame = rect;
+        _featureView.clipsToBounds = NO;
+    }
+    
+    [_barView changeNacigationBarStatus:offsetY];
     
 }
 
-- (void)scrollViewDidEndDragging:(UIScrollView*)scrollView willDecelerate:(BOOL)decelerate
-{
-    
-    [_tableView tableViewDidEndDragging:scrollView];
-}
 
 #pragma mark DZNEmptyDataSetDelegate,DZNEmptyDataSetSource
 -(NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView{
@@ -161,9 +174,14 @@
     return [UIImage imageNamed:@"ic_tywnr"];
 }
 
+- (void)navagationBarViewBack{
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-        [[BaseNavigation sharedInstance] setCleanNavigationBar:self andRightItemTitle:nil withDelegate:self];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

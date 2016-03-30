@@ -326,6 +326,7 @@
 		D79B9ACC1C15324500D0FA3E /* ARSegmentPageHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = D79B9AC61C15324500D0FA3E /* ARSegmentPageHeader.m */; };
 		D79B9ACD1C15324500D0FA3E /* ARSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = D79B9AC81C15324500D0FA3E /* ARSegmentView.m */; };
 		D79B9ACE1C15324500D0FA3E /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D79B9ACA1C15324500D0FA3E /* NavigationViewController.m */; };
+		D79E8B8F1CA0DCB700A141F5 /* NavagationBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D79E8B8E1CA0DCB700A141F5 /* NavagationBarView.m */; };
 		D79F07921C88128B00A7A665 /* PhotoAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = D79F07911C88128B00A7A665 /* PhotoAdapter.m */; };
 		D79F07961C8819A200A7A665 /* PhotoTable.m in Sources */ = {isa = PBXBuildFile; fileRef = D79F07951C8819A200A7A665 /* PhotoTable.m */; };
 		D79F07991C881DBF00A7A665 /* LocationTable.m in Sources */ = {isa = PBXBuildFile; fileRef = D79F07981C881DBF00A7A665 /* LocationTable.m */; };
@@ -333,7 +334,6 @@
 		D79F07A01C881FBE00A7A665 /* PhotoRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = D79F079F1C881FBE00A7A665 /* PhotoRecord.m */; };
 		D79F07A31C88205C00A7A665 /* LocationRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = D79F07A21C88205C00A7A665 /* LocationRecord.m */; };
 		D79F07A61C88236200A7A665 /* PhotoDataCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D79F07A51C88236200A7A665 /* PhotoDataCenter.m */; };
-		D79F07A91C88237B00A7A665 /* LocationDatacenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D79F07A81C88237B00A7A665 /* LocationDatacenter.m */; };
 		D7A13BFB1C584F7000904A21 /* ic_star@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7A13BF91C584F7000904A21 /* ic_star@3x.png */; };
 		D7A13BFC1C584F7000904A21 /* ic_star1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7A13BFA1C584F7000904A21 /* ic_star1@3x.png */; };
 		D7A13C011C584F7900904A21 /* ic_comment@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7A13BFD1C584F7900904A21 /* ic_comment@3x.png */; };
@@ -346,6 +346,7 @@
 		D7A908821C0FD94E00DA0713 /* PraiseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A908811C0FD94E00DA0713 /* PraiseCell.m */; };
 		D7AD5CDE1C89728A00BE4174 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D7AD5CDB1C89728A00BE4174 /* DBManager.m */; };
 		D7AD5CDF1C89728A00BE4174 /* TravelDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D7AD5CDD1C89728A00BE4174 /* TravelDBManager.m */; };
+		D7AD5CE21C8983AC00BE4174 /* LocationDatacenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D7AD5CE11C8983AC00BE4174 /* LocationDatacenter.m */; };
 		D7AD8AE71C6081E6007AB72E /* EGOTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7AD8AE21C6081E6007AB72E /* EGOTableHeaderView.m */; };
 		D7AD8AE81C6081E6007AB72E /* EGOTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7AD8AE41C6081E6007AB72E /* EGOTableView.m */; };
 		D7AD8AE91C6081E6007AB72E /* MoreButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7AD8AE61C6081E6007AB72E /* MoreButtonView.m */; };
@@ -994,6 +995,8 @@
 		D79B9AC81C15324500D0FA3E /* ARSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSegmentView.m; sourceTree = "<group>"; };
 		D79B9AC91C15324500D0FA3E /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
 		D79B9ACA1C15324500D0FA3E /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
+		D79E8B8D1CA0DCB700A141F5 /* NavagationBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavagationBarView.h; sourceTree = "<group>"; };
+		D79E8B8E1CA0DCB700A141F5 /* NavagationBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavagationBarView.m; sourceTree = "<group>"; };
 		D79F07901C88128B00A7A665 /* PhotoAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoAdapter.h; sourceTree = "<group>"; };
 		D79F07911C88128B00A7A665 /* PhotoAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoAdapter.m; sourceTree = "<group>"; };
 		D79F07931C8812BF00A7A665 /* PhotoAdapterKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoAdapterKeys.h; sourceTree = "<group>"; };
@@ -1009,8 +1012,6 @@
 		D79F07A21C88205C00A7A665 /* LocationRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationRecord.m; sourceTree = "<group>"; };
 		D79F07A41C88236200A7A665 /* PhotoDataCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoDataCenter.h; path = DataCenter/PhotoDataCenter.h; sourceTree = "<group>"; };
 		D79F07A51C88236200A7A665 /* PhotoDataCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoDataCenter.m; path = DataCenter/PhotoDataCenter.m; sourceTree = "<group>"; };
-		D79F07A71C88237B00A7A665 /* LocationDatacenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationDatacenter.h; sourceTree = "<group>"; };
-		D79F07A81C88237B00A7A665 /* LocationDatacenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationDatacenter.m; sourceTree = "<group>"; };
 		D7A13BF91C584F7000904A21 /* ic_star@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_star@3x.png"; sourceTree = "<group>"; };
 		D7A13BFA1C584F7000904A21 /* ic_star1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_star1@3x.png"; sourceTree = "<group>"; };
 		D7A13BFD1C584F7900904A21 /* ic_comment@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_comment@3x.png"; sourceTree = "<group>"; };
@@ -1029,6 +1030,8 @@
 		D7AD5CDB1C89728A00BE4174 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		D7AD5CDC1C89728A00BE4174 /* TravelDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TravelDBManager.h; sourceTree = "<group>"; };
 		D7AD5CDD1C89728A00BE4174 /* TravelDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TravelDBManager.m; sourceTree = "<group>"; };
+		D7AD5CE01C8983AC00BE4174 /* LocationDatacenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationDatacenter.h; path = DataCenter/LocationDatacenter.h; sourceTree = "<group>"; };
+		D7AD5CE11C8983AC00BE4174 /* LocationDatacenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationDatacenter.m; path = DataCenter/LocationDatacenter.m; sourceTree = "<group>"; };
 		D7AD8AE11C6081E6007AB72E /* EGOTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOTableHeaderView.h; sourceTree = "<group>"; };
 		D7AD8AE21C6081E6007AB72E /* EGOTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOTableHeaderView.m; sourceTree = "<group>"; };
 		D7AD8AE31C6081E6007AB72E /* EGOTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOTableView.h; sourceTree = "<group>"; };
@@ -1801,12 +1804,12 @@
 				84C0730E1BE0CFE300822E4B /* Table */,
 				840D5F5C1BED7C5D00B887AC /* TrailDataCenter.h */,
 				840D5F5D1BED7C5D00B887AC /* TrailDataCenter.m */,
-				840D5F621BEE1E0600B887AC /* UserDataCenter.h */,
-				840D5F631BEE1E0600B887AC /* UserDataCenter.m */,
 				D79F07A41C88236200A7A665 /* PhotoDataCenter.h */,
 				D79F07A51C88236200A7A665 /* PhotoDataCenter.m */,
-				D79F07A71C88237B00A7A665 /* LocationDatacenter.h */,
-				D79F07A81C88237B00A7A665 /* LocationDatacenter.m */,
+				D7AD5CE01C8983AC00BE4174 /* LocationDatacenter.h */,
+				D7AD5CE11C8983AC00BE4174 /* LocationDatacenter.m */,
+				840D5F621BEE1E0600B887AC /* UserDataCenter.h */,
+				840D5F631BEE1E0600B887AC /* UserDataCenter.m */,
 			);
 			name = DataCenter;
 			sourceTree = "<group>";
@@ -2100,6 +2103,8 @@
 				D75765C61C16B892005FDD93 /* CusAnnotationView.m */,
 				D76458041C327BA2003E17E1 /* CheckoutMessageView.h */,
 				D76458051C327BA2003E17E1 /* CheckoutMessageView.m */,
+				D79E8B8D1CA0DCB700A141F5 /* NavagationBarView.h */,
+				D79E8B8E1CA0DCB700A141F5 /* NavagationBarView.m */,
 			);
 			name = view;
 			path = Controllers/Find/view;
@@ -3275,6 +3280,7 @@
 				D7C5FF971C5F3B65005EC915 /* CustomAnnotationView.m in Sources */,
 				D731F5F21C3F9C1200F42D17 /* MWTapDetectingImageView.m in Sources */,
 				D74353A41C0C3D0E004B89FE /* SignController.m in Sources */,
+				D7AD5CE21C8983AC00BE4174 /* LocationDatacenter.m in Sources */,
 				D743532D1C0BD4AF004B89FE /* IdentifyHeadCell.m in Sources */,
 				D7DFE1CF1C3BA15100D4A6CE /* MyDiaryFirstCell.m in Sources */,
 				D731F6161C3F9C1200F42D17 /* UIImage+MWPhotoBrowser.m in Sources */,
@@ -3305,7 +3311,6 @@
 				841B2F2D1BE83DF8008C2974 /* ToastHUD.m in Sources */,
 				D74353831C0C3D05004B89FE /* InforController.m in Sources */,
 				D75A8A591C34BD260047F145 /* TrailSetController.m in Sources */,
-				D79F07A91C88237B00A7A665 /* LocationDatacenter.m in Sources */,
 				841B2F181BE83DF8008C2974 /* NSMutableString+LDNetworkingMethods.m in Sources */,
 				D7A9087F1C0FCC0300DA0713 /* CommentCell.m in Sources */,
 				D788E6491C3B6C8C00154499 /* MyAlbumController.m in Sources */,
@@ -3427,6 +3432,7 @@
 				D731F5ED1C3F9C1200F42D17 /* MWCaptionView.m in Sources */,
 				D7CF05111C4CB278005BFEE0 /* SPCallingCardBubbleChatView.m in Sources */,
 				D7666DD91C3A14450084614F /* RecordView.m in Sources */,
+				D79E8B8F1CA0DCB700A141F5 /* NavagationBarView.m in Sources */,
 				D75398791C1FB4E50023A62C /* SelectAdressCell.m in Sources */,
 				D7CF05141C4CB278005BFEE0 /* SPGreetingBubbleChatView.m in Sources */,
 				D743534D1C0C15EB004B89FE /* NewsCell.m in Sources */,

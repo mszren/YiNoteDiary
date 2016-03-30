@@ -85,7 +85,7 @@
     
     [scrollView
      setContentOffset:CGPointMake(scrollView.bounds.size.width * page, 0)
-     animated:NO];
+     animated:YES];
     
     _pageControl.currentPage = page;
  
@@ -100,7 +100,7 @@
     [_carouselScrollView
      setContentOffset:CGPointMake(_carouselScrollView.bounds.size.width * page,
                                   0)
-     animated:NO];
+     animated:YES];
  
 }
 

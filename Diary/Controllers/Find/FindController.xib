@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9058" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9048"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FindController">
@@ -27,7 +28,6 @@
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="附近的人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEc-IH-cUW">
                             <rect key="frame" x="56" y="0.0" width="200" height="57"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="200" id="PZg-9D-WPH"/>
                             </constraints>
@@ -37,7 +37,6 @@
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hlo-YR-pUQ">
                             <rect key="frame" x="378" y="22" width="12" height="12"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="12" id="HjG-Jw-btY"/>
                                 <constraint firstAttribute="height" constant="12" id="MWJ-05-1FE"/>
@@ -45,7 +44,6 @@
                             <state key="normal" title="Button" image="ic_arrow.png"/>
                         </button>
                     </subviews>
-                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="VEc-IH-cUW" secondAttribute="bottom" id="4hf-X9-dun"/>
@@ -60,7 +58,6 @@
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_nearbyattractions@3x" translatesAutoresizingMaskIntoConstraints="NO" id="g6W-Vz-Xmt">
                             <rect key="frame" x="13" y="13" width="30" height="30"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="30" id="Kef-cf-O6b"/>
                                 <constraint firstAttribute="height" constant="30" id="Yw5-dg-JdZ"/>
@@ -68,7 +65,6 @@
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="附近景点" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9v-0N-jTF">
                             <rect key="frame" x="56" y="0.0" width="120" height="57"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="120" id="v0i-X7-p9F"/>
                             </constraints>
@@ -78,7 +74,6 @@
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZVv-hf-QrI">
                             <rect key="frame" x="378" y="22" width="12" height="12"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="12" id="b4k-4M-XEZ"/>
                                 <constraint firstAttribute="width" constant="12" id="odf-n3-GFH"/>
@@ -87,7 +82,6 @@
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4x7-zk-gxd">
                             <rect key="frame" x="13" y="55" width="390" height="1"/>
-                            <animations/>
                             <color key="backgroundColor" red="0.81729840164903877" green="0.8304309863928927" blue="0.84724736048461535" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="dhu-2w-4fK"/>
@@ -97,7 +91,6 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="U9v-0N-jTF" firstAttribute="height" secondItem="vli-F9-Jfg" secondAttribute="height" id="4lC-9k-sZY"/>
@@ -117,7 +110,6 @@
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_nearphotos@3x" translatesAutoresizingMaskIntoConstraints="NO" id="Zh1-Z3-xYY">
                             <rect key="frame" x="13" y="13" width="30" height="30"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="30" id="1ei-HG-sNl"/>
                                 <constraint firstAttribute="height" constant="30" id="GRX-K5-S0k"/>
@@ -125,7 +117,6 @@
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="附近照片" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C1R-9I-C7n">
                             <rect key="frame" x="56" y="0.0" width="120" height="57"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="120" id="SU6-Lk-41j"/>
                             </constraints>
@@ -135,7 +126,6 @@
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bdy-Uf-7n8">
                             <rect key="frame" x="378" y="22" width="12" height="12"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="12" id="sIY-gm-joo"/>
                                 <constraint firstAttribute="width" constant="12" id="uDj-dY-e3S"/>
@@ -143,7 +133,6 @@
                             <state key="normal" title="Button" image="ic_arrow.png"/>
                         </button>
                     </subviews>
-                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="57" id="8im-Qj-tcn"/>
@@ -161,7 +150,6 @@
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_activitiesnearby@3x" translatesAutoresizingMaskIntoConstraints="NO" id="Yjm-ug-hvs">
                             <rect key="frame" x="13" y="9" width="30" height="30"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="BBY-1v-ZWr"/>
                                 <constraint firstAttribute="width" constant="30" id="aLE-FY-aUi"/>
@@ -169,7 +157,6 @@
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="附近活动" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8z-Eb-Ra7">
                             <rect key="frame" x="56" y="0.0" width="120" height="57"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="120" id="l3v-Lt-hdM"/>
                             </constraints>
@@ -179,7 +166,6 @@
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QyT-Yr-pRC">
                             <rect key="frame" x="378" y="22" width="12" height="12"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="12" id="CaN-rA-x1U"/>
                                 <constraint firstAttribute="height" constant="12" id="bqC-Zb-DjU"/>
@@ -187,7 +173,6 @@
                             <state key="normal" title="Button" image="ic_arrow.png"/>
                         </button>
                     </subviews>
-                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="Yjm-ug-hvs" firstAttribute="top" secondItem="X6e-UP-E4n" secondAttribute="top" constant="9" id="9wo-kr-8w2"/>
@@ -202,14 +187,12 @@
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_nearphotos@3x" translatesAutoresizingMaskIntoConstraints="NO" id="Qbw-dD-pol">
                     <rect key="frame" x="13" y="31" width="30" height="30"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="7o5-xS-wFB"/>
                         <constraint firstAttribute="width" constant="30" id="K2c-gy-lpI"/>
                     </constraints>
                 </imageView>
             </subviews>
-            <animations/>
             <color key="backgroundColor" red="0.97227032230640986" green="0.97920274172980748" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="UzX-iy-0Rn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="17" id="ALW-c3-r4s"/>

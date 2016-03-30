@@ -164,6 +164,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
     [[BaseNavigation sharedInstance] setGreenNavigationBar:self andTitle:@"附近景点"];
 }
 

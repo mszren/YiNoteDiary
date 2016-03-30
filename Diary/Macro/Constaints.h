@@ -108,7 +108,7 @@ alpha:(a)]
 #define Screen_height [UIScreen mainScreen].bounds.size.height
 
 
-#define CoolNavHeight 400.0f
+#define CoolNavHeight 300.0f
 #define SearchBarHeight 44
 #define TabBarHeigh 44
 #define TabBarWidth 240

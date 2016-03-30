@@ -10,6 +10,10 @@
 #import "Masonry.h"
 #import "EGOImageView.h"
 
+#define KImagePadding     4
+#define KContentCellWidth (Screen_Width - 20)
+#define KImageWidth       (Screen_Width - 20 - 2*KImagePadding)/3
+#define KImageHeight      (Screen_Width - 20 - 2*KImagePadding)/3
 @implementation NearCell{
     EGOImageView *_faceImg;
     UILabel *_nameLabel;
@@ -26,6 +30,7 @@
     UIButton *_attentionBtn;
     UILabel *_attentionLabel;
     UIView *_backGroundView;
+    CGFloat _height;
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
@@ -38,7 +43,7 @@
             make.left.mas_equalTo(self.mas_left);
             make.top.mas_equalTo(self.mas_top);
             make.width.mas_equalTo(@(Screen_Width));
-            make.height.mas_equalTo(@331);
+            make.height.mas_equalTo(@131);
         }];
         _backGroundView.backgroundColor = BGViewColor;
         
@@ -100,14 +105,15 @@
         _titleLabel.text = @"美丽神秘的丽江之行";
         _titleLabel.font = FONT_SIZE_15;
         
-        _contentImg = [[EGOImageView alloc]initWithPlaceholderImage:[UIImage imageNamed:@"pic_bg"]];
+        _contentImg = [[EGOImageView alloc]initWithPlaceholderImage:[UIImage imageNamed:@""]];
         [_backGroundView addSubview:_contentImg];
         [_contentImg mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.mas_left).offset(10);
             make.top.mas_equalTo(_titleLabel.mas_bottom).offset(10);
-            make.width.mas_equalTo(@(Screen_Width - 20));
-            make.height.mas_equalTo(@200);
+//            make.width.mas_equalTo(@(Screen_Width - 20));
+//            make.height.mas_equalTo(@200);
         }];
+        _contentImg.backgroundColor = BGViewColor;
         
         _addressBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_backGroundView addSubview:_addressBtn];
@@ -194,6 +200,125 @@
         [_praiseBtn setImage:[UIImage imageNamed:@"ic_like@3x"] forState:UIControlStateNormal];
     }
     return self;
+}
+
+- (void)bindData:(NSInteger)count{
+    
+    /**
+     *  获取图片CGSize
+     */
+    CGSize size;
+    switch (count) {
+        case 1:
+            size = CGSizeMake(KContentCellWidth/2, KContentCellWidth/2);
+            break;
+        default:
+            
+            size = CGSizeMake(KImageWidth, KImageHeight);
+            break;
+    }
+
+    /**
+     *  移除_contentImg上的子视图
+     */
+    NSArray *subview = _contentImg.subviews;
+    for (UIView *v in subview) {
+        [v removeFromSuperview];
+    }
+    
+    /**
+     *  _contentImg上添加图片视图
+     */
+        for (NSInteger i = 0; i < 9; i++) {
+            
+            if (i < count) {
+                UIImageView * image = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"pic_bg"]];
+                image.contentMode = UIViewContentModeScaleAspectFill;
+                image.clipsToBounds = YES;
+                image.layer.contentsRect = CGRectMake(0, 0, 1, 1);
+                CGFloat x = i%3*(KImageWidth + KImagePadding);
+                CGFloat y = i/3*(KImageHeight + KImagePadding);
+                
+                image.frame = CGRectMake(x, y, size.width, size.height);
+               [_contentImg addSubview:image];
+            
+            }
+            
+            /**
+             *  获取_contentImg高度
+             */
+            switch (count) {
+                case 0:
+                    _height = 0;
+                    break;
+                case 1:
+                    _height = KContentCellWidth/2;
+                    break;
+                case 2:case 3:
+                    _height = KImageHeight;
+                    break;
+                case 4:case 5:case 6:
+                    _height = KImageHeight*2 + KImagePadding;
+                    break;
+                default:
+                    _height = KImageHeight*3 + KImagePadding*2;
+                    break;
+            }
+            
+            if ([self.delegate respondsToSelector:@selector(cellHeight:)]) {
+                
+                [self.delegate cellHeight:_height];
+            }
+            
+
+            /**
+             *  更新UI界面Frame
+             *
+             *  @param make
+             *
+             *  @return
+             */
+            [_backGroundView mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.height.mas_equalTo( _height + 131);
+            }];
+            
+            [_contentImg mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.size.mas_equalTo(CGSizeMake(KContentCellWidth, _height));
+            }];
+            
+            [_addressBtn mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.top.mas_equalTo(_contentImg.mas_bottom).offset(11);
+            }];
+
+            [_addressLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.top.mas_equalTo(_addressBtn.mas_top);
+            }];
+            
+            [_attentionLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.top.mas_equalTo(_addressBtn.mas_top);
+            }];
+            
+            [_attentionBtn mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.top.mas_equalTo(_attentionLabel.mas_top);
+            }];
+            
+            [_commentLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.top.mas_equalTo(_addressBtn.mas_top);
+            }];
+            
+            [_commentBtn mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.top.mas_equalTo(_commentLabel.mas_top);
+            }];
+            
+            [_preiseLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.top.mas_equalTo(_commentBtn.mas_top);
+            }];
+            
+            [_praiseBtn mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.top.mas_equalTo(_preiseLabel.mas_top);
+            }];
+        
+        }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

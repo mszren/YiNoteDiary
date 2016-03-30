@@ -363,6 +363,14 @@ updatingLocation:(BOOL)updatingLocation
     [recognitImg addGestureRecognizer:recognitTap];
 }
 
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    _mapView = nil;
+    _selectedTravelRecord = nil;
+    _cameraController = nil;
+    [_mapView removeFromSuperview];
+}
+
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;

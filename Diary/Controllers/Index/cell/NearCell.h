@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NearCell : UITableViewCell
+@protocol NearCellDelegate <NSObject>
 
+- (void)cellHeight:(CGFloat)height;
+
+@end
+
+@interface NearCell : UITableViewCell
+@property (nonatomic,weak)id<NearCellDelegate>delegate;
+
+- (void)bindData:(NSInteger)count;
 @end

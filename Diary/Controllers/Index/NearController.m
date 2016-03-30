@@ -11,13 +11,14 @@
 #import "NearCell.h"
 #import "indexRecentDetailController.h"
 
-@interface NearController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,EGOTableViewDelegate>
+@interface NearController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,EGOTableViewDelegate,NearCellDelegate>
 
 @end
 
 @implementation NearController{
     
     EGOTableView * _tableView;
+    CGFloat _height;
 }
 @synthesize messageListner;
 
@@ -76,7 +77,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 341;
+    return 141 + _height;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -89,7 +90,9 @@
                         reuseIdentifier:nearCellid];
         nearCell.backgroundColor = BGViewGray;
         nearCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        nearCell.delegate = self;
     }
+    [nearCell bindData:indexPath.row];
     
     return nearCell;
     
@@ -129,6 +132,11 @@
 {
     
     [_tableView tableViewDidEndDragging:scrollView];
+}
+
+#pragma mark - NearCellDelegate
+- (void)cellHeight:(CGFloat)height{
+    _height = height;
 }
 
 IMPLEMENT_MESSAGE_ROUTABLE

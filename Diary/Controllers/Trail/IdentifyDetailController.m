@@ -12,19 +12,20 @@
 #import "IdentifyDetailCell.h"
 #import "Masonry.h"
 #import "IdentifyEditView.h"
-#import "BaseNavigation.h"
 #import "UIImage+Utils.h"
-#import "UIColor+NavigationBar.h"
 #import "EGOImageView.h"
 #import "PictureSaveController.h"
 #import "MyTrailController.h"
 #import "LocationManager.h"
 #import "TravelRecord.h"
+#import "NavagationBarView.h"
 
-@interface IdentifyDetailController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,IdentifyEditViewDelegate,BaseNavigationDelegate,EGOTableViewDelegate>
+@interface IdentifyDetailController () <UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource,IdentifyEditViewDelegate,EGOTableViewDelegate,NavagationBarViewDelegate>
 @property (strong, nonatomic) NSLayoutConstraint *headHCons;
 @property (nonatomic,strong) EGOImageView *featureImgView;
 @property(nonatomic, strong) NSMutableArray *dataList;
+@property (nonatomic,strong) UIView *featureView;
+@property (nonatomic,strong) NavagationBarView *barView;
 
 @end
 
@@ -46,7 +47,7 @@
     
      
     _tableView = [[EGOTableView alloc]
-                  initWithFrame:CGRectMake(0, -NavigationBarHeight, Screen_Width,
+                  initWithFrame:CGRectMake(0, 0, Screen_Width,
                                            Screen_height - 40)
                   style:UITableViewStylePlain];
     _tableView.backgroundColor = BGViewColor;
@@ -61,9 +62,18 @@
     _tableView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:_tableView];
     
-    _featureImgView = [[EGOImageView alloc]initWithPlaceholderImage:_featureImg];
+    _featureView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, CoolNavHeight)];
+    
+    _featureImgView = [[EGOImageView alloc]initWithPlaceholderImage:[UIImage imageNamed: @"pic_bg"]];
     _featureImgView.frame = CGRectMake(0, 0, Screen_Width, CoolNavHeight);
-    _tableView.tableHeaderView = _featureImgView;
+    _featureImgView.contentMode = UIViewContentModeScaleAspectFill;
+    _featureImgView.clipsToBounds = YES;
+    _tableView.tableHeaderView = _featureView;
+    [_featureView addSubview:_featureImgView];
+    
+    _barView = [[NavagationBarView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, NavigationBarHeight)];
+    _barView.delegate = self;
+    [self.view addSubview:_barView];
     
     _dataList = [[TrailDataCenter shareInstance] loadTravelListData];
 }
@@ -145,17 +155,18 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    [_tableView tableViewDidScroll:scrollView];
-    
     CGFloat offsetY = scrollView.contentOffset.y;
-    [UIColor changeNacigationBarStatus:offsetY andController:self];
+    if (offsetY < 0) {
+        
+        CGRect rect = self.featureView.frame;
+        rect.size.height = CoolNavHeight - offsetY;
+        rect.origin.y = offsetY;
+        _featureImgView.frame = rect;
+        _featureView.clipsToBounds = NO;
+    }
+    [_barView changeNacigationBarStatus:offsetY];
 }
 
-- (void)scrollViewDidEndDragging:(UIScrollView*)scrollView willDecelerate:(BOOL)decelerate
-{
-    
-    [_tableView tableViewDidEndDragging:scrollView];
-}
 
 #pragma mark DZNEmptyDataSetDelegate,DZNEmptyDataSetSource
 -(NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView{
@@ -201,8 +212,8 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
-    [[BaseNavigation sharedInstance] setCleanNavigationBar:self andRightItemTitle:@"完成" withDelegate:self];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+
     
     UIView *superView = self.view;
     
@@ -220,6 +231,12 @@
         make.height.mas_equalTo(@30);
     }];
 }
+
+- (void)navagationBarViewBack{
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
